@@ -1,0 +1,670 @@
+[
+ {
+  "id": "T01",
+  "title": "Value at Risk, Explained",
+  "type": "side",
+  "level": 4,
+  "xp": 160,
+  "duration": "10 min",
+  "objective": "Interpret market-risk measures (VaR, expected shortfall) and their limitations.",
+  "concepts": [
+   "monte_carlo",
+   "el_vs_worst"
+  ],
+  "from": "cfo",
+  "subject": "What does our VaR number mean?",
+  "briefing": "Treasury reports a one-day 99% VaR of {m:1200000} on our investment portfolio. The board wants to know what that means and whether it's enough.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Treasury report",
+    "kind": "memo",
+    "key": true,
+    "body": "One-day 99% VaR: {m:1200000}. Expected shortfall (99%): {m:2100000}. Model uses two years of daily data with no stress period."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "choice",
+    "prompt": "What does the VaR mean?",
+    "competencies": [
+     "financial"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "On about 1 day in 100, losses are expected to exceed {m:1200000}, based on recent history.",
+      "quality": 3,
+      "feedback": "A strong, well-reasoned response."
+     },
+     {
+      "id": "b",
+      "text": "The maximum we can lose is {m:1200000}.",
+      "quality": 0,
+      "feedback": "VaR is not a maximum."
+     },
+     {
+      "id": "c",
+      "text": "We lose {m:1200000} every day.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “On about 1 day in 100, losses are expected to exceed {m:1200000}, based on recent history.”"
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s2",
+    "type": "choice",
+    "prompt": "Why does expected shortfall matter?",
+    "competencies": [
+     "financial",
+     "analysis"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "It averages losses beyond VaR, showing how bad the bad days are.",
+      "quality": 3,
+      "feedback": "A strong, well-reasoned response."
+     },
+     {
+      "id": "b",
+      "text": "It doesn't; VaR is enough.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “It averages losses beyond VaR, showing how bad the bad days are.”"
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "type": "multi",
+    "prompt": "Limitations to flag to the board?",
+    "competencies": [
+     "analysis",
+     "communication"
+    ],
+    "options": [
+     {
+      "text": "Two years of calm data may understate stress losses",
+      "correct": true
+     },
+     {
+      "text": "VaR says nothing about losses beyond the threshold",
+      "correct": true
+     },
+     {
+      "text": "Liquidity in stress can amplify losses",
+      "correct": true
+     },
+     {
+      "text": "VaR is illegal",
+      "correct": false
+     }
+    ]
+   }
+  ],
+  "debrief": {
+   "summary": "You explained market-risk measures and their limits.",
+   "key_points": [
+    "VaR is a threshold, not a maximum.",
+    "Calibrate to stress periods too."
+   ],
+   "stronger_approach": "Add a stressed VaR using a historical crisis period.",
+   "transfer": "The same tail thinking applies to operational and insurance risk."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "tracks": [
+   "financial"
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "trust": {
+       "cfo": 2,
+       "board": 2
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {}
+    }
+   ]
+  }
+ },
+ {
+  "id": "T02",
+  "title": "The Phishing Problem",
+  "type": "side",
+  "level": 3,
+  "xp": 140,
+  "duration": "10 min",
+  "objective": "Design technology-risk metrics and controls for phishing.",
+  "concepts": [
+   "leading_lagging",
+   "kri_thresholds"
+  ],
+  "from": "cio",
+  "subject": "Phishing keeps working",
+  "briefing": "Phishing simulations show 14% of staff click. Training hasn't moved it. What would?",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Data",
+    "kind": "memo",
+    "key": true,
+    "body": "- Click rate 14%, report rate 9%.\n- Finance team click rate 22%.\n- MFA covers 70% of accounts."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "choice",
+    "prompt": "Which metric is the best leading indicator of resilience?",
+    "competencies": [
+     "technical",
+     "analysis"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Report rate (how many staff report the phish), alongside click rate.",
+      "quality": 3,
+      "feedback": "Reporting is what lets the security team respond."
+     },
+     {
+      "id": "b",
+      "text": "Number of training sessions held.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Report rate (how many staff report the phish), alongside click rate.”"
+     },
+     {
+      "id": "c",
+      "text": "Click rate only.",
+      "quality": 2,
+      "feedback": "A reasonable response, though not the strongest available. A stronger option was: “Report rate (how many staff report the phish), alongside click rate.”"
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "type": "allocate",
+    "prompt": "Fund controls within {m:100000}.",
+    "competencies": [
+     "prioritization",
+     "financial"
+    ],
+    "budget": 100000,
+    "unit": "money",
+    "items": [
+     {
+      "id": "mfa",
+      "text": "Complete MFA rollout",
+      "cost": 50000,
+      "value": 9
+     },
+     {
+      "id": "button",
+      "text": "One-click report button",
+      "cost": 10000,
+      "value": 5
+     },
+     {
+      "id": "fin",
+      "text": "Targeted finance-team coaching",
+      "cost": 15000,
+      "value": 4
+     },
+     {
+      "id": "more",
+      "text": "Double annual training hours",
+      "cost": 60000,
+      "value": 2
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "How do you treat staff who click repeatedly?",
+    "competencies": [
+     "leadership",
+     "ethics"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Supportive coaching and stronger technical controls for them; no public shaming.",
+      "quality": 3,
+      "feedback": "A strong, well-reasoned response."
+     },
+     {
+      "id": "b",
+      "text": "Name them in a company email.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Supportive coaching and stronger technical controls for them; no public shaming.”",
+      "effects": {
+       "org": {
+        "morale": -3
+       }
+      }
+     }
+    ]
+   }
+  ],
+  "debrief": {
+   "summary": "You shifted from training volume to controls and reporting behaviour.",
+   "key_points": [
+    "Assume some clicks; limit their impact.",
+    "Reporting rate is a powerful leading indicator."
+   ],
+   "stronger_approach": "Track time-to-report.",
+   "transfer": "Behavioural risk metrics apply to safety and fraud too."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "tracks": [
+   "cyber"
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "flags": [
+       "mfa_accelerated"
+      ],
+      "kri_adjust": [
+       {
+        "kri": "KRI-PHISH",
+        "drift": -0.04
+       }
+      ]
+     }
+    },
+    {
+     "min": 0,
+     "effects": {}
+    }
+   ]
+  }
+ },
+ {
+  "id": "T03",
+  "title": "Permit to Work",
+  "type": "side",
+  "level": 3,
+  "xp": 140,
+  "duration": "10 min",
+  "objective": "Evaluate a high-hazard permit-to-work control and its operating effectiveness.",
+  "concepts": [
+   "design_vs_operating",
+   "root_cause"
+  ],
+  "from": "cso",
+  "subject": "Is permit to work really working?",
+  "briefing": "Permit-to-work is our main control for hazardous maintenance. An audit sample suggests some permits are signed after work starts.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Sample",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Permits sampled",
+      "Signed before work",
+      "Isolation verified",
+      "Closed properly"
+     ],
+     "rows": [
+      [
+       "40",
+       "34",
+       "37",
+       "31"
+      ]
+     ]
+    }
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "numeric",
+    "prompt": "What % of sampled permits were signed before work started?",
+    "competencies": [
+     "analysis"
+    ],
+    "formula": "34/40*100",
+    "vars": {},
+    "unit": "percent",
+    "tolerance_pct": 2,
+    "solution": "85%."
+   },
+   {
+    "id": "s2",
+    "type": "choice",
+    "prompt": "Conclusion?",
+    "competencies": [
+     "technical",
+     "decision"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Not operating effectively: 15% of permits signed after work began is a serious failure for a high-hazard control.",
+      "quality": 3,
+      "feedback": "A strong, well-reasoned response."
+     },
+     {
+      "id": "b",
+      "text": "Effective: most permits are fine.",
+      "quality": 0,
+      "feedback": "For high-hazard work, a 15% failure is unacceptable."
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "Root cause interviews show supervisors sign late because they cover two sites. Fix?",
+    "competencies": [
+     "analysis",
+     "leadership"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Add a second authoriser and digital permits that block work start until signed.",
+      "quality": 3,
+      "feedback": "A strong, well-reasoned response.",
+      "effects": {
+       "org": {
+        "control_effectiveness": 3
+       }
+      }
+     },
+     {
+      "id": "b",
+      "text": "Remind supervisors of the rules.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Add a second authoriser and digital permits that block work start until signed.”"
+     }
+    ]
+   }
+  ],
+  "debrief": {
+   "summary": "You tested a critical control and fixed the cause, not just the symptom.",
+   "key_points": [
+    "High-hazard controls need near-perfect operation.",
+    "Workload often explains control failure."
+   ],
+   "stronger_approach": "Make late-signed permits a KRI.",
+   "transfer": "Critical-control discipline matters in hospitals and aviation too."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "tracks": [
+   "hse",
+   "operational"
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "flags": [
+       "safety_actions_closed"
+      ]
+     }
+    },
+    {
+     "min": 0,
+     "effects": {
+      "schedule": [
+       {
+        "event": "ev_safety_injury",
+        "after": 3,
+        "p": 0.3
+       }
+      ]
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "T04",
+  "title": "Insurance Renewal",
+  "type": "side",
+  "level": 5,
+  "xp": 180,
+  "duration": "10 min",
+  "objective": "Design a risk-financing programme: retentions, limits and what insurance cannot cover.",
+  "concepts": [
+   "insurance",
+   "el_vs_worst"
+  ],
+  "from": "cfo",
+  "subject": "Our premiums are up 30%",
+  "briefing": "Our property and liability premiums are up 30% at renewal. Brokers suggest raising deductibles. What's the right structure?",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Options",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Option",
+      "Premium",
+      "Deductible",
+      "Expected retained losses"
+     ],
+     "rows": [
+      [
+       "Current",
+       "{m:2600000}",
+       "{m:100000}",
+       "{m:300000}"
+      ],
+      [
+       "Higher deductible",
+       "{m:1900000}",
+       "{m:500000}",
+       "{m:800000}"
+      ],
+      [
+       "Very high deductible",
+       "{m:1500000}",
+       "{m:2000000}",
+       "{m:1600000}"
+      ]
+     ]
+    }
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "numeric",
+    "prompt": "Total expected annual cost of the higher-deductible option (premium + expected retained losses)?",
+    "competencies": [
+     "financial"
+    ],
+    "formula": "1900000+800000",
+    "vars": {},
+    "unit": "money",
+    "tolerance_pct": 2,
+    "solution": "{m:2700000}, about the same as current ({m:2900000})."
+   },
+   {
+    "id": "s2",
+    "type": "choice",
+    "prompt": "Which option do you recommend?",
+    "competencies": [
+     "financial",
+     "decision"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Higher deductible: lower total expected cost, and a {m:500000} retained loss is easily absorbed.",
+      "quality": 3,
+      "feedback": "A strong, well-reasoned response."
+     },
+     {
+      "id": "b",
+      "text": "Very high deductible: cheapest premium.",
+      "quality": 1,
+      "feedback": "Total expected cost is higher ({m:3100000}) and a {m:2000000} retention is a big hit."
+     },
+     {
+      "id": "c",
+      "text": "Keep current.",
+      "quality": 2,
+      "feedback": "Reasonable but slightly more expensive."
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s3",
+    "type": "multi",
+    "prompt": "What does insurance not cover well?",
+    "competencies": [
+     "technical",
+     "strategy"
+    ],
+    "options": [
+     {
+      "text": "Reputational damage",
+      "correct": true
+     },
+     {
+      "text": "Regulatory fines (often uninsurable)",
+      "correct": true
+     },
+     {
+      "text": "Loss of customers after an incident",
+      "correct": true
+     },
+     {
+      "text": "Fire damage to buildings",
+      "correct": false,
+      "why": "Typically insured."
+     }
+    ]
+   }
+  ],
+  "debrief": {
+   "summary": "You balanced premium against retained loss and named insurance's limits.",
+   "key_points": [
+    "Compare total cost of risk.",
+    "Retain what you can absorb; transfer what you can't."
+   ],
+   "stronger_approach": "Model retained losses with Monte Carlo.",
+   "transfer": "Risk financing logic applies to captives and self-insurance in any sector."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "tracks": [
+   "insurance",
+   "financial"
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "org": {
+       "cash": 400000
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {}
+    }
+   ]
+  }
+ }
+]

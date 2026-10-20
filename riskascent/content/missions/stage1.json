@@ -1,0 +1,2826 @@
+[
+ {
+  "id": "M01",
+  "title": "Walking the Floor",
+  "type": "career",
+  "level": 1,
+  "xp": 120,
+  "duration": "10 min",
+  "objective": "Distinguish risks from issues and controls, classify risks by category, and decide what needs escalation today.",
+  "concepts": [
+   "risk_definition",
+   "cause_event_consequence",
+   "hotel_fire"
+  ],
+  "from": "mentor",
+  "subject": "Your first assignment: the site walkround",
+  "briefing": "Spend the morning walking the main {city} site with {shr:cso}. Bring back a classified list of what you saw, flag anything that cannot wait for the monthly review, and write one proper risk observation. Remember: a risk is something that might happen; an issue is something that already has.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Walkround notes (your notebook)",
+    "kind": "memo",
+    "key": true,
+    "body": "- East stairwell fire door propped open with a rubber wedge; staff say it is easier to carry trays through.\n- Server room door unlocked; access log shows no entries since 07:00.\n- Deliveries stacked against the emergency exit by the loading bay.\n- Only one technician is qualified to repair the main chillers.\n- Expired first-aid kit in an unused store room.\n- Duty manager checklist shows fire doors are checked each shift (last signed 06:00 today).\n- Payroll paid two days late last month after a system upgrade."
+   },
+   {
+    "id": "d2",
+    "title": "Last quarter's incident summary",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Month",
+      "Type",
+      "Location",
+      "Outcome"
+     ],
+     "rows": [
+      [
+       "Month -3",
+       "Slip",
+       "Kitchen",
+       "Minor injury"
+      ],
+      [
+       "Month -2",
+       "Smoke alarm",
+       "East wing",
+       "False alarm, 20 min evacuation"
+      ],
+      [
+       "Month -1",
+       "Unauthorised access",
+       "Back office",
+       "Laptop stolen"
+      ]
+     ]
+    }
+   },
+   {
+    "id": "d3",
+    "title": "Policy extract: escalation",
+    "kind": "memo",
+    "key": true,
+    "body": "Immediate escalation (same day) is required for: conditions that could endanger life; security breaches in progress; anything likely to breach law or licence conditions. Other observations go to the monthly risk review."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "classify",
+    "prompt": "Classify each observation as a risk, an issue, or a control.",
+    "competencies": [
+     "technical"
+    ],
+    "hint": "Ask: has it already happened (issue), might it happen (risk), or does it reduce risk (control)?",
+    "worked_example": "'Stock was stolen last night' is an issue. 'Stock could be stolen because the gate lock is broken' is a risk. 'Security patrols the yard hourly' is a control.",
+    "categories": [
+     "Risk",
+     "Issue",
+     "Control"
+    ],
+    "items": [
+     {
+      "text": "Server room door found unlocked this morning",
+      "answer": "Issue",
+      "why": "It is happening now; it needs action, not a probability estimate."
+     },
+     {
+      "text": "If the only qualified chiller technician leaves, cooling could not be repaired quickly",
+      "answer": "Risk",
+      "why": "Uncertain future event with a clear consequence."
+     },
+     {
+      "text": "Duty managers check fire doors every shift and sign a log",
+      "answer": "Control",
+      "why": "A routine activity that reduces risk."
+     },
+     {
+      "text": "A key supplier might fail to deliver during peak season",
+      "answer": "Risk",
+      "why": "Uncertain and future-facing."
+     },
+     {
+      "text": "Payroll was paid two days late last month",
+      "answer": "Issue",
+      "why": "Already occurred; the related risk is recurrence."
+     },
+     {
+      "text": "Payments over {m:10000} need two approvers",
+      "answer": "Control",
+      "why": "Preventive control."
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "type": "classify",
+    "prompt": "Assign each risk to its most appropriate category.",
+    "competencies": [
+     "technical"
+    ],
+    "hint": "Categorise by the main source of the risk, not by every possible consequence.",
+    "categories": [
+     "Health & Safety",
+     "Cyber",
+     "Third Party",
+     "People",
+     "Compliance"
+    ],
+    "items": [
+     {
+      "text": "Fire spreading through a propped-open fire door",
+      "answer": "Health & Safety"
+     },
+     {
+      "text": "Unauthorised access to the server room leads to data theft",
+      "answer": "Cyber",
+      "why": "Physical access is a common route to cyber compromise."
+     },
+     {
+      "text": "Key supplier fails in peak season",
+      "answer": "Third Party"
+     },
+     {
+      "text": "Loss of the only qualified chiller technician",
+      "answer": "People",
+      "why": "Key-person dependency is a people risk even though the consequence is operational."
+     },
+     {
+      "text": "Operating with blocked emergency exits breaches fire regulations",
+      "answer": "Compliance",
+      "why": "It is also a safety risk; here the focus is the legal breach."
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "type": "multi",
+    "prompt": "Which observations must be escalated today under the escalation policy?",
+    "competencies": [
+     "prioritization",
+     "evidence"
+    ],
+    "hint": "Re-read the escalation policy document.",
+    "options": [
+     {
+      "text": "Propped-open fire door in an occupied building",
+      "correct": true
+     },
+     {
+      "text": "Unlocked server room with no access entries",
+      "correct": true,
+      "why": "A potential security breach in progress."
+     },
+     {
+      "text": "Deliveries blocking the emergency exit",
+      "correct": true,
+      "why": "Endangers life in an evacuation and breaches fire law."
+     },
+     {
+      "text": "Expired first-aid kit in an unused store room",
+      "correct": false,
+      "why": "Fix it, but it can go to the monthly review."
+     },
+     {
+      "text": "Single qualified chiller technician",
+      "correct": false,
+      "why": "Important, but not an immediate danger; it belongs in the register."
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "type": "choice",
+    "prompt": "{sh:coo} says the east fire door is propped because staff carry heavy trays through it all day. What do you recommend?",
+    "competencies": [
+     "decision",
+     "stakeholder"
+    ],
+    "hint": "What need is causing the behaviour? Can you meet it safely?",
+    "options": [
+     {
+      "id": "a",
+      "text": "Remove the wedge now, log it as an issue, and propose alarm-linked hold-open devices so the door closes automatically on alarm.",
+      "quality": 3,
+      "feedback": "Fixes the immediate danger and solves the operational need behind the behaviour.",
+      "effects": {
+       "trust": {
+        "coo": 3,
+        "cso": 2
+       }
+      }
+     },
+     {
+      "id": "b",
+      "text": "Report the staff involved for disciplinary action.",
+      "quality": 1,
+      "feedback": "Blame treats the symptom. The behaviour exists because the door design conflicts with the work; staff will find another workaround.",
+      "effects": {
+       "trust": {
+        "coo": -3
+       }
+      }
+     },
+     {
+      "id": "c",
+      "text": "Put up a 'Keep closed' sign.",
+      "quality": 1,
+      "feedback": "Signs rarely change behaviour when the underlying need remains."
+     },
+     {
+      "id": "d",
+      "text": "Leave it; operations need it open and there has never been a fire.",
+      "quality": 0,
+      "feedback": "Absence of past fires is not evidence of low risk. Fire doors protect escape routes; this is a life-safety issue.",
+      "effects": {
+       "flags": [
+        "fire_door_open"
+       ]
+      }
+     }
+    ],
+    "confidence": true,
+    "to": "coo"
+   },
+   {
+    "id": "s5",
+    "type": "write",
+    "prompt": "Write a one-paragraph risk observation for the propped fire door, using cause, event and consequence, plus a recommended action.",
+    "competencies": [
+     "communication",
+     "technical"
+    ],
+    "hint": "Pattern: 'Because of [cause], [event] may occur, leading to [consequence]. Recommend [action].'",
+    "rubric": [
+     {
+      "element": "Cause",
+      "keywords": [
+       "propped",
+       "wedge",
+       "held open",
+       "kept open"
+      ],
+      "tip": "State why the risk exists."
+     },
+     {
+      "element": "Event",
+      "keywords": [
+       "fire",
+       "smoke"
+      ],
+      "tip": "State what could happen."
+     },
+     {
+      "element": "Consequence",
+      "keywords": [
+       "injur",
+       "harm",
+       "death",
+       "life",
+       "escape",
+       "evacuat",
+       "spread"
+      ],
+      "tip": "State the impact on people or the business."
+     },
+     {
+      "element": "Action",
+      "keywords": [
+       "hold-open",
+       "magnetic",
+       "device",
+       "close",
+       "remove"
+      ],
+      "tip": "Recommend a specific fix."
+     }
+    ],
+    "model_answer": "Because the east stairwell fire door is routinely propped open with a wedge to move trays, smoke and fire could spread into the stairwell during a fire, blocking the escape route and risking serious injury or loss of life. Recommend removing the wedge immediately and fitting alarm-linked hold-open devices within two weeks.",
+    "min_words": 25,
+    "max_words": 160
+   }
+  ],
+  "debrief": {
+   "summary": "You separated what is happening now from what might happen, applied the escalation policy and turned an observation into an actionable risk statement.",
+   "key_points": [
+    "Issues need action now; risks need assessment and treatment.",
+    "Categorise by the main source of risk.",
+    "Behavioural workarounds usually signal a design problem: fix the need, not just the behaviour."
+   ],
+   "stronger_approach": "A stronger approach would also check whether the same workaround exists on other floors and add 'fire door audit failures' as a KRI.",
+   "transfer": "The same risk/issue/control distinction applies in a bank (an unreconciled account is an issue; the chance of an undetected error is a risk) or a hospital (a missed medication dose versus the risk of one)."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "info_questions": {
+   "prompt": "Before finalising your list, which follow-up questions would genuinely improve your assessment?",
+   "options": [
+    {
+     "text": "Who is accountable for the loading bay and deliveries?",
+     "relevant": true
+    },
+    {
+     "text": "How often has the fire door been found propped in recent checks?",
+     "relevant": true
+    },
+    {
+     "text": "Who last accessed the server room and is access logging working?",
+     "relevant": true
+    },
+    {
+     "text": "What colour should the new fire door signs be?",
+     "relevant": false
+    },
+    {
+     "text": "How many guests or visitors use the east wing?",
+     "relevant": true
+    },
+    {
+     "text": "What did the site spend on décor last year?",
+     "relevant": false
+    }
+   ]
+  },
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.75,
+     "effects": {
+      "flags": [
+       "fire_door_fixed"
+      ],
+      "org": {
+       "control_effectiveness": 2
+      },
+      "trust": {
+       "cso": 3
+      },
+      "cancel": [
+       "ev_kitchen_fire"
+      ]
+     }
+    },
+    {
+     "min": 0,
+     "effects": {
+      "flags": [
+       "fire_door_open"
+      ],
+      "schedule": [
+       {
+        "event": "ev_safety_injury",
+        "after": 4,
+        "p": 0.25
+       }
+      ]
+     }
+    }
+   ],
+   "counters": [
+    "walkrounds"
+   ]
+  }
+ },
+ {
+  "id": "M02",
+  "title": "Inherent or Residual?",
+  "type": "career",
+  "level": 1,
+  "xp": 120,
+  "duration": "10 min",
+  "objective": "Rate inherent and residual risk on a defined matrix and challenge overstated control effectiveness.",
+  "concepts": [
+   "inherent_vs_residual",
+   "likelihood_impact",
+   "control_types"
+  ],
+  "from": "mentor",
+  "subject": "Rate the payment fraud risk",
+  "briefing": "Finance has asked for help rating supplier impersonation fraud. Fraudsters email pretending to be a supplier and ask us to change bank details. I want you to rate it before controls (inherent) and after controls as they actually work (residual). Use the scales in the pack; do not guess.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Likelihood and impact scales",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Rating",
+      "Likelihood (annual)",
+      "Impact (financial)"
+     ],
+     "rows": [
+      [
+       "1",
+       "Rare: under 5%",
+       "Minor: under {m:50000}"
+      ],
+      [
+       "2",
+       "Unlikely: 5-20%",
+       "Moderate: {m:50000}-{m:250000}"
+      ],
+      [
+       "3",
+       "Possible: 20-50%",
+       "Significant: {m:250000}-{m:1000000}"
+      ],
+      [
+       "4",
+       "Likely: 50-80%",
+       "Major: {m:1000000}-{m:5000000}"
+      ],
+      [
+       "5",
+       "Almost certain: over 80%",
+       "Severe: over {m:5000000}"
+      ]
+     ]
+    }
+   },
+   {
+    "id": "d2",
+    "title": "Fraud facts from the finance team",
+    "kind": "memo",
+    "key": true,
+    "body": "- Industry data: roughly a third of organisations our size face at least one successful impersonation attempt a year when no specific controls exist.\n- Typical loss when an attempt succeeds: {m:400000}. Funds are rarely recovered.\n- We process about 60 supplier bank-detail changes a year."
+   },
+   {
+    "id": "d3",
+    "title": "Controls in place",
+    "kind": "memo",
+    "key": true,
+    "body": "1. Call-back procedure: before changing bank details, staff must phone the supplier on a number already on file. Sample test last month: 3 of 10 changes had no evidence of a call-back.\n2. Dual approval: payments over {m:10000} need two approvers. Approvers check the invoice, not whether bank details recently changed."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "matrix",
+    "prompt": "Rate INHERENT risk: likelihood and impact before considering any controls.",
+    "competencies": [
+     "technical",
+     "analysis"
+    ],
+    "hint": "Ignore the controls document for this step.",
+    "expected": {
+     "l": 3,
+     "i": 3
+    },
+    "why": "About one in three organisations without controls suffer a successful attempt (Possible, 20-50%). A typical {m:400000} loss is Significant.",
+    "confidence": true
+   },
+   {
+    "id": "s2",
+    "type": "matrix",
+    "prompt": "Now rate RESIDUAL risk, taking account of how the controls actually operate.",
+    "competencies": [
+     "technical",
+     "evidence"
+    ],
+    "hint": "Which control actually addresses the cause? How well does it operate? Does anything reduce the size of the loss?",
+    "worked_example": "A daily stock count that is skipped half the time is a partially effective detective control: credit it with one step at most.",
+    "expected": {
+     "l": 2,
+     "i": 3
+    },
+    "why": "The call-back is the right preventive control but operates inconsistently (3 of 10 missing): partial effectiveness, one step of likelihood reduction. Dual approval does not address changed bank details, so impact stays Significant."
+   },
+   {
+    "id": "s3",
+    "type": "numeric",
+    "prompt": "Using the midpoint probability of your residual likelihood band (Unlikely: 12.5%) and the typical loss, what is the indicative annual expected loss?",
+    "competencies": [
+     "financial"
+    ],
+    "hint": "Expected loss = probability x impact.",
+    "formula": "p*loss",
+    "vars": {
+     "p": 0.125,
+     "loss": 400000
+    },
+    "unit": "money",
+    "tolerance_pct": 5,
+    "solution": "0.125 x {m:400000} = {m:50000} a year. This is a long-run average, not what a bad year looks like.",
+    "money_vars": [
+     "loss"
+    ]
+   },
+   {
+    "id": "s4",
+    "type": "choice",
+    "prompt": "{sh:cfo} wants the register to show this risk as 'Low' because 'we have dual approval on every large payment'. How do you respond?",
+    "competencies": [
+     "stakeholder",
+     "ethics",
+     "communication"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Explain that dual approval checks the invoice, not changed bank details, show the sample test, and keep the rating while proposing to fix the call-back.",
+      "quality": 3,
+      "feedback": "Evidence-based challenge that offers a way forward.",
+      "effects": {
+       "trust": {
+        "cfo": 2,
+        "mentor": 3
+       }
+      },
+      "approach": "data"
+     },
+     {
+      "id": "b",
+      "text": "Change the rating to Low; the CFO owns the risk.",
+      "quality": 0,
+      "feedback": "Owners own risks, not the evidence. Downgrading without new evidence misleads decision-makers.",
+      "effects": {
+       "flags": [
+        "rating_softened"
+       ]
+      }
+     },
+     {
+      "id": "c",
+      "text": "Escalate to the CEO that the CFO is ignoring fraud risk.",
+      "quality": 1,
+      "feedback": "Premature: you have not yet tried to persuade the CFO with evidence.",
+      "effects": {
+       "trust": {
+        "cfo": -4
+       }
+      },
+      "approach": "escalate"
+     },
+     {
+      "id": "d",
+      "text": "Split the difference and rate it Medium-Low.",
+      "quality": 1,
+      "feedback": "Compromise without evidence is still not a rating method."
+     }
+    ],
+    "confidence": true,
+    "to": "cfo"
+   },
+   {
+    "id": "s5",
+    "type": "multi",
+    "prompt": "Which actions would most reduce the residual risk?",
+    "competencies": [
+     "decision",
+     "technical"
+    ],
+    "options": [
+     {
+      "text": "Enforce the call-back using a number from the master file, never from the email",
+      "correct": true
+     },
+     {
+      "text": "Weekly finance-manager review of all bank-detail changes",
+      "correct": true,
+      "why": "A useful detective control."
+     },
+     {
+      "text": "Raise the dual-approval threshold to {m:50000} to reduce approver workload",
+      "correct": false,
+      "why": "This weakens an existing control."
+     },
+     {
+      "text": "Short training for payables staff on impersonation red flags",
+      "correct": true
+     },
+     {
+      "text": "Rely on fraud insurance instead",
+      "correct": false,
+      "why": "Insurance may transfer some loss but does not reduce likelihood, and policies often exclude social-engineering fraud."
+     }
+    ]
+   }
+  ],
+  "debrief": {
+   "summary": "You rated the risk before and after controls using defined scales, and credited controls only for what they actually achieve.",
+   "key_points": [
+    "Inherent ignores controls; residual reflects controls as they operate.",
+    "A control that does not address the cause earns no reduction.",
+    "Hold ratings unless new evidence appears."
+   ],
+   "stronger_approach": "Ask for a larger sample (e.g. all changes in the last quarter) before concluding on the call-back, and propose a KRI: 'bank-detail changes without call-back evidence'.",
+   "transfer": "The same logic applies to access controls in technology, permit-to-work in energy and medication double-checks in healthcare: credit what operates, not what is written."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "info_questions": {
+   "prompt": "What additional information would most improve your rating?",
+   "options": [
+    {
+     "text": "Results of a larger sample of bank-detail changes",
+     "relevant": true
+    },
+    {
+     "text": "Whether any attempts have been detected this year",
+     "relevant": true
+    },
+    {
+     "text": "The supplier's brand colours",
+     "relevant": false
+    },
+    {
+     "text": "Whether insurance covers social-engineering fraud",
+     "relevant": true
+    },
+    {
+     "text": "The number of staff in the canteen",
+     "relevant": false
+    }
+   ]
+  },
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "flags": [
+       "callback_enforced"
+      ],
+      "risk_adjust": [
+       {
+        "risk": "GEN-FRAUD-AP",
+        "res_l": -1,
+        "control_eff": 1
+       }
+      ],
+      "cancel": [
+       "ev_payment_fraud"
+      ]
+     }
+    },
+    {
+     "min": 0,
+     "effects": {
+      "schedule": [
+       {
+        "event": "ev_payment_fraud",
+        "after": 2,
+        "p": 0.45
+       }
+      ]
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "M03",
+  "title": "Incident and Near-Miss Log",
+  "type": "career",
+  "level": 1,
+  "xp": 120,
+  "duration": "10 min",
+  "objective": "Record incidents and near misses properly, recognise under-reporting, and recommend a blame-free reporting improvement.",
+  "concepts": [
+   "near_miss",
+   "risk_culture"
+  ],
+  "from": "cso",
+  "subject": "Help me make sense of the incident log",
+  "briefing": "The safety committee meets next week. Our incident log is patchy and near-miss reports have dropped sharply. I'd like you to tidy the classification, spot what's missing, and tell us honestly what the numbers mean.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Incident log extract",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "#",
+      "Description",
+      "Injury?",
+      "Logged by"
+     ],
+     "rows": [
+      [
+       "1",
+       "Wet floor in corridor, no sign, nobody fell",
+       "No",
+       "Cleaner"
+      ],
+      [
+       "2",
+       "Staff member cut hand on broken glass in bin",
+       "Yes, minor",
+       "Supervisor"
+      ],
+      [
+       "3",
+       "Ladder found with a cracked rung in store",
+       "No",
+       "Maintenance"
+      ],
+      [
+       "4",
+       "Contractor fell from step stool",
+       "Yes",
+       "(blank)"
+      ],
+      [
+       "5",
+       "Forklift reversed close to pedestrian, no contact",
+       "No",
+       "Driver"
+      ],
+      [
+       "6",
+       "Delivery driver collapsed in heat, recovered",
+       "Yes",
+       "Security"
+      ]
+     ]
+    }
+   },
+   {
+    "id": "d2",
+    "title": "Near-miss trend",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Quarter",
+      "Near misses",
+      "Incidents",
+      "Notes"
+     ],
+     "rows": [
+      [
+       "Q1",
+       "31",
+       "6",
+       ""
+      ],
+      [
+       "Q2",
+       "29",
+       "5",
+       ""
+      ],
+      [
+       "Q3",
+       "18",
+       "6",
+       "New area manager reviews each report personally and asks who made the mistake"
+      ]
+     ]
+    }
+   },
+   {
+    "id": "d3",
+    "title": "Email from an area manager",
+    "kind": "email",
+    "key": true,
+    "body": "Honestly, logging every near miss is a waste of time. If nobody was hurt, there's nothing to learn. My team has better things to do.",
+    "from": "rival"
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "classify",
+    "prompt": "Classify each log entry.",
+    "competencies": [
+     "technical",
+     "evidence"
+    ],
+    "hint": "Incident: harm occurred. Near miss: an event occurred without harm. Unsafe condition: a hazard with no event yet.",
+    "categories": [
+     "Incident",
+     "Near miss",
+     "Unsafe condition"
+    ],
+    "items": [
+     {
+      "text": "Wet floor in corridor, no sign, nobody fell",
+      "answer": "Unsafe condition",
+      "why": "A hazard that exists; no event occurred."
+     },
+     {
+      "text": "Cut hand on broken glass in bin",
+      "answer": "Incident"
+     },
+     {
+      "text": "Ladder with a cracked rung in store",
+      "answer": "Unsafe condition"
+     },
+     {
+      "text": "Contractor fell from step stool",
+      "answer": "Incident"
+     },
+     {
+      "text": "Forklift reversed close to a pedestrian, no contact",
+      "answer": "Near miss",
+      "why": "An event that could have caused harm but did not."
+     },
+     {
+      "text": "Driver collapsed in heat",
+      "answer": "Incident"
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "type": "multi",
+    "prompt": "Entry 4 (contractor fall) is incomplete. Which details must be added to make it useful?",
+    "competencies": [
+     "evidence"
+    ],
+    "options": [
+     {
+      "text": "Date, time and exact location",
+      "correct": true
+     },
+     {
+      "text": "Immediate actions taken and first aid given",
+      "correct": true
+     },
+     {
+      "text": "Who logged it and witnesses",
+      "correct": true
+     },
+     {
+      "text": "The contractor's nationality",
+      "correct": false,
+      "why": "Irrelevant and potentially discriminatory."
+     },
+     {
+      "text": "Whether the contractor had a site induction",
+      "correct": true,
+      "why": "Inductions are a key control for contractors."
+     },
+     {
+      "text": "The contractor's hourly rate",
+      "correct": false
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "Near-miss reports fell from 31 to 18 after the new area manager started asking 'who made the mistake' for every report, while incidents stayed flat. What is the most likely explanation?",
+    "competencies": [
+     "analysis",
+     "evidence"
+    ],
+    "hint": "Compare the trend in near misses with the trend in incidents.",
+    "options": [
+     {
+      "id": "a",
+      "text": "Safety has improved: fewer near misses means fewer hazards.",
+      "quality": 0,
+      "feedback": "If hazards fell, incidents would likely fall too. Flat incidents with falling near misses points to under-reporting."
+     },
+     {
+      "id": "b",
+      "text": "Reporting has probably fallen because staff fear blame; the hazards are likely still there.",
+      "quality": 3,
+      "feedback": "The near-miss-to-incident ratio dropped sharply right after a blame-oriented change. That is a classic under-reporting signal."
+     },
+     {
+      "id": "c",
+      "text": "Random variation; nothing to conclude.",
+      "quality": 1,
+      "feedback": "Possible, but the timing coincides with a clear behavioural change; worth investigating rather than dismissing."
+     },
+     {
+      "id": "d",
+      "text": "The new manager is managing safety better.",
+      "quality": 0,
+      "feedback": "The data suggest the opposite."
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s4",
+    "type": "choice",
+    "prompt": "How do you respond to the manager's email that near misses are a waste of time?",
+    "competencies": [
+     "stakeholder",
+     "communication",
+     "ethics"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Reply privately: near misses are free lessons; share the forklift example, propose a two-minute reporting form and feedback on fixes.",
+      "quality": 3,
+      "feedback": "Persuasive, specific and reduces effort.",
+      "effects": {
+       "trust": {
+        "rival": 2,
+        "cso": 2
+       }
+      },
+      "approach": "collaborative"
+     },
+     {
+      "id": "b",
+      "text": "Forward the email to the safety committee as evidence of poor culture.",
+      "quality": 1,
+      "feedback": "May be warranted later; first try to persuade.",
+      "effects": {
+       "trust": {
+        "rival": -5
+       }
+      }
+     },
+     {
+      "id": "c",
+      "text": "Agree and stop chasing near misses from that area.",
+      "quality": 0,
+      "feedback": "Abandons a key early-warning source.",
+      "effects": {
+       "flags": [
+        "near_miss_ignored"
+       ]
+      }
+     }
+    ],
+    "to": "rival"
+   },
+   {
+    "id": "s5",
+    "type": "write",
+    "prompt": "Write a short note to the safety committee explaining what the near-miss data shows and what you recommend.",
+    "competencies": [
+     "communication",
+     "analysis"
+    ],
+    "rubric": [
+     {
+      "element": "Trend",
+      "keywords": [
+       "fell",
+       "dropped",
+       "decline",
+       "18",
+       "31"
+      ],
+      "tip": "State the change."
+     },
+     {
+      "element": "Interpretation",
+      "keywords": [
+       "under-report",
+       "underreport",
+       "fear",
+       "blame"
+      ],
+      "tip": "Explain what it likely means."
+     },
+     {
+      "element": "Evidence",
+      "keywords": [
+       "incident",
+       "flat",
+       "ratio",
+       "unchanged"
+      ],
+      "tip": "Support it with the incident trend."
+     },
+     {
+      "element": "Recommendation",
+      "keywords": [
+       "blame-free",
+       "no-blame",
+       "just culture",
+       "feedback",
+       "anonymous"
+      ],
+      "tip": "Recommend a specific fix."
+     }
+    ],
+    "model_answer": "Near-miss reports fell from 31 to 18 last quarter while incidents stayed flat at six. This is unlikely to mean fewer hazards; it coincides with reports being reviewed with a focus on who made the mistake, which discourages reporting. Recommend a blame-free reporting standard, a two-minute form, and feedback to reporters on every fix within a week.",
+    "min_words": 25,
+    "max_words": 160
+   }
+  ],
+  "debrief": {
+   "summary": "You classified events correctly and read the data as a signal about reporting culture rather than about safety alone.",
+   "key_points": [
+    "Near misses share causes with incidents but cost nothing.",
+    "Falling near misses with flat incidents usually means under-reporting.",
+    "Blame suppresses the information risk management depends on."
+   ],
+   "stronger_approach": "Also track the ratio of near misses to incidents as a KRI and survey staff anonymously about reporting confidence.",
+   "transfer": "Under-reporting appears everywhere: cyber teams under-report phishing clicks, banks under-report operational losses, hospitals under-report medication errors."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "flags": [
+       "speak_up_program"
+      ],
+      "org": {
+       "morale": 2
+      },
+      "schedule": [
+       {
+        "event": "ev_near_miss_caught",
+        "after": 2,
+        "p": 0.8
+       }
+      ]
+     }
+    },
+    {
+     "min": 0,
+     "effects": {
+      "flags": [
+       "near_miss_ignored"
+      ],
+      "schedule": [
+       {
+        "event": "ev_safety_injury",
+        "after": 3,
+        "p": 0.35
+       }
+      ]
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "S01",
+  "title": "Where the Controls Leak",
+  "type": "side",
+  "level": 1,
+  "xp": 80,
+  "duration": "10 min",
+  "objective": "Identify control weaknesses in a simple process and classify controls as preventive, detective or corrective.",
+  "concepts": [
+   "control_types",
+   "design_vs_operating"
+  ],
+  "from": "audit",
+  "subject": "A quick look at petty cash and refunds",
+  "briefing": "Before our audit next quarter, could you walk through how front-line refunds and petty cash are handled and list the weaknesses? Keep it practical.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Process walkthrough notes",
+    "kind": "memo",
+    "key": true,
+    "body": "- Any supervisor can authorise a refund up to {m:2000}; there is no daily refund report.\n- Petty cash is counted weekly by the same person who holds the key.\n- Receipts are required for petty cash over {m:100} but are filed in a shoebox.\n- If a cash shortfall is found, the supervisor writes a note and tops it up from the float.\n- CCTV covers the till area; footage is kept for 7 days."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "multi",
+    "prompt": "Which are genuine control weaknesses?",
+    "competencies": [
+     "technical",
+     "analysis"
+    ],
+    "options": [
+     {
+      "text": "No daily report of refunds for independent review",
+      "correct": true
+     },
+     {
+      "text": "Petty cash counted by the person who holds the key",
+      "correct": true,
+      "why": "No segregation of duties."
+     },
+     {
+      "text": "Shortfalls topped up from the float without investigation",
+      "correct": true,
+      "why": "Hides losses and their causes."
+     },
+     {
+      "text": "CCTV covers the till",
+      "correct": false,
+      "why": "This is a control, not a weakness, though 7-day retention may be short."
+     },
+     {
+      "text": "Receipts required over {m:100}",
+      "correct": false,
+      "why": "Reasonable threshold."
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "type": "classify",
+    "prompt": "Classify each control.",
+    "competencies": [
+     "technical"
+    ],
+    "categories": [
+     "Preventive",
+     "Detective",
+     "Corrective"
+    ],
+    "items": [
+     {
+      "text": "Supervisor authorisation of refunds",
+      "answer": "Preventive"
+     },
+     {
+      "text": "CCTV review after a reported loss",
+      "answer": "Detective"
+     },
+     {
+      "text": "Weekly petty cash count",
+      "answer": "Detective"
+     },
+     {
+      "text": "Replacing a lost float after investigation",
+      "answer": "Corrective"
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "Which single change gives the biggest improvement for the effort?",
+    "competencies": [
+     "decision",
+     "prioritization"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "A daily refunds report reviewed by someone who cannot authorise refunds.",
+      "quality": 3,
+      "feedback": "Cheap, independent and covers the largest exposure."
+     },
+     {
+      "id": "b",
+      "text": "Replace petty cash with company cards everywhere.",
+      "quality": 1,
+      "feedback": "Effective but costly and slow to roll out."
+     },
+     {
+      "id": "c",
+      "text": "Extend CCTV retention to 90 days.",
+      "quality": 1,
+      "feedback": "Helps investigations but does not prevent or detect issues."
+     },
+     {
+      "id": "d",
+      "text": "Ask supervisors to be more careful.",
+      "quality": 0,
+      "feedback": "Not a control."
+     }
+    ]
+   }
+  ],
+  "debrief": {
+   "summary": "You found segregation and review gaps and chose a proportionate fix.",
+   "key_points": [
+    "Segregation of duties is a basic but powerful control.",
+    "Topping up shortfalls hides the signal."
+   ],
+   "stronger_approach": "Also quantify refund volumes to size the exposure before recommending changes.",
+   "transfer": "Segregation and independent review apply to code deployments, payments and clinical checks alike."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "org": {
+       "control_effectiveness": 1
+      },
+      "trust": {
+       "audit": 3
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {}
+    }
+   ]
+  }
+ },
+ {
+  "id": "M04",
+  "title": "Taking Over the Register",
+  "type": "career",
+  "level": 2,
+  "xp": 140,
+  "duration": "10 min",
+  "objective": "Maintain a risk register: fix duplicates, ownership, ratings, stale actions and incomplete risk statements.",
+  "concepts": [
+   "risk_owner",
+   "cause_event_consequence",
+   "inherent_vs_residual"
+  ],
+  "from": "mentor",
+  "subject": "You now own the register",
+  "briefing": "Congratulations on the new role. From today you maintain the operational risk register. It has been neglected. Clean it up and tell me what you changed and why; keep a record so audit can follow your reasoning.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Register extract",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "ID",
+      "Risk",
+      "Owner",
+      "Inherent",
+      "Residual",
+      "Action status"
+     ],
+     "rows": [
+      [
+       "R-101",
+       "IT problems",
+       "Risk team",
+       "3x4",
+       "3x4",
+       "-"
+      ],
+      [
+       "R-102",
+       "Cyber attack causes data breach",
+       "CIO",
+       "4x5",
+       "3x5",
+       "MFA rollout: On track (due 5 months ago)"
+      ],
+      [
+       "R-103",
+       "Data breach from cyber attack",
+       "CIO",
+       "4x5",
+       "2x5",
+       "-"
+      ],
+      [
+       "R-104",
+       "Key supplier failure disrupts service",
+       "Head of Procurement",
+       "3x4",
+       "4x4",
+       "Dual sourcing: Not started"
+      ],
+      [
+       "R-105",
+       "Staff injury in warehouse",
+       "COO",
+       "3x5",
+       "2x5",
+       "Racking inspection: Complete"
+      ]
+     ]
+    }
+   },
+   {
+    "id": "d2",
+    "title": "Register standard",
+    "kind": "memo",
+    "key": true,
+    "body": "Each risk must have: a cause-event-consequence statement; a named owner with authority over the objective at risk; inherent and residual ratings; and actions with realistic dates and evidence-based status."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "multi",
+    "prompt": "Which entries have quality problems?",
+    "competencies": [
+     "evidence",
+     "technical"
+    ],
+    "options": [
+     {
+      "text": "R-101",
+      "correct": true,
+      "why": "Vague statement and owned by the risk team."
+     },
+     {
+      "text": "R-102",
+      "correct": true,
+      "why": "Action overdue but shown as on track."
+     },
+     {
+      "text": "R-103",
+      "correct": true,
+      "why": "Duplicates R-102."
+     },
+     {
+      "text": "R-104",
+      "correct": true,
+      "why": "Residual exceeds inherent."
+     },
+     {
+      "text": "R-105",
+      "correct": false,
+      "why": "Complete, owned, plausible ratings."
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "type": "classify",
+    "prompt": "Match each problem to its type.",
+    "competencies": [
+     "technical"
+    ],
+    "categories": [
+     "Duplicate",
+     "Ownership",
+     "Rating error",
+     "Stale action",
+     "Incomplete statement"
+    ],
+    "items": [
+     {
+      "text": "R-103 repeats R-102 in different words",
+      "answer": "Duplicate"
+     },
+     {
+      "text": "R-101 owned by 'Risk team'",
+      "answer": "Ownership",
+      "why": "The risk function facilitates; business leaders own risks."
+     },
+     {
+      "text": "R-104 residual 4x4 above inherent 3x4",
+      "answer": "Rating error"
+     },
+     {
+      "text": "R-102 MFA rollout 'On track' five months after due date",
+      "answer": "Stale action"
+     },
+     {
+      "text": "R-101 described only as 'IT problems'",
+      "answer": "Incomplete statement"
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "Who should own R-101 once it is rewritten as an IT outage risk?",
+    "competencies": [
+     "technical",
+     "stakeholder"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "{sh:cio}, who is accountable for system availability and can act.",
+      "quality": 3,
+      "feedback": "Owner has accountability and authority."
+     },
+     {
+      "id": "b",
+      "text": "You, as register maintainer.",
+      "quality": 0,
+      "feedback": "Maintaining the register does not make you accountable for IT."
+     },
+     {
+      "id": "c",
+      "text": "Internal audit.",
+      "quality": 0,
+      "feedback": "Audit must remain independent."
+     },
+     {
+      "id": "d",
+      "text": "{sh:ceo}.",
+      "quality": 1,
+      "feedback": "Ultimately accountable, but ownership should sit with the executive who manages the risk day to day."
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "type": "choice",
+    "prompt": "The MFA action owner says 'it's basically on track, just delayed'. What do you do?",
+    "competencies": [
+     "evidence",
+     "stakeholder",
+     "ethics"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Ask for evidence of progress, record the true status as overdue, agree a realistic new date, and report it in the monthly summary.",
+      "quality": 3,
+      "feedback": "Accurate status is what makes a register useful.",
+      "effects": {
+       "flags": [
+        "actions_tracked"
+       ],
+       "trust": {
+        "mentor": 2
+       }
+      },
+      "approach": "data"
+     },
+     {
+      "id": "b",
+      "text": "Leave the status; the owner knows best.",
+      "quality": 0,
+      "feedback": "Status must reflect evidence, not optimism.",
+      "effects": {
+       "schedule": [
+        {
+         "event": "ev_audit_finding",
+         "after": 3,
+         "p": 0.4
+        }
+       ]
+      }
+     },
+     {
+      "id": "c",
+      "text": "Close the action to tidy the register.",
+      "quality": 0,
+      "feedback": "Administrative closure misrepresents risk."
+     },
+     {
+      "id": "d",
+      "text": "Escalate to the CIO's boss straight away.",
+      "quality": 1,
+      "feedback": "Escalation may be needed later; start with the owner and a clear record.",
+      "effects": {
+       "trust": {
+        "cio": -3
+       }
+      }
+     }
+    ],
+    "confidence": true,
+    "to": "cio"
+   },
+   {
+    "id": "s5",
+    "type": "write",
+    "prompt": "Rewrite R-101 'IT problems' as a proper risk statement.",
+    "competencies": [
+     "communication",
+     "technical"
+    ],
+    "rubric": [
+     {
+      "element": "Cause",
+      "keywords": [
+       "ageing",
+       "single",
+       "untested",
+       "failover",
+       "legacy",
+       "because"
+      ],
+      "tip": "Name a specific cause."
+     },
+     {
+      "element": "Event",
+      "keywords": [
+       "outage",
+       "unavailable",
+       "fail",
+       "down"
+      ],
+      "tip": "Name the event."
+     },
+     {
+      "element": "Consequence",
+      "keywords": [
+       "revenue",
+       "customer",
+       "service",
+       "cannot",
+       "unable",
+       "loss"
+      ],
+      "tip": "Name the consequence."
+     },
+     {
+      "element": "Measurable",
+      "keywords": [
+       "hour",
+       "24",
+       "day",
+       "more than"
+      ],
+      "tip": "Make the event specific enough to rate."
+     }
+    ],
+    "model_answer": "Because core systems run on ageing infrastructure in a single data centre with untested failover, a prolonged outage of more than 24 hours could occur, leaving us unable to serve customers or take payments, causing revenue loss and reputational damage.",
+    "min_words": 25,
+    "max_words": 160
+   }
+  ],
+  "debrief": {
+   "summary": "You turned an unreliable register into a decision tool by fixing ownership, duplicates, ratings and status.",
+   "key_points": [
+    "A register is only as good as its weakest entries.",
+    "Owners need authority, not just interest.",
+    "Status must be evidence-based."
+   ],
+   "stronger_approach": "Add a 'last reviewed' date per risk and a monthly data-quality check (missing owners, stale actions, residual > inherent).",
+   "transfer": "Register discipline is the same in a bank's operational risk system, a project RAID log or a hospital's patient safety register."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "org": {
+       "control_effectiveness": 2
+      },
+      "trust": {
+       "audit": 2
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {
+      "schedule": [
+       {
+        "event": "ev_audit_finding",
+        "after": 4,
+        "p": 0.3
+       }
+      ]
+     }
+    }
+   ],
+   "counters": [
+    "register_cleanups"
+   ]
+  }
+ },
+ {
+  "id": "M05",
+  "title": "Pricing the Exposure",
+  "type": "career",
+  "level": 2,
+  "xp": 140,
+  "duration": "10 min",
+  "objective": "Calculate expected loss and probability-weighted scenarios, and distinguish expected from worst-case loss.",
+  "concepts": [
+   "expected_loss",
+   "el_vs_worst"
+  ],
+  "from": "mentor",
+  "subject": "Put numbers on three risks",
+  "briefing": "The monthly review keeps arguing about which risk is 'biggest'. Put indicative numbers on these three. Show your working; the CFO will check it.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Estimates from risk owners",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Risk",
+      "Annual probability",
+      "Impact if it occurs"
+     ],
+     "rows": [
+      [
+       "A: Warehouse flood",
+       "15%",
+       "{m:800000}"
+      ],
+      [
+       "B: Major cyber breach",
+       "2%",
+       "{m:12000000}"
+      ],
+      [
+       "C: Supplier price shock",
+       "see scenarios",
+       "see scenarios"
+      ]
+     ]
+    }
+   },
+   {
+    "id": "d2",
+    "title": "Supplier price shock scenarios (C)",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Scenario",
+      "Probability",
+      "Extra cost"
+     ],
+     "rows": [
+      [
+       "No shock",
+       "60%",
+       "{m:0}"
+      ],
+      [
+       "Moderate rise",
+       "30%",
+       "{m:200000}"
+      ],
+      [
+       "Severe rise",
+       "10%",
+       "{m:1500000}"
+      ]
+     ]
+    }
+   },
+   {
+    "id": "d3",
+    "title": "Note from the CFO",
+    "kind": "email",
+    "key": true,
+    "body": "Please don't just multiply and call it the answer. I need to know what a bad year looks like too.",
+    "from": "cfo"
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "numeric",
+    "prompt": "What is the expected annual loss for risk A (warehouse flood)?",
+    "competencies": [
+     "financial"
+    ],
+    "hint": "EL = probability x impact.",
+    "worked_example": "A 25% chance of a {m:40000} loss has an EL of {m:10000}.",
+    "formula": "p*i",
+    "vars": {
+     "p": 0.15,
+     "i": 800000
+    },
+    "unit": "money",
+    "tolerance_pct": 3,
+    "solution": "0.15 x {m:800000} = {m:120000}.",
+    "money_vars": [
+     "i"
+    ]
+   },
+   {
+    "id": "s2",
+    "type": "numeric",
+    "prompt": "What is the expected annual loss for risk B (cyber breach)?",
+    "competencies": [
+     "financial"
+    ],
+    "formula": "p*i",
+    "vars": {
+     "p": 0.02,
+     "i": 12000000
+    },
+    "unit": "money",
+    "tolerance_pct": 3,
+    "solution": "0.02 x {m:12000000} = {m:240000}.",
+    "money_vars": [
+     "i"
+    ]
+   },
+   {
+    "id": "s3",
+    "type": "numeric",
+    "prompt": "What is the probability-weighted expected cost for risk C?",
+    "competencies": [
+     "financial",
+     "analysis"
+    ],
+    "hint": "Multiply each scenario's cost by its probability and add them up.",
+    "formula": "0.6*a+0.3*b+0.1*c",
+    "vars": {
+     "a": 0,
+     "b": 200000,
+     "c": 1500000
+    },
+    "unit": "money",
+    "tolerance_pct": 3,
+    "solution": "0.6 x 0 + 0.3 x {m:200000} + 0.1 x {m:1500000} = {m:210000}.",
+    "money_vars": [
+     "a",
+     "b",
+     "c"
+    ]
+   },
+   {
+    "id": "s4",
+    "type": "rank",
+    "prompt": "Rank the three risks by expected annual loss, highest first.",
+    "competencies": [
+     "prioritization"
+    ],
+    "items": [
+     {
+      "id": "A",
+      "text": "Warehouse flood"
+     },
+     {
+      "id": "B",
+      "text": "Cyber breach"
+     },
+     {
+      "id": "C",
+      "text": "Supplier price shock"
+     }
+    ],
+    "answer": [
+     "B",
+     "C",
+     "A"
+    ],
+    "why": "B ({m:240000}) > C ({m:210000}) > A ({m:120000})."
+   },
+   {
+    "id": "s5",
+    "type": "choice",
+    "prompt": "What do you tell the CFO about which risk deserves most attention?",
+    "competencies": [
+     "communication",
+     "financial",
+     "decision"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "B has the highest expected loss and by far the worst case ({m:12000000}), which could threaten our finances in a single year; A is frequent but survivable.",
+      "quality": 3,
+      "feedback": "Reports both expected and worst-case loss, as the CFO asked.",
+      "effects": {
+       "trust": {
+        "cfo": 3
+       }
+      },
+      "approach": "data"
+     },
+     {
+      "id": "b",
+      "text": "A, because it is the most likely to happen.",
+      "quality": 1,
+      "feedback": "Likelihood alone ignores severity."
+     },
+     {
+      "id": "c",
+      "text": "They are all similar, around {m:200000} each.",
+      "quality": 1,
+      "feedback": "Similar expected losses hide very different worst cases."
+     },
+     {
+      "id": "d",
+      "text": "C, because scenarios are more sophisticated.",
+      "quality": 0,
+      "feedback": "Method sophistication is not a reason for priority."
+     }
+    ],
+    "confidence": true,
+    "to": "cfo"
+   }
+  ],
+  "debrief": {
+   "summary": "You calculated expected loss correctly and showed why expected loss alone hides tail risk.",
+   "key_points": [
+    "EL = probability x impact.",
+    "Probability-weighted scenarios handle uncertain impacts.",
+    "Always report the worst credible case alongside EL."
+   ],
+   "stronger_approach": "State the source and uncertainty of each estimate (owner judgement, industry data) and test how the ranking changes if B's probability is 1% or 4%.",
+   "transfer": "Expected-loss reasoning underpins insurance pricing, credit provisioning and the business case for any control."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "trust": {
+       "cfo": 2
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {}
+    }
+   ],
+   "counters": [
+    "el_calcs"
+   ]
+  }
+ },
+ {
+  "id": "M06",
+  "title": "Reading the Loss Data",
+  "type": "career",
+  "level": 2,
+  "xp": 140,
+  "duration": "10 min",
+  "objective": "Analyse incident and loss trends correctly by normalising for volume and questioning data changes.",
+  "concepts": [
+   "leading_lagging",
+   "risk_definition"
+  ],
+  "from": "coo",
+  "subject": "Which site is getting worse?",
+  "briefing": "The board pack says Site C is our problem site because its incidents went up 40%. I'm not convinced. Can you look at the data properly?",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Quarterly operational incidents and volumes",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Site",
+      "Q3 incidents",
+      "Q3 transactions",
+      "Q4 incidents",
+      "Q4 transactions"
+     ],
+     "rows": [
+      [
+       "A",
+       "20",
+       "100,000",
+       "27",
+       "105,000"
+      ],
+      [
+       "B",
+       "12",
+       "80,000",
+       "11",
+       "78,000"
+      ],
+      [
+       "C",
+       "15",
+       "60,000",
+       "21",
+       "130,000"
+      ]
+     ]
+    }
+   },
+   {
+    "id": "d2",
+    "title": "Operations note",
+    "kind": "memo",
+    "key": true,
+    "body": "Site C took over Site D's volume in Q4 after Site D closed. Site A introduced a new incident-reporting app in Q4."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "numeric",
+    "prompt": "What was Site C's incident rate per 10,000 transactions in Q4?",
+    "competencies": [
+     "analysis",
+     "financial"
+    ],
+    "hint": "Rate = incidents / transactions x 10,000.",
+    "formula": "21/130000*10000",
+    "vars": {},
+    "unit": "number",
+    "tolerance_pct": 3,
+    "solution": "21 / 130,000 x 10,000 = 1.62 per 10,000 (down from 2.5 in Q3)."
+   },
+   {
+    "id": "s2",
+    "type": "numeric",
+    "prompt": "What was Site A's Q4 rate per 10,000 transactions?",
+    "competencies": [
+     "analysis"
+    ],
+    "formula": "27/105000*10000",
+    "vars": {},
+    "unit": "number",
+    "tolerance_pct": 3,
+    "solution": "27 / 105,000 x 10,000 = 2.57 (up from 2.0)."
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "Which conclusion is best supported?",
+    "competencies": [
+     "analysis",
+     "evidence"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Site C is deteriorating: incidents rose 40%.",
+      "quality": 0,
+      "feedback": "Raw counts ignore that volume more than doubled; its rate fell."
+     },
+     {
+      "id": "b",
+      "text": "Site A's rate rose, but a new reporting app may explain part of it; investigate before concluding.",
+      "quality": 3,
+      "feedback": "Normalises for volume and recognises a data-collection change."
+     },
+     {
+      "id": "c",
+      "text": "Site A is clearly deteriorating.",
+      "quality": 1,
+      "feedback": "Its rate rose, but the reporting change is a plausible alternative explanation."
+     },
+     {
+      "id": "d",
+      "text": "No site has changed meaningfully.",
+      "quality": 1,
+      "feedback": "Site C's rate fell substantially; that is a real change worth noting."
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s4",
+    "type": "multi",
+    "prompt": "What else would you check before reporting?",
+    "competencies": [
+     "evidence"
+    ],
+    "options": [
+     {
+      "text": "Whether Site A's increase is in new low-severity categories captured by the app",
+      "correct": true
+     },
+     {
+      "text": "Severity and loss amounts, not just counts",
+      "correct": true
+     },
+     {
+      "text": "Whether Site C's absorbed volume is of a different type",
+      "correct": true
+     },
+     {
+      "text": "The weather in Q4",
+      "correct": false,
+      "why": "Unlikely to explain site differences without a specific reason."
+     },
+     {
+      "text": "Staff birthdays",
+      "correct": false
+     }
+    ]
+   },
+   {
+    "id": "s5",
+    "type": "write",
+    "prompt": "Draft two sentences for the board pack correcting the Site C claim.",
+    "competencies": [
+     "communication"
+    ],
+    "rubric": [
+     {
+      "element": "Rate",
+      "keywords": [
+       "per 10,000",
+       "rate",
+       "normalis",
+       "volume"
+      ],
+      "tip": "Express as a rate."
+     },
+     {
+      "element": "Site C",
+      "keywords": [
+       "site c",
+       "fell",
+       "fell from",
+       "down"
+      ],
+      "tip": "Correct the claim."
+     },
+     {
+      "element": "Caveat",
+      "keywords": [
+       "app",
+       "reporting",
+       "investigat"
+      ],
+      "tip": "Note the data caveat for Site A."
+     }
+    ],
+    "model_answer": "Site C's incident count rose 40% but its volume more than doubled, so its rate fell from 2.5 to 1.6 per 10,000 transactions. Site A's rate rose from 2.0 to 2.6, partly reflecting a new reporting app; we are investigating before drawing conclusions.",
+    "min_words": 25,
+    "max_words": 160
+   }
+  ],
+  "debrief": {
+   "summary": "You normalised for volume and noticed a change in how data was collected.",
+   "key_points": [
+    "Counts mislead when volume changes.",
+    "Changes in reporting can create apparent trends.",
+    "Check severity, not just frequency."
+   ],
+   "stronger_approach": "Plot rates over several quarters with confidence ranges; one quarter of small numbers is noisy.",
+   "transfer": "The same discipline applies to fraud rates per transaction, infection rates per bed-day or outages per deployment."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "trust": {
+       "coo": 3
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {
+      "trust": {
+       "coo": -1
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "M07",
+  "title": "Chasing Corrective Actions",
+  "type": "career",
+  "level": 2,
+  "xp": 140,
+  "duration": "10 min",
+  "objective": "Track corrective actions, refuse closure without evidence, and prioritise escalation by risk.",
+  "concepts": [
+   "escalation",
+   "risk_owner"
+  ],
+  "from": "mentor",
+  "subject": "The action tracker is a mess",
+  "briefing": "Internal audit will look at our corrective actions next quarter. Several owners want actions closed. Sort out what is genuinely done, what is overdue, and what needs escalating.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Action tracker",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Action",
+      "Linked risk score",
+      "Owner",
+      "Due",
+      "Status"
+     ],
+     "rows": [
+      [
+       "Fit hold-open devices on fire doors",
+       "20",
+       "COO",
+       "Month -1",
+       "Open"
+      ],
+      [
+       "Test IT failover",
+       "16",
+       "CIO",
+       "Month -3",
+       "Open"
+      ],
+      [
+       "Update supplier contracts with exit clauses",
+       "12",
+       "Procurement",
+       "Month +2",
+       "Open"
+      ],
+      [
+       "Retrain payables staff",
+       "9",
+       "CFO",
+       "Month -2",
+       "Owner requests closure"
+      ],
+      [
+       "Repaint car park lines",
+       "4",
+       "Facilities",
+       "Month -4",
+       "Open"
+      ]
+     ]
+    }
+   },
+   {
+    "id": "d2",
+    "title": "Closure request",
+    "kind": "email",
+    "key": true,
+    "body": "The payables retraining is done, please close it. We ran a session for most of the team.",
+    "from": "cfo"
+   },
+   {
+    "id": "d3",
+    "title": "Policy",
+    "kind": "memo",
+    "key": true,
+    "body": "Actions may only be closed with evidence the risk has been reduced. Overdue actions on risks scoring 15+ must be escalated to the executive risk committee."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "multi",
+    "prompt": "Which actions are overdue today?",
+    "competencies": [
+     "evidence"
+    ],
+    "options": [
+     {
+      "text": "Fire door hold-open devices",
+      "correct": true
+     },
+     {
+      "text": "IT failover test",
+      "correct": true
+     },
+     {
+      "text": "Supplier exit clauses",
+      "correct": false,
+      "why": "Due in two months."
+     },
+     {
+      "text": "Payables retraining",
+      "correct": true,
+      "why": "Closure requested but no evidence yet."
+     },
+     {
+      "text": "Car park lines",
+      "correct": true
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "type": "numeric",
+    "prompt": "What percentage of the five actions are overdue?",
+    "competencies": [
+     "analysis"
+    ],
+    "hint": "Overdue count / total x 100.",
+    "formula": "4/5*100",
+    "vars": {},
+    "unit": "percent",
+    "tolerance_pct": 2,
+    "solution": "4 of 5 = 80%."
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "How do you respond to the CFO's closure request?",
+    "competencies": [
+     "evidence",
+     "stakeholder",
+     "ethics"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Ask for the attendance list and evidence the new call-back steps are now followed, then close if it holds up.",
+      "quality": 3,
+      "feedback": "Closure on evidence, without being obstructive.",
+      "effects": {
+       "trust": {
+        "cfo": 1,
+        "audit": 2
+       },
+       "flags": [
+        "actions_tracked"
+       ]
+      },
+      "approach": "data"
+     },
+     {
+      "id": "b",
+      "text": "Close it; the CFO is senior.",
+      "quality": 0,
+      "feedback": "Seniority is not evidence."
+     },
+     {
+      "id": "c",
+      "text": "Refuse until everyone is trained.",
+      "quality": 1,
+      "feedback": "Firm but sets an unclear bar; agree what evidence is enough."
+     },
+     {
+      "id": "d",
+      "text": "Ignore the email.",
+      "quality": 0,
+      "feedback": "Unresponsive."
+     }
+    ],
+    "to": "cfo"
+   },
+   {
+    "id": "s4",
+    "type": "rank",
+    "prompt": "Rank the overdue actions for escalation, most urgent first.",
+    "competencies": [
+     "prioritization"
+    ],
+    "items": [
+     {
+      "id": "fire",
+      "text": "Fire door devices (score 20)"
+     },
+     {
+      "id": "it",
+      "text": "IT failover test (16)"
+     },
+     {
+      "id": "pay",
+      "text": "Payables retraining (9)"
+     },
+     {
+      "id": "car",
+      "text": "Car park lines (4)"
+     }
+    ],
+    "answer": [
+     "fire",
+     "it",
+     "pay",
+     "car"
+    ],
+    "why": "Escalate by the linked risk score. Fire doors and failover exceed the 15+ threshold and must go to the committee."
+   },
+   {
+    "id": "s5",
+    "type": "choice",
+    "prompt": "What goes in your monthly report?",
+    "competencies": [
+     "communication",
+     "prioritization"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Two actions on 15+ risks overdue and escalated with owners and new dates; one awaiting evidence; overall 80% overdue, with the reason for the trend.",
+      "quality": 3,
+      "feedback": "Concise, risk-based and honest.",
+      "effects": {
+       "trust": {
+        "mentor": 3
+       }
+      }
+     },
+     {
+      "id": "b",
+      "text": "A full list of all actions with no commentary.",
+      "quality": 1,
+      "feedback": "Data without insight."
+     },
+     {
+      "id": "c",
+      "text": "Report only that most actions are progressing.",
+      "quality": 0,
+      "feedback": "Misleading."
+     }
+    ]
+   }
+  ],
+  "debrief": {
+   "summary": "You separated real progress from claimed progress and escalated by risk.",
+   "key_points": [
+    "Closure needs evidence.",
+    "Escalate by risk, not by age alone.",
+    "Report trends and reasons, not just lists."
+   ],
+   "stronger_approach": "Look at why actions are overdue: unrealistic dates, missing budget or unclear ownership often explain patterns.",
+   "transfer": "Corrective-action discipline is identical for audit findings, regulatory commitments and project issues."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "flags": [
+       "actions_tracked"
+      ],
+      "cancel": [
+       "ev_audit_finding"
+      ],
+      "org": {
+       "control_effectiveness": 2
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {
+      "schedule": [
+       {
+        "event": "ev_audit_finding",
+        "after": 2,
+        "p": 0.55
+       }
+      ]
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "CAP1",
+  "title": "Foundation Capstone: Your First Full Assessment",
+  "type": "capstone",
+  "level": 2,
+  "xp": 220,
+  "duration": "10 min",
+  "objective": "Demonstrate Stage 1 competence: identify, classify, rate, quantify, escalate and communicate a risk independently.",
+  "concepts": [
+   "cause_event_consequence",
+   "inherent_vs_residual",
+   "expected_loss",
+   "escalation"
+  ],
+  "from": "mentor",
+  "subject": "Capstone: assess the cold-store risk on your own",
+  "briefing": "This assessment decides whether you are ready to work independently. The cold-store refrigeration unit at our main site keeps failing. Assess the risk end to end. I will only read your final work.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Maintenance history",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Month",
+      "Event",
+      "Downtime",
+      "Stock loss"
+     ],
+     "rows": [
+      [
+       "-6",
+       "Compressor alarm",
+       "2h",
+       "{m:0}"
+      ],
+      [
+       "-4",
+       "Compressor trip",
+       "9h",
+       "{m:35000}"
+      ],
+      [
+       "-2",
+       "Compressor trip",
+       "14h",
+       "{m:60000}"
+      ],
+      [
+       "-1",
+       "Alarm silenced by night staff",
+       "Unknown",
+       "Unknown"
+      ]
+     ]
+    }
+   },
+   {
+    "id": "d2",
+    "title": "Engineer's report",
+    "kind": "memo",
+    "key": true,
+    "body": "The compressor is beyond its design life. Replacement costs {m:90000} with a six-week lead time. Without replacement I estimate a 40% chance of a major failure in the next year, with likely stock and service losses of {m:300000}. Temperature alarms go to a panel that night staff can silence."
+   },
+   {
+    "id": "d3",
+    "title": "Current controls",
+    "kind": "memo",
+    "key": true,
+    "body": "Temperature alarm (detective) - can be silenced locally. Monthly maintenance visit (preventive) - addresses wear but not the compressor's age. Insurance excludes losses from wear and tear."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "classify",
+    "prompt": "Classify these elements of the situation.",
+    "competencies": [
+     "technical"
+    ],
+    "categories": [
+     "Cause",
+     "Event",
+     "Consequence",
+     "Control"
+    ],
+    "items": [
+     {
+      "text": "Compressor beyond design life",
+      "answer": "Cause"
+     },
+     {
+      "text": "Major refrigeration failure",
+      "answer": "Event"
+     },
+     {
+      "text": "Spoiled stock and service disruption",
+      "answer": "Consequence"
+     },
+     {
+      "text": "Temperature alarm",
+      "answer": "Control"
+     },
+     {
+      "text": "Alarms can be silenced locally",
+      "answer": "Cause",
+      "why": "A weakness that makes the event more damaging."
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "type": "matrix",
+    "prompt": "Rate inherent and residual risk (current controls only).",
+    "competencies": [
+     "technical",
+     "analysis"
+    ],
+    "expected": {
+     "l": 3,
+     "i": 3,
+     "rl": 3,
+     "ri": 3
+    },
+    "why": "40% annual probability is Possible (3); {m:300000} is Significant (3). Current controls are weak: the alarm can be silenced and maintenance does not address age, so residual equals inherent.",
+    "confidence": true
+   },
+   {
+    "id": "s3",
+    "type": "numeric",
+    "prompt": "What is the expected annual loss if nothing changes?",
+    "competencies": [
+     "financial"
+    ],
+    "formula": "p*i",
+    "vars": {
+     "p": 0.4,
+     "i": 300000
+    },
+    "unit": "money",
+    "tolerance_pct": 3,
+    "solution": "0.4 x {m:300000} = {m:120000}.",
+    "money_vars": [
+     "i"
+    ]
+   },
+   {
+    "id": "s4",
+    "type": "choice",
+    "prompt": "Recommend a treatment.",
+    "competencies": [
+     "decision",
+     "financial"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Replace the compressor ({m:90000}) and route alarms to an off-site monitoring service that cannot be silenced locally, with a temporary hire unit during the lead time.",
+      "quality": 3,
+      "feedback": "Cost below one year's expected loss, closes the alarm gap and covers the lead-time window.",
+      "effects": {
+       "flags": [
+        "coldstore_fixed"
+       ]
+      }
+     },
+     {
+      "id": "b",
+      "text": "Increase maintenance visits to weekly.",
+      "quality": 1,
+      "feedback": "Does not address end-of-life equipment."
+     },
+     {
+      "id": "c",
+      "text": "Accept the risk; insurance will pay.",
+      "quality": 0,
+      "feedback": "Insurance excludes wear and tear.",
+      "effects": {
+       "flags": [
+        "coldstore_ignored"
+       ]
+      }
+     },
+     {
+      "id": "d",
+      "text": "Replace the compressor only.",
+      "quality": 2,
+      "feedback": "Good, but leaves six weeks of exposure and the silenced-alarm weakness."
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s5",
+    "type": "choice",
+    "prompt": "The alarm was silenced last night with no record. Does this need same-day escalation?",
+    "competencies": [
+     "prioritization",
+     "ethics"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Yes: notify the site manager today, check stock temperatures, and stop local silencing pending a fix.",
+      "quality": 3,
+      "feedback": "A live control failure with potential food-safety consequences.",
+      "effects": {
+       "trust": {
+        "coo": 2
+       }
+      }
+     },
+     {
+      "id": "b",
+      "text": "No, include it in the monthly report.",
+      "quality": 0,
+      "feedback": "Stock may already be unsafe."
+     },
+     {
+      "id": "c",
+      "text": "Discipline the night staff.",
+      "quality": 1,
+      "feedback": "Find out why first; the panel design invites silencing."
+     }
+    ]
+   },
+   {
+    "id": "s6",
+    "type": "write",
+    "prompt": "Write the three-sentence executive summary of your assessment.",
+    "competencies": [
+     "communication"
+    ],
+    "rubric": [
+     {
+      "element": "Risk",
+      "keywords": [
+       "compressor",
+       "refrigerat",
+       "cold"
+      ],
+      "tip": "Name the risk."
+     },
+     {
+      "element": "Exposure",
+      "keywords": [
+       "40%",
+       "120",
+       "expected",
+       "300"
+      ],
+      "tip": "Quantify it."
+     },
+     {
+      "element": "Recommendation",
+      "keywords": [
+       "replace",
+       "monitor"
+      ],
+      "tip": "State the recommendation."
+     },
+     {
+      "element": "Cost",
+      "keywords": [
+       "90"
+      ],
+      "tip": "Give the cost."
+     }
+    ],
+    "model_answer": "The cold-store compressor is beyond its design life and has a 40% chance of a major failure this year, with likely losses of {m:300000} (expected loss about {m:120000} a year). Current controls are weak: alarms can be silenced locally and insurance excludes wear and tear. Recommend replacing the compressor for {m:90000}, routing alarms to off-site monitoring, and hiring a temporary unit during the six-week lead time.",
+    "min_words": 25,
+    "max_words": 160
+   }
+  ],
+  "debrief": {
+   "summary": "You completed a full risk assessment independently: cause to recommendation.",
+   "key_points": [
+    "A treatment costing less than a year's expected loss is usually justified.",
+    "Controls that can be bypassed locally are weak.",
+    "Check what insurance actually covers."
+   ],
+   "stronger_approach": "Add a KRI (compressor trips per month) and a post-replacement check that alarms reach the monitoring service.",
+   "transfer": "This end-to-end pattern is the backbone of every later assessment: identify, rate, quantify, treat, communicate."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "org": {
+       "resilience": 2
+      },
+      "trust": {
+       "mentor": 4
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {
+      "schedule": [
+       {
+        "event": "ev_supplier_collapse",
+        "after": 3,
+        "p": 0.2
+       }
+      ]
+     }
+    }
+   ]
+  }
+ }
+]

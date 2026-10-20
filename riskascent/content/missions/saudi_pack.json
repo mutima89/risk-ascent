@@ -1,0 +1,576 @@
+[
+ {
+  "id": "K01",
+  "title": "Localisation Under Pressure",
+  "type": "side",
+  "level": 3,
+  "xp": 160,
+  "duration": "10 min",
+  "objective": "Manage workforce localisation (Saudization) compliance risk during rapid growth.",
+  "concepts": [
+   "saudization",
+   "kri_thresholds"
+  ],
+  "from": "chro",
+  "subject": "Our Nitaqat position is slipping",
+  "briefing": "Our expansion has relied on experienced expatriate hires, and Saudi staff turnover in front-office roles is high. Our localisation ratio is getting close to the band minimum.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Workforce data",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Month",
+      "Saudi staff %",
+      "Required band minimum"
+     ],
+     "rows": [
+      [
+       "-3",
+       "36%",
+       "32%"
+      ],
+      [
+       "-2",
+       "35%",
+       "32%"
+      ],
+      [
+       "-1",
+       "34%",
+       "32%"
+      ],
+      [
+       "Now",
+       "33.5%",
+       "32%"
+      ]
+     ]
+    }
+   },
+   {
+    "id": "d2",
+    "title": "Context",
+    "kind": "memo",
+    "key": true,
+    "body": "Falling below the band can restrict visa issuance and some services until restored. Two new properties open in four months with 220 hires planned. Exit interviews cite shift patterns and limited career paths."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "numeric",
+    "prompt": "At the recent rate (about -0.8 points a month), in how many months will the ratio reach the minimum? ((33.5 - 32) / 0.8)",
+    "competencies": [
+     "analysis"
+    ],
+    "formula": "(33.5-32)/0.8",
+    "vars": {},
+    "unit": "number",
+    "tolerance_pct": 5,
+    "solution": "About 1.9 months: before the new openings."
+   },
+   {
+    "id": "s2",
+    "type": "choice",
+    "prompt": "What do you recommend?",
+    "competencies": [
+     "strategy",
+     "decision",
+     "stakeholder"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Make localisation a KRI with a warning at 1.5 points above the band; prioritise Saudi hiring for the new properties with a graduate programme; fix shift patterns and career paths to cut turnover.",
+      "quality": 3,
+      "feedback": "Addresses the trend and its causes.",
+      "effects": {
+       "risk_adjust": [
+        {
+         "risk": "KSA-NITAQAT",
+         "res_l": -1
+        }
+       ],
+       "trust": {
+        "chro": 3
+       }
+      }
+     },
+     {
+      "id": "b",
+      "text": "Hire Saudi staff into non-operational roles to lift the ratio quickly.",
+      "quality": 1,
+      "feedback": "May meet the number without solving turnover; can also raise compliance questions about genuine employment."
+     },
+     {
+      "id": "c",
+      "text": "Wait until the new properties open.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Make localisation a KRI with a warning at 1.5 points above the band; prioritise Saudi hiring for the new properties with a graduate programme; fix shift patterns and career paths to cut turnover.”",
+      "effects": {
+       "schedule": [
+        {
+         "event": "ev_regulatory_fine",
+         "after": 3,
+         "p": 0.35
+        }
+       ]
+      }
+     }
+    ],
+    "confidence": true,
+    "to": "chro"
+   },
+   {
+    "id": "s3",
+    "type": "multi",
+    "prompt": "Which root causes should you address?",
+    "competencies": [
+     "analysis"
+    ],
+    "options": [
+     {
+      "text": "Shift patterns unattractive to local candidates",
+      "correct": true
+     },
+     {
+      "text": "Limited career progression",
+      "correct": true
+     },
+     {
+      "text": "Expansion hiring plan ignores the ratio",
+      "correct": true
+     },
+     {
+      "text": "Saudi staff are less capable",
+      "correct": false,
+      "why": "Unfounded and discriminatory."
+     }
+    ]
+   }
+  ],
+  "debrief": {
+   "summary": "You treated localisation as a strategic people risk, not a headcount trick.",
+   "key_points": [
+    "Track regulatory ratios as KRIs with lead time.",
+    "Fix the causes of turnover."
+   ],
+   "stronger_approach": "Model the ratio for the new openings month by month.",
+   "transfer": "Workforce compliance obligations exist in many jurisdictions."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "geographies": [
+   "saudi"
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "org": {
+       "compliance": 3
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {
+      "org": {
+       "compliance": -3
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "K02",
+  "title": "Guest Data and the PDPL",
+  "type": "side",
+  "level": 4,
+  "xp": 180,
+  "duration": "10 min",
+  "objective": "Assess personal data protection compliance across booking channels under Saudi data protection law.",
+  "concepts": [
+   "pdpl",
+   "regulatory_change"
+  ],
+  "from": "gc",
+  "subject": "Are we compliant with the PDPL?",
+  "briefing": "Our guest data flows through our website, two booking platforms, a loyalty app and the property management system. I need to know where we are exposed under the PDPL.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Data flow review",
+    "kind": "memo",
+    "key": true,
+    "body": "- Website captures consent; loyalty app does not record purpose.\n- Passport scans retained indefinitely at front desks.\n- Guest data shared with a marketing agency abroad without a documented transfer assessment.\n- No data inventory."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "multi",
+    "prompt": "Which issues create PDPL exposure?",
+    "competencies": [
+     "technical",
+     "ethics"
+    ],
+    "options": [
+     {
+      "text": "Loyalty app without recorded purpose/consent",
+      "correct": true
+     },
+     {
+      "text": "Indefinite retention of passport scans",
+      "correct": true
+     },
+     {
+      "text": "Cross-border transfer without assessment",
+      "correct": true
+     },
+     {
+      "text": "Website consent capture",
+      "correct": false
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "type": "rank",
+    "prompt": "Prioritise remediation.",
+    "competencies": [
+     "prioritization"
+    ],
+    "items": [
+     {
+      "id": "transfer",
+      "text": "Assess and document cross-border transfers"
+     },
+     {
+      "id": "retention",
+      "text": "Set retention limits for ID documents"
+     },
+     {
+      "id": "app",
+      "text": "Fix consent in the loyalty app"
+     },
+     {
+      "id": "inventory",
+      "text": "Build a data inventory"
+     }
+    ],
+    "answer": [
+     "transfer",
+     "retention",
+     "app",
+     "inventory"
+    ],
+    "why": "Address the highest legal exposure first; the inventory supports everything else and can run in parallel."
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "Marketing wants to keep sharing data with the agency while you assess.",
+    "competencies": [
+     "ethics",
+     "stakeholder"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Pause new transfers until the assessment is done; offer to fast-track it within two weeks.",
+      "quality": 3,
+      "feedback": "A strong, well-reasoned response.",
+      "effects": {
+       "flags": [
+        "privacy_fixed"
+       ],
+       "trust": {
+        "gc": 3
+       }
+      },
+      "approach": "formal"
+     },
+     {
+      "id": "b",
+      "text": "Continue; it's business as usual.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Pause new transfers until the assessment is done; offer to fast-track it within two weeks.”",
+      "effects": {
+       "schedule": [
+        {
+         "event": "ev_data_complaint",
+         "after": 2,
+         "p": 0.45
+        }
+       ]
+      }
+     }
+    ],
+    "to": "cco"
+   }
+  ],
+  "debrief": {
+   "summary": "You mapped data exposure and prioritised the highest legal risks.",
+   "key_points": [
+    "Know your data before you protect it.",
+    "Cross-border transfers need documented assessment."
+   ],
+   "stronger_approach": "Appoint data owners for each channel.",
+   "transfer": "Data protection principles are similar under many national laws."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "geographies": [
+   "saudi"
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "risk_adjust": [
+       {
+        "risk": "KSA-PDPL",
+        "res_l": -1
+       }
+      ],
+      "org": {
+       "compliance": 3
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {}
+    }
+   ]
+  }
+ },
+ {
+  "id": "K03",
+  "title": "Season of Events",
+  "type": "side",
+  "level": 5,
+  "xp": 200,
+  "duration": "10 min",
+  "objective": "Plan for a major event season: demand surge, crowd safety, supplier capacity and pricing risk.",
+  "concepts": [
+   "third_party",
+   "scenario_analysis",
+   "crisis_governance"
+  ],
+  "from": "coo",
+  "subject": "Event season demand",
+  "briefing": "A season of major events will bring a surge of visitors to Riyadh. Occupancy could exceed 98% for six weeks. How do we capture the opportunity without operational failure?",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Planning data",
+    "kind": "memo",
+    "key": true,
+    "body": "- Forecast occupancy 98% (six weeks).\n- Laundry supplier capacity: 85% of peak need.\n- Agency staff availability uncertain; competitors bidding for the same pool.\n- Last year: lobby overcrowding during an event night; one guest injury."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "multi",
+    "prompt": "Which are the main risks?",
+    "competencies": [
+     "analysis"
+    ],
+    "options": [
+     {
+      "text": "Laundry capacity shortfall",
+      "correct": true
+     },
+     {
+      "text": "Staff shortages",
+      "correct": true
+     },
+     {
+      "text": "Crowd management in lobbies",
+      "correct": true
+     },
+     {
+      "text": "Room rates too low",
+      "correct": false,
+      "why": "A commercial question, not the main operational risk."
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "type": "choice",
+    "prompt": "Laundry capacity covers 85% of peak. Response?",
+    "competencies": [
+     "decision",
+     "prioritization"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Contract a second laundry for the peak and pre-stock extra linen.",
+      "quality": 3,
+      "feedback": "A strong, well-reasoned response.",
+      "effects": {
+       "flags": [
+        "dual_source"
+       ]
+      },
+      "outcome": {
+       "p_bad": 0.2,
+       "good": "Linen never ran short.",
+       "bad": "The second laundry had delays one weekend; extra stock covered it."
+      }
+     },
+     {
+      "id": "b",
+      "text": "Ask guests to reuse towels.",
+      "quality": 1,
+      "feedback": "Helpful but insufficient."
+     },
+     {
+      "id": "c",
+      "text": "Accept shortages.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Contract a second laundry for the peak and pre-stock extra linen.”",
+      "effects": {
+       "org": {
+        "reputation": -3
+       }
+      }
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "How do you handle crowd safety on event nights?",
+    "competencies": [
+     "leadership",
+     "technical"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Crowd plan with timed arrival windows, extra security, clear routes and a trigger to restrict lobby access.",
+      "quality": 3,
+      "feedback": "A strong, well-reasoned response.",
+      "effects": {
+       "org": {
+        "resilience": 2
+       }
+      }
+     },
+     {
+      "id": "b",
+      "text": "Rely on usual staffing.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Crowd plan with timed arrival windows, extra security, clear routes and a trigger to restrict lobby access.”",
+      "effects": {
+       "schedule": [
+        {
+         "event": "ev_safety_injury",
+         "after": 2,
+         "p": 0.3
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "debrief": {
+   "summary": "You balanced opportunity with operational resilience.",
+   "key_points": [
+    "Peak demand stresses suppliers and people.",
+    "Crowd safety needs triggers, not hope."
+   ],
+   "stronger_approach": "Run a scenario where the event schedule changes at short notice.",
+   "transfer": "Peak planning applies to retail holidays and healthcare winters."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "geographies": [
+   "saudi"
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "org": {
+       "revenue": 2000000,
+       "reputation": 2
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {}
+    }
+   ]
+  }
+ }
+]

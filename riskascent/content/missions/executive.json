@@ -1,0 +1,973 @@
+[
+ {
+  "id": "X01",
+  "title": "Group CRO: Many Entities, One Appetite",
+  "type": "executive",
+  "level": 10,
+  "xp": 400,
+  "duration": "10 min",
+  "objective": "Executive assessment for the Group Chief Risk Officer path.",
+  "concepts": [
+   "capital_allocation",
+   "risk_culture",
+   "crisis_governance"
+  ],
+  "from": "board",
+  "subject": "Executive assessment: Group Chief Risk Officer",
+  "briefing": "You oversee risk across five subsidiaries in four countries with different regulators. One subsidiary's local appetite allows risks the group would not accept.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Role brief",
+    "kind": "memo",
+    "key": true,
+    "body": "You oversee risk across five subsidiaries in four countries with different regulators. One subsidiary's local appetite allows risks the group would not accept."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "choice",
+    "prompt": "How do you reconcile group and local appetite?",
+    "competencies": [
+     "strategy",
+     "leadership"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Set group appetite as the outer boundary; subsidiaries may be stricter, never looser, with documented local adaptations approved by the group.",
+      "quality": 3,
+      "feedback": "A strong, well-reasoned response."
+     },
+     {
+      "id": "b",
+      "text": "Let each subsidiary decide.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Set group appetite as the outer boundary; subsidiaries may be stricter, never looser, with documented local adaptations approved by the group.”"
+     },
+     {
+      "id": "c",
+      "text": "Impose identical rules everywhere.",
+      "quality": 1,
+      "feedback": "Ignores local regulation."
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s2",
+    "type": "choice",
+    "prompt": "A profitable subsidiary breaches group appetite repeatedly.",
+    "competencies": [
+     "ethics",
+     "stakeholder"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Escalate to the group risk committee with options: remediation plan, capital charge or reduced activity.",
+      "quality": 3,
+      "feedback": "A strong, well-reasoned response."
+     },
+     {
+      "id": "b",
+      "text": "Tolerate it because it's profitable.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Escalate to the group risk committee with options: remediation plan, capital charge or reduced activity.”"
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "type": "numeric",
+    "prompt": "Group capacity is {m:200000000}. Subsidiary severe losses are {m:60000000}, {m:45000000}, {m:30000000}, {m:25000000}, {m:20000000}. What % of capacity would a simultaneous severe scenario use?",
+    "competencies": [
+     "financial"
+    ],
+    "formula": "(60+45+30+25+20)/200*100",
+    "vars": {},
+    "unit": "percent",
+    "tolerance_pct": 2,
+    "solution": "180/200 = 90%."
+   }
+  ],
+  "debrief": {
+   "summary": "You set a group boundary that respects local regulation.",
+   "key_points": [
+    "Group appetite is the outer boundary."
+   ],
+   "stronger_approach": "Run a group-wide correlated stress test.",
+   "transfer": "Group oversight applies to banking groups, hotel chains and conglomerates."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "requires": {
+   "min_capstone": "FINAL"
+  }
+ },
+ {
+  "id": "X02",
+  "title": "CEO: Growth versus Resilience",
+  "type": "executive",
+  "level": 10,
+  "xp": 400,
+  "duration": "10 min",
+  "objective": "Executive assessment for the Chief Executive Officer path.",
+  "concepts": [
+   "capital_allocation",
+   "risk_culture",
+   "crisis_governance"
+  ],
+  "from": "board",
+  "subject": "Executive assessment: Chief Executive Officer",
+  "briefing": "As CEO you must choose between a growth plan that pleases investors and a resilience programme your CRO says is essential. The board expects you to own the trade-off.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Role brief",
+    "kind": "memo",
+    "key": true,
+    "body": "As CEO you must choose between a growth plan that pleases investors and a resilience programme your CRO says is essential. The board expects you to own the trade-off."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "choice",
+    "prompt": "How do you decide?",
+    "competencies": [
+     "strategy",
+     "leadership",
+     "decision"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Fund the resilience elements that keep exposures within appetite, phase growth to match capacity, and explain the trade-off to investors.",
+      "quality": 3,
+      "feedback": "A strong, well-reasoned response."
+     },
+     {
+      "id": "b",
+      "text": "Back growth; resilience can wait.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Fund the resilience elements that keep exposures within appetite, phase growth to match capacity, and explain the trade-off to investors.”"
+     },
+     {
+      "id": "c",
+      "text": "Freeze growth entirely.",
+      "quality": 1,
+      "feedback": "This addresses part of the problem but misses something important. A stronger option was: “Fund the resilience elements that keep exposures within appetite, phase growth to match capacity, and explain the trade-off to investors.”"
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s2",
+    "type": "choice",
+    "prompt": "Your CRO disagrees with your final plan. What do you do?",
+    "competencies": [
+     "ethics",
+     "leadership"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Ensure the CRO's view reaches the board unfiltered and explain your reasoning.",
+      "quality": 3,
+      "feedback": "A strong, well-reasoned response."
+     },
+     {
+      "id": "b",
+      "text": "Ask the CRO to support you publicly.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Ensure the CRO's view reaches the board unfiltered and explain your reasoning.”"
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "type": "write",
+    "prompt": "Write the investor message (under 80 words).",
+    "competencies": [
+     "communication",
+     "strategy"
+    ],
+    "rubric": [
+     {
+      "element": "Growth",
+      "keywords": [
+       "growth"
+      ],
+      "tip": "Mention growth."
+     },
+     {
+      "element": "Resilience",
+      "keywords": [
+       "resilien"
+      ],
+      "tip": "Mention resilience."
+     },
+     {
+      "element": "Trade-off",
+      "keywords": [
+       "phase",
+       "balance",
+       "pace"
+      ],
+      "tip": "Explain the trade-off."
+     }
+    ],
+    "model_answer": "We will grow at a pace our resilience can support. This year we are investing in the systems that protect customers and operations, and phasing two growth initiatives behind clear milestones. That balance protects long-term value.",
+    "min_words": 25,
+    "max_words": 80
+   }
+  ],
+  "debrief": {
+   "summary": "You owned the trade-off and protected independent challenge.",
+   "key_points": [
+    "CEOs own risk decisions; CROs inform them."
+   ],
+   "stronger_approach": "Tie executive incentives to appetite adherence.",
+   "transfer": "The CEO path tests whether risk judgement survives accountability for everything."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "requires": {
+   "min_capstone": "FINAL"
+  }
+ },
+ {
+  "id": "X03",
+  "title": "COO: Efficiency or Redundancy",
+  "type": "executive",
+  "level": 10,
+  "xp": 400,
+  "duration": "10 min",
+  "objective": "Executive assessment for the Chief Operating Officer path.",
+  "concepts": [
+   "capital_allocation",
+   "risk_culture",
+   "crisis_governance"
+  ],
+  "from": "board",
+  "subject": "Executive assessment: Chief Operating Officer",
+  "briefing": "As COO you are asked to cut 8% of operating cost. The cheapest options remove redundancy from critical processes.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Role brief",
+    "kind": "memo",
+    "key": true,
+    "body": "As COO you are asked to cut 8% of operating cost. The cheapest options remove redundancy from critical processes."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "allocate",
+    "prompt": "Choose savings to reach at least 8 points while minimising resilience loss (value = resilience preserved).",
+    "competencies": [
+     "prioritization",
+     "decision"
+    ],
+    "budget": 10,
+    "unit": "cost units",
+    "items": [
+     {
+      "id": "auto",
+      "text": "Automate back-office tasks",
+      "cost": 3,
+      "value": 8
+     },
+     {
+      "id": "proc",
+      "text": "Consolidate procurement",
+      "cost": 3,
+      "value": 7
+     },
+     {
+      "id": "spare",
+      "text": "Remove spare capacity in critical processes",
+      "cost": 2,
+      "value": 1,
+      "note": "Cuts redundancy."
+     },
+     {
+      "id": "space",
+      "text": "Reduce office space",
+      "cost": 2,
+      "value": 6
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "type": "choice",
+    "prompt": "A site manager warns that a proposed cut removes the only backup line.",
+    "competencies": [
+     "leadership",
+     "stakeholder"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Exclude it and find the saving elsewhere; thank the manager publicly for raising it.",
+      "quality": 3,
+      "feedback": "A strong, well-reasoned response."
+     },
+     {
+      "id": "b",
+      "text": "Proceed; the target is fixed.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Exclude it and find the saving elsewhere; thank the manager publicly for raising it.”"
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "How do you measure whether efficiency harmed resilience?",
+    "competencies": [
+     "technical",
+     "strategy"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Track tested recovery times and near misses against tolerances before and after.",
+      "quality": 3,
+      "feedback": "A strong, well-reasoned response."
+     },
+     {
+      "id": "b",
+      "text": "Track cost only.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Track tested recovery times and near misses against tolerances before and after.”"
+     }
+    ]
+   }
+  ],
+  "debrief": {
+   "summary": "You cut cost without cutting critical redundancy.",
+   "key_points": [
+    "Efficiency and resilience trade off; choose consciously."
+   ],
+   "stronger_approach": "Map every cut to affected recovery objectives.",
+   "transfer": "Operations leaders face this trade-off in every industry."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "requires": {
+   "min_capstone": "FINAL"
+  }
+ },
+ {
+  "id": "X04",
+  "title": "Board Adviser: Influence Without Authority",
+  "type": "executive",
+  "level": 10,
+  "xp": 400,
+  "duration": "10 min",
+  "objective": "Executive assessment for the Board Risk Committee Adviser path.",
+  "concepts": [
+   "capital_allocation",
+   "risk_culture",
+   "crisis_governance"
+  ],
+  "from": "board",
+  "subject": "Executive assessment: Board Risk Committee Adviser",
+  "briefing": "As an independent adviser to the board risk committee, you have no operational authority. Management's risk report is polished but omits a worsening exposure.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Role brief",
+    "kind": "memo",
+    "key": true,
+    "body": "As an independent adviser to the board risk committee, you have no operational authority. Management's risk report is polished but omits a worsening exposure."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "choice",
+    "prompt": "How do you raise the omission?",
+    "competencies": [
+     "communication",
+     "ethics"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Ask a specific question in committee, with evidence, and request a follow-up paper.",
+      "quality": 3,
+      "feedback": "A strong, well-reasoned response."
+     },
+     {
+      "id": "b",
+      "text": "Say nothing; it's management's report.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Ask a specific question in committee, with evidence, and request a follow-up paper.”"
+     },
+     {
+      "id": "c",
+      "text": "Leak it to the press.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Ask a specific question in committee, with evidence, and request a follow-up paper.”"
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "type": "choice",
+    "prompt": "Management says the exposure is 'in hand'. Response?",
+    "competencies": [
+     "evidence",
+     "stakeholder"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Ask what evidence supports that and what would trigger escalation.",
+      "quality": 3,
+      "feedback": "A strong, well-reasoned response."
+     },
+     {
+      "id": "b",
+      "text": "Accept the assurance.",
+      "quality": 1,
+      "feedback": "This addresses part of the problem but misses something important. A stronger option was: “Ask what evidence supports that and what would trigger escalation.”"
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s3",
+    "type": "write",
+    "prompt": "Write the question you put to management (under 50 words).",
+    "competencies": [
+     "communication"
+    ],
+    "rubric": [
+     {
+      "element": "Specific",
+      "keywords": [
+       "kri",
+       "trend",
+       "exposure"
+      ],
+      "tip": "Name the exposure."
+     },
+     {
+      "element": "Evidence",
+      "keywords": [
+       "evidence",
+       "data",
+       "show"
+      ],
+      "tip": "Ask for evidence."
+     },
+     {
+      "element": "Trigger",
+      "keywords": [
+       "trigger",
+       "threshold",
+       "when"
+      ],
+      "tip": "Ask about triggers."
+     }
+    ],
+    "model_answer": "The supplier concentration KRI has risen for four quarters and is not in the report. What evidence shows it is in hand, and at what threshold would management escalate it to this committee?",
+    "min_words": 25,
+    "max_words": 50
+   }
+  ],
+  "debrief": {
+   "summary": "You influenced through precise questions and evidence.",
+   "key_points": [
+    "Advisers influence through questions."
+   ],
+   "stronger_approach": "Agree a standing 'what's missing' item.",
+   "transfer": "Independent advisory skills apply to audit committees and regulators."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "requires": {
+   "min_capstone": "FINAL"
+  }
+ },
+ {
+  "id": "X05",
+  "title": "Consultant: The Client Who Won't Listen",
+  "type": "executive",
+  "level": 10,
+  "xp": 400,
+  "duration": "10 min",
+  "objective": "Executive assessment for the Independent Enterprise Risk Consultant path.",
+  "concepts": [
+   "capital_allocation",
+   "risk_culture",
+   "crisis_governance"
+  ],
+  "from": "board",
+  "subject": "Executive assessment: Independent Enterprise Risk Consultant",
+  "briefing": "A client hired you to 'validate' their risk framework. Your review finds serious gaps they don't want to hear.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Role brief",
+    "kind": "memo",
+    "key": true,
+    "body": "A client hired you to 'validate' their risk framework. Your review finds serious gaps they don't want to hear."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "choice",
+    "prompt": "How do you report the gaps?",
+    "competencies": [
+     "ethics",
+     "communication"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Report them clearly with evidence and practical options, regardless of the 'validation' brief.",
+      "quality": 3,
+      "feedback": "A strong, well-reasoned response."
+     },
+     {
+      "id": "b",
+      "text": "Soften them to secure the next contract.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Report them clearly with evidence and practical options, regardless of the 'validation' brief.”"
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s2",
+    "type": "choice",
+    "prompt": "The client asks you to remove a finding from the final report.",
+    "competencies": [
+     "ethics",
+     "stakeholder"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Decline, but offer to add management's response alongside it.",
+      "quality": 3,
+      "feedback": "A strong, well-reasoned response."
+     },
+     {
+      "id": "b",
+      "text": "Remove it.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Decline, but offer to add management's response alongside it.”"
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "How do you scope your next proposal?",
+    "competencies": [
+     "stakeholder",
+     "strategy"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Around the client's highest-value gaps, with measurable outcomes and knowledge transfer.",
+      "quality": 3,
+      "feedback": "A strong, well-reasoned response."
+     },
+     {
+      "id": "b",
+      "text": "As many days as possible.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Around the client's highest-value gaps, with measurable outcomes and knowledge transfer.”"
+     }
+    ]
+   }
+  ],
+  "debrief": {
+   "summary": "You kept independence while staying useful.",
+   "key_points": [
+    "Consultants sell credibility."
+   ],
+   "stronger_approach": "Write findings so management can act on them.",
+   "transfer": "Independence matters for auditors, advisers and assessors."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "requires": {
+   "min_capstone": "FINAL"
+  }
+ },
+ {
+  "id": "X06",
+  "title": "Chief Resilience Officer: The Compound Crisis",
+  "type": "executive",
+  "level": 10,
+  "xp": 400,
+  "duration": "10 min",
+  "objective": "Executive assessment for the Chief Resilience Officer path.",
+  "concepts": [
+   "capital_allocation",
+   "risk_culture",
+   "crisis_governance"
+  ],
+  "from": "board",
+  "subject": "Executive assessment: Chief Resilience Officer",
+  "briefing": "As Chief Resilience Officer, a regional flood has hit two sites while a cyberattack targets your backup systems.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Role brief",
+    "kind": "memo",
+    "key": true,
+    "body": "As Chief Resilience Officer, a regional flood has hit two sites while a cyberattack targets your backup systems."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "rank",
+    "prompt": "Prioritise.",
+    "competencies": [
+     "prioritization",
+     "leadership"
+    ],
+    "items": [
+     {
+      "id": "people",
+      "text": "Account for staff and customers at flooded sites"
+     },
+     {
+      "id": "cyber",
+      "text": "Isolate backup systems from the attack"
+     },
+     {
+      "id": "ops",
+      "text": "Shift critical processes to unaffected sites"
+     },
+     {
+      "id": "comms",
+      "text": "Stakeholder communication"
+     }
+    ],
+    "answer": [
+     "people",
+     "cyber",
+     "ops",
+     "comms"
+    ],
+    "why": ""
+   },
+   {
+    "id": "s2",
+    "type": "choice",
+    "prompt": "Backups may be compromised. What's your recovery approach?",
+    "competencies": [
+     "decision",
+     "technical"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Restore from offline backups verified clean, accept a longer RTO, and communicate the revised timeline.",
+      "quality": 3,
+      "feedback": "A strong, well-reasoned response."
+     },
+     {
+      "id": "b",
+      "text": "Restore immediately from the latest backups.",
+      "quality": 0,
+      "feedback": "Could reinfect systems."
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "What's the key lesson for resilience design?",
+    "competencies": [
+     "strategy"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Plan for compound scenarios: recovery capabilities must not share the same failure modes.",
+      "quality": 3,
+      "feedback": "A strong, well-reasoned response."
+     },
+     {
+      "id": "b",
+      "text": "Buy more insurance.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Plan for compound scenarios: recovery capabilities must not share the same failure modes.”"
+     }
+    ]
+   }
+  ],
+  "debrief": {
+   "summary": "You managed a compound crisis with clean recovery and clear priorities.",
+   "key_points": [
+    "Recovery capabilities must be independent of the threats they recover from."
+   ],
+   "stronger_approach": "Exercise compound scenarios annually.",
+   "transfer": "Compound-event resilience matters for hospitals, utilities and governments."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "requires": {
+   "min_capstone": "FINAL"
+  }
+ },
+ {
+  "id": "X07",
+  "title": "Specialist Executive: The Model That Failed",
+  "type": "executive",
+  "level": 10,
+  "xp": 400,
+  "duration": "10 min",
+  "objective": "Executive assessment for the Specialist Risk Executive path.",
+  "concepts": [
+   "capital_allocation",
+   "risk_culture",
+   "crisis_governance"
+  ],
+  "from": "board",
+  "subject": "Executive assessment: Specialist Risk Executive",
+  "briefing": "As the executive for cyber and financial risk, a critical risk model badly understated losses in a stress event.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Role brief",
+    "kind": "memo",
+    "key": true,
+    "body": "As the executive for cyber and financial risk, a critical risk model badly understated losses in a stress event."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "choice",
+    "prompt": "First response?",
+    "competencies": [
+     "technical",
+     "ethics"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Disclose the model failure to the board, quantify the gap, and apply overlays until fixed.",
+      "quality": 3,
+      "feedback": "A strong, well-reasoned response."
+     },
+     {
+      "id": "b",
+      "text": "Quietly recalibrate.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Disclose the model failure to the board, quantify the gap, and apply overlays until fixed.”"
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s2",
+    "type": "multi",
+    "prompt": "Likely causes of understatement?",
+    "competencies": [
+     "analysis",
+     "technical"
+    ],
+    "options": [
+     {
+      "text": "Calibration data excluded stress periods",
+      "correct": true
+     },
+     {
+      "text": "Correlations rose in the stress event",
+      "correct": true
+     },
+     {
+      "text": "Liquidity effects not modelled",
+      "correct": true
+     },
+     {
+      "text": "Too many simulations",
+      "correct": false
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "How do you strengthen model governance?",
+    "competencies": [
+     "strategy",
+     "technical"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Independent validation, stress back-testing and documented limitations reported with every output.",
+      "quality": 3,
+      "feedback": "A strong, well-reasoned response."
+     },
+     {
+      "id": "b",
+      "text": "Use a more complex model.",
+      "quality": 1,
+      "feedback": "Complexity is not validation."
+     }
+    ]
+   }
+  ],
+  "debrief": {
+   "summary": "You treated model risk as a governance issue.",
+   "key_points": [
+    "Models fail in stress; plan for it."
+   ],
+   "stronger_approach": "Publish model limitations with outputs.",
+   "transfer": "Model risk applies to credit, pricing, AI and operational models."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "requires": {
+   "min_capstone": "FINAL"
+  }
+ }
+]

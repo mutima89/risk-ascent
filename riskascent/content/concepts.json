@@ -1,0 +1,660 @@
+[
+ {
+  "id": "risk_definition",
+  "title": "What a risk is",
+  "question": "Which statement best describes a risk (rather than an issue)?",
+  "options": [
+   "A server is down right now",
+   "An uncertain event that, if it occurs, would affect objectives",
+   "A control that has failed an audit",
+   "A department that is over budget"
+  ],
+  "answer": 1,
+  "explanation": "A risk is uncertain and future-facing; an issue has already happened. Treating issues as risks hides the need for immediate action.",
+  "competency": "technical"
+ },
+ {
+  "id": "cause_event_consequence",
+  "title": "Cause, event, consequence",
+  "question": "A good risk statement links which three elements?",
+  "options": [
+   "Owner, budget, date",
+   "Cause, event, consequence",
+   "Likelihood, impact, score",
+   "Control, test, evidence"
+  ],
+  "answer": 1,
+  "explanation": "Writing 'Because of [cause], [event] may occur, leading to [consequence]' makes the risk actionable: controls target causes, contingency targets consequences.",
+  "competency": "technical"
+ },
+ {
+  "id": "inherent_vs_residual",
+  "title": "Inherent versus residual",
+  "question": "Residual risk is best described as:",
+  "options": [
+   "Risk before any controls",
+   "Risk remaining after existing controls",
+   "Risk accepted by the board",
+   "The worst-case loss"
+  ],
+  "answer": 1,
+  "explanation": "Inherent risk ignores controls; residual risk reflects controls as they actually operate. Overstating control effectiveness understates residual risk.",
+  "competency": "technical"
+ },
+ {
+  "id": "likelihood_impact",
+  "title": "Likelihood and impact scales",
+  "question": "Why define likelihood ratings with probability ranges?",
+  "options": [
+   "To make the matrix look scientific",
+   "So different assessors rate consistently",
+   "Because regulators require exactly five levels",
+   "To avoid having to collect data"
+  ],
+  "answer": 1,
+  "explanation": "Anchoring ratings to probability and impact ranges reduces disagreement between assessors and makes ratings auditable.",
+  "competency": "technical"
+ },
+ {
+  "id": "heatmap_limits",
+  "title": "Limits of heat maps",
+  "question": "A risk scored 20 on a 5x5 matrix is:",
+  "options": [
+   "Twice as costly as a risk scored 10",
+   "Ranked higher, but not necessarily twice as bad",
+   "Certain to occur",
+   "Outside appetite by definition"
+  ],
+  "answer": 1,
+  "explanation": "Matrix scores are ordinal. Multiplying ratings does not create a ratio scale; use quantitative analysis for money decisions.",
+  "competency": "analysis"
+ },
+ {
+  "id": "risk_owner",
+  "title": "Risk ownership",
+  "question": "Who should own a risk?",
+  "options": [
+   "The risk team",
+   "Whoever discovered it",
+   "The manager accountable for the objective it affects and with authority to act",
+   "Internal audit"
+  ],
+  "answer": 2,
+  "explanation": "Owners need authority and accountability. The risk function facilitates and challenges; it does not own business risks.",
+  "competency": "technical"
+ },
+ {
+  "id": "near_miss",
+  "title": "Near misses",
+  "question": "Why record near misses?",
+  "options": [
+   "To blame individuals",
+   "They are free lessons about control gaps before harm occurs",
+   "They are legally required everywhere",
+   "To increase incident counts"
+  ],
+  "answer": 1,
+  "explanation": "Near misses reveal the same causes as incidents without the harm. A falling near-miss count often signals under-reporting, not improvement.",
+  "competency": "evidence"
+ },
+ {
+  "id": "control_types",
+  "title": "Preventive, detective, corrective",
+  "question": "A smoke detector is primarily which type of control?",
+  "options": [
+   "Preventive",
+   "Detective",
+   "Corrective",
+   "Directive"
+  ],
+  "answer": 1,
+  "explanation": "Detectors identify an event that is occurring; sprinklers are corrective (limit consequences); duct cleaning is preventive (removes a cause).",
+  "competency": "technical"
+ },
+ {
+  "id": "design_vs_operating",
+  "title": "Design versus operating effectiveness",
+  "question": "A well-designed control that staff skip on busy days has:",
+  "options": [
+   "Good design, poor operating effectiveness",
+   "Poor design, good operating effectiveness",
+   "Both good",
+   "Neither can be assessed"
+  ],
+  "answer": 0,
+  "explanation": "Design asks 'would it work if performed?' Operating asks 'is it actually performed consistently?' Both are needed for reliance.",
+  "competency": "technical"
+ },
+ {
+  "id": "expected_loss",
+  "title": "Expected loss",
+  "question": "A 10% annual chance of a 500,000 loss has an expected annual loss of:",
+  "options": [
+   "5,000",
+   "50,000",
+   "500,000",
+   "10%"
+  ],
+  "answer": 1,
+  "explanation": "EL = probability x impact = 0.10 x 500,000 = 50,000. EL is a long-run average, not the loss you will see in a bad year.",
+  "competency": "financial"
+ },
+ {
+  "id": "el_vs_worst",
+  "title": "Expected versus worst-case loss",
+  "question": "Why is expected loss alone insufficient for a board?",
+  "options": [
+   "It is always wrong",
+   "It hides the severity of rare, large losses",
+   "Boards dislike numbers",
+   "It includes too many risks"
+  ],
+  "answer": 1,
+  "explanation": "A low-frequency, high-severity risk can have a modest EL but a survival-threatening worst case. Report both.",
+  "competency": "financial"
+ },
+ {
+  "id": "kri_thresholds",
+  "title": "KRI thresholds",
+  "question": "A KRI warning threshold should trigger:",
+  "options": [
+   "Nothing until critical",
+   "A pre-agreed action by a named owner",
+   "An automatic board meeting",
+   "Deletion of the KRI"
+  ],
+  "answer": 1,
+  "explanation": "Thresholds are only useful if each level maps to an owner and action. Otherwise they are decoration.",
+  "competency": "prioritization"
+ },
+ {
+  "id": "leading_lagging",
+  "title": "Leading and lagging indicators",
+  "question": "Which is a leading indicator of fraud risk?",
+  "options": [
+   "Fraud losses last quarter",
+   "Number of bank-detail changes processed without call-back",
+   "Number of fraud cases closed",
+   "Insurance recoveries"
+  ],
+  "answer": 1,
+  "explanation": "Leading indicators measure conditions that make the event more likely; lagging indicators count events that already happened.",
+  "competency": "analysis"
+ },
+ {
+  "id": "root_cause",
+  "title": "Root cause analysis",
+  "question": "Stopping at 'human error' in an investigation usually means:",
+  "options": [
+   "The root cause is found",
+   "The analysis stopped too early",
+   "The person should be dismissed",
+   "The control worked"
+  ],
+  "answer": 1,
+  "explanation": "Ask why the error was possible and why it was not caught. Root causes are typically in design, workload, training or incentives.",
+  "competency": "analysis"
+ },
+ {
+  "id": "treatment_options",
+  "title": "Treatment options",
+  "question": "Buying insurance is an example of which treatment?",
+  "options": [
+   "Avoid",
+   "Transfer",
+   "Accept",
+   "Mitigate"
+  ],
+  "answer": 1,
+  "explanation": "Insurance transfers financial consequences; it does not reduce likelihood or protect reputation, and you still own the risk.",
+  "competency": "decision"
+ },
+ {
+  "id": "risk_appetite",
+  "title": "Risk appetite",
+  "question": "Risk appetite is:",
+  "options": [
+   "The maximum possible loss",
+   "The amount and type of risk an organisation is willing to pursue or retain",
+   "A list of risks",
+   "The insurance limit"
+  ],
+  "answer": 1,
+  "explanation": "Appetite guides decisions; tolerance sets the outer boundary. Appetite must be specific enough to change behaviour.",
+  "competency": "strategy"
+ },
+ {
+  "id": "tolerance",
+  "title": "Tolerance and escalation",
+  "question": "A risk outside tolerance should:",
+  "options": [
+   "Be ignored if the owner is senior",
+   "Be escalated for a decision: treat, or formally accept by someone authorised",
+   "Be re-scored until it fits",
+   "Be deleted"
+  ],
+  "answer": 1,
+  "explanation": "Re-scoring to fit appetite is a governance failure. Escalate and record the decision.",
+  "competency": "ethics"
+ },
+ {
+  "id": "scenario_analysis",
+  "title": "Scenario analysis",
+  "question": "Good scenarios are:",
+  "options": [
+   "Unrealistic to test extremes only",
+   "Plausible, internally consistent narratives that stretch thinking",
+   "Copied from last year",
+   "Based on a single variable"
+  ],
+  "answer": 1,
+  "explanation": "Scenarios explore combinations of drivers and second-order effects that single-variable sensitivity misses.",
+  "competency": "analysis"
+ },
+ {
+  "id": "sensitivity",
+  "title": "Sensitivity analysis",
+  "question": "A tornado chart shows:",
+  "options": [
+   "Which inputs most change the result",
+   "The probability of each outcome",
+   "The organisation chart",
+   "Monthly trends"
+  ],
+  "answer": 0,
+  "explanation": "One-at-a-time sensitivity ranks inputs by influence so you know which assumptions deserve the most scrutiny.",
+  "competency": "financial"
+ },
+ {
+  "id": "monte_carlo",
+  "title": "Monte Carlo simulation",
+  "question": "A Monte Carlo P95 annual loss of 2m means:",
+  "options": [
+   "Losses will be 2m",
+   "In about 5% of simulated years, losses exceeded 2m",
+   "The average loss is 2m",
+   "There is a 95% chance of losing 2m"
+  ],
+  "answer": 1,
+  "explanation": "Percentiles describe the distribution under the model's assumptions; they are only as good as the frequency and severity inputs.",
+  "competency": "financial"
+ },
+ {
+  "id": "concentration",
+  "title": "Concentration risk",
+  "question": "Concentration risk arises when:",
+  "options": [
+   "Many small independent exposures exist",
+   "Exposures share a common driver, counterparty or location",
+   "Controls are automated",
+   "Risks are scored high"
+  ],
+  "answer": 1,
+  "explanation": "Correlated exposures fail together. Diversification only helps if exposures are genuinely independent.",
+  "competency": "analysis"
+ },
+ {
+  "id": "interconnected",
+  "title": "Interconnected risks",
+  "question": "Why look at risks together rather than one by one?",
+  "options": [
+   "It is faster",
+   "Risks can trigger and amplify each other",
+   "Regulators prefer long lists",
+   "It reduces scores"
+  ],
+  "answer": 1,
+  "explanation": "A supplier failure can trigger a liquidity squeeze and a reputational crisis. Aggregation reveals chains and common causes.",
+  "competency": "strategy"
+ },
+ {
+  "id": "cost_benefit",
+  "title": "Cost-benefit of controls",
+  "question": "A control costs 100k a year and reduces expected loss by 60k a year. Financially it:",
+  "options": [
+   "Pays for itself",
+   "Does not pay for itself on expected loss alone",
+   "Has infinite ROI",
+   "Must be approved"
+  ],
+  "answer": 1,
+  "explanation": "It may still be justified for non-financial reasons (safety, compliance, tail risk) but the case must say so honestly.",
+  "competency": "financial"
+ },
+ {
+  "id": "npv",
+  "title": "Net present value",
+  "question": "Discounting future benefits reflects:",
+  "options": [
+   "Inflation only",
+   "The time value of money and opportunity cost of capital",
+   "Tax",
+   "Depreciation"
+  ],
+  "answer": 1,
+  "explanation": "A benefit next year is worth less than the same benefit today; NPV makes multi-year investments comparable.",
+  "competency": "financial"
+ },
+ {
+  "id": "bia",
+  "title": "Business impact analysis",
+  "question": "The main purpose of a BIA is to:",
+  "options": [
+   "List all IT systems",
+   "Identify critical processes and how quickly they must recover",
+   "Calculate insurance premiums",
+   "Assign blame"
+  ],
+  "answer": 1,
+  "explanation": "The BIA links impact over time to recovery objectives, which then drive continuity strategies and investment.",
+  "competency": "prioritization"
+ },
+ {
+  "id": "rto_rpo",
+  "title": "RTO and RPO",
+  "question": "Recovery point objective (RPO) describes:",
+  "options": [
+   "How fast a process must be restored",
+   "The maximum acceptable data loss measured in time",
+   "The cost of recovery",
+   "The number of staff needed"
+  ],
+  "answer": 1,
+  "explanation": "RTO is time to restore; RPO is how much data (time) you can afford to lose. Backup frequency must meet RPO.",
+  "competency": "technical"
+ },
+ {
+  "id": "mtpd",
+  "title": "Maximum tolerable period of disruption",
+  "question": "Why must RTO be shorter than MTPD?",
+  "options": [
+   "It must not; they are the same",
+   "Recovery has to finish before the disruption becomes intolerable",
+   "MTPD is about data",
+   "Regulators set it"
+  ],
+  "answer": 1,
+  "explanation": "MTPD is the point at which impact becomes unacceptable; RTO is the target to recover safely within it.",
+  "competency": "technical"
+ },
+ {
+  "id": "escalation",
+  "title": "Escalation",
+  "question": "When escalating a material risk you should:",
+  "options": [
+   "Copy everyone",
+   "Give the decision-maker the issue, impact, options and a recommendation",
+   "Wait for certainty",
+   "Escalate only after the incident"
+  ],
+  "answer": 1,
+  "explanation": "Good escalation is timely, targeted and decision-ready. Escalating everything destroys credibility.",
+  "competency": "communication"
+ },
+ {
+  "id": "stakeholder_influence",
+  "title": "Influencing stakeholders",
+  "question": "The most reliable way to influence a sceptical CFO is to:",
+  "options": [
+   "Escalate to the CEO first",
+   "Frame the risk in financial terms with clear assumptions and options",
+   "Use dramatic language",
+   "Avoid numbers"
+  ],
+  "answer": 1,
+  "explanation": "Adapt to the audience: CFOs want quantified trade-offs; operations leaders want workable changes.",
+  "competency": "stakeholder"
+ },
+ {
+  "id": "three_lines",
+  "title": "Three lines model",
+  "question": "In the three lines model, internal audit provides:",
+  "options": [
+   "First-line ownership",
+   "Independent assurance to the board",
+   "Day-to-day control operation",
+   "Sales targets"
+  ],
+  "answer": 1,
+  "explanation": "Management owns and manages risk; risk and compliance oversee and challenge; internal audit provides independent assurance.",
+  "competency": "technical"
+ },
+ {
+  "id": "erm_framework",
+  "title": "ERM frameworks",
+  "question": "Widely used enterprise risk frameworks include:",
+  "options": [
+   "ISO 31000 and COSO ERM",
+   "PCI DSS only",
+   "GAAP",
+   "Agile"
+  ],
+  "answer": 0,
+  "explanation": "ISO 31000 and COSO ERM both emphasise integrating risk into strategy and decision-making, not just maintaining registers.",
+  "competency": "strategy"
+ },
+ {
+  "id": "risk_culture",
+  "title": "Risk culture",
+  "question": "A strong risk culture is most evident when:",
+  "options": [
+   "The register is long",
+   "People raise bad news early without fear",
+   "Every risk is red",
+   "The risk team approves everything"
+  ],
+  "answer": 1,
+  "explanation": "Culture shows in behaviour under pressure: whether people speak up, and how leaders respond when they do.",
+  "competency": "leadership"
+ },
+ {
+  "id": "conflict_interest",
+  "title": "Independence and conflicts",
+  "question": "If a business leader pressures you to downgrade a risk rating without new evidence you should:",
+  "options": [
+   "Comply to preserve the relationship",
+   "Hold the rating, document the discussion and escalate if needed",
+   "Delete the risk",
+   "Rate it higher to compensate"
+  ],
+  "answer": 1,
+  "explanation": "Integrity of risk information is the risk function's core asset. Change ratings for evidence, not pressure.",
+  "competency": "ethics"
+ },
+ {
+  "id": "calibration",
+  "title": "Confidence calibration",
+  "question": "Being well calibrated means:",
+  "options": [
+   "Always being 100% confident",
+   "Your stated confidence matches how often you are right",
+   "Never stating confidence",
+   "Being cautious"
+  ],
+  "answer": 1,
+  "explanation": "If you say 80% confident, you should be right about 80% of the time. Calibration improves decisions under uncertainty.",
+  "competency": "decision"
+ },
+ {
+  "id": "decision_vs_outcome",
+  "title": "Decision quality versus outcome",
+  "question": "A sound decision followed by a bad outcome:",
+  "options": [
+   "Proves the decision was wrong",
+   "May simply reflect uncertainty; judge the decision on information available at the time",
+   "Should be hidden",
+   "Means you should gamble next time"
+  ],
+  "answer": 1,
+  "explanation": "Separating judgement from luck prevents learning the wrong lessons ('resulting').",
+  "competency": "decision"
+ },
+ {
+  "id": "stress_testing",
+  "title": "Stress testing",
+  "question": "A liquidity stress test asks:",
+  "options": [
+   "What is the expected cash next month?",
+   "Could we survive a severe but plausible shock, and for how long?",
+   "How profitable is the product?",
+   "What is the share price?"
+  ],
+  "answer": 1,
+  "explanation": "Stress tests use severe but plausible scenarios to find breaking points and to set contingency triggers.",
+  "competency": "financial"
+ },
+ {
+  "id": "capital_allocation",
+  "title": "Risk-adjusted decisions",
+  "question": "Integrating risk into capital allocation means:",
+  "options": [
+   "Approving only zero-risk projects",
+   "Comparing returns after accounting for risk and strategic fit",
+   "Letting the risk team choose projects",
+   "Ignoring downside"
+  ],
+  "answer": 1,
+  "explanation": "Risk is a factor in value: higher-risk projects need higher expected returns and stronger protections.",
+  "competency": "strategy"
+ },
+ {
+  "id": "crisis_governance",
+  "title": "Crisis governance",
+  "question": "In the first hour of a crisis the priority is usually:",
+  "options": [
+   "Protect people, establish facts, stabilise, communicate",
+   "Find who is to blame",
+   "Issue a press release with guesses",
+   "Wait for the board"
+  ],
+  "answer": 0,
+  "explanation": "Life safety first, then facts and containment. Communicate what you know and when you will update.",
+  "competency": "leadership"
+ },
+ {
+  "id": "workload",
+  "title": "Leading a team",
+  "question": "An analyst's work is consistently late and error-prone. Your first move is to:",
+  "options": [
+   "Take the work back yourself",
+   "Understand the cause (skills, workload, clarity) and agree a plan",
+   "Report them to HR",
+   "Ignore it"
+  ],
+  "answer": 1,
+  "explanation": "Diagnose before acting. Most performance issues stem from unclear expectations, skills gaps or overload.",
+  "competency": "leadership"
+ },
+ {
+  "id": "risk_reporting",
+  "title": "Board reporting",
+  "question": "Effective board risk reporting:",
+  "options": [
+   "Lists every risk in detail",
+   "Focuses on material exposures, changes, appetite breaches and decisions needed",
+   "Avoids bad news",
+   "Is only numbers"
+  ],
+  "answer": 1,
+  "explanation": "Boards need insight and decisions, not data dumps. Lead with what changed and what you need from them.",
+  "competency": "communication"
+ },
+ {
+  "id": "third_party",
+  "title": "Third-party risk",
+  "question": "Before relying on a critical supplier you should check:",
+  "options": [
+   "Only the price",
+   "Financial health, continuity capability, security and concentration",
+   "Their logo",
+   "Nothing; it is their risk"
+  ],
+  "answer": 1,
+  "explanation": "You can outsource a service, not accountability. Critical suppliers need due diligence and exit plans.",
+  "competency": "prioritization"
+ },
+ {
+  "id": "regulatory_change",
+  "title": "Regulatory change",
+  "question": "A good regulatory change process:",
+  "options": [
+   "Relies on individuals reading newsletters",
+   "Logs each requirement, assesses impact, assigns owners and tracks to completion",
+   "Waits for enforcement",
+   "Is run by sales"
+  ],
+  "answer": 1,
+  "explanation": "Untracked requirements are a predictable source of compliance gaps.",
+  "competency": "technical"
+ },
+ {
+  "id": "insurance",
+  "title": "Insurance and risk financing",
+  "question": "A high insurance deductible:",
+  "options": [
+   "Transfers all losses",
+   "Retains more small losses to lower the premium",
+   "Removes the need for controls",
+   "Is illegal"
+  ],
+  "answer": 1,
+  "explanation": "Risk financing balances retained and transferred losses. Retain frequent small losses; transfer rare severe ones.",
+  "competency": "financial"
+ },
+ {
+  "id": "saudization",
+  "title": "Saudization (Nitaqat)",
+  "question": "In the Saudi market, falling below the required localisation band can lead to:",
+  "options": [
+   "Tax refunds",
+   "Restrictions on visas and services until the ratio is restored",
+   "Higher credit ratings",
+   "Nothing"
+  ],
+  "answer": 1,
+  "explanation": "Workforce localisation is a regulatory requirement with operational consequences; track it as a KRI.",
+  "competency": "technical"
+ },
+ {
+  "id": "pdpl",
+  "title": "Saudi Personal Data Protection Law",
+  "question": "The PDPL requires organisations processing personal data in Saudi Arabia to:",
+  "options": [
+   "Ignore consent",
+   "Have a lawful basis, respect data subject rights and protect data",
+   "Store data only on paper",
+   "Publish all data"
+  ],
+  "answer": 1,
+  "explanation": "Data protection obligations apply across booking channels and partners; consent and purpose must be documented.",
+  "competency": "ethics"
+ },
+ {
+  "id": "hotel_fire",
+  "title": "Hotel fire safety",
+  "question": "Propped-open fire doors are dangerous because:",
+  "options": [
+   "They look untidy",
+   "They allow smoke and fire to spread through escape routes",
+   "They cost energy",
+   "They block Wi-Fi"
+  ],
+  "answer": 1,
+  "explanation": "Fire doors compartmentalise buildings to protect escape routes; a propped door defeats the design.",
+  "competency": "technical"
+ },
+ {
+  "id": "pci",
+  "title": "Payment card security",
+  "question": "Point-to-point encryption reduces card-data risk by:",
+  "options": [
+   "Making cards cheaper",
+   "Encrypting card data at the terminal so systems never see it in clear",
+   "Removing chargebacks",
+   "Avoiding audits"
+  ],
+  "answer": 1,
+  "explanation": "Reducing where card data exists (scope reduction) is often more effective than protecting it everywhere.",
+  "competency": "technical"
+ }
+]

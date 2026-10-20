@@ -1,0 +1,170 @@
+[
+ {
+  "id": "t_cyber",
+  "name": "Ransomware spreading across file servers",
+  "domain": "Cyber",
+  "severity": [
+   35,
+   60
+  ],
+  "growth": [
+   10,
+   18
+  ],
+  "reputational": 0.3
+ },
+ {
+  "id": "t_fire",
+  "name": "Fire in a plant room; smoke in occupied areas",
+  "domain": "Safety",
+  "severity": [
+   40,
+   65
+  ],
+  "growth": [
+   12,
+   20
+  ],
+  "reputational": 0.4
+ },
+ {
+  "id": "t_supplier",
+  "name": "Critical supplier halts deliveries",
+  "domain": "Third party",
+  "severity": [
+   25,
+   45
+  ],
+  "growth": [
+   6,
+   12
+  ],
+  "reputational": 0.2
+ },
+ {
+  "id": "t_media",
+  "name": "Leaked internal email trending on social media",
+  "domain": "Reputation",
+  "severity": [
+   20,
+   40
+  ],
+  "growth": [
+   10,
+   16
+  ],
+  "reputational": 0.9
+ },
+ {
+  "id": "t_outage",
+  "name": "Payment / booking platform outage",
+  "domain": "Technology",
+  "severity": [
+   30,
+   55
+  ],
+  "growth": [
+   8,
+   14
+  ],
+  "reputational": 0.5
+ },
+ {
+  "id": "t_regulator",
+  "name": "Regulator demands information within 48 hours",
+  "domain": "Compliance",
+  "severity": [
+   20,
+   40
+  ],
+  "growth": [
+   5,
+   10
+  ],
+  "reputational": 0.3
+ },
+ {
+  "id": "t_liquidity",
+  "name": "Major customer payment delayed; cash tight",
+  "domain": "Liquidity",
+  "severity": [
+   25,
+   45
+  ],
+  "growth": [
+   7,
+   12
+  ],
+  "reputational": 0.2
+ },
+ {
+  "id": "t_injury",
+  "name": "Contractor seriously injured on site",
+  "domain": "Safety",
+  "severity": [
+   35,
+   55
+  ],
+  "growth": [
+   6,
+   10
+  ],
+  "reputational": 0.6
+ },
+ {
+  "id": "t_data",
+  "name": "Personal data exposed via misconfigured storage",
+  "domain": "Privacy",
+  "severity": [
+   25,
+   50
+  ],
+  "growth": [
+   8,
+   14
+  ],
+  "reputational": 0.7
+ },
+ {
+  "id": "t_exec",
+  "name": "CFO resigns unexpectedly mid-crisis",
+  "domain": "People",
+  "severity": [
+   15,
+   35
+  ],
+  "growth": [
+   4,
+   9
+  ],
+  "reputational": 0.3
+ },
+ {
+  "id": "t_weather",
+  "name": "Severe storm forecast within 24 hours",
+  "domain": "Natural hazard",
+  "severity": [
+   20,
+   40
+  ],
+  "growth": [
+   12,
+   18
+  ],
+  "reputational": 0.2
+ },
+ {
+  "id": "t_fraud",
+  "name": "Suspected insider fraud discovered",
+  "domain": "Financial",
+  "severity": [
+   20,
+   40
+  ],
+  "growth": [
+   6,
+   10
+  ],
+  "reputational": 0.5
+ }
+]

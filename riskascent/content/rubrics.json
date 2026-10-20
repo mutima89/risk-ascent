@@ -1,0 +1,275 @@
+{
+ "stage_expectations": {
+  "1": {
+   "technical": 45,
+   "evidence": 42,
+   "analysis": 40,
+   "prioritization": 38,
+   "financial": 35,
+   "decision": 38,
+   "communication": 40,
+   "stakeholder": 35,
+   "ethics": 45,
+   "leadership": 28,
+   "strategy": 28
+  },
+  "2": {
+   "technical": 50,
+   "evidence": 47,
+   "analysis": 46,
+   "prioritization": 44,
+   "financial": 41,
+   "decision": 44,
+   "communication": 46,
+   "stakeholder": 42,
+   "ethics": 50,
+   "leadership": 37,
+   "strategy": 37
+  },
+  "3": {
+   "technical": 55,
+   "evidence": 52,
+   "analysis": 52,
+   "prioritization": 50,
+   "financial": 47,
+   "decision": 50,
+   "communication": 52,
+   "stakeholder": 49,
+   "ethics": 55,
+   "leadership": 46,
+   "strategy": 46
+  },
+  "4": {
+   "technical": 60,
+   "evidence": 57,
+   "analysis": 58,
+   "prioritization": 56,
+   "financial": 53,
+   "decision": 56,
+   "communication": 58,
+   "stakeholder": 56,
+   "ethics": 60,
+   "leadership": 55,
+   "strategy": 55
+  },
+  "5": {
+   "technical": 65,
+   "evidence": 62,
+   "analysis": 64,
+   "prioritization": 62,
+   "financial": 59,
+   "decision": 62,
+   "communication": 64,
+   "stakeholder": 63,
+   "ethics": 65,
+   "leadership": 64,
+   "strategy": 64
+  },
+  "6": {
+   "technical": 70,
+   "evidence": 67,
+   "analysis": 70,
+   "prioritization": 68,
+   "financial": 65,
+   "decision": 68,
+   "communication": 70,
+   "stakeholder": 70,
+   "ethics": 70,
+   "leadership": 73,
+   "strategy": 73
+  }
+ },
+ "rubrics": [
+  {
+   "id": "analytical",
+   "title": "Analytical Thinking",
+   "competencies": [
+    "analysis",
+    "evidence",
+    "decision"
+   ],
+   "criteria": [
+    "Separates facts, assumptions and unknowns",
+    "Uses evidence proportionate to the decision",
+    "Identifies root causes rather than symptoms",
+    "States uncertainty and how it affects the conclusion"
+   ],
+   "levels": {
+    "1": "Identifies obvious facts and asks for missing information when prompted.",
+    "2": "Structures problems independently; distinguishes evidence quality; challenges weak data.",
+    "3": "Guides others' analysis; spots flawed reasoning in team work quickly.",
+    "4": "Integrates analysis across domains; identifies systemic patterns and common causes.",
+    "5": "Frames enterprise questions; knows when more analysis will not change the decision.",
+    "6": "Shapes the questions the board asks; balances rigour with timeliness under pressure."
+   }
+  },
+  {
+   "id": "controls",
+   "title": "Risk and Controls",
+   "competencies": [
+    "technical",
+    "prioritization"
+   ],
+   "criteria": [
+    "Writes complete cause-event-consequence statements",
+    "Rates likelihood and impact consistently with scales",
+    "Assesses control design and operation separately",
+    "Prioritises by residual exposure and appetite"
+   ],
+   "levels": {
+    "1": "Classifies risks and controls correctly with guidance.",
+    "2": "Maintains registers accurately; rates consistently; tracks actions.",
+    "3": "Designs proportionate controls; assigns ownership; reviews team assessments.",
+    "4": "Sets assessment standards; aggregates across domains.",
+    "5": "Aligns control investment with appetite and strategy.",
+    "6": "Owns the enterprise control philosophy and assurance model."
+   }
+  },
+  {
+   "id": "quant",
+   "title": "Financial and Quantitative Modelling",
+   "competencies": [
+    "financial"
+   ],
+   "criteria": [
+    "Calculates expected loss and cost-benefit correctly",
+    "States assumptions, units and uncertainty",
+    "Distinguishes expected from worst-case loss",
+    "Chooses methods proportionate to the decision"
+   ],
+   "levels": {
+    "1": "Performs basic expected-loss calculations.",
+    "2": "Builds simple scenario and sensitivity models.",
+    "3": "Uses simulation appropriately and explains limitations.",
+    "4": "Evaluates investments and aggregate exposure with risk-adjusted metrics.",
+    "5": "Integrates risk into capital allocation.",
+    "6": "Sets stress-testing strategy and challenges enterprise financial plans."
+   }
+  },
+  {
+   "id": "influence",
+   "title": "Communication and Influence",
+   "competencies": [
+    "communication",
+    "stakeholder"
+   ],
+   "criteria": [
+    "Leads with the message and the decision needed",
+    "Adapts to the audience's priorities and style",
+    "Escalates proportionately and on time",
+    "Maintains trust while challenging"
+   ],
+   "levels": {
+    "1": "Writes clear, concise observations.",
+    "2": "Presents findings to operational managers persuasively.",
+    "3": "Handles disagreement and negotiates action plans.",
+    "4": "Influences executives without formal authority.",
+    "5": "Chairs committees and builds coalitions.",
+    "6": "Communicates uncertainty to boards and external stakeholders credibly."
+   }
+  },
+  {
+   "id": "leadership",
+   "title": "Leadership and Strategy",
+   "competencies": [
+    "leadership",
+    "strategy",
+    "ethics"
+   ],
+   "criteria": [
+    "Acts with integrity under pressure",
+    "Develops people and allocates work fairly",
+    "Connects risk to strategic objectives",
+    "Takes accountability for decisions"
+   ],
+   "levels": {
+    "1": "Demonstrates integrity and reliability.",
+    "2": "Takes ownership of assigned work and raises concerns.",
+    "3": "Leads a team; coaches and delegates effectively.",
+    "4": "Leads a function; shapes priorities across departments.",
+    "5": "Builds the risk strategy and culture.",
+    "6": "Balances growth, resilience and accountability at enterprise level."
+   }
+  },
+  {
+   "id": "ethics",
+   "title": "Ethical Judgement",
+   "competencies": [
+    "ethics",
+    "decision"
+   ],
+   "criteria": [
+    "Recognises conflicts of interest and pressure",
+    "Protects the integrity of risk information",
+    "Considers people affected by decisions",
+    "Escalates misconduct appropriately"
+   ],
+   "levels": {
+    "1": "Recognises clear ethical issues.",
+    "2": "Resists pressure to alter evidence.",
+    "3": "Supports team members who raise concerns.",
+    "4": "Challenges senior leaders on ethical grounds.",
+    "5": "Embeds ethical considerations in governance.",
+    "6": "Models integrity for the whole organisation."
+   }
+  }
+ ],
+ "recommendations": {
+  "technical": [
+   "Replay 'Inherent or Residual?' without hints",
+   "Review cards: control types, inherent vs residual",
+   "Use the Risk Assessment Workbench on three register risks"
+  ],
+  "evidence": [
+   "Open every key document before deciding (Investigation workspace)",
+   "Replay 'Incident and Near-Miss Log'",
+   "Review card: near misses"
+  ],
+  "analysis": [
+   "Replay 'Five Whys at the Loading Dock'",
+   "Practise scenario analysis in the Financial Lab",
+   "Review cards: root cause, concentration risk"
+  ],
+  "prioritization": [
+   "Rank register risks against appetite in the Workbench",
+   "Run a crisis exercise focusing on the most severe threat first",
+   "Review card: BIA"
+  ],
+  "financial": [
+   "Run Monte Carlo and cost-benefit in the Financial Lab",
+   "Replay 'Pricing the Exposure'",
+   "Review cards: expected loss, NPV"
+  ],
+  "decision": [
+   "Record confidence before decisions to build calibration",
+   "Read the luck-versus-judgement notes in debriefs",
+   "Review card: decision quality versus outcome"
+  ],
+  "communication": [
+   "Replay a write-up step and compare with the model answer",
+   "Reply to inbox messages using the stakeholder's preferred style",
+   "Review card: escalation"
+  ],
+  "stakeholder": [
+   "Study stakeholder preferences in the Stakeholder screen",
+   "Replay 'Pushback from Operations'",
+   "Review card: influencing stakeholders"
+  ],
+  "ethics": [
+   "Replay 'The Rating Nobody Wants'",
+   "Review cards: independence and conflicts, tolerance",
+   "Consider who bears the consequences in each option"
+  ],
+  "leadership": [
+   "Replay 'Too Much on One Desk'",
+   "Run a crisis exercise as incident lead",
+   "Review card: leading a team"
+  ],
+  "strategy": [
+   "Replay 'Risk in the Strategic Plan'",
+   "Generate a board risk summary and critique it",
+   "Review cards: appetite, capital allocation"
+  ]
+ },
+ "scoring_notes": "Competency scores move towards demonstrated performance using an adaptive moving average. Worked examples reduce the weight of evidence. Promotion requires minimum scores, not just XP."
+}

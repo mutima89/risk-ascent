@@ -1,0 +1,13 @@
+Risk Ascent self-test: PASS
+Data folder: Z:\home\user\winbuild\rb\stdata1
+
+[PASS] Content loads and validates (0.0s): 67 missions, 281 decision points, 81 achievements, 9 organisations
+[PASS] Create a new career (0.25s): slot file Z:\home\user\winbuild\rb\stdata1\saves\slot_1.db
+[PASS] Open every screen (7.79s): 23 screens opened (including title and mission briefing)
+[PASS] Play a mission through the UI (1.0s): M01 completed through the UI with score 1.00, XP 120
+[PASS] Progress survives close and reopen (0.3s): best scores {'M01': 1.0}, XP 120 preserved across close/reopen; 3 backups
+[PASS] Half-finished mission resumes after restart (1.21s): M02 resumed at decision 3 after restart and completed (1.00)
+[PASS] Reports generate and export (0.6s): HTML report generated, PDF 192949 bytes, register CSV written
+[PASS] Financial models run (1.21s): Monte Carlo mean 630,925, P99 6,940,803; CBA NPV 605,068
+[PASS] Workspace tools (0.03s): register edit, KRI escalation, crisis exercise (0.53), month advanced to 3
+[PASS] Accessibility settings apply (15.63s): light theme, 130% text and focus mode applied

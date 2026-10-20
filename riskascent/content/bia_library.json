@@ -1,0 +1,397 @@
+[
+ {
+  "id": "P-IT",
+  "name": "Core IT infrastructure and network",
+  "owner_role": "cio",
+  "impact_curve": [
+   3,
+   4,
+   5,
+   5
+  ],
+  "mtpd_hours": 24,
+  "rto_hours": 8,
+  "rpo_hours": 4,
+  "dependencies": [],
+  "strategy": "Secondary site with daily replication",
+  "capability_hours": 12
+ },
+ {
+  "id": "P-PAY",
+  "name": "Payroll",
+  "owner_role": "chro",
+  "impact_curve": [
+   0,
+   1,
+   3,
+   4
+  ],
+  "mtpd_hours": 168,
+  "rto_hours": 72,
+  "rpo_hours": 24,
+  "dependencies": [
+   "P-IT"
+  ],
+  "strategy": "Manual payment run via bank portal",
+  "capability_hours": 48
+ },
+ {
+  "id": "P-COMMS",
+  "name": "Internal and customer communications",
+  "owner_role": "cco",
+  "impact_curve": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "mtpd_hours": 72,
+  "rto_hours": 24,
+  "rpo_hours": 24,
+  "dependencies": [
+   "P-IT"
+  ],
+  "strategy": "Cloud email; emergency SMS service",
+  "capability_hours": 8
+ },
+ {
+  "id": "P-FIN",
+  "name": "Supplier payments and treasury",
+  "owner_role": "cfo",
+  "impact_curve": [
+   1,
+   2,
+   4,
+   5
+  ],
+  "mtpd_hours": 72,
+  "rto_hours": 24,
+  "rpo_hours": 4,
+  "dependencies": [
+   "P-IT"
+  ],
+  "strategy": "Bank portal from alternate site",
+  "capability_hours": 24
+ },
+ {
+  "id": "H-RES",
+  "name": "Reservations and check-in",
+  "owner_role": "cco",
+  "impact_curve": [
+   3,
+   4,
+   5,
+   5
+  ],
+  "mtpd_hours": 24,
+  "rto_hours": 4,
+  "rpo_hours": 1,
+  "dependencies": [
+   "P-IT"
+  ],
+  "strategy": "Manual check-in packs; offline room list",
+  "capability_hours": 6
+ },
+ {
+  "id": "H-FNB",
+  "name": "Food and beverage service",
+  "owner_role": "coo",
+  "impact_curve": [
+   2,
+   3,
+   4,
+   4
+  ],
+  "mtpd_hours": 72,
+  "rto_hours": 24,
+  "rpo_hours": 24,
+  "dependencies": [
+   "H-SUP"
+  ],
+  "strategy": "Reduced menu; alternative suppliers",
+  "capability_hours": null
+ },
+ {
+  "id": "H-SUP",
+  "name": "Food and linen supply",
+  "owner_role": "cpo",
+  "impact_curve": [
+   1,
+   2,
+   4,
+   5
+  ],
+  "mtpd_hours": 72,
+  "rto_hours": 48,
+  "rpo_hours": 24,
+  "dependencies": [],
+  "strategy": "Second supplier on call-off contract",
+  "capability_hours": 72
+ },
+ {
+  "id": "H-SAFE",
+  "name": "Fire and life safety systems",
+  "owner_role": "cso",
+  "impact_curve": [
+   5,
+   5,
+   5,
+   5
+  ],
+  "mtpd_hours": 1,
+  "rto_hours": 1,
+  "rpo_hours": 0,
+  "dependencies": [],
+  "strategy": "24/7 monitored panel; fire wardens",
+  "capability_hours": 1
+ },
+ {
+  "id": "B-PAYM",
+  "name": "Customer payments processing",
+  "owner_role": "coo",
+  "impact_curve": [
+   4,
+   5,
+   5,
+   5
+  ],
+  "mtpd_hours": 4,
+  "rto_hours": 2,
+  "rpo_hours": 0,
+  "dependencies": [
+   "P-IT"
+  ],
+  "strategy": "Hot standby payment hub",
+  "capability_hours": 2
+ },
+ {
+  "id": "B-LEND",
+  "name": "Lending origination",
+  "owner_role": "cco",
+  "impact_curve": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "mtpd_hours": 168,
+  "rto_hours": 72,
+  "rpo_hours": 24,
+  "dependencies": [
+   "P-IT"
+  ],
+  "strategy": "Manual underwriting with paper files",
+  "capability_hours": null
+ },
+ {
+  "id": "B-TREAS",
+  "name": "Treasury and liquidity management",
+  "owner_role": "cfo",
+  "impact_curve": [
+   3,
+   4,
+   5,
+   5
+  ],
+  "mtpd_hours": 24,
+  "rto_hours": 8,
+  "rpo_hours": 1,
+  "dependencies": [
+   "P-IT"
+  ],
+  "strategy": "Backup dealing desk",
+  "capability_hours": 8
+ },
+ {
+  "id": "R-WMS",
+  "name": "Warehouse dispatch",
+  "owner_role": "coo",
+  "impact_curve": [
+   2,
+   4,
+   5,
+   5
+  ],
+  "mtpd_hours": 24,
+  "rto_hours": 12,
+  "rpo_hours": 4,
+  "dependencies": [
+   "P-IT",
+   "R-FLEET"
+  ],
+  "strategy": "Paper picking lists; partner warehouse",
+  "capability_hours": 24
+ },
+ {
+  "id": "R-FLEET",
+  "name": "Fleet and route planning",
+  "owner_role": "coo",
+  "impact_curve": [
+   1,
+   3,
+   4,
+   5
+  ],
+  "mtpd_hours": 72,
+  "rto_hours": 24,
+  "rpo_hours": 24,
+  "dependencies": [
+   "P-IT"
+  ],
+  "strategy": "Static routes; partner hauliers",
+  "capability_hours": null
+ },
+ {
+  "id": "T-PLAT",
+  "name": "Customer platform",
+  "owner_role": "cio",
+  "impact_curve": [
+   4,
+   5,
+   5,
+   5
+  ],
+  "mtpd_hours": 8,
+  "rto_hours": 2,
+  "rpo_hours": 0.25,
+  "dependencies": [
+   "P-IT"
+  ],
+  "strategy": "Multi-region deployment",
+  "capability_hours": 4
+ },
+ {
+  "id": "T-SUPPORT",
+  "name": "Customer support",
+  "owner_role": "cco",
+  "impact_curve": [
+   2,
+   3,
+   4,
+   4
+  ],
+  "mtpd_hours": 72,
+  "rto_hours": 24,
+  "rpo_hours": 4,
+  "dependencies": [
+   "T-PLAT"
+  ],
+  "strategy": "Outsourced overflow support",
+  "capability_hours": 12
+ },
+ {
+  "id": "E-OPS",
+  "name": "Plant operations control",
+  "owner_role": "coo",
+  "impact_curve": [
+   4,
+   5,
+   5,
+   5
+  ],
+  "mtpd_hours": 4,
+  "rto_hours": 2,
+  "rpo_hours": 0,
+  "dependencies": [
+   "P-IT"
+  ],
+  "strategy": "Manual control procedures; local panels",
+  "capability_hours": 3
+ },
+ {
+  "id": "E-MAINT",
+  "name": "Maintenance planning",
+  "owner_role": "coo",
+  "impact_curve": [
+   0,
+   1,
+   2,
+   4
+  ],
+  "mtpd_hours": 336,
+  "rto_hours": 168,
+  "rpo_hours": 24,
+  "dependencies": [
+   "P-IT"
+  ],
+  "strategy": "Paper work orders",
+  "capability_hours": null
+ },
+ {
+  "id": "G-CASE",
+  "name": "Citizen case processing",
+  "owner_role": "coo",
+  "impact_curve": [
+   1,
+   3,
+   4,
+   5
+  ],
+  "mtpd_hours": 72,
+  "rto_hours": 48,
+  "rpo_hours": 24,
+  "dependencies": [
+   "P-IT"
+  ],
+  "strategy": "Paper forms; priority triage",
+  "capability_hours": 96
+ },
+ {
+  "id": "M-CLIN",
+  "name": "Emergency and inpatient care",
+  "owner_role": "coo",
+  "impact_curve": [
+   5,
+   5,
+   5,
+   5
+  ],
+  "mtpd_hours": 1,
+  "rto_hours": 1,
+  "rpo_hours": 0,
+  "dependencies": [
+   "P-IT",
+   "M-PHARM"
+  ],
+  "strategy": "Downtime procedures; paper records",
+  "capability_hours": 1
+ },
+ {
+  "id": "M-PHARM",
+  "name": "Pharmacy dispensing",
+  "owner_role": "coo",
+  "impact_curve": [
+   3,
+   4,
+   5,
+   5
+  ],
+  "mtpd_hours": 12,
+  "rto_hours": 4,
+  "rpo_hours": 1,
+  "dependencies": [
+   "P-IT"
+  ],
+  "strategy": "Manual dispensing with paper charts",
+  "capability_hours": 8
+ },
+ {
+  "id": "I-FM",
+  "name": "Building and facilities management",
+  "owner_role": "coo",
+  "impact_curve": [
+   1,
+   2,
+   4,
+   5
+  ],
+  "mtpd_hours": 72,
+  "rto_hours": 24,
+  "rpo_hours": 24,
+  "dependencies": [
+   "P-IT"
+  ],
+  "strategy": "Contracted emergency response",
+  "capability_hours": 48
+ }
+]

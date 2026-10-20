@@ -1,0 +1,3159 @@
+[
+ {
+  "id": "M23",
+  "title": "The Big Investment",
+  "type": "career",
+  "level": 7,
+  "xp": 240,
+  "duration": "10 min",
+  "objective": "Evaluate a major investment with risk-adjusted returns, scenario testing and decision conditions.",
+  "concepts": [
+   "capital_allocation",
+   "npv",
+   "scenario_analysis"
+  ],
+  "from": "cfo",
+  "subject": "Review the new facility investment",
+  "briefing": "The board will vote on a {m:40000000} new facility next month. Management projects strong returns. I want an independent risk view of the case.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Business case summary",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Item",
+      "Management case"
+     ],
+     "rows": [
+      [
+       "Investment",
+       "{m:40000000}"
+      ],
+      [
+       "Annual net cash flow",
+       "{m:7500000} from year 2"
+      ],
+      [
+       "NPV at 9% (10 years)",
+       "{m:+6800000}"
+      ],
+      [
+       "Construction time",
+       "18 months"
+      ],
+      [
+       "Demand assumption",
+       "92% utilisation from year 2"
+      ]
+     ]
+    }
+   },
+   {
+    "id": "d2",
+    "title": "Risk team analysis",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Scenario",
+      "Probability",
+      "NPV"
+     ],
+     "rows": [
+      [
+       "Management case",
+       "40%",
+       "{m:6800000}"
+      ],
+      [
+       "Construction overrun 25% and 12-month delay",
+       "35%",
+       "{m:-3500000}"
+      ],
+      [
+       "Demand at 70% utilisation",
+       "25%",
+       "{m:-9000000}"
+      ]
+     ]
+    }
+   },
+   {
+    "id": "d3",
+    "title": "Peer evidence",
+    "kind": "memo",
+    "key": true,
+    "body": "Industry data: similar facilities averaged 74% utilisation in year two and 21% cost overruns."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "numeric",
+    "prompt": "What is the probability-weighted NPV?",
+    "competencies": [
+     "financial"
+    ],
+    "formula": "0.40*a+0.35*b+0.25*c",
+    "vars": {
+     "a": 6800000,
+     "b": -3500000,
+     "c": -9000000
+    },
+    "unit": "money",
+    "tolerance_pct": 3,
+    "solution": "0.40 x {m:6800000} + 0.35 x {m:-3500000} + 0.25 x {m:-9000000} = {m:-1305000}.",
+    "money_vars": [
+     "a",
+     "b",
+     "c"
+    ]
+   },
+   {
+    "id": "s2",
+    "type": "multi",
+    "prompt": "Which assumptions in the management case are most questionable?",
+    "competencies": [
+     "analysis",
+     "evidence"
+    ],
+    "options": [
+     {
+      "text": "92% utilisation from year 2",
+      "correct": true,
+      "why": "Peers averaged 74%."
+     },
+     {
+      "text": "No construction overrun",
+      "correct": true,
+      "why": "Peers averaged 21%."
+     },
+     {
+      "text": "9% discount rate",
+      "correct": false,
+      "why": "Reasonable; not the main issue."
+     },
+     {
+      "text": "10-year horizon",
+      "correct": false
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "What do you recommend to the board?",
+    "competencies": [
+     "strategy",
+     "decision",
+     "financial"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Do not approve on current terms: the risk-weighted NPV is negative. Re-scope with phased capacity, fixed-price construction with performance bonds, and anchor customer commitments before final approval.",
+      "quality": 3,
+      "feedback": "Turns 'no' into a path to 'yes' with protections.",
+      "effects": {
+       "flags": [
+        "deal_protections"
+       ],
+       "trust": {
+        "board": 4,
+        "cfo": 3
+       }
+      }
+     },
+     {
+      "id": "b",
+      "text": "Approve: management's case is positive.",
+      "quality": 0,
+      "feedback": "Ignores the evidence.",
+      "effects": {
+       "schedule": [
+        {
+         "event": "ev_investment_writedown",
+         "after": 4,
+         "p": 0.55
+        }
+       ]
+      }
+     },
+     {
+      "id": "c",
+      "text": "Reject the investment permanently.",
+      "quality": 1,
+      "feedback": "Too absolute: structure could make it viable.",
+      "effects": {
+       "trust": {
+        "ceo": -3
+       }
+      }
+     },
+     {
+      "id": "d",
+      "text": "Approve with a larger contingency.",
+      "quality": 1,
+      "feedback": "Contingency addresses overrun but not demand risk."
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s4",
+    "type": "choice",
+    "prompt": "The CEO is personally committed to the project and asks you to 'be supportive'. How do you handle it?",
+    "competencies": [
+     "ethics",
+     "stakeholder"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Brief the CEO before the board meeting: same facts, the conditions that would make it acceptable, and your intention to present them.",
+      "quality": 3,
+      "feedback": "Independent, respectful and no surprises.",
+      "effects": {
+       "trust": {
+        "ceo": 2,
+        "board": 2
+       }
+      },
+      "approach": "options"
+     },
+     {
+      "id": "b",
+      "text": "Soften the paper.",
+      "quality": 0,
+      "feedback": "Compromises the board's information.",
+      "effects": {
+       "flags": [
+        "rating_softened"
+       ]
+      }
+     },
+     {
+      "id": "c",
+      "text": "Go to the board chair privately first.",
+      "quality": 1,
+      "feedback": "Bypasses the CEO without trying.",
+      "effects": {
+       "trust": {
+        "ceo": -5
+       }
+      }
+     }
+    ],
+    "to": "ceo"
+   }
+  ],
+  "debrief": {
+   "summary": "You replaced a single optimistic case with weighted scenarios and turned a 'no' into conditions.",
+   "key_points": [
+    "Weight scenarios by evidence-based probabilities.",
+    "Compare assumptions to peer data.",
+    "Offer structure, not just objection."
+   ],
+   "stronger_approach": "Show a break-even utilisation and the value of staging capacity.",
+   "transfer": "Risk-adjusted investment review is the same for acquisitions, IT programmes and infrastructure."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "org": {
+       "strategic_progress": 3
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {}
+    }
+   ]
+  }
+ },
+ {
+  "id": "M24",
+  "title": "Setting the Tripwires",
+  "type": "career",
+  "level": 7,
+  "xp": 240,
+  "duration": "10 min",
+  "objective": "Design KRI thresholds from data, appetite and lead time, with clear escalation.",
+  "concepts": [
+   "kri_thresholds",
+   "leading_lagging",
+   "risk_appetite"
+  ],
+  "from": "mentor",
+  "subject": "Design thresholds that mean something",
+  "briefing": "Our KRI thresholds were picked as round numbers years ago. Redesign them for the supplier concentration KRI using data, and make sure they give us time to act.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Supplier concentration KRI history (% of critical spend single-sourced)",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Quarter",
+      "Value"
+     ],
+     "rows": [
+      [
+       "Q1",
+       "34"
+      ],
+      [
+       "Q2",
+       "36"
+      ],
+      [
+       "Q3",
+       "35"
+      ],
+      [
+       "Q4",
+       "38"
+      ],
+      [
+       "Q5",
+       "37"
+      ],
+      [
+       "Q6",
+       "40"
+      ]
+     ]
+    }
+   },
+   {
+    "id": "d2",
+    "title": "Context",
+    "kind": "memo",
+    "key": true,
+    "body": "Mean 36.7, standard deviation 2.2. Appetite: no more than 45% single-sourced. Qualifying a second supplier takes about two quarters."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "numeric",
+    "prompt": "A common starting point for a warning threshold is mean plus two standard deviations. What is it?",
+    "competencies": [
+     "analysis",
+     "technical"
+    ],
+    "formula": "36.7+2*2.2",
+    "vars": {},
+    "unit": "percent",
+    "tolerance_pct": 1,
+    "solution": "36.7 + 2 x 2.2 = 41.1%."
+   },
+   {
+    "id": "s2",
+    "type": "choice",
+    "prompt": "Given appetite is 45% and qualification takes two quarters, where should the critical threshold sit?",
+    "competencies": [
+     "prioritization",
+     "strategy"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Around 43-45%, at or just below appetite, with the warning at about 41% so there is time to qualify a supplier before breaching appetite.",
+      "quality": 3,
+      "feedback": "Thresholds align to appetite and lead time."
+     },
+     {
+      "id": "b",
+      "text": "At 60%, well above appetite.",
+      "quality": 0,
+      "feedback": "Too late to act."
+     },
+     {
+      "id": "c",
+      "text": "At 37%, the current level.",
+      "quality": 1,
+      "feedback": "Would be breached constantly."
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s3",
+    "type": "multi",
+    "prompt": "What else must each threshold have?",
+    "competencies": [
+     "technical"
+    ],
+    "options": [
+     {
+      "text": "A named owner",
+      "correct": true
+     },
+     {
+      "text": "A defined action at each level",
+      "correct": true
+     },
+     {
+      "text": "A reporting frequency matching how fast it moves",
+      "correct": true
+     },
+     {
+      "text": "A colour scheme approved by marketing",
+      "correct": false
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "type": "choice",
+    "prompt": "Procurement asks you to raise the warning threshold because it 'keeps going amber'. Response?",
+    "competencies": [
+     "ethics",
+     "stakeholder"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Keep it: amber is telling us concentration is rising. Agree an action plan instead.",
+      "quality": 3,
+      "feedback": "Thresholds exist to provoke action.",
+      "effects": {
+       "trust": {
+        "cpo": 1
+       }
+      },
+      "approach": "options"
+     },
+     {
+      "id": "b",
+      "text": "Raise it to keep the peace.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Keep it: amber is telling us concentration is rising. Agree an action plan instead.”",
+      "effects": {
+       "flags": [
+        "threshold_gamed"
+       ]
+      }
+     },
+     {
+      "id": "c",
+      "text": "Remove the KRI.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Keep it: amber is telling us concentration is rising. Agree an action plan instead.”"
+     }
+    ],
+    "to": "cpo"
+   }
+  ],
+  "debrief": {
+   "summary": "You designed thresholds from data, appetite and lead time.",
+   "key_points": [
+    "Thresholds should give time to act.",
+    "Base them on variation and appetite.",
+    "Amber is a signal, not an annoyance."
+   ],
+   "stronger_approach": "Back-test: would these thresholds have warned early enough last year?",
+   "transfer": "Threshold design is identical for credit arrears, bed occupancy and system latency."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "kri_adjust": [
+       {
+        "kri": "KRI-SUPPLIER",
+        "drift": -0.02
+       }
+      ]
+     }
+    },
+    {
+     "min": 0,
+     "effects": {}
+    }
+   ]
+  }
+ },
+ {
+  "id": "M25",
+  "title": "Adding It All Up",
+  "type": "career",
+  "level": 7,
+  "xp": 240,
+  "duration": "10 min",
+  "objective": "Evaluate aggregate exposure across risks, accounting for correlation and risk capacity.",
+  "concepts": [
+   "concentration",
+   "interconnected",
+   "stress_testing"
+  ],
+  "from": "cfo",
+  "subject": "How much risk are we really carrying?",
+  "briefing": "The board asked whether our total risk exposure is within our capacity to absorb losses. Individual risks look fine. What does the aggregate look like?",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Top quantified risks",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Risk",
+      "Annual EL",
+      "1-in-20 loss"
+     ],
+     "rows": [
+      [
+       "Cyber incident",
+       "{m:900000}",
+       "{m:8000000}"
+      ],
+      [
+       "Supplier failure",
+       "{m:400000}",
+       "{m:5000000}"
+      ],
+      [
+       "Liquidity squeeze",
+       "{m:300000}",
+       "{m:6000000}"
+      ],
+      [
+       "Major customer loss",
+       "{m:500000}",
+       "{m:7000000}"
+      ]
+     ]
+    }
+   },
+   {
+    "id": "d2",
+    "title": "Capacity",
+    "kind": "memo",
+    "key": true,
+    "body": "Loss-absorbing capacity (cash buffer plus undrawn facility, less minimum operating cash): {m:15000000}. A cyber incident would likely trigger customer losses and liquidity strain together."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "numeric",
+    "prompt": "What is the total annual expected loss across the four risks?",
+    "competencies": [
+     "financial"
+    ],
+    "formula": "900000+400000+300000+500000",
+    "vars": {},
+    "unit": "money",
+    "tolerance_pct": 2,
+    "solution": "{m:2100000}."
+   },
+   {
+    "id": "s2",
+    "type": "numeric",
+    "prompt": "If the cyber, customer-loss and liquidity 1-in-20 losses occur together (correlated scenario), what is the combined loss?",
+    "competencies": [
+     "financial",
+     "analysis"
+    ],
+    "formula": "8000000+7000000+6000000",
+    "vars": {},
+    "unit": "money",
+    "tolerance_pct": 2,
+    "solution": "{m:21000000}, above the {m:15000000} capacity."
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "What does this tell the board?",
+    "competencies": [
+     "strategy",
+     "communication"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Each risk is within capacity alone, but a plausible correlated scenario exceeds capacity by about {m:6000000}; we need to break the chain or increase capacity.",
+      "quality": 3,
+      "feedback": "The aggregate insight the register couldn't show."
+     },
+     {
+      "id": "b",
+      "text": "Total EL is {m:2100000}, well within capacity.",
+      "quality": 1,
+      "feedback": "True but misses the correlated tail."
+     },
+     {
+      "id": "c",
+      "text": "Add all four 1-in-20 losses ({m:26000000}).",
+      "quality": 1,
+      "feedback": "Overstates: not all four are correlated."
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s4",
+    "type": "rank",
+    "prompt": "Rank responses by effectiveness against the correlated scenario.",
+    "competencies": [
+     "prioritization",
+     "decision"
+    ],
+    "items": [
+     {
+      "id": "cyber",
+      "text": "Strengthen cyber resilience (the trigger)"
+     },
+     {
+      "id": "facility",
+      "text": "Extend the committed credit facility"
+     },
+     {
+      "id": "customer",
+      "text": "Contractual protections with key customers"
+     },
+     {
+      "id": "insurance",
+      "text": "Cyber insurance with business interruption cover"
+     }
+    ],
+    "answer": [
+     "cyber",
+     "facility",
+     "insurance",
+     "customer"
+    ],
+    "why": "Reduce the trigger first, then secure liquidity, then transfer part of the loss."
+   },
+   {
+    "id": "s5",
+    "type": "choice",
+    "prompt": "How should aggregate exposure be monitored?",
+    "competencies": [
+     "technical",
+     "strategy"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "A quarterly correlated stress scenario against capacity, reported to the board with a capacity-utilisation metric.",
+      "quality": 3,
+      "feedback": "A strong, well-reasoned response."
+     },
+     {
+      "id": "b",
+      "text": "Sum the heat-map scores.",
+      "quality": 0,
+      "feedback": "Ordinal scores can't be summed."
+     },
+     {
+      "id": "c",
+      "text": "Count red risks.",
+      "quality": 1,
+      "feedback": "This addresses part of the problem but misses something important. A stronger option was: “A quarterly correlated stress scenario against capacity, reported to the board with a capacity-utilisation metric.”"
+     }
+    ]
+   }
+  ],
+  "debrief": {
+   "summary": "You showed that individually acceptable risks can jointly exceed capacity.",
+   "key_points": [
+    "Aggregate with correlation in mind.",
+    "Compare plausible joint scenarios with capacity.",
+    "Break chains at the trigger."
+   ],
+   "stronger_approach": "Build a dependency map linking risks to see other chains.",
+   "transfer": "Aggregation is the basis of bank capital, insurance accumulation and enterprise stress testing."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "flags": [
+       "liquidity_plan"
+      ],
+      "trust": {
+       "board": 3,
+       "cfo": 3
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {
+      "schedule": [
+       {
+        "event": "ev_liquidity_crunch",
+        "after": 3,
+        "p": 0.3
+       }
+      ]
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "M26",
+  "title": "Building the ERM Framework",
+  "type": "career",
+  "level": 8,
+  "xp": 260,
+  "duration": "10 min",
+  "objective": "Design and sequence an enterprise risk management framework that integrates with how the organisation decides.",
+  "concepts": [
+   "erm_framework",
+   "three_lines",
+   "risk_culture"
+  ],
+  "from": "ceo",
+  "subject": "Build us a proper ERM framework",
+  "briefing": "Risk management here is a register and a quarterly report. I want an ERM framework that actually changes decisions. You have twelve months.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Current state",
+    "kind": "memo",
+    "key": true,
+    "body": "- Registers exist in four departments, each with different scales.\n- No board-approved appetite.\n- Risk is discussed after strategic decisions are made.\n- Internal audit and risk overlap in testing.\n- Managers see risk as compliance paperwork."
+   },
+   {
+    "id": "d2",
+    "title": "Reference frameworks",
+    "kind": "memo",
+    "key": true,
+    "body": "ISO 31000 and COSO ERM both emphasise integration into governance, strategy and decision-making, leadership commitment and continual improvement. Neither prescribes a single structure."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "rank",
+    "prompt": "Sequence the implementation.",
+    "competencies": [
+     "strategy",
+     "leadership"
+    ],
+    "items": [
+     {
+      "id": "sponsor",
+      "text": "Secure CEO and board sponsorship and define roles (three lines)"
+     },
+     {
+      "id": "common",
+      "text": "Common taxonomy, scales and register"
+     },
+     {
+      "id": "appetite",
+      "text": "Board-approved appetite statement"
+     },
+     {
+      "id": "decision",
+      "text": "Embed risk in strategy, investment and planning decisions"
+     },
+     {
+      "id": "culture",
+      "text": "Training, incentives and culture measures"
+     }
+    ],
+    "answer": [
+     "sponsor",
+     "common",
+     "appetite",
+     "decision",
+     "culture"
+    ],
+    "why": "Sponsorship first; common language enables appetite; appetite enables integration; culture work sustains it."
+   },
+   {
+    "id": "s2",
+    "type": "multi",
+    "prompt": "Which elements are essential?",
+    "competencies": [
+     "technical",
+     "strategy"
+    ],
+    "options": [
+     {
+      "text": "Clear roles: owners, risk function, internal audit",
+      "correct": true
+     },
+     {
+      "text": "Common risk language and scales",
+      "correct": true
+     },
+     {
+      "text": "Appetite linked to decisions",
+      "correct": true
+     },
+     {
+      "text": "A single expensive software platform",
+      "correct": false,
+      "why": "Helpful later; not essential."
+     },
+     {
+      "text": "Regular reporting to the board",
+      "correct": true
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "Department heads resist the common scales because 'our risks are different'. Response?",
+    "competencies": [
+     "stakeholder",
+     "leadership"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Keep one enterprise scale for comparability but allow department-specific examples and sub-categories.",
+      "quality": 3,
+      "feedback": "Common language with local relevance.",
+      "effects": {
+       "trust": {
+        "coo": 2,
+        "cio": 2
+       }
+      },
+      "approach": "collaborative"
+     },
+     {
+      "id": "b",
+      "text": "Let each keep their own.",
+      "quality": 0,
+      "feedback": "Prevents aggregation."
+     },
+     {
+      "id": "c",
+      "text": "Mandate it without discussion.",
+      "quality": 1,
+      "feedback": "Gets compliance, not adoption."
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "type": "choice",
+    "prompt": "How do you get risk into strategic decisions rather than after them?",
+    "competencies": [
+     "strategy",
+     "decision"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Require a risk-and-appetite section in every investment and strategy paper, with the risk function reviewing before submission.",
+      "quality": 3,
+      "feedback": "Changes the decision process itself.",
+      "effects": {
+       "org": {
+        "strategic_progress": 3
+       }
+      }
+     },
+     {
+      "id": "b",
+      "text": "Send a quarterly risk report to strategy.",
+      "quality": 1,
+      "feedback": "Still after the fact."
+     },
+     {
+      "id": "c",
+      "text": "Ask executives to consider risk.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Require a risk-and-appetite section in every investment and strategy paper, with the risk function reviewing before submission.”"
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s5",
+    "type": "write",
+    "prompt": "Write the framework's purpose statement for the board.",
+    "competencies": [
+     "communication",
+     "strategy"
+    ],
+    "rubric": [
+     {
+      "element": "Decisions",
+      "keywords": [
+       "decision",
+       "strategy"
+      ],
+      "tip": "Link to decisions."
+     },
+     {
+      "element": "Appetite",
+      "keywords": [
+       "appetite"
+      ],
+      "tip": "Mention appetite."
+     },
+     {
+      "element": "Roles",
+      "keywords": [
+       "owner",
+       "accountab",
+       "role"
+      ],
+      "tip": "Mention accountability."
+     },
+     {
+      "element": "Value",
+      "keywords": [
+       "value",
+       "objective",
+       "protect",
+       "opportunit"
+      ],
+      "tip": "Link to value."
+     }
+    ],
+    "model_answer": "Our ERM framework helps us achieve our objectives by making risk and opportunity explicit in strategic, investment and operational decisions. It defines a board-approved appetite, clear accountability for risk owners, common language for assessment, and reporting that tells the board where we are outside appetite and what we are doing about it.",
+    "min_words": 25,
+    "max_words": 160
+   }
+  ],
+  "debrief": {
+   "summary": "You designed an ERM framework that changes how decisions are made.",
+   "key_points": [
+    "Sponsorship, common language, appetite, integration, culture.",
+    "Integration into decisions is the test of ERM."
+   ],
+   "stronger_approach": "Define three measures of ERM effectiveness (e.g. % of investment papers with risk sections) and report them.",
+   "transfer": "Framework design skills transfer to compliance, resilience and safety management systems."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "org": {
+       "control_effectiveness": 3,
+       "strategic_progress": 2
+      },
+      "trust": {
+       "ceo": 3
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {}
+    }
+   ]
+  }
+ },
+ {
+  "id": "M27",
+  "title": "Risk in the Strategic Plan",
+  "type": "career",
+  "level": 8,
+  "xp": 260,
+  "duration": "10 min",
+  "objective": "Integrate risk into strategic planning: test strategic options against appetite and capacity.",
+  "concepts": [
+   "capital_allocation",
+   "risk_appetite",
+   "scenario_analysis"
+  ],
+  "from": "rival",
+  "subject": "Strategy offsite: three options",
+  "briefing": "We're choosing between three strategic options for the next five years. I'd like your input on risk, but please don't slow us down.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Strategic options",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Option",
+      "Expected 5-yr value",
+      "Downside scenario",
+      "Capability fit"
+     ],
+     "rows": [
+      [
+       "A: Expand in home market",
+       "{m:30000000}",
+       "{m:-5000000}",
+       "High"
+      ],
+      [
+       "B: Enter two new countries",
+       "{m:55000000}",
+       "{m:-40000000}",
+       "Low"
+      ],
+      [
+       "C: Digital platform build",
+       "{m:45000000}",
+       "{m:-15000000}",
+       "Medium"
+      ]
+     ]
+    }
+   },
+   {
+    "id": "d2",
+    "title": "Capacity and appetite",
+    "kind": "memo",
+    "key": true,
+    "body": "Board appetite: no single strategic initiative should risk losses above {m:20000000} in a plausible downside. Capacity to absorb losses: {m:25000000}."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "classify",
+    "prompt": "Classify each option against appetite.",
+    "competencies": [
+     "strategy",
+     "technical"
+    ],
+    "categories": [
+     "Within appetite",
+     "Outside appetite"
+    ],
+    "items": [
+     {
+      "text": "A: Expand in home market",
+      "answer": "Within appetite"
+     },
+     {
+      "text": "B: Enter two new countries",
+      "answer": "Outside appetite",
+      "why": "Downside of {m:40000000} exceeds appetite and capacity."
+     },
+     {
+      "text": "C: Digital platform",
+      "answer": "Within appetite"
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "type": "choice",
+    "prompt": "Option B has the highest expected value. What is your advice?",
+    "competencies": [
+     "strategy",
+     "decision"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Not as structured: its downside exceeds appetite and capacity. It could become acceptable as a staged entry to one country with partners and exit triggers.",
+      "quality": 3,
+      "feedback": "Uses appetite to shape, not just block.",
+      "effects": {
+       "trust": {
+        "rival": 2,
+        "board": 3
+       }
+      }
+     },
+     {
+      "id": "b",
+      "text": "Back B for its value.",
+      "quality": 0,
+      "feedback": "Ignores a downside that could break the organisation.",
+      "effects": {
+       "schedule": [
+        {
+         "event": "ev_investment_writedown",
+         "after": 5,
+         "p": 0.4
+        }
+       ]
+      }
+     },
+     {
+      "id": "c",
+      "text": "Reject B outright.",
+      "quality": 1,
+      "feedback": "Loses a potentially valuable path."
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s3",
+    "type": "allocate",
+    "prompt": "Allocate the strategic risk budget (management attention units) across mitigation workstreams.",
+    "competencies": [
+     "prioritization",
+     "strategy"
+    ],
+    "budget": 10,
+    "unit": "units",
+    "items": [
+     {
+      "id": "cap",
+      "text": "Capability building for C",
+      "cost": 4,
+      "value": 7
+     },
+     {
+      "id": "part",
+      "text": "Partner diligence for staged B",
+      "cost": 3,
+      "value": 5
+     },
+     {
+      "id": "home",
+      "text": "Home-market competitor response plan",
+      "cost": 2,
+      "value": 3
+     },
+     {
+      "id": "brand",
+      "text": "Brand refresh",
+      "cost": 3,
+      "value": 1,
+      "note": "Low risk value."
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "type": "choice",
+    "prompt": "{sh:rival} asks you not to show B's downside in the board pack 'to keep the story clean'.",
+    "competencies": [
+     "ethics",
+     "stakeholder"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Decline politely: the board must see the downside to exercise its appetite; offer to present the staged alternative alongside it.",
+      "quality": 3,
+      "feedback": "Integrity with a constructive offer.",
+      "effects": {
+       "trust": {
+        "board": 3
+       }
+      },
+      "approach": "options"
+     },
+     {
+      "id": "b",
+      "text": "Agree.",
+      "quality": 0,
+      "feedback": "Misinforms the board.",
+      "effects": {
+       "flags": [
+        "rating_softened"
+       ],
+       "trust": {
+        "board": -4
+       }
+      }
+     },
+     {
+      "id": "c",
+      "text": "Report the request to the board chair.",
+      "quality": 1,
+      "feedback": "Premature."
+     }
+    ],
+    "to": "rival"
+   }
+  ],
+  "debrief": {
+   "summary": "You used appetite and capacity to shape strategy rather than veto it.",
+   "key_points": [
+    "Compare downside to capacity, not just expected value.",
+    "Staging and partnering can bring options inside appetite."
+   ],
+   "stronger_approach": "Run a reverse stress test: which strategy failure would breach capacity?",
+   "transfer": "Strategic risk integration applies to public-sector programmes, bank strategy and infrastructure portfolios."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "org": {
+       "strategic_progress": 4
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {}
+    }
+   ]
+  }
+ },
+ {
+  "id": "CAP4",
+  "title": "Department Leadership Capstone: The Executive Committee",
+  "type": "capstone",
+  "level": 8,
+  "xp": 360,
+  "duration": "10 min",
+  "objective": "Demonstrate department-leadership competence: aggregate exposure, influence executives and integrate risk into a strategic decision.",
+  "concepts": [
+   "interconnected",
+   "capital_allocation",
+   "risk_reporting",
+   "stakeholder_influence"
+  ],
+  "from": "ceo",
+  "subject": "Capstone: executive committee deep dive",
+  "briefing": "The executive committee has asked for a deep dive on our top enterprise exposures before the budget is set. You have 30 minutes. Three executives will push back.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Enterprise exposures",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Exposure",
+      "Residual",
+      "Trend",
+      "Appetite"
+     ],
+     "rows": [
+      [
+       "Cyber resilience",
+       "4x4",
+       "Worsening",
+       "Outside tolerance"
+      ],
+      [
+       "Key customer concentration",
+       "3x4",
+       "Stable",
+       "Above appetite"
+      ],
+      [
+       "Transformation delivery",
+       "4x3",
+       "Worsening",
+       "Above appetite"
+      ],
+      [
+       "Health and safety",
+       "2x5",
+       "Improving",
+       "Within appetite"
+      ]
+     ]
+    }
+   },
+   {
+    "id": "d2",
+    "title": "Budget context",
+    "kind": "memo",
+    "key": true,
+    "body": "The CFO proposes a 10% cut across all functions. Cyber investment of {m:1500000} is pending."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "rank",
+    "prompt": "Order your agenda.",
+    "competencies": [
+     "prioritization",
+     "communication"
+    ],
+    "items": [
+     {
+      "id": "cyber",
+      "text": "Cyber resilience (outside tolerance)"
+     },
+     {
+      "id": "trans",
+      "text": "Transformation delivery"
+     },
+     {
+      "id": "cust",
+      "text": "Customer concentration"
+     },
+     {
+      "id": "hs",
+      "text": "Health and safety"
+     }
+    ],
+    "answer": [
+     "cyber",
+     "trans",
+     "cust",
+     "hs"
+    ],
+    "why": "Lead with what is outside tolerance and worsening."
+   },
+   {
+    "id": "s2",
+    "type": "choice",
+    "prompt": "{sh:cfo}: 'Every function takes 10%. Why should cyber be exempt?'",
+    "competencies": [
+     "financial",
+     "stakeholder"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Cyber is the only exposure outside tolerance; a 10% cut leaves it there. Fund cyber and find the saving where risk is within appetite.",
+      "quality": 3,
+      "feedback": "Appetite-based allocation.",
+      "effects": {
+       "trust": {
+        "cfo": 2
+       },
+       "flags": [
+        "mfa_accelerated",
+        "offline_backups"
+       ]
+      },
+      "approach": "data"
+     },
+     {
+      "id": "b",
+      "text": "Because cyber is important.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Cyber is the only exposure outside tolerance; a 10% cut leaves it there. Fund cyber and find the saving where risk is within appetite.”"
+     },
+     {
+      "id": "c",
+      "text": "Accept the cut.",
+      "quality": 1,
+      "feedback": "Leaves an exposure outside tolerance without a decision."
+     }
+    ],
+    "to": "cfo"
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "{sh:cco} says customer concentration is 'just how our market works'.",
+    "competencies": [
+     "strategy",
+     "stakeholder"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Agree it's structural, so the response is resilience: contract terms, early-warning KRIs and a pipeline target, rather than unrealistic diversification.",
+      "quality": 3,
+      "feedback": "Pragmatic and strategic.",
+      "effects": {
+       "flags": [
+        "account_plan"
+       ],
+       "trust": {
+        "cco": 3
+       }
+      },
+      "approach": "options"
+     },
+     {
+      "id": "b",
+      "text": "Insist on diversification targets.",
+      "quality": 1,
+      "feedback": "This addresses part of the problem but misses something important. A stronger option was: “Agree it's structural, so the response is resilience: contract terms, early-warning KRIs and a pipeline target, rather than unrealistic diversification.”"
+     },
+     {
+      "id": "c",
+      "text": "Drop the topic.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Agree it's structural, so the response is resilience: contract terms, early-warning KRIs and a pipeline target, rather than unrealistic diversification.”"
+     }
+    ],
+    "to": "cco"
+   },
+   {
+    "id": "s4",
+    "type": "choice",
+    "prompt": "{sh:rival} challenges your transformation rating as 'pessimistic'.",
+    "competencies": [
+     "evidence",
+     "stakeholder"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Show the cost-performance trend and milestones missed, and offer to revise if the next milestone is hit.",
+      "quality": 3,
+      "feedback": "Evidence plus a fair test.",
+      "effects": {
+       "flags": [
+        "project_rebaselined"
+       ]
+      }
+     },
+     {
+      "id": "b",
+      "text": "Lower the rating.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Show the cost-performance trend and milestones missed, and offer to revise if the next milestone is hit.”",
+      "effects": {
+       "flags": [
+        "rating_softened"
+       ]
+      }
+     },
+     {
+      "id": "c",
+      "text": "Argue until they concede.",
+      "quality": 1,
+      "feedback": "This addresses part of the problem but misses something important. A stronger option was: “Show the cost-performance trend and milestones missed, and offer to revise if the next milestone is hit.”"
+     }
+    ],
+    "confidence": true,
+    "to": "rival"
+   },
+   {
+    "id": "s5",
+    "type": "write",
+    "prompt": "Write the decisions you ask the committee to take.",
+    "competencies": [
+     "communication",
+     "strategy"
+    ],
+    "rubric": [
+     {
+      "element": "Cyber",
+      "keywords": [
+       "cyber",
+       "1.5",
+       "fund"
+      ],
+      "tip": "Ask for cyber funding."
+     },
+     {
+      "element": "Transformation",
+      "keywords": [
+       "transformation",
+       "re-baseline",
+       "rebaseline"
+      ],
+      "tip": "Ask for re-baselining."
+     },
+     {
+      "element": "Customer",
+      "keywords": [
+       "customer",
+       "contract",
+       "kri"
+      ],
+      "tip": "Ask for customer resilience actions."
+     },
+     {
+      "element": "Owner",
+      "keywords": [
+       "owner",
+       "accountab",
+       "by"
+      ],
+      "tip": "Assign owners/dates."
+     }
+    ],
+    "model_answer": "We ask the committee to: (1) fund the {m:1500000} cyber resilience programme to bring the exposure back within tolerance, owned by the CIO by Q3; (2) re-baseline the transformation programme with a go/no-go at the next milestone, owned by the Director of Strategy; (3) approve customer resilience actions (contract terms and early-warning KRIs), owned by the CCO.",
+    "min_words": 25,
+    "max_words": 160
+   }
+  ],
+  "debrief": {
+   "summary": "You led an executive discussion on appetite, not opinion.",
+   "key_points": [
+    "Lead with what is outside tolerance.",
+    "Use appetite to resolve budget arguments.",
+    "Offer fair tests when challenged."
+   ],
+   "stronger_approach": "Send a one-page pre-read so the meeting is spent on decisions.",
+   "transfer": "Executive influence is the core of every senior risk role."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "trust": {
+       "ceo": 4,
+       "board": 3
+      },
+      "org": {
+       "confidence": 3
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {
+      "schedule": [
+       {
+        "event": "ev_ransomware",
+        "after": 3,
+        "p": 0.35
+       }
+      ]
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "M28",
+  "title": "The Annual Risk Plan",
+  "type": "career",
+  "level": 9,
+  "xp": 280,
+  "duration": "10 min",
+  "objective": "Build an annual enterprise risk plan that allocates people and budget by risk priority and assurance gaps.",
+  "concepts": [
+   "erm_framework",
+   "capital_allocation",
+   "bia"
+  ],
+  "from": "board",
+  "subject": "The annual risk plan",
+  "briefing": "The committee approves your annual risk plan next month. Show us that resources follow risk.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Planning inputs",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Area",
+      "Residual exposure",
+      "Assurance in last 2 years",
+      "Regulatory focus"
+     ],
+     "rows": [
+      [
+       "Cyber",
+       "High",
+       "Partial",
+       "High"
+      ],
+      [
+       "Third parties",
+       "High",
+       "None",
+       "Medium"
+      ],
+      [
+       "Financial controls",
+       "Medium",
+       "Full",
+       "Medium"
+      ],
+      [
+       "Health and safety",
+       "Medium",
+       "Partial",
+       "High"
+      ],
+      [
+       "Projects",
+       "High",
+       "None",
+       "Low"
+      ],
+      [
+       "Facilities",
+       "Low",
+       "Full",
+       "Low"
+      ]
+     ]
+    }
+   },
+   {
+    "id": "d2",
+    "title": "Resources",
+    "kind": "memo",
+    "key": true,
+    "body": "Team: 20 people, about 4,000 days. Budget: {m:2000000}."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "allocate",
+    "prompt": "Allocate the assurance programme (thousands of days).",
+    "competencies": [
+     "prioritization",
+     "strategy"
+    ],
+    "budget": 4,
+    "unit": "k days",
+    "items": [
+     {
+      "id": "cyb",
+      "text": "Cyber deep-dive and testing",
+      "cost": 1.2,
+      "value": 9
+     },
+     {
+      "id": "tp",
+      "text": "Third-party risk programme",
+      "cost": 1.0,
+      "value": 8,
+      "note": "No assurance yet."
+     },
+     {
+      "id": "proj",
+      "text": "Project risk reviews",
+      "cost": 0.8,
+      "value": 7
+     },
+     {
+      "id": "hs",
+      "text": "Health and safety assurance",
+      "cost": 0.6,
+      "value": 6
+     },
+     {
+      "id": "fin",
+      "text": "Financial controls repeat testing",
+      "cost": 0.8,
+      "value": 3,
+      "note": "Recently fully assured."
+     },
+     {
+      "id": "fac",
+      "text": "Facilities review",
+      "cost": 0.5,
+      "value": 1
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "type": "choice",
+    "prompt": "Financial controls were fully assured last year but the CFO wants another full review. Response?",
+    "competencies": [
+     "stakeholder",
+     "prioritization"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Offer a light-touch follow-up on last year's findings and redirect capacity to unassured high-risk areas.",
+      "quality": 3,
+      "feedback": "Risk-based with respect for the CFO's concern.",
+      "effects": {
+       "trust": {
+        "cfo": 1
+       }
+      },
+      "approach": "data"
+     },
+     {
+      "id": "b",
+      "text": "Do the full review again.",
+      "quality": 1,
+      "feedback": "This addresses part of the problem but misses something important. A stronger option was: “Offer a light-touch follow-up on last year's findings and redirect capacity to unassured high-risk areas.”"
+     },
+     {
+      "id": "c",
+      "text": "Refuse any work.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Offer a light-touch follow-up on last year's findings and redirect capacity to unassured high-risk areas.”"
+     }
+    ],
+    "to": "cfo"
+   },
+   {
+    "id": "s3",
+    "type": "multi",
+    "prompt": "Which should appear in the plan document?",
+    "competencies": [
+     "communication",
+     "strategy"
+    ],
+    "options": [
+     {
+      "text": "How priorities link to appetite and residual exposure",
+      "correct": true
+     },
+     {
+      "text": "What will not be covered and the resulting assurance gaps",
+      "correct": true
+     },
+     {
+      "text": "Key milestones and reporting to the committee",
+      "correct": true
+     },
+     {
+      "text": "A full copy of every register",
+      "correct": false
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "type": "choice",
+    "prompt": "Halfway through the year a regulator signals a thematic review of third parties. What do you do?",
+    "competencies": [
+     "decision",
+     "leadership"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Re-plan: bring forward third-party work, defer the lowest-priority item, and tell the committee what changed.",
+      "quality": 3,
+      "feedback": "Dynamic, transparent planning.",
+      "effects": {
+       "flags": [
+        "reg_tracker_fixed"
+       ]
+      }
+     },
+     {
+      "id": "b",
+      "text": "Stick rigidly to the plan.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Re-plan: bring forward third-party work, defer the lowest-priority item, and tell the committee what changed.”"
+     },
+     {
+      "id": "c",
+      "text": "Add the work on top without changing anything.",
+      "quality": 1,
+      "feedback": "Overloads the team."
+     }
+    ],
+    "confidence": true
+   }
+  ],
+  "debrief": {
+   "summary": "Your plan followed risk and was honest about what it would not cover.",
+   "key_points": [
+    "Allocate by exposure and assurance gaps.",
+    "State what you are not doing.",
+    "Re-plan transparently."
+   ],
+   "stronger_approach": "Publish a coverage map of risk vs assurance over three years.",
+   "transfer": "Risk-based planning drives audit plans, regulatory supervision and maintenance programmes."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "org": {
+       "control_effectiveness": 3
+      },
+      "trust": {
+       "board": 3
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {}
+    }
+   ]
+  }
+ },
+ {
+  "id": "M29",
+  "title": "Chairing the Risk Committee",
+  "type": "career",
+  "level": 9,
+  "xp": 280,
+  "duration": "10 min",
+  "objective": "Chair a risk committee: focus discussion on decisions, manage conflict and record accountable actions.",
+  "concepts": [
+   "risk_reporting",
+   "escalation",
+   "crisis_governance"
+  ],
+  "from": "ceo",
+  "subject": "You're chairing the executive risk committee",
+  "briefing": "From this quarter you chair the executive risk committee. The agenda is yours. Make it worth everyone's time.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Draft agenda from your predecessor",
+    "kind": "memo",
+    "key": true,
+    "body": "1. Review of all 140 register risks (60 min)\n2. AOB"
+   },
+   {
+    "id": "d2",
+    "title": "This quarter",
+    "kind": "memo",
+    "key": true,
+    "body": "- Ransomware attempt blocked last month.\n- Two KRIs critical: overdue patches and supplier concentration.\n- A proposed acquisition needs a risk view.\n- One risk owner has missed three meetings."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "rank",
+    "prompt": "Order the agenda.",
+    "competencies": [
+     "prioritization",
+     "leadership"
+    ],
+    "items": [
+     {
+      "id": "kri",
+      "text": "Critical KRIs and decisions needed"
+     },
+     {
+      "id": "acq",
+      "text": "Risk view on the proposed acquisition"
+     },
+     {
+      "id": "ransom",
+      "text": "Lessons from the blocked ransomware attempt"
+     },
+     {
+      "id": "actions",
+      "text": "Actions log and attendance"
+     }
+    ],
+    "answer": [
+     "kri",
+     "acq",
+     "ransom",
+     "actions"
+    ],
+    "why": "Decisions first, forward-looking items next, lessons, then housekeeping."
+   },
+   {
+    "id": "s2",
+    "type": "choice",
+    "prompt": "Two executives argue about who owns the patching KRI. As chair you:",
+    "competencies": [
+     "leadership",
+     "stakeholder"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Pause the debate, assign interim ownership to the CIO with a date to confirm, and move on.",
+      "quality": 3,
+      "feedback": "Decisive chairing.",
+      "effects": {
+       "trust": {
+        "cio": 1,
+        "ceo": 2
+       }
+      }
+     },
+     {
+      "id": "b",
+      "text": "Let them resolve it in the meeting.",
+      "quality": 1,
+      "feedback": "Burns time."
+     },
+     {
+      "id": "c",
+      "text": "Take ownership yourself.",
+      "quality": 0,
+      "feedback": "Owners must sit in the business."
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "The absent risk owner's area has a critical KRI. What do you do?",
+    "competencies": [
+     "leadership",
+     "ethics"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Speak to them directly before the next meeting and, if attendance doesn't improve, raise it with the CEO.",
+      "quality": 3,
+      "feedback": "Proportionate accountability."
+     },
+     {
+      "id": "b",
+      "text": "Minute the absence and move on.",
+      "quality": 1,
+      "feedback": "This addresses part of the problem but misses something important. A stronger option was: “Speak to them directly before the next meeting and, if attendance doesn't improve, raise it with the CEO.”"
+     },
+     {
+      "id": "c",
+      "text": "Reassign their risks without telling them.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Speak to them directly before the next meeting and, if attendance doesn't improve, raise it with the CEO.”"
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "type": "write",
+    "prompt": "Write the action minute for the patching KRI.",
+    "competencies": [
+     "communication"
+    ],
+    "rubric": [
+     {
+      "element": "Owner",
+      "keywords": [
+       "cio",
+       "owner"
+      ],
+      "tip": "Name the owner."
+     },
+     {
+      "element": "Action",
+      "keywords": [
+       "patch",
+       "reduce",
+       "plan"
+      ],
+      "tip": "State the action."
+     },
+     {
+      "element": "Date",
+      "keywords": [
+       "by",
+       "week",
+       "month",
+       "date"
+      ],
+      "tip": "Give a date."
+     },
+     {
+      "element": "Measure",
+      "keywords": [
+       "below",
+       "threshold",
+       "report"
+      ],
+      "tip": "Define done."
+     }
+    ],
+    "model_answer": "ACTION: CIO to present a plan to bring critical patches overdue >30 days below the warning threshold within six weeks, reporting progress at the next committee.",
+    "min_words": 25,
+    "max_words": 160
+   }
+  ],
+  "debrief": {
+   "summary": "You turned a data review into a decision forum.",
+   "key_points": [
+    "Decisions first.",
+    "Chair firmly and fairly.",
+    "Minute owners, actions, dates and measures."
+   ],
+   "stronger_approach": "Circulate papers five days ahead with a one-line 'decision required' on each.",
+   "transfer": "Chairing skills transfer to boards, project steering groups and incident management."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "trust": {
+       "ceo": 3,
+       "board": 2
+      },
+      "org": {
+       "control_effectiveness": 2
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {}
+    }
+   ]
+  }
+ },
+ {
+  "id": "CAP5",
+  "title": "Executive Readiness Capstone: Resilience Review",
+  "type": "capstone",
+  "level": 9,
+  "xp": 380,
+  "duration": "10 min",
+  "objective": "Demonstrate executive readiness: evaluate organisational resilience, prioritise recovery, allocate resources and lead under uncertainty.",
+  "concepts": [
+   "bia",
+   "rto_rpo",
+   "mtpd",
+   "crisis_governance",
+   "capital_allocation"
+  ],
+  "from": "board",
+  "subject": "Capstone: is the organisation resilient?",
+  "briefing": "The board wants an independent view: if our worst plausible disruption happened tomorrow, would we recover in time? Show us and tell us what to fund.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "BIA extract",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Process",
+      "MTPD",
+      "RTO",
+      "Tested recovery",
+      "Depends on"
+     ],
+     "rows": [
+      [
+       "Customer transactions",
+       "8h",
+       "4h",
+       "12h",
+       "Core IT"
+      ],
+      [
+       "Core IT",
+       "8h",
+       "6h",
+       "14h",
+       "-"
+      ],
+      [
+       "Payroll",
+       "5 days",
+       "3 days",
+       "2 days",
+       "Core IT"
+      ],
+      [
+       "Customer communications",
+       "24h",
+       "12h",
+       "8h",
+       "Core IT"
+      ]
+     ]
+    }
+   },
+   {
+    "id": "d2",
+    "title": "Investment options",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Option",
+      "Cost",
+      "Effect"
+     ],
+     "rows": [
+      [
+       "Second data centre with automated failover",
+       "{m:3000000}",
+       "Core IT recovery 2h"
+      ],
+      [
+       "Improved manual workarounds for transactions",
+       "{m:300000}",
+       "Transactions can run 12h without IT"
+      ],
+      [
+       "Annual crisis exercise programme",
+       "{m:150000}",
+       "Faster decisions, tested plans"
+      ],
+      [
+       "Payroll bureau backup",
+       "{m:200000}",
+       "Payroll independent of IT"
+      ]
+     ]
+    }
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "multi",
+    "prompt": "Which processes cannot currently recover within their MTPD?",
+    "competencies": [
+     "analysis",
+     "technical"
+    ],
+    "options": [
+     {
+      "text": "Customer transactions",
+      "correct": true,
+      "why": "Tested 12h vs MTPD 8h."
+     },
+     {
+      "text": "Core IT",
+      "correct": true,
+      "why": "Tested 14h vs MTPD 8h."
+     },
+     {
+      "text": "Payroll",
+      "correct": false,
+      "why": "2 days within 5."
+     },
+     {
+      "text": "Customer communications",
+      "correct": false,
+      "why": "8h within 24h."
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "type": "choice",
+    "prompt": "What is the critical dependency?",
+    "competencies": [
+     "analysis"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Core IT: both failing processes depend on it, and it misses its own MTPD.",
+      "quality": 3,
+      "feedback": "A strong, well-reasoned response."
+     },
+     {
+      "id": "b",
+      "text": "Payroll.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Core IT: both failing processes depend on it, and it misses its own MTPD.”"
+     },
+     {
+      "id": "c",
+      "text": "Customer communications.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Core IT: both failing processes depend on it, and it misses its own MTPD.”"
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "type": "allocate",
+    "prompt": "Fund a resilience package within {m:3500000}.",
+    "competencies": [
+     "prioritization",
+     "financial",
+     "strategy"
+    ],
+    "budget": 3500000,
+    "unit": "money",
+    "items": [
+     {
+      "id": "dc",
+      "text": "Second data centre with failover",
+      "cost": 3000000,
+      "value": 9
+     },
+     {
+      "id": "manual",
+      "text": "Manual workarounds for transactions",
+      "cost": 300000,
+      "value": 6
+     },
+     {
+      "id": "exercise",
+      "text": "Crisis exercise programme",
+      "cost": 150000,
+      "value": 5
+     },
+     {
+      "id": "payroll",
+      "text": "Payroll bureau backup",
+      "cost": 200000,
+      "value": 1,
+      "note": "Payroll already meets MTPD."
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "type": "choice",
+    "prompt": "The board asks whether you are confident the funded package will work.",
+    "competencies": [
+     "communication",
+     "decision"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Moderately: it closes the tested gaps on paper; confidence will come from a full failover test within six months, which I'll report back.",
+      "quality": 3,
+      "feedback": "Calibrated and accountable.",
+      "effects": {
+       "trust": {
+        "board": 4
+       }
+      }
+     },
+     {
+      "id": "b",
+      "text": "Completely confident.",
+      "quality": 0,
+      "feedback": "Overconfident before testing."
+     },
+     {
+      "id": "c",
+      "text": "Not confident at all.",
+      "quality": 1,
+      "feedback": "Underconfident; the analysis supports moderate confidence."
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s5",
+    "type": "write",
+    "prompt": "Write your resilience opinion for the board in under 100 words.",
+    "competencies": [
+     "communication",
+     "strategy",
+     "leadership"
+    ],
+    "rubric": [
+     {
+      "element": "Gap",
+      "keywords": [
+       "not resilient",
+       "cannot recover",
+       "miss",
+       "exceed"
+      ],
+      "tip": "State the gap."
+     },
+     {
+      "element": "Cause",
+      "keywords": [
+       "core it",
+       "dependency",
+       "data centre"
+      ],
+      "tip": "Name the dependency."
+     },
+     {
+      "element": "Plan",
+      "keywords": [
+       "fund",
+       "failover",
+       "workaround",
+       "exercise"
+      ],
+      "tip": "Recommend."
+     },
+     {
+      "element": "Test",
+      "keywords": [
+       "test",
+       "verify",
+       "report"
+      ],
+      "tip": "Commit to verification."
+     }
+    ],
+    "model_answer": "We are not currently resilient to a major IT failure: core IT and customer transactions would take 12-14 hours to recover against an 8-hour tolerance. The core IT dependency is the cause. We recommend funding a second data centre with failover, manual transaction workarounds and an annual crisis exercise programme ({m:3450000}). We will verify with a full failover test within six months and report the result to the board.",
+    "min_words": 25,
+    "max_words": 100
+   }
+  ],
+  "debrief": {
+   "summary": "You evaluated resilience against tolerances, found the critical dependency and funded the gap with calibrated confidence.",
+   "key_points": [
+    "Compare tested capability with MTPD.",
+    "Fix shared dependencies first.",
+    "Confidence should follow testing."
+   ],
+   "stronger_approach": "Add a severe-but-plausible scenario where the second site fails too.",
+   "transfer": "Operational resilience regulation in many sectors asks exactly these questions."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "flags": [
+       "bcp_tested",
+       "offline_backups"
+      ],
+      "org": {
+       "resilience": 6
+      },
+      "trust": {
+       "board": 4
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {
+      "schedule": [
+       {
+        "event": "ev_ransomware",
+        "after": 2,
+        "p": 0.35
+       }
+      ]
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "M30",
+  "title": "The Acquisition",
+  "type": "career",
+  "level": 10,
+  "xp": 300,
+  "duration": "10 min",
+  "objective": "As CRO, challenge a proposed acquisition: due diligence gaps, integration risk, appetite and board advice.",
+  "concepts": [
+   "capital_allocation",
+   "conflict_interest",
+   "risk_appetite"
+  ],
+  "from": "ceo",
+  "subject": "We're buying a competitor",
+  "briefing": "We have exclusivity to acquire a competitor for {m:120000000}. The board votes in two weeks. I need your view, and I need you on side.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Deal summary",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Item",
+      "Value"
+     ],
+     "rows": [
+      [
+       "Price",
+       "{m:120000000}"
+      ],
+      [
+       "Target EBITDA",
+       "{m:14000000}"
+      ],
+      [
+       "Synergies assumed",
+       "{m:9000000} a year by year 2"
+      ],
+      [
+       "Financing",
+       "70% debt"
+      ],
+      [
+       "Due diligence",
+       "Financial and legal complete; cyber and culture not started"
+      ]
+     ]
+    }
+   },
+   {
+    "id": "d2",
+    "title": "Red flags",
+    "kind": "memo",
+    "key": true,
+    "body": "- Target had a data breach two years ago; remediation status unknown.\n- Key target executives have no retention agreements.\n- Integration synergies assume IT consolidation in 12 months; our own transformation is late.\n- Post-deal leverage would be 3.8x against a covenant of 4.0x."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "multi",
+    "prompt": "Which issues are material enough for the board?",
+    "competencies": [
+     "analysis",
+     "strategy"
+    ],
+    "options": [
+     {
+      "text": "Cyber due diligence not done despite a prior breach",
+      "correct": true
+     },
+     {
+      "text": "Leverage 3.8x against a 4.0x covenant",
+      "correct": true,
+      "why": "Thin headroom."
+     },
+     {
+      "text": "No retention for key executives",
+      "correct": true
+     },
+     {
+      "text": "Synergy timeline depends on stretched IT capacity",
+      "correct": true
+     },
+     {
+      "text": "Target's office lease is in a nice location",
+      "correct": false
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "type": "numeric",
+    "prompt": "If EBITDA falls 10% after the deal, leverage rises roughly in proportion. What is the new leverage (3.8 / 0.9)?",
+    "competencies": [
+     "financial"
+    ],
+    "formula": "3.8/0.9",
+    "vars": {},
+    "unit": "ratio",
+    "tolerance_pct": 2,
+    "solution": "3.8 / 0.9 = 4.22x, breaching the 4.0x covenant."
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "What is your advice to the board?",
+    "competencies": [
+     "strategy",
+     "decision",
+     "ethics"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Support only with conditions: complete cyber and culture diligence, retention for key executives, a price adjustment or earn-out, and financing that keeps leverage below 3.5x.",
+      "quality": 3,
+      "feedback": "Protects value without killing the deal.",
+      "effects": {
+       "flags": [
+        "deal_protections"
+       ],
+       "trust": {
+        "board": 5
+       }
+      }
+     },
+     {
+      "id": "b",
+      "text": "Support as is; the CEO wants it.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Support only with conditions: complete cyber and culture diligence, retention for key executives, a price adjustment or earn-out, and financing that keeps leverage below 3.5x.”",
+      "effects": {
+       "schedule": [
+        {
+         "event": "ev_investment_writedown",
+         "after": 3,
+         "p": 0.6
+        }
+       ],
+       "trust": {
+        "board": -5
+       }
+      }
+     },
+     {
+      "id": "c",
+      "text": "Oppose outright.",
+      "quality": 1,
+      "feedback": "Value may exist with structure.",
+      "effects": {
+       "trust": {
+        "ceo": -5
+       }
+      }
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s4",
+    "type": "choice",
+    "prompt": "The CEO says: 'If you raise this at the board, I'll see it as disloyalty.'",
+    "competencies": [
+     "ethics",
+     "leadership",
+     "stakeholder"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Explain that your duty is to give the board an independent view; share your paper with the CEO first and invite them to present the conditions with you.",
+      "quality": 3,
+      "feedback": "Independence with loyalty to the organisation.",
+      "effects": {
+       "trust": {
+        "ceo": -1,
+        "board": 4
+       }
+      },
+      "approach": "concise"
+     },
+     {
+      "id": "b",
+      "text": "Stay silent at the board.",
+      "quality": 0,
+      "feedback": "Abdicates the CRO's role.",
+      "effects": {
+       "flags": [
+        "rating_softened"
+       ]
+      }
+     },
+     {
+      "id": "c",
+      "text": "Threaten to resign.",
+      "quality": 1,
+      "feedback": "Escalation too early."
+     }
+    ],
+    "to": "ceo"
+   }
+  ],
+  "debrief": {
+   "summary": "You protected the board's ability to decide with full information while keeping the deal possible.",
+   "key_points": [
+    "Thin covenant headroom plus integration risk is a classic failure pattern.",
+    "Independence includes no surprises for the CEO."
+   ],
+   "stronger_approach": "Prepare a downside case that combines a breach at the target with synergy delay.",
+   "transfer": "Acquisition challenge is the same in banking, hospitality or infrastructure."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "org": {
+       "strategic_progress": 3
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {}
+    }
+   ]
+  }
+ },
+ {
+  "id": "FINAL",
+  "title": "The Board Simulation: Chief Risk Officer Assessment",
+  "type": "capstone",
+  "level": 10,
+  "xp": 600,
+  "duration": "10 min",
+  "objective": "Final CRO assessment: enterprise-wide judgement on appetite, financial trade-offs, strategic alignment, governance and communication under uncertainty.",
+  "concepts": [
+   "risk_appetite",
+   "stress_testing",
+   "capital_allocation",
+   "crisis_governance",
+   "risk_reporting",
+   "decision_vs_outcome"
+  ],
+  "from": "board",
+  "subject": "Final assessment: the board risk committee",
+  "briefing": "This is the full board risk committee. In one session you must set the enterprise risk appetite for the strategy, interpret a stress test, advise on a major trade-off, handle a live incident and communicate uncertainty to directors. The committee will assess whether you can operate as Chief Risk Officer.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Strategy and capacity",
+    "kind": "memo",
+    "key": true,
+    "body": "Five-year plan: grow revenue 40%, including one new market and a digital platform. Loss-absorbing capacity {m:30000000}. Current leverage 2.6x (covenant 4.0x)."
+   },
+   {
+    "id": "d2",
+    "title": "Stress test results",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Scenario",
+      "Revenue",
+      "Cash at month 12",
+      "Covenant"
+     ],
+     "rows": [
+      [
+       "Base",
+       "+6%",
+       "{m:42000000}",
+       "OK"
+      ],
+      [
+       "Severe recession",
+       "-18%",
+       "{m:6000000}",
+       "Breach in month 10"
+      ],
+      [
+       "Cyber + customer loss",
+       "-12%",
+       "{m:14000000}",
+       "OK"
+      ],
+      [
+       "Reverse stress",
+       "-26%",
+       "{m:-2000000}",
+       "Breach in month 7"
+      ]
+     ]
+    }
+   },
+   {
+    "id": "d3",
+    "title": "Live update during the meeting",
+    "kind": "memo",
+    "key": true,
+    "body": "Security reports a confirmed intrusion into the customer platform 40 minutes ago. Scope unknown. Customer data may be affected."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "choice",
+    "prompt": "Which appetite statement do you propose for the growth strategy?",
+    "competencies": [
+     "strategy",
+     "communication"
+    ],
+    "weight": 1.5,
+    "options": [
+     {
+      "id": "a",
+      "text": "Pursue growth where a plausible downside of any initiative stays below {m:15000000} and the portfolio's severe scenario keeps leverage under 3.5x; zero tolerance for regulatory or safety breaches.",
+      "quality": 3,
+      "feedback": "Measurable, linked to capacity and strategy, with clear red lines."
+     },
+     {
+      "id": "b",
+      "text": "Moderate appetite for growth.",
+      "quality": 0,
+      "feedback": "Unmeasurable."
+     },
+     {
+      "id": "c",
+      "text": "No risk in new markets.",
+      "quality": 0,
+      "feedback": "Inconsistent with the strategy."
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s2",
+    "type": "choice",
+    "prompt": "What does the stress test tell the board?",
+    "competencies": [
+     "financial",
+     "analysis"
+    ],
+    "weight": 1.5,
+    "options": [
+     {
+      "id": "a",
+      "text": "We survive the cyber scenario but a severe recession breaches the covenant in month 10; we need pre-agreed triggers (cost actions, facility extension) well before then.",
+      "quality": 3,
+      "feedback": "Interprets the result into decisions.",
+      "effects": {
+       "flags": [
+        "liquidity_plan"
+       ]
+      }
+     },
+     {
+      "id": "b",
+      "text": "Base case is fine, so we're fine.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “We survive the cyber scenario but a severe recession breaches the covenant in month 10; we need pre-agreed triggers (cost actions, facility extension) well before then.”"
+     },
+     {
+      "id": "c",
+      "text": "We will breach the covenant.",
+      "quality": 1,
+      "feedback": "Only under the severe scenario; communicate probability, not certainty."
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "The CFO proposes funding the strategy partly by cutting the resilience programme by {m:2000000}. Your view?",
+    "competencies": [
+     "financial",
+     "strategy",
+     "decision"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Oppose cutting the elements that close MTPD gaps; propose phasing the digital platform instead, which defers spend without raising exposure outside tolerance.",
+      "quality": 3,
+      "feedback": "Finds the trade-off that keeps risk within appetite.",
+      "effects": {
+       "trust": {
+        "cfo": 1,
+        "board": 3
+       }
+      }
+     },
+     {
+      "id": "b",
+      "text": "Agree; growth matters more.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Oppose cutting the elements that close MTPD gaps; propose phasing the digital platform instead, which defers spend without raising exposure outside tolerance.”",
+      "effects": {
+       "org": {
+        "resilience": -6
+       }
+      }
+     },
+     {
+      "id": "c",
+      "text": "Oppose any cut anywhere.",
+      "quality": 1,
+      "feedback": "Inflexible."
+     }
+    ],
+    "to": "cfo"
+   },
+   {
+    "id": "s4",
+    "type": "choice",
+    "prompt": "The intrusion update arrives mid-meeting. What do you do?",
+    "competencies": [
+     "leadership",
+     "ethics",
+     "decision"
+    ],
+    "weight": 1.5,
+    "options": [
+     {
+      "id": "a",
+      "text": "Tell the committee immediately what is known and unknown, activate the incident plan, confirm legal notification timelines, and commit to an update within two hours.",
+      "quality": 3,
+      "feedback": "Candid, structured crisis governance.",
+      "effects": {
+       "flags": [
+        "comms_protocol"
+       ],
+       "trust": {
+        "board": 5
+       }
+      },
+      "outcome": {
+       "p_bad": 0.3,
+       "good": "Containment succeeded quickly; the scope was limited and the board praised the response.",
+       "bad": "Despite a textbook response, the intrusion turned out to have exfiltrated some records; notification and remediation will be costly.",
+       "bad_effects": {
+        "org": {
+         "cash": -1500000,
+         "reputation": -3
+        }
+       }
+      }
+     },
+     {
+      "id": "b",
+      "text": "Finish the agenda and brief the board afterwards.",
+      "quality": 0,
+      "feedback": "Withholding a live material incident from the board is a governance failure.",
+      "effects": {
+       "trust": {
+        "board": -8
+       }
+      },
+      "outcome": {
+       "p_bad": 0.6,
+       "good": "The incident was contained before it spread.",
+       "bad": "The incident spread while leadership was in the meeting.",
+       "bad_effects": {
+        "org": {
+         "cash": -4000000,
+         "reputation": -8
+        }
+       }
+      }
+     },
+     {
+      "id": "c",
+      "text": "Leave the meeting to manage the incident yourself without explanation.",
+      "quality": 1,
+      "feedback": "Action is right, but the board needs to know.",
+      "effects": {
+       "trust": {
+        "board": -2
+       }
+      }
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s5",
+    "type": "numeric",
+    "prompt": "A director asks: if the severe recession has a 5% annual probability and costs {m:24000000} in lost value, what is the expected annual cost?",
+    "competencies": [
+     "financial"
+    ],
+    "formula": "0.05*v",
+    "vars": {
+     "v": 24000000
+    },
+    "unit": "money",
+    "tolerance_pct": 3,
+    "solution": "0.05 x {m:24000000} = {m:1200000}, but the severity, not the expected value, drives the covenant risk.",
+    "money_vars": [
+     "v"
+    ]
+   },
+   {
+    "id": "s6",
+    "type": "choice",
+    "prompt": "A director asks: 'Are you confident we're within appetite?'",
+    "competencies": [
+     "communication",
+     "decision"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "For most exposures yes; two are above appetite with funded plans, and the severe recession scenario is the main uncertainty. I'll report triggers quarterly.",
+      "quality": 3,
+      "feedback": "Calibrated and specific.",
+      "effects": {
+       "trust": {
+        "board": 3
+       }
+      }
+     },
+     {
+      "id": "b",
+      "text": "Yes, completely.",
+      "quality": 0,
+      "feedback": "False comfort."
+     },
+     {
+      "id": "c",
+      "text": "I can't say.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “For most exposures yes; two are above appetite with funded plans, and the severe recession scenario is the main uncertainty. I'll report triggers quarterly.”"
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s7",
+    "type": "write",
+    "prompt": "Write your closing statement to the board (under 120 words).",
+    "competencies": [
+     "communication",
+     "strategy",
+     "leadership"
+    ],
+    "rubric": [
+     {
+      "element": "Appetite",
+      "keywords": [
+       "appetite",
+       "15m",
+       "3.5"
+      ],
+      "tip": "Restate appetite."
+     },
+     {
+      "element": "Stress",
+      "keywords": [
+       "recession",
+       "covenant",
+       "trigger"
+      ],
+      "tip": "Summarise the key stress finding."
+     },
+     {
+      "element": "Incident",
+      "keywords": [
+       "intrusion",
+       "incident",
+       "update"
+      ],
+      "tip": "Address the live incident."
+     },
+     {
+      "element": "Ask",
+      "keywords": [
+       "approve",
+       "decision",
+       "ask"
+      ],
+      "tip": "State decisions requested."
+     }
+    ],
+    "model_answer": "We propose an appetite that supports growth while keeping any initiative's plausible downside below {m:15000000} and portfolio leverage under 3.5x, with zero tolerance for regulatory or safety breaches. The stress test shows we withstand a cyber-and-customer shock but a severe recession would breach the covenant by month 10, so we ask you to approve pre-agreed liquidity triggers. On today's intrusion, the incident plan is active and you will have an update within two hours. We ask the board to approve the appetite statement, the liquidity triggers and phasing of the digital platform.",
+    "min_words": 25,
+    "max_words": 130
+   }
+  ],
+  "debrief": {
+   "summary": "This was the final CRO assessment: appetite, stress testing, trade-offs, crisis governance and calibrated communication.",
+   "key_points": [
+    "Appetite must be measurable and linked to capacity.",
+    "Stress tests are for decisions and triggers.",
+    "Trade-offs: find the option that keeps exposure within appetite.",
+    "Never withhold a live material incident from the board."
+   ],
+   "stronger_approach": "Bring a one-page dashboard with appetite status, triggers and the incident timeline.",
+   "transfer": "These are the same judgements a CRO makes in any industry; only the vocabulary changes."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "The committee concluded you are ready to serve as Chief Risk Officer. The chair's note: 'Candid, calibrated and decisive under pressure.'"
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "The committee saw strong judgement with some gaps. They recommend another round before confirming you as CRO."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The committee was not yet convinced. Review the debrief carefully and retake the assessment when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "org": {
+       "confidence": 4
+      },
+      "trust": {
+       "board": 5
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {}
+    }
+   ],
+   "counters": [
+    "final_attempts"
+   ]
+  }
+ }
+]

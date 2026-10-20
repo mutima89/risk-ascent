@@ -1,0 +1,763 @@
+[
+ {
+  "id": "H01",
+  "title": "Poolside at Peak Hour",
+  "type": "side",
+  "level": 1,
+  "xp": 100,
+  "duration": "10 min",
+  "objective": "Assess guest safety at leisure facilities and choose proportionate controls.",
+  "concepts": [
+   "near_miss",
+   "hotel_fire"
+  ],
+  "from": "cso",
+  "subject": "Pool safety review before the holidays",
+  "briefing": "School holidays start next week and occupancy will hit 95%. I want a quick risk review of the pools at our resort properties.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Pool observations",
+    "kind": "memo",
+    "key": true,
+    "body": "- Lifeguard cover 10:00-16:00 only; peak family use is 16:00-19:00.\n- Depth markings faded at the shallow end.\n- Two near misses last summer: a child struggling in the deep end at 17:30; a guest slipping on wet tiles.\n- Rescue equipment present and checked daily."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "multi",
+    "prompt": "Which issues matter most?",
+    "competencies": [
+     "analysis",
+     "technical"
+    ],
+    "options": [
+     {
+      "text": "No lifeguard cover during peak family hours",
+      "correct": true
+     },
+     {
+      "text": "Faded depth markings",
+      "correct": true,
+      "why": "Diving injuries are often linked to unclear depth."
+     },
+     {
+      "text": "Rescue equipment checked daily",
+      "correct": false,
+      "why": "A control working well."
+     },
+     {
+      "text": "Near misses in peak hours",
+      "correct": true
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "type": "choice",
+    "prompt": "What do you recommend?",
+    "competencies": [
+     "decision",
+     "financial"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Extend lifeguard cover to 19:00 during holidays and repaint depth markings this week.",
+      "quality": 3,
+      "feedback": "Targets the exposure window.",
+      "effects": {
+       "org": {
+        "operating_costs": 30000
+       }
+      }
+     },
+     {
+      "id": "b",
+      "text": "Close pools after 16:00.",
+      "quality": 1,
+      "feedback": "Safe but hurts guest experience; better to staff the peak."
+     },
+     {
+      "id": "c",
+      "text": "Add signage only.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Extend lifeguard cover to 19:00 during holidays and repaint depth markings this week.”"
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s3",
+    "type": "matrix",
+    "prompt": "Rate residual risk of a serious guest injury after your recommendation.",
+    "competencies": [
+     "technical"
+    ],
+    "expected": {
+     "l": 1,
+     "i": 5
+    },
+    "why": "With supervision at peak times and clear markings, likelihood drops to Rare; severity remains Severe."
+   }
+  ],
+  "debrief": {
+   "summary": "You targeted controls at the real exposure window.",
+   "key_points": [
+    "Match controls to when the risk peaks.",
+    "Severity stays high even when likelihood falls."
+   ],
+   "stronger_approach": "Add a near-miss log at each pool.",
+   "transfer": "Peak-time exposure applies to crowd safety in stadiums and transport hubs."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "industries": [
+   "hospitality"
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "risk_adjust": [
+       {
+        "risk": "HOS-GUEST-SAFETY",
+        "res_l": -1
+       }
+      ],
+      "trust": {
+       "cso": 2
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {
+      "schedule": [
+       {
+        "event": "ev_safety_injury",
+        "after": 3,
+        "p": 0.25
+       }
+      ]
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "H02",
+  "title": "Fire Safety Inspection",
+  "type": "side",
+  "level": 2,
+  "xp": 120,
+  "duration": "10 min",
+  "objective": "Prepare for a fire safety inspection: test controls, prioritise fixes and avoid cosmetic compliance.",
+  "concepts": [
+   "hotel_fire",
+   "design_vs_operating"
+  ],
+  "from": "cso",
+  "subject": "The fire marshal visits in ten days",
+  "briefing": "The fire marshal inspects our flagship property in ten days. I want us to be genuinely safe, not just tidy for the visit.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Pre-inspection walk",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Item",
+      "Finding"
+     ],
+     "rows": [
+      [
+       "Fire doors",
+       "8% fail self-closing test"
+      ],
+      [
+       "Alarm test log",
+       "Weekly tests logged; two weeks missing"
+      ],
+      [
+       "Evacuation drills",
+       "Last night-shift drill 14 months ago"
+      ],
+      [
+       "Kitchen ducts",
+       "Cleaned 5 months ago (quarterly required)"
+      ],
+      [
+       "Escape signage",
+       "All present"
+      ]
+     ]
+    }
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "rank",
+    "prompt": "Prioritise the fixes.",
+    "competencies": [
+     "prioritization"
+    ],
+    "items": [
+     {
+      "id": "ducts",
+      "text": "Clean kitchen ducts"
+     },
+     {
+      "id": "doors",
+      "text": "Repair failing fire doors"
+     },
+     {
+      "id": "drill",
+      "text": "Night-shift evacuation drill"
+     },
+     {
+      "id": "log",
+      "text": "Complete alarm test log"
+     }
+    ],
+    "answer": [
+     "ducts",
+     "doors",
+     "drill",
+     "log"
+    ],
+    "why": "Fix ignition sources and fire spread first, then people readiness, then paperwork."
+   },
+   {
+    "id": "s2",
+    "type": "choice",
+    "prompt": "A manager suggests back-filling the missing alarm test entries.",
+    "competencies": [
+     "ethics"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "No: record the gap honestly, test now, and fix the schedule.",
+      "quality": 3,
+      "feedback": "Falsifying records is far worse than a gap.",
+      "effects": {
+       "trust": {
+        "cso": 3
+       }
+      }
+     },
+     {
+      "id": "b",
+      "text": "Back-fill them; the tests probably happened.",
+      "quality": 0,
+      "feedback": "Falsification.",
+      "effects": {
+       "flags": [
+        "rating_softened"
+       ],
+       "org": {
+        "compliance": -6
+       }
+      }
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "Night-shift drills are hard to run without disturbing guests. What do you propose?",
+    "competencies": [
+     "decision",
+     "stakeholder"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "A staff-only night drill with walk-throughs of guest evacuation roles, plus a desktop exercise.",
+      "quality": 3,
+      "feedback": "Tests readiness without guest disruption.",
+      "effects": {
+       "flags": [
+        "duct_clean_enforced"
+       ]
+      }
+     },
+     {
+      "id": "b",
+      "text": "Skip it this year.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “A staff-only night drill with walk-throughs of guest evacuation roles, plus a desktop exercise.”"
+     },
+     {
+      "id": "c",
+      "text": "Full guest evacuation at 03:00.",
+      "quality": 1,
+      "feedback": "Realistic but disproportionate."
+     }
+    ]
+   }
+  ],
+  "debrief": {
+   "summary": "You fixed real hazards first and kept records honest.",
+   "key_points": [
+    "Fix ignition and spread before paperwork.",
+    "Never falsify safety records."
+   ],
+   "stronger_approach": "Make fire-door failures a monthly KRI.",
+   "transfer": "Inspection readiness without window-dressing applies to every regulator."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "industries": [
+   "hospitality"
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "flags": [
+       "duct_clean_enforced",
+       "fire_door_fixed"
+      ],
+      "cancel": [
+       "ev_kitchen_fire"
+      ],
+      "org": {
+       "compliance": 3
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {
+      "org": {
+       "compliance": -3
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "H03",
+  "title": "Cards at the Front Desk",
+  "type": "side",
+  "level": 3,
+  "xp": 150,
+  "duration": "10 min",
+  "objective": "Assess payment card data risk in hotel systems and prioritise scope reduction.",
+  "concepts": [
+   "pci",
+   "control_types"
+  ],
+  "from": "cio",
+  "subject": "Card data risk at the front desk",
+  "briefing": "Our card scheme assessment is due. Front-desk staff share logins and we still have old terminals at three properties. Where's the real exposure?",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Findings",
+    "kind": "memo",
+    "key": true,
+    "body": "- Shared front-desk logins at 9 of 16 properties.\n- Legacy terminals (no encryption) at 3 properties, about 12% of card volume.\n- Card numbers written on paper for phone bookings at two properties.\n- Point-to-point encryption on all other terminals."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "multi",
+    "prompt": "Which findings expose card data?",
+    "competencies": [
+     "technical"
+    ],
+    "options": [
+     {
+      "text": "Legacy unencrypted terminals",
+      "correct": true
+     },
+     {
+      "text": "Card numbers on paper",
+      "correct": true
+     },
+     {
+      "text": "Shared logins",
+      "correct": true,
+      "why": "Prevents accountability and enables misuse."
+     },
+     {
+      "text": "P2PE terminals",
+      "correct": false,
+      "why": "These reduce exposure."
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "type": "allocate",
+    "prompt": "Fund fixes within {m:120000}.",
+    "competencies": [
+     "prioritization",
+     "financial"
+    ],
+    "budget": 120000,
+    "unit": "money",
+    "items": [
+     {
+      "id": "term",
+      "text": "Replace legacy terminals",
+      "cost": 80000,
+      "value": 8
+     },
+     {
+      "id": "paper",
+      "text": "Secure phone-booking payment links",
+      "cost": 15000,
+      "value": 6
+     },
+     {
+      "id": "logins",
+      "text": "Individual logins and training",
+      "cost": 20000,
+      "value": 5
+     },
+     {
+      "id": "pen",
+      "text": "Full penetration test",
+      "cost": 60000,
+      "value": 3
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "How do you explain scope reduction to the GM?",
+    "competencies": [
+     "communication",
+     "stakeholder"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "The safest card data is data we never see: encrypted terminals and payment links remove card numbers from our systems and paperwork.",
+      "quality": 3,
+      "feedback": "A strong, well-reasoned response.",
+      "effects": {
+       "trust": {
+        "cio": 2
+       }
+      },
+      "approach": "concise"
+     },
+     {
+      "id": "b",
+      "text": "PCI is a compliance tick-box.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “The safest card data is data we never see: encrypted terminals and payment links remove card numbers from our systems and paperwork.”"
+     }
+    ]
+   }
+  ],
+  "debrief": {
+   "summary": "You prioritised removing card data over protecting it everywhere.",
+   "key_points": [
+    "Scope reduction beats layered protection.",
+    "Paper is a data channel too."
+   ],
+   "stronger_approach": "Retire paper card capture entirely.",
+   "transfer": "Data minimisation is the same principle in privacy and health records."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "industries": [
+   "hospitality"
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "risk_adjust": [
+       {
+        "risk": "HOS-PCI",
+        "res_l": -1
+       }
+      ],
+      "flags": [
+       "privacy_fixed"
+      ]
+     }
+    },
+    {
+     "min": 0,
+     "effects": {
+      "schedule": [
+       {
+        "event": "ev_data_complaint",
+        "after": 3,
+        "p": 0.3
+       }
+      ]
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "H04",
+  "title": "Hurricane Season",
+  "type": "side",
+  "level": 4,
+  "xp": 180,
+  "duration": "10 min",
+  "objective": "Prepare business continuity for a coastal hotel portfolio: impact analysis, evacuation triggers and recovery priorities.",
+  "concepts": [
+   "bia",
+   "crisis_governance"
+  ],
+  "from": "coo",
+  "subject": "Hurricane season starts in three weeks",
+  "briefing": "Three of our coastal properties sit in the hurricane cone most years. I want a continuity plan that actually tells managers what to do and when.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Exposure",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Property",
+      "Rooms",
+      "Flood zone",
+      "Generator runtime"
+     ],
+     "rows": [
+      [
+       "Bayfront",
+       "420",
+       "High",
+       "24h"
+      ],
+      [
+       "Marina",
+       "260",
+       "Medium",
+       "48h"
+      ],
+      [
+       "Keys Resort",
+       "180",
+       "High",
+       "12h"
+      ]
+     ]
+    }
+   },
+   {
+    "id": "d2",
+    "title": "Last season",
+    "kind": "memo",
+    "key": true,
+    "body": "Keys Resort evacuated late because the decision trigger was unclear; guests were stranded overnight in the lobby."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "choice",
+    "prompt": "What evacuation trigger do you propose?",
+    "competencies": [
+     "decision",
+     "prioritization"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Pre-agreed triggers by forecast category and time-to-landfall, with authority delegated to the GM, not head office.",
+      "quality": 3,
+      "feedback": "Clear, fast and local.",
+      "effects": {
+       "flags": [
+        "bcp_tested"
+       ]
+      }
+     },
+     {
+      "id": "b",
+      "text": "Head office decides case by case.",
+      "quality": 1,
+      "feedback": "Slow."
+     },
+     {
+      "id": "c",
+      "text": "Follow guests' preferences.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Pre-agreed triggers by forecast category and time-to-landfall, with authority delegated to the GM, not head office.”"
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s2",
+    "type": "rank",
+    "prompt": "Prioritise recovery after landfall.",
+    "competencies": [
+     "prioritization"
+    ],
+    "items": [
+     {
+      "id": "safety",
+      "text": "Guest and staff safety check"
+     },
+     {
+      "id": "power",
+      "text": "Restore power and water"
+     },
+     {
+      "id": "bookings",
+      "text": "Re-accommodate future bookings"
+     },
+     {
+      "id": "marketing",
+      "text": "Reopening marketing"
+     }
+    ],
+    "answer": [
+     "safety",
+     "power",
+     "bookings",
+     "marketing"
+    ],
+    "why": ""
+   },
+   {
+    "id": "s3",
+    "type": "numeric",
+    "prompt": "Keys Resort's generator lasts 12h; outages last 36h on average. How many extra hours of fuel cover are needed?",
+    "competencies": [
+     "technical"
+    ],
+    "formula": "36-12",
+    "vars": {},
+    "unit": "number",
+    "tolerance_pct": 0,
+    "solution": "24 hours."
+   }
+  ],
+  "debrief": {
+   "summary": "You set clear triggers and recovery priorities.",
+   "key_points": [
+    "Delegate time-critical decisions.",
+    "Size fuel to realistic outage durations."
+   ],
+   "stronger_approach": "Run a tabletop exercise with GMs before the season.",
+   "transfer": "Natural-hazard continuity applies to plants, hospitals and data centres."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "industries": [
+   "hospitality"
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "flags": [
+       "bcp_tested"
+      ],
+      "org": {
+       "resilience": 4
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {
+      "org": {
+       "resilience": -2
+      }
+     }
+    }
+   ]
+  }
+ }
+]

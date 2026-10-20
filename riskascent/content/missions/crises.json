@@ -1,0 +1,3161 @@
+[
+ {
+  "id": "C01",
+  "title": "The Warning Nobody Read",
+  "type": "crisis",
+  "level": 2,
+  "xp": 220,
+  "duration": "10 min",
+  "objective": "Experience how an ignored, previously identified risk becomes an incident; respond, investigate and repair credibility.",
+  "concepts": [
+   "escalation",
+   "root_cause",
+   "decision_vs_outcome"
+  ],
+  "from": "coo",
+  "subject": "Kitchen fire at the main site",
+  "briefing": "There's been a fire in the main kitchen extraction duct overnight. Everyone got out. I'm told the risk team flagged duct cleaning months ago. I need you in the incident room now.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Register entry (six months ago)",
+    "kind": "memo",
+    "key": true,
+    "body": "Risk: Kitchen extraction fire. Cause: duct cleaning overdue at two sites. Action: clean within 30 days. Owner: Operations. Status: 'Deferred - budget'."
+   },
+   {
+    "id": "d2",
+    "title": "Incident log, 02:10-04:30",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Time",
+      "Event"
+     ],
+     "rows": [
+      [
+       "02:10",
+       "Smoke detected, alarm raised"
+      ],
+      [
+       "02:14",
+       "Evacuation complete, 3 staff on site"
+      ],
+      [
+       "02:40",
+       "Fire service extinguishes duct fire"
+      ],
+      [
+       "04:30",
+       "Damage to ceiling void; kitchen closed"
+      ]
+     ]
+    }
+   },
+   {
+    "id": "d3",
+    "title": "Email thread",
+    "kind": "email",
+    "key": true,
+    "body": "Ops manager to finance (5 months ago): 'Can we defer duct cleaning to next quarter? We're over budget.' Finance: 'Approved.' No record that the risk owner or risk team were consulted.",
+    "from": "coo"
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "choice",
+    "prompt": "First hour. What's your priority?",
+    "competencies": [
+     "leadership",
+     "prioritization"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Confirm everyone is safe and accounted for, secure the area, check other sites' ducts today, and set up a factual timeline.",
+      "quality": 3,
+      "feedback": "Life safety first, then prevent recurrence elsewhere.",
+      "effects": {
+       "flags": [
+        "duct_clean_enforced"
+       ]
+      }
+     },
+     {
+      "id": "b",
+      "text": "Find the email trail to show the risk team warned them.",
+      "quality": 0,
+      "feedback": "Self-protection before safety.",
+      "effects": {
+       "trust": {
+        "coo": -5
+       }
+      }
+     },
+     {
+      "id": "c",
+      "text": "Draft a press statement.",
+      "quality": 1,
+      "feedback": "Communication matters but facts and safety come first."
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s2",
+    "type": "choice",
+    "prompt": "Two other sites have overdue duct cleaning. Cleaning both this week costs {m:18000} and closes kitchens for a day.",
+    "competencies": [
+     "decision",
+     "financial"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Clean both now; the cost is trivial against the loss you're looking at.",
+      "quality": 3,
+      "feedback": "Proportionate and urgent.",
+      "effects": {
+       "org": {
+        "cash": -18000
+       },
+       "cancel": [
+        "ev_kitchen_fire"
+       ]
+      },
+      "outcome": {
+       "p_bad": 0.15,
+       "good": "Cleaning found heavy grease build-up at one site: a second fire was likely averted.",
+       "bad": "The cleaning contractor damaged an extractor fan; a minor additional cost.",
+       "bad_effects": {
+        "org": {
+         "cash": -8000
+        }
+       }
+      }
+     },
+     {
+      "id": "b",
+      "text": "Schedule them next month to avoid revenue loss.",
+      "quality": 0,
+      "feedback": "Repeats the original mistake.",
+      "effects": {
+       "schedule": [
+        {
+         "event": "ev_kitchen_fire",
+         "after": 1,
+         "p": 0.35
+        }
+       ],
+       "flags": [
+        "duct_warning_ignored"
+       ]
+      },
+      "outcome": {
+       "p_bad": 0.35,
+       "good": "No further fire occurred this month.",
+       "bad": "A second, smaller duct fire occurred at another site before the cleaning.",
+       "bad_effects": {
+        "org": {
+         "cash": -300000,
+         "reputation": -5
+        }
+       }
+      }
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "{sh:ceo} asks: 'Did we know about this?' How do you answer?",
+    "competencies": [
+     "ethics",
+     "communication"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Yes. It was in the register with an action; it was deferred for budget without the owner or risk team. Here's what we're changing so deferrals of risk actions need sign-off.",
+      "quality": 3,
+      "feedback": "Candid, without blame, with a system fix.",
+      "effects": {
+       "trust": {
+        "ceo": 4,
+        "coo": -1
+       }
+      },
+      "approach": "concise"
+     },
+     {
+      "id": "b",
+      "text": "The risk team warned operations, but they ignored us.",
+      "quality": 1,
+      "feedback": "True but blame-oriented; it damages the relationship you'll need.",
+      "effects": {
+       "trust": {
+        "coo": -5,
+        "ceo": 1
+       }
+      }
+     },
+     {
+      "id": "c",
+      "text": "It was unforeseeable.",
+      "quality": 0,
+      "feedback": "Untrue: it was foreseen.",
+      "effects": {
+       "trust": {
+        "ceo": -6
+       },
+       "flags": [
+        "rating_softened"
+       ]
+      }
+     }
+    ],
+    "to": "ceo"
+   },
+   {
+    "id": "s4",
+    "type": "multi",
+    "prompt": "Which governance fixes address the root cause?",
+    "competencies": [
+     "analysis",
+     "strategy"
+    ],
+    "options": [
+     {
+      "text": "Risk actions on high-rated risks cannot be deferred without the risk owner's and risk team's sign-off",
+      "correct": true
+     },
+     {
+      "text": "Budget decisions affecting safety actions trigger a risk review",
+      "correct": true
+     },
+     {
+      "text": "Discipline the ops manager",
+      "correct": false,
+      "why": "The process allowed the decision; fix the process."
+     },
+     {
+      "text": "Monthly report of deferred risk actions to the executive committee",
+      "correct": true
+     }
+    ]
+   },
+   {
+    "id": "s5",
+    "type": "write",
+    "prompt": "Write the two-sentence summary for the board.",
+    "competencies": [
+     "communication"
+    ],
+    "rubric": [
+     {
+      "element": "Event",
+      "keywords": [
+       "fire",
+       "duct"
+      ],
+      "tip": "State the event."
+     },
+     {
+      "element": "Known",
+      "keywords": [
+       "register",
+       "identified",
+       "known",
+       "flagged"
+      ],
+      "tip": "Acknowledge it was known."
+     },
+     {
+      "element": "Fix",
+      "keywords": [
+       "sign-off",
+       "deferral",
+       "review",
+       "clean"
+      ],
+      "tip": "State the fix."
+     }
+    ],
+    "model_answer": "An overnight duct fire closed the main kitchen; everyone was evacuated safely. The risk had been identified and an action agreed, but cleaning was deferred for budget reasons without the risk owner's sign-off; all sites' ducts are now clean and risk-action deferrals will require owner and risk-team approval.",
+    "min_words": 25,
+    "max_words": 160
+   }
+  ],
+  "debrief": {
+   "summary": "A known risk became an incident because a control decision bypassed governance.",
+   "key_points": [
+    "Ignored warnings are the most avoidable incidents.",
+    "Be candid without blame.",
+    "Fix the process that allowed the decision."
+   ],
+   "stronger_approach": "Check the register for other 'deferred - budget' actions on high-rated risks today.",
+   "transfer": "This pattern recurs in almost every major incident inquiry, in every sector."
+  },
+  "endings": [
+   {
+    "id": "contained",
+    "title": "Contained and fixed",
+    "min_score": 0.75,
+    "flags_any": [
+     "duct_clean_enforced"
+    ],
+    "text": "The fire stayed a one-off. Your candour earned the CEO's trust, and deferral rules changed."
+   },
+   {
+    "id": "repeat",
+    "title": "History repeats",
+    "min_score": 0,
+    "flags_any": [
+     "duct_warning_ignored"
+    ],
+    "text": "Deferring the remaining cleaning risked a second fire. The board now asks why lessons weren't learned."
+   },
+   {
+    "id": "partial",
+    "title": "Partly resolved",
+    "min_score": 0,
+    "text": "The immediate danger passed, but the governance gap remains partly open."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "org": {
+       "control_effectiveness": 3
+      },
+      "trust": {
+       "ceo": 2
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {
+      "org": {
+       "reputation": -2
+      }
+     }
+    }
+   ],
+   "effects": {
+    "org": {
+     "cash": -250000
+    }
+   }
+  }
+ },
+ {
+  "id": "C02",
+  "title": "The Supplier Goes Dark",
+  "type": "crisis",
+  "level": 3,
+  "xp": 240,
+  "duration": "10 min",
+  "objective": "Respond to a sudden critical supplier failure: secure continuity, protect cash and decide under incomplete information.",
+  "concepts": [
+   "third_party",
+   "bia",
+   "decision_vs_outcome"
+  ],
+  "from": "cpo",
+  "subject": "Our main supplier has stopped answering",
+  "briefing": "Our single-source supplier for critical components hasn't delivered for three days and won't answer calls. Rumours say they're insolvent. We have five days of stock.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Situation",
+    "kind": "memo",
+    "key": true,
+    "body": "- Stock: 5 days. Lead time for an alternative: 3-6 weeks unless pre-qualified.\n- Supplier accounts for 38% of critical spend.\n- An alternative supplier is half-qualified: quality audit complete, contract not signed.\n- We prepaid {m:400000} for next month's order."
+   },
+   {
+    "id": "d2",
+    "title": "Information gaps",
+    "kind": "memo",
+    "key": true,
+    "body": "We don't know: whether the supplier is formally insolvent; whether administrators will honour orders; whether competitors are scrambling for the same alternative."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "choice",
+    "prompt": "Day 1. What do you do first?",
+    "competencies": [
+     "decision",
+     "prioritization"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Sign the half-qualified alternative now on a short-term contract, ration stock to critical customers, and seek legal advice on the prepayment.",
+      "quality": 3,
+      "feedback": "Acts on the critical path despite uncertainty.",
+      "effects": {
+       "flags": [
+        "dual_source"
+       ]
+      },
+      "outcome": {
+       "p_bad": 0.25,
+       "good": "The alternative delivered within 10 days; disruption was minimal.",
+       "bad": "The alternative had a quality problem with the first batch, causing a short delay; still far better than waiting.",
+       "bad_effects": {
+        "org": {
+         "revenue": -200000
+        }
+       }
+      }
+     },
+     {
+      "id": "b",
+      "text": "Wait for confirmation of insolvency before acting.",
+      "quality": 0,
+      "feedback": "Five days of stock doesn't allow waiting.",
+      "outcome": {
+       "p_bad": 0.7,
+       "good": "The supplier resumed deliveries after a week; you got lucky.",
+       "bad": "Insolvency was confirmed on day 6; you had no stock and no alternative.",
+       "bad_effects": {
+        "org": {
+         "revenue": -2500000,
+         "reputation": -4,
+         "confidence": -4
+        }
+       }
+      }
+     },
+     {
+      "id": "c",
+      "text": "Buy from a broker at a 60% premium.",
+      "quality": 2,
+      "feedback": "Secures supply but expensively; combine with qualifying the alternative.",
+      "effects": {
+       "org": {
+        "cash": -500000
+       }
+      }
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s2",
+    "type": "choice",
+    "prompt": "{sh:cfo} wants to stop all payments to the supplier immediately.",
+    "competencies": [
+     "financial",
+     "stakeholder"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Agree to hold further payments, but get legal advice before cancelling contracts so we don't breach terms the administrator could enforce.",
+      "quality": 3,
+      "feedback": "Protects cash and legal position.",
+      "effects": {
+       "trust": {
+        "cfo": 3,
+        "gc": 2
+       }
+      },
+      "approach": "data"
+     },
+     {
+      "id": "b",
+      "text": "Yes, cancel the contract today.",
+      "quality": 1,
+      "feedback": "Possible breach of contract."
+     },
+     {
+      "id": "c",
+      "text": "Keep paying to maintain goodwill.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Agree to hold further payments, but get legal advice before cancelling contracts so we don't breach terms the administrator could enforce.”"
+     }
+    ],
+    "to": "cfo"
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "A competitor calls offering to share their supplier's spare capacity in return for your customer list.",
+    "competencies": [
+     "ethics",
+     "decision"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Decline: sharing customer data is a legal and ethical breach. Explore capacity sharing on commercial terms only.",
+      "quality": 3,
+      "feedback": "A strong, well-reasoned response.",
+      "effects": {
+       "trust": {
+        "gc": 3
+       }
+      }
+     },
+     {
+      "id": "b",
+      "text": "Accept; it's an emergency.",
+      "quality": 0,
+      "feedback": "Potential competition-law and data-protection breach.",
+      "effects": {
+       "schedule": [
+        {
+         "event": "ev_data_complaint",
+         "after": 2,
+         "p": 0.6
+        }
+       ],
+       "org": {
+        "compliance": -5
+       }
+      }
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "type": "write",
+    "prompt": "Write the lessons-learned recommendation.",
+    "competencies": [
+     "communication",
+     "strategy"
+    ],
+    "rubric": [
+     {
+      "element": "Concentration",
+      "keywords": [
+       "single",
+       "concentrat",
+       "38%"
+      ],
+      "tip": "Name the concentration."
+     },
+     {
+      "element": "Qualification",
+      "keywords": [
+       "qualif",
+       "dual",
+       "second",
+       "alternative"
+      ],
+      "tip": "Recommend pre-qualified alternatives."
+     },
+     {
+      "element": "Monitoring",
+      "keywords": [
+       "financial health",
+       "monitor",
+       "kri",
+       "early warning"
+      ],
+      "tip": "Recommend monitoring."
+     }
+    ],
+    "model_answer": "Our exposure came from single-sourcing 38% of critical spend with no fully qualified alternative. We recommend dual-sourcing all critical components, completing qualification of alternatives before they are needed, and monitoring critical suppliers' financial health monthly as a KRI.",
+    "min_words": 25,
+    "max_words": 160
+   }
+  ],
+  "debrief": {
+   "summary": "You acted on the critical path despite uncertainty, protected cash lawfully and stayed ethical under pressure.",
+   "key_points": [
+    "When time is shorter than the information gap, act on reversible options.",
+    "Prepayments to fragile suppliers are exposures."
+   ],
+   "stronger_approach": "Track supplier financial-health signals monthly.",
+   "transfer": "The same playbook applies to cloud provider failure or a key contractor collapse."
+  },
+  "endings": [
+   {
+    "id": "secured",
+    "title": "Supply secured",
+    "min_score": 0.75,
+    "flags_any": [
+     "dual_source"
+    ],
+    "text": "Supply continued with minimal disruption, and dual-sourcing became policy."
+   },
+   {
+    "id": "scramble",
+    "title": "A costly scramble",
+    "min_score": 0,
+    "text": "Supply recovered eventually, at a high price in revenue and trust."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "org": {
+       "resilience": 3
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {
+      "org": {
+       "revenue": -500000
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "C03",
+  "title": "Credentials in the Wrong Hands",
+  "type": "crisis",
+  "level": 4,
+  "xp": 260,
+  "duration": "10 min",
+  "objective": "Lead the risk response to a cyber incident threatening confidential data, balancing containment, legal duties and communication.",
+  "concepts": [
+   "crisis_governance",
+   "decision_vs_outcome",
+   "pdpl"
+  ],
+  "from": "cio",
+  "subject": "Possible data breach in progress",
+  "briefing": "Our security team has found an attacker logged into an administrator account, apparently via a phishing email. They've been in for about 36 hours. We don't know what they took.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Known facts",
+    "kind": "memo",
+    "key": true,
+    "body": "- Admin account compromised via phishing; MFA not enabled on this account.\n- Attacker accessed the customer database server.\n- Outbound data transfer of 2GB to an unknown address yesterday.\n- Legal: data protection law may require notifying the regulator within 72 hours of becoming aware of a breach likely to risk individuals."
+   },
+   {
+    "id": "d2",
+    "title": "Options from IT",
+    "kind": "memo",
+    "key": true,
+    "body": "A) Disconnect the database now (stops exfiltration, customer service down 8-12h).\nB) Monitor the attacker to learn more (risk of further theft).\nC) Reset all admin passwords and enable MFA (2 hours)."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "choice",
+    "prompt": "Containment decision.",
+    "competencies": [
+     "decision",
+     "prioritization"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Reset admin credentials and enable MFA immediately, and isolate the database server; accept the service outage.",
+      "quality": 3,
+      "feedback": "Stops the attacker at the cost of a contained outage.",
+      "effects": {
+       "flags": [
+        "mfa_accelerated"
+       ],
+       "org": {
+        "revenue": -300000
+       }
+      },
+      "outcome": {
+       "p_bad": 0.2,
+       "good": "Containment held; forensics later showed only partial data was taken.",
+       "bad": "The attacker had a second foothold and briefly regained access; containment took another day.",
+       "bad_effects": {
+        "org": {
+         "cash": -300000
+        }
+       }
+      }
+     },
+     {
+      "id": "b",
+      "text": "Monitor to learn more before acting.",
+      "quality": 0,
+      "feedback": "Data subjects bear the risk of your learning.",
+      "outcome": {
+       "p_bad": 0.65,
+       "good": "You learned the attacker's method without further loss.",
+       "bad": "The attacker exfiltrated a further 10GB while you watched.",
+       "bad_effects": {
+        "org": {
+         "cash": -2000000,
+         "reputation": -8,
+         "compliance": -6
+        }
+       }
+      }
+     },
+     {
+      "id": "c",
+      "text": "Reset passwords only.",
+      "quality": 2,
+      "feedback": "Necessary but incomplete without isolation and MFA."
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s2",
+    "type": "choice",
+    "prompt": "Legal notification: the 72-hour clock may have started when security became aware. What do you advise?",
+    "competencies": [
+     "ethics",
+     "technical"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Assume the clock has started, prepare notification with what is known, and update as facts emerge.",
+      "quality": 3,
+      "feedback": "Notify on time with incomplete information; regulators expect updates.",
+      "effects": {
+       "trust": {
+        "gc": 4
+       },
+       "flags": [
+        "privacy_fixed"
+       ]
+      }
+     },
+     {
+      "id": "b",
+      "text": "Wait until forensics confirm exactly what was taken.",
+      "quality": 0,
+      "feedback": "Could miss the legal deadline.",
+      "effects": {
+       "schedule": [
+        {
+         "event": "ev_regulatory_fine",
+         "after": 3,
+         "p": 0.5
+        }
+       ]
+      }
+     },
+     {
+      "id": "c",
+      "text": "Don't notify unless the media finds out.",
+      "quality": 0,
+      "feedback": "Unlawful and unethical.",
+      "effects": {
+       "schedule": [
+        {
+         "event": "ev_regulatory_fine",
+         "after": 2,
+         "p": 0.8
+        }
+       ],
+       "org": {
+        "compliance": -8
+       }
+      }
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "The CEO wants to tell customers 'no data was taken'.",
+    "competencies": [
+     "communication",
+     "ethics",
+     "stakeholder"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Advise against: say what we know, what we're doing and when we'll update. A false reassurance would be far more damaging if wrong.",
+      "quality": 3,
+      "feedback": "A strong, well-reasoned response.",
+      "effects": {
+       "trust": {
+        "ceo": 2
+       },
+       "flags": [
+        "comms_protocol"
+       ]
+      },
+      "approach": "concise"
+     },
+     {
+      "id": "b",
+      "text": "Agree; it calms customers.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Advise against: say what we know, what we're doing and when we'll update. A false reassurance would be far more damaging if wrong.”",
+      "effects": {
+       "schedule": [
+        {
+         "event": "ev_media_storm",
+         "after": 2,
+         "p": 0.6
+        }
+       ]
+      }
+     }
+    ],
+    "to": "ceo"
+   },
+   {
+    "id": "s4",
+    "type": "multi",
+    "prompt": "Which lessons are root-cause fixes?",
+    "competencies": [
+     "analysis"
+    ],
+    "options": [
+     {
+      "text": "Enforce MFA on all privileged accounts",
+      "correct": true
+     },
+     {
+      "text": "Alert on large outbound transfers",
+      "correct": true
+     },
+     {
+      "text": "Fire the employee who clicked",
+      "correct": false,
+      "why": "Phishing will always succeed sometimes; controls must assume it."
+     },
+     {
+      "text": "Tested incident response plan with legal timelines",
+      "correct": true
+     }
+    ]
+   }
+  ],
+  "debrief": {
+   "summary": "You contained the attack, met legal duties with incomplete information and avoided false reassurance.",
+   "key_points": [
+    "Contain first; learn later.",
+    "Notification clocks run from awareness.",
+    "Never promise what you don't know."
+   ],
+   "stronger_approach": "Run a tabletop exercise on this exact scenario within three months.",
+   "transfer": "Cyber incident governance is the same in hospitals, banks and hotels."
+  },
+  "endings": [
+   {
+    "id": "contained",
+    "title": "Contained with integrity",
+    "min_score": 0.75,
+    "text": "The breach was contained, regulators were notified on time, and customers trusted the honest updates."
+   },
+   {
+    "id": "damaged",
+    "title": "Lasting damage",
+    "min_score": 0,
+    "text": "Delays and mixed messages turned a breach into a crisis of trust."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "org": {
+       "resilience": 2
+      },
+      "trust": {
+       "cio": 3
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {
+      "org": {
+       "reputation": -3
+      }
+     }
+    }
+   ],
+   "effects": {
+    "org": {
+     "cash": -400000
+    }
+   }
+  }
+ },
+ {
+  "id": "C04",
+  "title": "Blackout at the Critical Site",
+  "type": "crisis",
+  "level": 3,
+  "xp": 240,
+  "duration": "10 min",
+  "objective": "Manage a critical equipment failure: prioritise recovery against RTOs, communicate and make continuity trade-offs.",
+  "concepts": [
+   "bia",
+   "rto_rpo",
+   "mtpd"
+  ],
+  "from": "coo",
+  "subject": "Main switchboard failure",
+  "briefing": "The main electrical switchboard at our largest site has failed. Generators are running but fuel lasts 18 hours. The engineer says repair could take 24-48 hours.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "BIA summary for the site",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Process",
+      "RTO",
+      "MTPD",
+      "On generator?"
+     ],
+     "rows": [
+      [
+       "Life safety systems",
+       "0h",
+       "0h",
+       "Yes"
+      ],
+      [
+       "Customer-facing operations",
+       "4h",
+       "24h",
+       "Partial"
+      ],
+      [
+       "IT server room",
+       "2h",
+       "8h",
+       "Yes"
+      ],
+      [
+       "Back office",
+       "48h",
+       "1 week",
+       "No"
+      ]
+     ]
+    }
+   },
+   {
+    "id": "d2",
+    "title": "Options",
+    "kind": "memo",
+    "key": true,
+    "body": "- Second generator hire: {m:25000}, arrives in 6 hours, doubles runtime.\n- Fuel delivery contract: next delivery in 20 hours unless expedited ({m:5000}).\n- Move back office to home working."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "rank",
+    "prompt": "Prioritise generator power allocation.",
+    "competencies": [
+     "prioritization",
+     "technical"
+    ],
+    "items": [
+     {
+      "id": "safety",
+      "text": "Life safety systems"
+     },
+     {
+      "id": "it",
+      "text": "IT server room"
+     },
+     {
+      "id": "ops",
+      "text": "Customer-facing operations"
+     },
+     {
+      "id": "back",
+      "text": "Back office"
+     }
+    ],
+    "answer": [
+     "safety",
+     "it",
+     "ops",
+     "back"
+    ],
+    "why": "Life safety first, then by RTO."
+   },
+   {
+    "id": "s2",
+    "type": "choice",
+    "prompt": "Fuel lasts 18 hours; repair may take 48. What do you do?",
+    "competencies": [
+     "decision",
+     "financial"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Expedite fuel ({m:5000}) and hire the second generator ({m:25000}) now; move back office home.",
+      "quality": 3,
+      "feedback": "Cheap insurance against a long repair.",
+      "effects": {
+       "org": {
+        "cash": -30000
+       },
+       "flags": [
+        "bcp_tested"
+       ]
+      },
+      "outcome": {
+       "p_bad": 0.2,
+       "good": "Repair took 30 hours; power never dropped.",
+       "bad": "Fuel delivery was late anyway, but the second generator covered the gap."
+      }
+     },
+     {
+      "id": "b",
+      "text": "Wait for the engineer's update before spending.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Expedite fuel ({m:5000}) and hire the second generator ({m:25000}) now; move back office home.”",
+      "outcome": {
+       "p_bad": 0.5,
+       "good": "Repair finished in 16 hours; no harm done.",
+       "bad": "Power failed at hour 18; IT and operations went down for 12 hours.",
+       "bad_effects": {
+        "org": {
+         "revenue": -1500000,
+         "resilience": -5
+        }
+       }
+      }
+     },
+     {
+      "id": "c",
+      "text": "Expedite fuel only.",
+      "quality": 2,
+      "feedback": "Good, but no redundancy if the generator itself fails.",
+      "effects": {
+       "org": {
+        "cash": -5000
+       }
+      }
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "Customers are complaining online. What do you advise?",
+    "competencies": [
+     "communication"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Post an honest update with expected timelines and what customers can do, refreshed every few hours.",
+      "quality": 3,
+      "feedback": "A strong, well-reasoned response.",
+      "effects": {
+       "flags": [
+        "comms_protocol"
+       ]
+      }
+     },
+     {
+      "id": "b",
+      "text": "Say nothing until it's fixed.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Post an honest update with expected timelines and what customers can do, refreshed every few hours.”",
+      "effects": {
+       "org": {
+        "reputation": -3
+       }
+      }
+     },
+     {
+      "id": "c",
+      "text": "Blame the utility company.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Post an honest update with expected timelines and what customers can do, refreshed every few hours.”"
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "type": "write",
+    "prompt": "Write the post-incident recommendation.",
+    "competencies": [
+     "communication",
+     "strategy"
+    ],
+    "rubric": [
+     {
+      "element": "Single point",
+      "keywords": [
+       "single point",
+       "switchboard",
+       "redundan"
+      ],
+      "tip": "Name the single point of failure."
+     },
+     {
+      "element": "Fuel",
+      "keywords": [
+       "fuel",
+       "generator",
+       "contract"
+      ],
+      "tip": "Address fuel resilience."
+     },
+     {
+      "element": "Test",
+      "keywords": [
+       "test",
+       "exercise"
+      ],
+      "tip": "Recommend testing."
+     }
+    ],
+    "model_answer": "The switchboard was a single point of failure for the whole site. We recommend a redundant supply path, a guaranteed fuel-delivery contract with a 6-hour response, and an annual full-load generator test.",
+    "min_words": 25,
+    "max_words": 160
+   }
+  ],
+  "debrief": {
+   "summary": "You prioritised by recovery objectives and bought cheap insurance against a long repair.",
+   "key_points": [
+    "Life safety, then RTO order.",
+    "Small spends that remove big tails are good trades."
+   ],
+   "stronger_approach": "Validate fuel arrangements against MTPD, not just RTO.",
+   "transfer": "The same logic applies to data centres, hospitals and plants."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "org": {
+       "resilience": 3
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {
+      "org": {
+       "resilience": -2
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "C05",
+  "title": "The Reconciliation Nobody Checked",
+  "type": "crisis",
+  "level": 4,
+  "xp": 260,
+  "duration": "10 min",
+  "objective": "Investigate a control failure that caused financial loss, quantify it, fix the control and handle accountability fairly.",
+  "concepts": [
+   "design_vs_operating",
+   "root_cause",
+   "conflict_interest"
+  ],
+  "from": "cfo",
+  "subject": "We've lost money through a broken reconciliation",
+  "briefing": "Month-end found a {m:850000} difference in the supplier payments account. It looks like duplicate payments over eight months that a reconciliation should have caught.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Findings so far",
+    "kind": "memo",
+    "key": true,
+    "body": "- 46 duplicate payments over 8 months.\n- The monthly reconciliation was signed off every month by the same senior accountant.\n- System upgrade 9 months ago changed the payment reference format, so the duplicate check stopped working.\n- Recovery: suppliers have repaid {m:300000} so far."
+   },
+   {
+    "id": "d2",
+    "title": "Pressure",
+    "kind": "email",
+    "key": true,
+    "body": "From a finance director: 'Let's keep this within finance. The accountant is a good person and close to retirement.'",
+    "from": "cfo"
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "numeric",
+    "prompt": "What is the net loss so far after recoveries?",
+    "competencies": [
+     "financial"
+    ],
+    "formula": "850000-300000",
+    "vars": {},
+    "unit": "money",
+    "tolerance_pct": 2,
+    "solution": "{m:850000} - {m:300000} = {m:550000}."
+   },
+   {
+    "id": "s2",
+    "type": "choice",
+    "prompt": "What was the root cause?",
+    "competencies": [
+     "analysis",
+     "technical"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "A system change broke the automated duplicate check, and the reconciliation was signed off without actually being performed effectively.",
+      "quality": 3,
+      "feedback": "Two failures: change management and an ineffective detective control."
+     },
+     {
+      "id": "b",
+      "text": "The accountant was careless.",
+      "quality": 1,
+      "feedback": "Part of it, but the system change is the trigger."
+     },
+     {
+      "id": "c",
+      "text": "Suppliers were dishonest.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “A system change broke the automated duplicate check, and the reconciliation was signed off without actually being performed effectively.”"
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "How do you handle the request to 'keep it within finance'?",
+    "competencies": [
+     "ethics",
+     "stakeholder"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Explain that a {m:850000} control failure must be reported to the audit committee; accountability should be fair and proportionate, focused on the control failure.",
+      "quality": 3,
+      "feedback": "Integrity and fairness together.",
+      "effects": {
+       "trust": {
+        "audit": 4,
+        "cfo": -1
+       }
+      }
+     },
+     {
+      "id": "b",
+      "text": "Agree to keep it quiet.",
+      "quality": 0,
+      "feedback": "Concealment.",
+      "effects": {
+       "flags": [
+        "rating_softened"
+       ],
+       "schedule": [
+        {
+         "event": "ev_audit_finding",
+         "after": 2,
+         "p": 0.8
+        }
+       ]
+      }
+     },
+     {
+      "id": "c",
+      "text": "Report the accountant to HR for dismissal.",
+      "quality": 1,
+      "feedback": "Disproportionate before facts are complete."
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "type": "multi",
+    "prompt": "Which control fixes do you recommend?",
+    "competencies": [
+     "technical",
+     "decision"
+    ],
+    "options": [
+     {
+      "text": "Change management: test critical controls after system upgrades",
+      "correct": true
+     },
+     {
+      "text": "Independent reviewer re-performs a sample of the reconciliation",
+      "correct": true
+     },
+     {
+      "text": "Automated duplicate check fixed and monitored",
+      "correct": true
+     },
+     {
+      "text": "Remove all payment approvals to speed things up",
+      "correct": false
+     }
+    ]
+   },
+   {
+    "id": "s5",
+    "type": "choice",
+    "prompt": "Should the loss be pursued further with suppliers?",
+    "competencies": [
+     "financial",
+     "decision"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Yes: issue formal recovery requests for the remaining {m:550000}, prioritised by amount.",
+      "quality": 3,
+      "feedback": "A strong, well-reasoned response.",
+      "effects": {
+       "org": {
+        "cash": 250000
+       }
+      },
+      "outcome": {
+       "p_bad": 0.3,
+       "good": "Most of the remainder was recovered.",
+       "bad": "Two suppliers disputed the claims; recovery will take months."
+      }
+     },
+     {
+      "id": "b",
+      "text": "Write it off.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Yes: issue formal recovery requests for the remaining {m:550000}, prioritised by amount.”"
+     }
+    ]
+   }
+  ],
+  "debrief": {
+   "summary": "You traced the loss to change management and an ineffective review, and kept accountability fair.",
+   "key_points": [
+    "Controls break silently after system changes.",
+    "Sign-off is not evidence of performance.",
+    "Escalate material losses; don't contain them politically."
+   ],
+   "stronger_approach": "Add 'critical control re-test after change' to the change process.",
+   "transfer": "The same pattern explains many IT outages and safety failures after upgrades."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "org": {
+       "control_effectiveness": 4
+      },
+      "flags": [
+       "callback_enforced"
+      ]
+     }
+    },
+    {
+     "min": 0,
+     "effects": {
+      "org": {
+       "control_effectiveness": -2
+      }
+     }
+    }
+   ],
+   "effects": {
+    "org": {
+     "cash": -550000
+    }
+   }
+  }
+ },
+ {
+  "id": "C06",
+  "title": "The Regulator's Letter",
+  "type": "crisis",
+  "level": 5,
+  "xp": 280,
+  "duration": "10 min",
+  "objective": "Respond to a regulator identifying a significant compliance gap: remediation, honesty and governance.",
+  "concepts": [
+   "regulatory_change",
+   "tolerance",
+   "escalation"
+  ],
+  "from": "gc",
+  "subject": "The regulator has found a significant gap",
+  "briefing": "We've received a formal letter from {regulator}. A new requirement took effect four months ago and we haven't implemented it. They want a remediation plan in 30 days.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Letter extract",
+    "kind": "memo",
+    "key": true,
+    "body": "'...the firm has not implemented the required controls. We expect a remediation plan within 30 days, including root cause, interim measures and timelines. We will consider whether further action is appropriate.'"
+   },
+   {
+    "id": "d2",
+    "title": "Internal facts",
+    "kind": "memo",
+    "key": true,
+    "body": "- The requirement was announced 14 months ago.\n- It was mentioned in a legal newsletter but never logged or assigned.\n- Two other upcoming requirements are also unassigned."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "choice",
+    "prompt": "What tone should the response take?",
+    "competencies": [
+     "communication",
+     "ethics",
+     "stakeholder"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Acknowledge the gap clearly, explain the root cause, set out interim measures and a credible timeline, and commit to regular updates.",
+      "quality": 3,
+      "feedback": "Regulators respond to candour and credibility.",
+      "effects": {
+       "trust": {
+        "gc": 4
+       }
+      },
+      "approach": "formal"
+     },
+     {
+      "id": "b",
+      "text": "Argue the requirement was ambiguous.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Acknowledge the gap clearly, explain the root cause, set out interim measures and a credible timeline, and commit to regular updates.”",
+      "effects": {
+       "schedule": [
+        {
+         "event": "ev_regulatory_fine",
+         "after": 2,
+         "p": 0.6
+        }
+       ]
+      }
+     },
+     {
+      "id": "c",
+      "text": "Promise full compliance in two weeks.",
+      "quality": 1,
+      "feedback": "Over-promising risks a second breach."
+     }
+    ],
+    "confidence": true,
+    "to": "gc"
+   },
+   {
+    "id": "s2",
+    "type": "choice",
+    "prompt": "What's the root cause?",
+    "competencies": [
+     "analysis"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "No process to log, assign and track regulatory change.",
+      "quality": 3,
+      "feedback": "A strong, well-reasoned response.",
+      "effects": {
+       "flags": [
+        "reg_tracker_fixed"
+       ]
+      }
+     },
+     {
+      "id": "b",
+      "text": "The legal team was too busy.",
+      "quality": 1,
+      "feedback": "This addresses part of the problem but misses something important. A stronger option was: “No process to log, assign and track regulatory change.”"
+     },
+     {
+      "id": "c",
+      "text": "The regulator's communication was poor.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “No process to log, assign and track regulatory change.”"
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "There are two more unassigned requirements. What do you do?",
+    "competencies": [
+     "prioritization",
+     "decision"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Assign owners and assess them now, and mention them proactively in the response.",
+      "quality": 3,
+      "feedback": "Proactive disclosure builds credibility.",
+      "effects": {
+       "org": {
+        "compliance": 4
+       }
+      }
+     },
+     {
+      "id": "b",
+      "text": "Fix them quietly without telling the regulator.",
+      "quality": 1,
+      "feedback": "Better than nothing, but disclosure builds trust."
+     },
+     {
+      "id": "c",
+      "text": "Deal with them later.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Assign owners and assess them now, and mention them proactively in the response.”",
+      "effects": {
+       "schedule": [
+        {
+         "event": "ev_regulator_letter",
+         "after": 3,
+         "p": 0.6
+        }
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "type": "write",
+    "prompt": "Write the root-cause and fix paragraph for the response.",
+    "competencies": [
+     "communication"
+    ],
+    "rubric": [
+     {
+      "element": "Cause",
+      "keywords": [
+       "not logged",
+       "not assigned",
+       "no process",
+       "tracking"
+      ],
+      "tip": "State the cause."
+     },
+     {
+      "element": "Fix",
+      "keywords": [
+       "register",
+       "owner",
+       "track"
+      ],
+      "tip": "State the fix."
+     },
+     {
+      "element": "Interim",
+      "keywords": [
+       "interim",
+       "manual",
+       "temporary"
+      ],
+      "tip": "Describe interim measures."
+     }
+    ],
+    "model_answer": "The requirement was not implemented because we had no process to log, assign and track regulatory change; it was noted in a newsletter but never assigned an owner. We have implemented manual interim controls, created a regulatory change register with named owners and monthly compliance committee review, and assessed two further upcoming requirements.",
+    "min_words": 25,
+    "max_words": 160
+   }
+  ],
+  "debrief": {
+   "summary": "You handled the regulator with candour and fixed the process, not just the instance.",
+   "key_points": [
+    "Regulators judge culture as much as compliance.",
+    "Proactive disclosure builds credibility."
+   ],
+   "stronger_approach": "Report the regulatory change KRI to the board monthly.",
+   "transfer": "Regulatory engagement is similar for data protection, safety and financial regulators."
+  },
+  "endings": [
+   {
+    "id": "credible",
+    "title": "Credibility restored",
+    "min_score": 0.75,
+    "text": "The regulator accepted the plan and noted the firm's openness."
+   },
+   {
+    "id": "watch",
+    "title": "Under watch",
+    "min_score": 0,
+    "text": "The regulator placed the firm under enhanced supervision."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "org": {
+       "compliance": 5
+      },
+      "cancel": [
+       "ev_regulatory_fine"
+      ]
+     }
+    },
+    {
+     "min": 0,
+     "effects": {
+      "org": {
+       "compliance": -4
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "C07",
+  "title": "The Project That Ate the Budget",
+  "type": "crisis",
+  "level": 6,
+  "xp": 280,
+  "duration": "10 min",
+  "objective": "Handle a major project that has exceeded budget and schedule: diagnose, decide between continue/re-baseline/stop, and govern sunk costs.",
+  "concepts": [
+   "sensitivity",
+   "decision_vs_outcome",
+   "capital_allocation"
+  ],
+  "from": "rival",
+  "subject": "The transformation programme is in trouble",
+  "briefing": "The transformation programme is 45% over budget and nine months late. The sponsor wants another {m:6000000} to finish. The board wants your view.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Programme status",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Item",
+      "Original",
+      "Current forecast"
+     ],
+     "rows": [
+      [
+       "Budget",
+       "{m:12000000}",
+       "{m:17400000} spent+committed, {m:6000000} more requested"
+      ],
+      [
+       "Go-live",
+       "Month 18",
+       "Month 27"
+      ],
+      [
+       "Benefits",
+       "{m:5000000}/yr",
+       "{m:3500000}/yr (revised)"
+      ]
+     ]
+    }
+   },
+   {
+    "id": "d2",
+    "title": "Independent review",
+    "kind": "memo",
+    "key": true,
+    "body": "Root causes: scope creep (40 change requests), vendor resource churn, optimistic plan. Remaining work is mostly integration and data migration, historically the riskiest phases."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "choice",
+    "prompt": "The sponsor argues: 'We've spent {m:17400000}; we can't stop now.' What's wrong with this?",
+    "competencies": [
+     "financial",
+     "analysis"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Sunk cost: past spend is irrelevant; decide on remaining cost ({m:6000000}+) versus remaining benefits.",
+      "quality": 3,
+      "feedback": "Correct framing."
+     },
+     {
+      "id": "b",
+      "text": "Nothing; stopping wastes money.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Sunk cost: past spend is irrelevant; decide on remaining cost ({m:6000000}+) versus remaining benefits.”"
+     },
+     {
+      "id": "c",
+      "text": "Spend should be doubled to be safe.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Sunk cost: past spend is irrelevant; decide on remaining cost ({m:6000000}+) versus remaining benefits.”"
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "type": "numeric",
+    "prompt": "With {m:3500000} a year in benefits from month 27, what is the simple payback (in years) on the extra {m:6000000}?",
+    "competencies": [
+     "financial"
+    ],
+    "formula": "6000000/3500000",
+    "vars": {},
+    "unit": "ratio",
+    "tolerance_pct": 3,
+    "solution": "{m:6000000} / {m:3500000} = 1.7 years."
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "What do you recommend?",
+    "competencies": [
+     "decision",
+     "strategy"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Continue with a re-baseline: freeze scope, fixed-price vendor terms for the remaining phases, a stage gate before data migration, and a 20% contingency held centrally.",
+      "quality": 3,
+      "feedback": "Positive incremental case with controls on the riskiest phase.",
+      "effects": {
+       "flags": [
+        "project_rebaselined"
+       ],
+       "cancel": [
+        "ev_project_overrun"
+       ]
+      },
+      "outcome": {
+       "p_bad": 0.3,
+       "good": "The re-baselined programme went live in month 28 within the new budget.",
+       "bad": "Data migration still slipped two months, but the stage gate caught it early and contingency covered it.",
+       "bad_effects": {
+        "org": {
+         "cash": -600000
+        }
+       }
+      }
+     },
+     {
+      "id": "b",
+      "text": "Approve the {m:6000000} as requested.",
+      "quality": 1,
+      "feedback": "The case may be positive, but without new controls the same causes will continue.",
+      "effects": {
+       "schedule": [
+        {
+         "event": "ev_project_overrun",
+         "after": 3,
+         "p": 0.5
+        }
+       ]
+      }
+     },
+     {
+      "id": "c",
+      "text": "Stop the programme.",
+      "quality": 1,
+      "feedback": "Gives up a positive incremental case."
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s4",
+    "type": "choice",
+    "prompt": "The sponsor asks you not to mention scope creep, which came from their own requests.",
+    "competencies": [
+     "ethics",
+     "stakeholder"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Include it factually as a root cause, without personalising, and propose a change-control rule.",
+      "quality": 3,
+      "feedback": "A strong, well-reasoned response.",
+      "effects": {
+       "trust": {
+        "rival": -1,
+        "board": 3
+       }
+      },
+      "approach": "options"
+     },
+     {
+      "id": "b",
+      "text": "Leave it out.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Include it factually as a root cause, without personalising, and propose a change-control rule.”",
+      "effects": {
+       "flags": [
+        "rating_softened"
+       ]
+      }
+     }
+    ],
+    "to": "rival"
+   }
+  ],
+  "debrief": {
+   "summary": "You avoided the sunk-cost trap and attached controls to the riskiest remaining phase.",
+   "key_points": [
+    "Decide on incremental cost and benefit.",
+    "Fix the root causes before releasing funds.",
+    "Stage gates protect risky phases."
+   ],
+   "stronger_approach": "Track the cost performance index monthly with a re-baseline trigger.",
+   "transfer": "Sunk-cost reasoning traps capital projects, mergers and product launches."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "org": {
+       "strategic_progress": 4
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {
+      "org": {
+       "strategic_progress": -3
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "C08",
+  "title": "The Executive Who Left",
+  "type": "crisis",
+  "level": 5,
+  "xp": 260,
+  "duration": "10 min",
+  "objective": "Manage the sudden departure of a critical executive: continuity, knowledge, stakeholder confidence and succession lessons.",
+  "concepts": [
+   "workload",
+   "risk_culture",
+   "escalation"
+  ],
+  "from": "chro",
+  "subject": "Our COO resigned this morning",
+  "briefing": "The COO resigned this morning and is joining a competitor. Garden leave starts today. They held most supplier relationships and the peak-season plan.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "What we know",
+    "kind": "memo",
+    "key": true,
+    "body": "- No documented succession plan for the COO role.\n- Peak season starts in six weeks.\n- Three key supplier contracts are up for renewal this quarter.\n- Two direct reports are capable but untested."
+   },
+   {
+    "id": "d2",
+    "title": "Contract",
+    "kind": "memo",
+    "key": true,
+    "body": "Non-solicitation clause for 12 months; confidentiality obligations; no non-compete."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "choice",
+    "prompt": "Who should cover the role?",
+    "competencies": [
+     "leadership",
+     "decision"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Appoint an interim from the two direct reports with clear authority and support, and split responsibilities with the CEO for six weeks.",
+      "quality": 3,
+      "feedback": "Fast, clear authority.",
+      "effects": {
+       "flags": [
+        "succession_plan"
+       ]
+      },
+      "outcome": {
+       "p_bad": 0.25,
+       "good": "The interim stepped up well; peak season ran smoothly.",
+       "bad": "The interim struggled with one supplier renewal, but CEO support recovered it."
+      }
+     },
+     {
+      "id": "b",
+      "text": "Leave the role vacant until a permanent hire.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Appoint an interim from the two direct reports with clear authority and support, and split responsibilities with the CEO for six weeks.”",
+      "outcome": {
+       "p_bad": 0.6,
+       "good": "Teams self-organised and coped.",
+       "bad": "Decisions stalled; peak-season preparation slipped.",
+       "bad_effects": {
+        "org": {
+         "revenue": -1500000,
+         "morale": -4
+        }
+       }
+      }
+     },
+     {
+      "id": "c",
+      "text": "Hire an expensive interim from outside.",
+      "quality": 2,
+      "feedback": "Possible, but slower and loses internal knowledge.",
+      "effects": {
+       "org": {
+        "cash": -150000
+       }
+      }
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "type": "multi",
+    "prompt": "What should happen in the first week?",
+    "competencies": [
+     "prioritization"
+    ],
+    "options": [
+     {
+      "text": "Contact the three key suppliers to reassure them and confirm new contacts",
+      "correct": true
+     },
+     {
+      "text": "Capture the peak-season plan and open decisions",
+      "correct": true
+     },
+     {
+      "text": "Remind the departing COO of confidentiality and non-solicitation obligations",
+      "correct": true
+     },
+     {
+      "text": "Announce a reorganisation",
+      "correct": false,
+      "why": "Adds change at the worst time."
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "Staff morale is shaken. What do you advise the CHRO?",
+    "competencies": [
+     "communication",
+     "stakeholder"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Brief teams openly on the interim arrangements and timeline; invite questions.",
+      "quality": 3,
+      "feedback": "A strong, well-reasoned response.",
+      "effects": {
+       "org": {
+        "morale": 3
+       },
+       "trust": {
+        "chro": 3
+       }
+      },
+      "approach": "collaborative"
+     },
+     {
+      "id": "b",
+      "text": "Say nothing.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Brief teams openly on the interim arrangements and timeline; invite questions.”"
+     },
+     {
+      "id": "c",
+      "text": "Describe the departure as a betrayal.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Brief teams openly on the interim arrangements and timeline; invite questions.”"
+     }
+    ],
+    "to": "chro"
+   },
+   {
+    "id": "s4",
+    "type": "write",
+    "prompt": "Write the key-person risk lesson.",
+    "competencies": [
+     "strategy",
+     "communication"
+    ],
+    "rubric": [
+     {
+      "element": "Succession",
+      "keywords": [
+       "succession"
+      ],
+      "tip": "Recommend succession plans."
+     },
+     {
+      "element": "Knowledge",
+      "keywords": [
+       "document",
+       "knowledge",
+       "relationship"
+      ],
+      "tip": "Address concentrated knowledge."
+     },
+     {
+      "element": "Critical roles",
+      "keywords": [
+       "critical role",
+       "key person",
+       "key-person"
+      ],
+      "tip": "Identify critical roles."
+     }
+    ],
+    "model_answer": "Key-person risk was concentrated in one executive with no succession plan and undocumented relationships. We recommend succession plans for all critical roles, shared ownership of key supplier relationships, and documented operating plans reviewed quarterly.",
+    "min_words": 25,
+    "max_words": 160
+   }
+  ],
+  "debrief": {
+   "summary": "You stabilised leadership quickly and turned the shock into a succession lesson.",
+   "key_points": [
+    "Critical roles need ready successors.",
+    "Relationships must be institutional, not personal."
+   ],
+   "stronger_approach": "Add 'critical roles without a ready successor' as a KRI.",
+   "transfer": "Key-person risk affects banks (traders), hospitals (specialists) and tech (founding engineers)."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "org": {
+       "resilience": 2
+      },
+      "cancel": [
+       "ev_key_person_exit"
+      ]
+     }
+    },
+    {
+     "min": 0,
+     "effects": {
+      "org": {
+       "morale": -3
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "C09",
+  "title": "Trending for the Wrong Reasons",
+  "type": "crisis",
+  "level": 7,
+  "xp": 300,
+  "duration": "10 min",
+  "objective": "Lead the risk response to a fast-spreading reputational crisis across media channels.",
+  "concepts": [
+   "crisis_governance",
+   "stakeholder_influence",
+   "conflict_interest"
+  ],
+  "from": "cco",
+  "subject": "We're trending, and not in a good way",
+  "briefing": "A video of a staff member mistreating a customer is spreading fast. National media are calling. Our first statement in 20 minutes will set the tone.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Situation",
+    "kind": "memo",
+    "key": true,
+    "body": "- Video views: 2 million in 6 hours.\n- The staff member is an agency worker; the incident happened 3 days ago and was reported internally but not escalated.\n- Two previous similar complaints at the same site this year."
+   },
+   {
+    "id": "d2",
+    "title": "Draft statement from marketing",
+    "kind": "memo",
+    "key": true,
+    "body": "'We are aware of a video circulating. The individual is not an employee of {org}. We take customer care seriously.'"
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "choice",
+    "prompt": "What do you advise on the draft statement?",
+    "competencies": [
+     "communication",
+     "ethics"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Reject it: distancing via 'not an employee' will backfire. Apologise to the customer, say what we're doing, and commit to an update.",
+      "quality": 3,
+      "feedback": "Ownership and empathy contain reputational spread.",
+      "effects": {
+       "flags": [
+        "comms_protocol"
+       ]
+      },
+      "outcome": {
+       "p_bad": 0.3,
+       "good": "The apology and quick action were widely noted; the story faded in days.",
+       "bad": "Some coverage continued, but the response itself was praised.",
+       "bad_effects": {
+        "org": {
+         "reputation": -2
+        }
+       }
+      }
+     },
+     {
+      "id": "b",
+      "text": "Approve it.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Reject it: distancing via 'not an employee' will backfire. Apologise to the customer, say what we're doing, and commit to an update.”",
+      "outcome": {
+       "p_bad": 0.75,
+       "good": "The story faded anyway.",
+       "bad": "The distancing statement became the story; coverage doubled.",
+       "bad_effects": {
+        "org": {
+         "reputation": -8,
+         "revenue": -1000000
+        }
+       }
+      }
+     },
+     {
+      "id": "c",
+      "text": "Say nothing.",
+      "quality": 1,
+      "feedback": "Silence lets others define the story."
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s2",
+    "type": "choice",
+    "prompt": "Internal reports show the incident was reported three days ago but not escalated. What follows?",
+    "competencies": [
+     "analysis",
+     "strategy"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Investigate why escalation failed and review the two prior complaints; disclose appropriately as the facts are confirmed.",
+      "quality": 3,
+      "feedback": "A strong, well-reasoned response.",
+      "effects": {
+       "org": {
+        "control_effectiveness": 2
+       }
+      }
+     },
+     {
+      "id": "b",
+      "text": "Keep it internal to avoid more headlines.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Investigate why escalation failed and review the two prior complaints; disclose appropriately as the facts are confirmed.”",
+      "effects": {
+       "flags": [
+        "rating_softened"
+       ]
+      }
+     },
+     {
+      "id": "c",
+      "text": "Blame the site manager publicly.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Investigate why escalation failed and review the two prior complaints; disclose appropriately as the facts are confirmed.”"
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "{sh:cco} wants to offer discounts to all customers to 'change the narrative'.",
+    "competencies": [
+     "stakeholder",
+     "decision"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Not yet: a discount now looks like buying silence. Focus on the affected customer, the fix, and visible change.",
+      "quality": 3,
+      "feedback": "A strong, well-reasoned response.",
+      "effects": {
+       "trust": {
+        "cco": 1
+       }
+      },
+      "approach": "concise"
+     },
+     {
+      "id": "b",
+      "text": "Yes, offer 30% off.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Not yet: a discount now looks like buying silence. Focus on the affected customer, the fix, and visible change.”",
+      "effects": {
+       "org": {
+        "revenue": -800000
+       }
+      }
+     }
+    ],
+    "to": "cco"
+   },
+   {
+    "id": "s4",
+    "type": "write",
+    "prompt": "Draft the holding statement.",
+    "competencies": [
+     "communication"
+    ],
+    "rubric": [
+     {
+      "element": "Apology",
+      "keywords": [
+       "sorry",
+       "apolog"
+      ],
+      "tip": "Apologise."
+     },
+     {
+      "element": "Action",
+      "keywords": [
+       "investigat",
+       "removed",
+       "suspend",
+       "action"
+      ],
+      "tip": "State action."
+     },
+     {
+      "element": "Commitment",
+      "keywords": [
+       "update",
+       "will share",
+       "review"
+      ],
+      "tip": "Commit to updates."
+     },
+     {
+      "element": "Customer",
+      "keywords": [
+       "customer",
+       "guest",
+       "patient"
+      ],
+      "tip": "Centre the person affected."
+     }
+    ],
+    "model_answer": "We are deeply sorry for how our customer was treated. This is not acceptable. The individual has been removed from duty while we investigate, and we have contacted the customer to apologise directly. We are reviewing how this was handled internally and will share an update within 24 hours.",
+    "min_words": 25,
+    "max_words": 90
+   }
+  ],
+  "debrief": {
+   "summary": "You led with ownership, protected the facts and avoided gimmicks.",
+   "key_points": [
+    "Distancing statements amplify crises.",
+    "Failed internal escalation is part of the story.",
+    "Speed and sincerity matter more than polish."
+   ],
+   "stronger_approach": "Prepare pre-approved holding statement templates.",
+   "transfer": "Reputational crisis response is similar for hospitals, banks and public agencies."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "org": {
+       "reputation": 2
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {
+      "org": {
+       "reputation": -3
+      }
+     }
+    }
+   ],
+   "effects": {
+    "org": {
+     "reputation": -3
+    }
+   }
+  }
+ },
+ {
+  "id": "C10",
+  "title": "Running Out of Runway",
+  "type": "crisis",
+  "level": 8,
+  "xp": 320,
+  "duration": "10 min",
+  "objective": "Respond to a liquidity problem threatening continuity: forecast, prioritise payments, act on contingency and communicate with lenders.",
+  "concepts": [
+   "stress_testing",
+   "escalation",
+   "crisis_governance"
+  ],
+  "from": "cfo",
+  "subject": "We may breach the cash covenant in six weeks",
+  "briefing": "A major customer has delayed a {m:9000000} payment and our facility renewal has been pushed back by the bank. On current forecasts we breach the minimum-cash covenant in six weeks.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "13-week cash forecast",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Week",
+      "Opening cash",
+      "Net flow",
+      "Closing cash"
+     ],
+     "rows": [
+      [
+       "1",
+       "{m:14000000}",
+       "{m:-1200000}",
+       "{m:12800000}"
+      ],
+      [
+       "3",
+       "{m:10500000}",
+       "{m:-1100000}",
+       "{m:9400000}"
+      ],
+      [
+       "6",
+       "{m:6200000}",
+       "{m:-1300000}",
+       "{m:4900000}"
+      ]
+     ]
+    }
+   },
+   {
+    "id": "d2",
+    "title": "Levers",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Lever",
+      "Cash effect",
+      "Side effects"
+     ],
+     "rows": [
+      [
+       "Delay non-critical capex",
+       "{m:+3000000}",
+       "Project delays"
+      ],
+      [
+       "Stretch supplier terms 15 days",
+       "{m:+2500000}",
+       "Supplier strain"
+      ],
+      [
+       "Invoice discounting",
+       "{m:+4000000}",
+       "Cost 2%"
+      ],
+      [
+       "Hiring freeze",
+       "{m:+600000}",
+       "Morale"
+      ]
+     ]
+    }
+   },
+   {
+    "id": "d3",
+    "title": "Covenant",
+    "kind": "memo",
+    "key": true,
+    "body": "Minimum cash {m:5000000}. Breach allows the bank to demand repayment."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "numeric",
+    "prompt": "At week 6 closing cash of {m:4900000}, how far below the covenant are we?",
+    "competencies": [
+     "financial"
+    ],
+    "formula": "5000000-4900000",
+    "vars": {},
+    "unit": "money",
+    "tolerance_pct": 2,
+    "solution": "{m:100000} below, with a falling trend."
+   },
+   {
+    "id": "s2",
+    "type": "allocate",
+    "prompt": "Choose the levers that protect the most cash (value) while keeping total harm to the business within 7 harm units.",
+    "competencies": [
+     "financial",
+     "decision"
+    ],
+    "hint": "Here 'cost' is harm to suppliers, staff or projects. Maximise cash protection without exceeding 7 harm units.",
+    "budget": 7,
+    "unit": "harm units",
+    "items": [
+     {
+      "id": "capex",
+      "text": "Delay non-critical capex",
+      "cost": 3,
+      "value": 8
+     },
+     {
+      "id": "terms",
+      "text": "Stretch supplier terms",
+      "cost": 3,
+      "value": 4,
+      "note": "Hurts small suppliers."
+     },
+     {
+      "id": "disc",
+      "text": "Invoice discounting",
+      "cost": 2,
+      "value": 7
+     },
+     {
+      "id": "freeze",
+      "text": "Hiring freeze",
+      "cost": 2,
+      "value": 3
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "When should you talk to the bank?",
+    "competencies": [
+     "stakeholder",
+     "ethics",
+     "communication"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Now: share the forecast and the actions, and ask for a temporary covenant waiver before any breach.",
+      "quality": 3,
+      "feedback": "Lenders punish surprises.",
+      "effects": {
+       "flags": [
+        "liquidity_plan"
+       ],
+       "trust": {
+        "cfo": 3,
+        "board": 3
+       }
+      },
+      "outcome": {
+       "p_bad": 0.25,
+       "good": "The bank granted a waiver and renewed the facility.",
+       "bad": "The bank imposed tighter terms, but no default was called.",
+       "bad_effects": {
+        "org": {
+         "cash": -200000
+        }
+       }
+      }
+     },
+     {
+      "id": "b",
+      "text": "Only if we actually breach.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Now: share the forecast and the actions, and ask for a temporary covenant waiver before any breach.”",
+      "outcome": {
+       "p_bad": 0.6,
+       "good": "The customer paid in week 5; no breach.",
+       "bad": "The breach surprised the bank, which demanded partial repayment.",
+       "bad_effects": {
+        "org": {
+         "cash": -5000000,
+         "confidence": -8
+        }
+       }
+      }
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s4",
+    "type": "choice",
+    "prompt": "The CEO wants to tell staff nothing to avoid panic.",
+    "competencies": [
+     "communication",
+     "leadership"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Brief leaders with a clear, calm message about the plan; avoid rumours with facts.",
+      "quality": 3,
+      "feedback": "A strong, well-reasoned response.",
+      "effects": {
+       "org": {
+        "morale": 2
+       }
+      }
+     },
+     {
+      "id": "b",
+      "text": "Agree.",
+      "quality": 1,
+      "feedback": "This addresses part of the problem but misses something important. A stronger option was: “Brief leaders with a clear, calm message about the plan; avoid rumours with facts.”"
+     },
+     {
+      "id": "c",
+      "text": "Tell all staff the company may fail.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Brief leaders with a clear, calm message about the plan; avoid rumours with facts.”",
+      "effects": {
+       "org": {
+        "morale": -6
+       }
+      }
+     }
+    ]
+   }
+  ],
+  "debrief": {
+   "summary": "You used the forecast to act early, chose the least harmful levers and engaged lenders before a breach.",
+   "key_points": [
+    "Liquidity crises are about time: act while options exist.",
+    "Lenders want early, candid engagement."
+   ],
+   "stronger_approach": "Pre-agree liquidity triggers and actions in a contingency plan.",
+   "transfer": "Liquidity management applies equally to public agencies (budget timing) and hospitals (payer delays)."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "cancel": [
+       "ev_liquidity_crunch"
+      ],
+      "org": {
+       "resilience": 3
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {
+      "org": {
+       "cash": -1000000
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "C11",
+  "title": "The Board Wants It by Friday",
+  "type": "crisis",
+  "level": 9,
+  "xp": 320,
+  "duration": "10 min",
+  "objective": "Deliver an urgent board risk assessment under time pressure: scope, prioritise, state uncertainty and recommend.",
+  "concepts": [
+   "risk_reporting",
+   "calibration",
+   "scenario_analysis"
+  ],
+  "from": "board",
+  "subject": "Urgent: assess our exposure to the new tariff regime",
+  "briefing": "A sudden tariff regime affects our main import markets. The board meets Friday. We need your assessment of exposure and options. Three days.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Known data",
+    "kind": "memo",
+    "key": true,
+    "body": "- 32% of input costs from affected markets.\n- Tariffs: 15-35% depending on product category; details still emerging.\n- Competitors face similar exposure; some have already announced price rises.\n- Three alternative suppliers exist but need 3-6 months to qualify."
+   },
+   {
+    "id": "d2",
+    "title": "Your resources",
+    "kind": "memo",
+    "key": true,
+    "body": "Two analysts available, finance data available within 24h, procurement data patchy."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "choice",
+    "prompt": "How do you scope three days of work?",
+    "competencies": [
+     "prioritization",
+     "leadership"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Focus on the decision the board must make: size the cost impact with a range, test pass-through and sourcing options, and be explicit about unknowns.",
+      "quality": 3,
+      "feedback": "Decision-led scoping."
+     },
+     {
+      "id": "b",
+      "text": "Analyse every product line in detail.",
+      "quality": 0,
+      "feedback": "Impossible in three days."
+     },
+     {
+      "id": "c",
+      "text": "Wait for tariff details to be confirmed.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Focus on the decision the board must make: size the cost impact with a range, test pass-through and sourcing options, and be explicit about unknowns.”"
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "type": "numeric",
+    "prompt": "Estimate the annual cost impact range midpoint: input costs {m:200000000}, 32% affected, tariffs 15-35% (use 25%).",
+    "competencies": [
+     "financial"
+    ],
+    "formula": "200000000*0.32*0.25",
+    "vars": {},
+    "unit": "money",
+    "tolerance_pct": 3,
+    "solution": "{m:200000000} x 0.32 x 0.25 = {m:16000000} (range {m:9600000} to {m:22400000})."
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "How do you present uncertainty?",
+    "competencies": [
+     "communication",
+     "decision"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "A range ({m:9600000}-{m:22400000}), the key assumption driving it, and what would narrow it by next week.",
+      "quality": 3,
+      "feedback": "Calibrated and decision-useful.",
+      "effects": {
+       "trust": {
+        "board": 4
+       }
+      }
+     },
+     {
+      "id": "b",
+      "text": "A single number to keep it simple.",
+      "quality": 1,
+      "feedback": "This addresses part of the problem but misses something important. A stronger option was: “A range ({m:9600000}-{m:22400000}), the key assumption driving it, and what would narrow it by next week.”"
+     },
+     {
+      "id": "c",
+      "text": "Say it's too uncertain to estimate.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “A range ({m:9600000}-{m:22400000}), the key assumption driving it, and what would narrow it by next week.”"
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s4",
+    "type": "choice",
+    "prompt": "What do you recommend?",
+    "competencies": [
+     "strategy",
+     "decision"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Begin qualifying alternative suppliers now (no-regret), prepare price-pass-through options, and set a trigger to act when tariff details are confirmed.",
+      "quality": 3,
+      "feedback": "No-regret moves plus contingent decisions.",
+      "effects": {
+       "flags": [
+        "dual_source"
+       ]
+      }
+     },
+     {
+      "id": "b",
+      "text": "Raise prices immediately by 20%.",
+      "quality": 1,
+      "feedback": "This addresses part of the problem but misses something important. A stronger option was: “Begin qualifying alternative suppliers now (no-regret), prepare price-pass-through options, and set a trigger to act when tariff details are confirmed.”"
+     },
+     {
+      "id": "c",
+      "text": "Do nothing until certain.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Begin qualifying alternative suppliers now (no-regret), prepare price-pass-through options, and set a trigger to act when tariff details are confirmed.”"
+     }
+    ]
+   }
+  ],
+  "debrief": {
+   "summary": "You scoped to the decision, quantified a range and recommended no-regret actions.",
+   "key_points": [
+    "Urgent assessments should be decision-led.",
+    "Ranges beat false precision.",
+    "Separate no-regret moves from contingent ones."
+   ],
+   "stronger_approach": "Agree a follow-up date to update the range.",
+   "transfer": "Rapid board assessments arise with sanctions, pandemics and market shocks."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "trust": {
+       "board": 3
+      },
+      "org": {
+       "strategic_progress": 2
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {}
+    }
+   ]
+  }
+ },
+ {
+  "id": "C12",
+  "title": "Too Good to Be True",
+  "type": "crisis",
+  "level": 8,
+  "xp": 320,
+  "duration": "10 min",
+  "objective": "Evaluate an attractive investment with significant downside: separate expected return from tail risk and structure protections.",
+  "concepts": [
+   "el_vs_worst",
+   "capital_allocation",
+   "risk_appetite"
+  ],
+  "from": "rival",
+  "subject": "An exclusive opportunity: decide this week",
+  "briefing": "A partner offers us a 40% stake in a fast-growing venture for {m:25000000}. Projected return: 35% a year. They need an answer this week.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Offer",
+    "kind": "memo",
+    "key": true,
+    "body": "- Projected IRR 35%.\n- The venture operates in a lightly regulated market where regulation is being drafted.\n- Financials are unaudited.\n- Exclusivity: 7 days."
+   },
+   {
+    "id": "d2",
+    "title": "Your quick scenarios",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Scenario",
+      "Probability",
+      "Value of our stake in 3 years"
+     ],
+     "rows": [
+      [
+       "Success",
+       "45%",
+       "{m:60000000}"
+      ],
+      [
+       "Muddle through",
+       "35%",
+       "{m:22000000}"
+      ],
+      [
+       "Regulatory shutdown",
+       "20%",
+       "{m:0}"
+      ]
+     ]
+    }
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "numeric",
+    "prompt": "What is the probability-weighted value of the stake?",
+    "competencies": [
+     "financial"
+    ],
+    "formula": "0.45*a+0.35*b+0.20*c",
+    "vars": {
+     "a": 60000000,
+     "b": 22000000,
+     "c": 0
+    },
+    "unit": "money",
+    "tolerance_pct": 3,
+    "solution": "0.45 x {m:60000000} + 0.35 x {m:22000000} = {m:34700000}.",
+    "money_vars": [
+     "a",
+     "b",
+     "c"
+    ]
+   },
+   {
+    "id": "s2",
+    "type": "choice",
+    "prompt": "The expected value exceeds the price. Is it a good deal?",
+    "competencies": [
+     "strategy",
+     "financial",
+     "decision"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Possibly, but a 20% chance of total loss of {m:25000000} must fit appetite; unaudited financials and a 7-day deadline are red flags.",
+      "quality": 3,
+      "feedback": "Separates expected return from tail risk and process risk."
+     },
+     {
+      "id": "b",
+      "text": "Yes, expected value is positive.",
+      "quality": 1,
+      "feedback": "Ignores the tail and the diligence gaps."
+     },
+     {
+      "id": "c",
+      "text": "No, never invest in unregulated markets.",
+      "quality": 1,
+      "feedback": "Too absolute."
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "What do you recommend?",
+    "competencies": [
+     "strategy",
+     "decision"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Counter-propose a staged investment ({m:8000000} now, more on milestones), audited accounts, and regulatory-change protections; walk away if the deadline can't move.",
+      "quality": 3,
+      "feedback": "Protects the downside while keeping the upside.",
+      "effects": {
+       "flags": [
+        "deal_protections"
+       ]
+      },
+      "outcome": {
+       "p_bad": 0.35,
+       "good": "The partner agreed to staging; early milestones were met.",
+       "bad": "The partner refused and sold to someone else. You lost the opportunity but not {m:25000000}."
+      }
+     },
+     {
+      "id": "b",
+      "text": "Invest the full amount now.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Counter-propose a staged investment ({m:8000000} now, more on milestones), audited accounts, and regulatory-change protections; walk away if the deadline can't move.”",
+      "effects": {
+       "schedule": [
+        {
+         "event": "ev_investment_writedown",
+         "after": 4,
+         "p": 0.4
+        }
+       ]
+      }
+     },
+     {
+      "id": "c",
+      "text": "Decline without engaging.",
+      "quality": 1,
+      "feedback": "This addresses part of the problem but misses something important. A stronger option was: “Counter-propose a staged investment ({m:8000000} now, more on milestones), audited accounts, and regulatory-change protections; walk away if the deadline can't move.”"
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "type": "choice",
+    "prompt": "The rival executive says pressure is normal in deals and you're 'slowing growth'.",
+    "competencies": [
+     "stakeholder",
+     "ethics"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Agree speed matters, explain that artificial deadlines are a classic pressure tactic, and offer to work over the weekend on diligence.",
+      "quality": 3,
+      "feedback": "Constructive, firm.",
+      "effects": {
+       "trust": {
+        "rival": 1
+       }
+      },
+      "approach": "options"
+     },
+     {
+      "id": "b",
+      "text": "Back down.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Agree speed matters, explain that artificial deadlines are a classic pressure tactic, and offer to work over the weekend on diligence.”"
+     },
+     {
+      "id": "c",
+      "text": "Escalate to the board immediately.",
+      "quality": 1,
+      "feedback": "This addresses part of the problem but misses something important. A stronger option was: “Agree speed matters, explain that artificial deadlines are a classic pressure tactic, and offer to work over the weekend on diligence.”"
+     }
+    ],
+    "to": "rival"
+   }
+  ],
+  "debrief": {
+   "summary": "You separated attractive expected returns from tail risk and pressure tactics.",
+   "key_points": [
+    "Positive expected value is not enough: check the tail against appetite.",
+    "Artificial urgency is a risk factor.",
+    "Staging preserves upside while capping downside."
+   ],
+   "stronger_approach": "Calculate the maximum loss you would accept and structure the deal to stay within it.",
+   "transfer": "Too-good-to-be-true offers appear in procurement, lending and partnerships too."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "org": {
+       "strategic_progress": 2
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {}
+    }
+   ]
+  }
+ }
+]

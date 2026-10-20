@@ -1,0 +1,13 @@
+Risk Ascent self-test: PASS
+Data folder: C:\users\root\Temp\riskascent-selftest-2sg57hy0
+
+[PASS] Content loads and validates (0.0s): 67 missions, 281 decision points, 81 achievements, 9 organisations
+[PASS] Create a new career (0.16s): slot file C:\users\root\Temp\riskascent-selftest-2sg57hy0\saves\slot_1.db
+[PASS] Open every screen (10.33s): 23 screens opened (including title and mission briefing)
+[PASS] Play a mission through the UI (1.12s): M01 completed through the UI with score 1.00, XP 120
+[PASS] Progress survives close and reopen (0.33s): best scores {'M01': 1.0}, XP 120 preserved across close/reopen; 3 backups
+[PASS] Half-finished mission resumes after restart (1.67s): M02 resumed at decision 3 after restart and completed (1.00)
+[PASS] Reports generate and export (0.62s): HTML report generated, PDF 192949 bytes, register CSV written
+[PASS] Financial models run (1.6s): Monte Carlo mean 630,925, P99 6,940,803; CBA NPV 605,068
+[PASS] Workspace tools (0.03s): register edit, KRI escalation, crisis exercise (0.53), month advanced to 3
+[PASS] Accessibility settings apply (17.35s): light theme, 130% text and focus mode applied

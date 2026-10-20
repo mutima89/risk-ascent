@@ -1,0 +1,956 @@
+[
+ {
+  "id": "first_day",
+  "name": "First Day",
+  "description": "Complete your first mission.",
+  "category": "career",
+  "hidden": false,
+  "condition": {
+   "type": "missions_count",
+   "n": 1
+  }
+ },
+ {
+  "id": "ten_missions",
+  "name": "Steady Hand",
+  "description": "Complete 10 different missions.",
+  "category": "career",
+  "hidden": false,
+  "condition": {
+   "type": "missions_count",
+   "n": 10
+  }
+ },
+ {
+  "id": "twentyfive_missions",
+  "name": "Seasoned Practitioner",
+  "description": "Complete 25 different missions.",
+  "category": "career",
+  "hidden": false,
+  "condition": {
+   "type": "missions_count",
+   "n": 25
+  }
+ },
+ {
+  "id": "fifty_missions",
+  "name": "Institutional Memory",
+  "description": "Complete 50 different missions.",
+  "category": "career",
+  "hidden": false,
+  "condition": {
+   "type": "missions_count",
+   "n": 50
+  }
+ },
+ {
+  "id": "high_quality_10",
+  "name": "Quality Over Speed",
+  "description": "Score 85% or higher on 10 different missions.",
+  "category": "career",
+  "hidden": false,
+  "condition": {
+   "type": "missions_count",
+   "n": 10,
+   "min_score": 0.85
+  }
+ },
+ {
+  "id": "level_2",
+  "name": "Risk Analyst",
+  "description": "Reach career level 2 through promotion.",
+  "category": "career",
+  "hidden": false,
+  "condition": {
+   "type": "level",
+   "n": 2
+  }
+ },
+ {
+  "id": "level_3",
+  "name": "Senior Risk Analyst",
+  "description": "Reach career level 3 through promotion.",
+  "category": "career",
+  "hidden": false,
+  "condition": {
+   "type": "level",
+   "n": 3
+  }
+ },
+ {
+  "id": "level_4",
+  "name": "Risk Specialist",
+  "description": "Reach career level 4 through promotion.",
+  "category": "career",
+  "hidden": false,
+  "condition": {
+   "type": "level",
+   "n": 4
+  }
+ },
+ {
+  "id": "level_5",
+  "name": "Risk Manager",
+  "description": "Reach career level 5 through promotion.",
+  "category": "career",
+  "hidden": false,
+  "condition": {
+   "type": "level",
+   "n": 5
+  }
+ },
+ {
+  "id": "level_6",
+  "name": "Senior Risk Manager",
+  "description": "Reach career level 6 through promotion.",
+  "category": "career",
+  "hidden": false,
+  "condition": {
+   "type": "level",
+   "n": 6
+  }
+ },
+ {
+  "id": "level_7",
+  "name": "Head of Risk",
+  "description": "Reach career level 7 through promotion.",
+  "category": "career",
+  "hidden": false,
+  "condition": {
+   "type": "level",
+   "n": 7
+  }
+ },
+ {
+  "id": "level_8",
+  "name": "Director of Risk",
+  "description": "Reach career level 8 through promotion.",
+  "category": "career",
+  "hidden": false,
+  "condition": {
+   "type": "level",
+   "n": 8
+  }
+ },
+ {
+  "id": "level_9",
+  "name": "Deputy CRO",
+  "description": "Reach career level 9 through promotion.",
+  "category": "career",
+  "hidden": false,
+  "condition": {
+   "type": "level",
+   "n": 9
+  }
+ },
+ {
+  "id": "level_10",
+  "name": "Chief Risk Officer",
+  "description": "Reach career level 10 through promotion.",
+  "category": "career",
+  "hidden": false,
+  "condition": {
+   "type": "level",
+   "n": 10
+  }
+ },
+ {
+  "id": "pass_cap1",
+  "name": "Analyst Capstone Passed",
+  "description": "Score 70% or higher on the analyst capstone.",
+  "category": "capstone",
+  "hidden": false,
+  "condition": {
+   "type": "mission",
+   "id": "CAP1",
+   "min_score": 0.7
+  }
+ },
+ {
+  "id": "pass_cap2",
+  "name": "Specialist Capstone Passed",
+  "description": "Score 70% or higher on the specialist capstone.",
+  "category": "capstone",
+  "hidden": false,
+  "condition": {
+   "type": "mission",
+   "id": "CAP2",
+   "min_score": 0.7
+  }
+ },
+ {
+  "id": "pass_cap3",
+  "name": "Manager Capstone Passed",
+  "description": "Score 70% or higher on the manager capstone.",
+  "category": "capstone",
+  "hidden": false,
+  "condition": {
+   "type": "mission",
+   "id": "CAP3",
+   "min_score": 0.7
+  }
+ },
+ {
+  "id": "pass_cap4",
+  "name": "Director Capstone Passed",
+  "description": "Score 70% or higher on the director capstone.",
+  "category": "capstone",
+  "hidden": false,
+  "condition": {
+   "type": "mission",
+   "id": "CAP4",
+   "min_score": 0.7
+  }
+ },
+ {
+  "id": "pass_cap5",
+  "name": "Deputy CRO Capstone Passed",
+  "description": "Score 70% or higher on the deputy cro capstone.",
+  "category": "capstone",
+  "hidden": false,
+  "condition": {
+   "type": "mission",
+   "id": "CAP5",
+   "min_score": 0.7
+  }
+ },
+ {
+  "id": "pass_final",
+  "name": "Seat at the Table",
+  "description": "Pass the final CRO board simulation (70%+).",
+  "category": "capstone",
+  "hidden": false,
+  "condition": {
+   "type": "mission",
+   "id": "FINAL",
+   "min_score": 0.7
+  }
+ },
+ {
+  "id": "final_distinction",
+  "name": "Board's Confidence",
+  "description": "Score 90% or higher on the CRO board simulation.",
+  "category": "capstone",
+  "hidden": false,
+  "condition": {
+   "type": "mission",
+   "id": "FINAL",
+   "min_score": 0.9
+  }
+ },
+ {
+  "id": "first_register",
+  "name": "On the Record",
+  "description": "Add your first risk to the register.",
+  "category": "tools",
+  "hidden": false,
+  "condition": {
+   "type": "counter",
+   "key": "risks_added",
+   "n": 1
+  }
+ },
+ {
+  "id": "register_20",
+  "name": "Living Register",
+  "description": "Add 20 risks to the register.",
+  "category": "tools",
+  "hidden": false,
+  "condition": {
+   "type": "counter",
+   "key": "risks_added",
+   "n": 20
+  }
+ },
+ {
+  "id": "register_maint",
+  "name": "Gardener",
+  "description": "Edit and re-assess existing risks 15 times.",
+  "category": "tools",
+  "hidden": false,
+  "condition": {
+   "type": "counter",
+   "key": "risks_edited",
+   "n": 15
+  }
+ },
+ {
+  "id": "kri_designer",
+  "name": "Early Warning",
+  "description": "Create 3 key risk indicators.",
+  "category": "tools",
+  "hidden": false,
+  "condition": {
+   "type": "counter",
+   "key": "kri_created",
+   "n": 3
+  }
+ },
+ {
+  "id": "kri_escalate",
+  "name": "Raised the Flag",
+  "description": "Escalate a breached KRI.",
+  "category": "tools",
+  "hidden": false,
+  "condition": {
+   "type": "counter",
+   "key": "kri_escalated",
+   "n": 1
+  }
+ },
+ {
+  "id": "control_tester",
+  "name": "Trust but Verify",
+  "description": "Record 5 control tests.",
+  "category": "tools",
+  "hidden": false,
+  "condition": {
+   "type": "counter",
+   "key": "control_tests",
+   "n": 5
+  }
+ },
+ {
+  "id": "finding_writer",
+  "name": "Findings That Land",
+  "description": "Raise 5 assurance findings.",
+  "category": "tools",
+  "hidden": false,
+  "condition": {
+   "type": "counter",
+   "key": "findings_raised",
+   "n": 5
+  }
+ },
+ {
+  "id": "bia_clean",
+  "name": "Recoverable",
+  "description": "Complete a BIA review with no validation issues.",
+  "category": "tools",
+  "hidden": false,
+  "condition": {
+   "type": "counter",
+   "key": "bia_clean",
+   "n": 1
+  }
+ },
+ {
+  "id": "mc_runner",
+  "name": "Ten Thousand Futures",
+  "description": "Run 5 Monte Carlo simulations.",
+  "category": "tools",
+  "hidden": false,
+  "condition": {
+   "type": "counter",
+   "key": "mc_runs",
+   "n": 5
+  }
+ },
+ {
+  "id": "cba_runner",
+  "name": "Business Case",
+  "description": "Run 5 cost-benefit analyses.",
+  "category": "tools",
+  "hidden": false,
+  "condition": {
+   "type": "counter",
+   "key": "cba_runs",
+   "n": 5
+  }
+ },
+ {
+  "id": "stress_tester",
+  "name": "Stress Tested",
+  "description": "Run 3 financial stress tests.",
+  "category": "tools",
+  "hidden": false,
+  "condition": {
+   "type": "counter",
+   "key": "stress_tests",
+   "n": 3
+  }
+ },
+ {
+  "id": "tornado",
+  "name": "What Really Matters",
+  "description": "Run a sensitivity (tornado) analysis.",
+  "category": "tools",
+  "hidden": false,
+  "condition": {
+   "type": "counter",
+   "key": "tornado_runs",
+   "n": 1
+  }
+ },
+ {
+  "id": "matrix_config",
+  "name": "House Rules",
+  "description": "Configure the organisation's risk matrix.",
+  "category": "tools",
+  "hidden": false,
+  "condition": {
+   "type": "counter",
+   "key": "matrix_configured",
+   "n": 1
+  }
+ },
+ {
+  "id": "appetite_set",
+  "name": "Know Your Limits",
+  "description": "Set a risk appetite statement.",
+  "category": "tools",
+  "hidden": false,
+  "condition": {
+   "type": "counter",
+   "key": "appetite_set",
+   "n": 1
+  }
+ },
+ {
+  "id": "reporter",
+  "name": "Paper Trail",
+  "description": "Generate 5 reports from live data.",
+  "category": "tools",
+  "hidden": false,
+  "condition": {
+   "type": "counter",
+   "key": "reports_generated",
+   "n": 5
+  }
+ },
+ {
+  "id": "board_report",
+  "name": "For the Board",
+  "description": "Generate a board summary report.",
+  "category": "tools",
+  "hidden": false,
+  "condition": {
+   "type": "counter",
+   "key": "report_board_summary",
+   "n": 1
+  }
+ },
+ {
+  "id": "exporter",
+  "name": "Portable",
+  "description": "Export data to a file.",
+  "category": "tools",
+  "hidden": false,
+  "condition": {
+   "type": "counter",
+   "key": "exports",
+   "n": 1
+  }
+ },
+ {
+  "id": "crisis_3",
+  "name": "Cool Head",
+  "description": "Complete 3 crisis scenarios.",
+  "category": "crisis",
+  "hidden": false,
+  "condition": {
+   "type": "missions_count",
+   "n": 3,
+   "mission_type": "crisis"
+  }
+ },
+ {
+  "id": "crisis_all",
+  "name": "Every Storm",
+  "description": "Complete all 12 crisis scenarios.",
+  "category": "crisis",
+  "hidden": false,
+  "condition": {
+   "type": "missions_count",
+   "n": 12,
+   "mission_type": "crisis"
+  }
+ },
+ {
+  "id": "crisis_ex",
+  "name": "Exercise Exercise",
+  "description": "Complete 3 seeded escalating crisis exercises.",
+  "category": "crisis",
+  "hidden": false,
+  "condition": {
+   "type": "counter",
+   "key": "crisis_exercises",
+   "n": 3
+  }
+ },
+ {
+  "id": "crisis_win",
+  "name": "Contained",
+  "description": "Win a crisis exercise (score 70%+).",
+  "category": "crisis",
+  "hidden": false,
+  "condition": {
+   "type": "counter",
+   "key": "crisis_wins",
+   "n": 1
+  }
+ },
+ {
+  "id": "crisis_flawless",
+  "name": "No Threat Left Behind",
+  "description": "Finish a crisis exercise without losing control of any threat.",
+  "category": "crisis",
+  "hidden": false,
+  "condition": {
+   "type": "counter",
+   "key": "crisis_flawless",
+   "n": 1
+  }
+ },
+ {
+  "id": "independent",
+  "name": "Unaided",
+  "description": "Complete 5 missions without using a hint.",
+  "category": "learning",
+  "hidden": false,
+  "condition": {
+   "type": "counter",
+   "key": "independent_missions",
+   "n": 5
+  }
+ },
+ {
+  "id": "good_luck_bad",
+  "name": "Right Call, Bad Dice",
+  "description": "Make a sound decision that met an unfavourable outcome, and keep going.",
+  "category": "learning",
+  "hidden": false,
+  "condition": {
+   "type": "counter",
+   "key": "good_decision_bad_luck",
+   "n": 1
+  }
+ },
+ {
+  "id": "reviewer",
+  "name": "Retrieval Practice",
+  "description": "Complete 20 spaced-review cards.",
+  "category": "learning",
+  "hidden": false,
+  "condition": {
+   "type": "counter",
+   "key": "reviews_done",
+   "n": 20
+  }
+ },
+ {
+  "id": "review_ace",
+  "name": "It Stuck",
+  "description": "Answer 50 review cards correctly.",
+  "category": "learning",
+  "hidden": false,
+  "condition": {
+   "type": "counter",
+   "key": "reviews_correct",
+   "n": 50
+  }
+ },
+ {
+  "id": "calibrated",
+  "name": "Well Calibrated",
+  "description": "Keep confidence bias within \u00b110 points across 30+ rated answers.",
+  "category": "learning",
+  "hidden": false,
+  "condition": {
+   "type": "calibration",
+   "max_abs_bias": 0.1,
+   "min_n": 30
+  }
+ },
+ {
+  "id": "weekly",
+  "name": "Challenge Accepted",
+  "description": "Complete 3 weekly challenges.",
+  "category": "learning",
+  "hidden": false,
+  "condition": {
+   "type": "counter",
+   "key": "weekly_challenges",
+   "n": 3
+  }
+ },
+ {
+  "id": "analytical_t2",
+  "name": "Analyst's Eye II",
+  "description": "Reach tier 2 in the analytical skill branch.",
+  "category": "skills",
+  "hidden": false,
+  "condition": {
+   "type": "branch_tier",
+   "branch": "analytical",
+   "tier": 2
+  }
+ },
+ {
+  "id": "analytical_t4",
+  "name": "Analyst's Eye IV",
+  "description": "Reach tier 4 (mastery) in the analytical skill branch.",
+  "category": "skills",
+  "hidden": false,
+  "condition": {
+   "type": "branch_tier",
+   "branch": "analytical",
+   "tier": 4
+  }
+ },
+ {
+  "id": "controls_t2",
+  "name": "Control Architect II",
+  "description": "Reach tier 2 in the controls skill branch.",
+  "category": "skills",
+  "hidden": false,
+  "condition": {
+   "type": "branch_tier",
+   "branch": "controls",
+   "tier": 2
+  }
+ },
+ {
+  "id": "controls_t4",
+  "name": "Control Architect IV",
+  "description": "Reach tier 4 (mastery) in the controls skill branch.",
+  "category": "skills",
+  "hidden": false,
+  "condition": {
+   "type": "branch_tier",
+   "branch": "controls",
+   "tier": 4
+  }
+ },
+ {
+  "id": "quant_t2",
+  "name": "Quant Mind II",
+  "description": "Reach tier 2 in the quant skill branch.",
+  "category": "skills",
+  "hidden": false,
+  "condition": {
+   "type": "branch_tier",
+   "branch": "quant",
+   "tier": 2
+  }
+ },
+ {
+  "id": "quant_t4",
+  "name": "Quant Mind IV",
+  "description": "Reach tier 4 (mastery) in the quant skill branch.",
+  "category": "skills",
+  "hidden": false,
+  "condition": {
+   "type": "branch_tier",
+   "branch": "quant",
+   "tier": 4
+  }
+ },
+ {
+  "id": "influence_t2",
+  "name": "Trusted Adviser II",
+  "description": "Reach tier 2 in the influence skill branch.",
+  "category": "skills",
+  "hidden": false,
+  "condition": {
+   "type": "branch_tier",
+   "branch": "influence",
+   "tier": 2
+  }
+ },
+ {
+  "id": "influence_t4",
+  "name": "Trusted Adviser IV",
+  "description": "Reach tier 4 (mastery) in the influence skill branch.",
+  "category": "skills",
+  "hidden": false,
+  "condition": {
+   "type": "branch_tier",
+   "branch": "influence",
+   "tier": 4
+  }
+ },
+ {
+  "id": "leadership_t2",
+  "name": "Leader of Leaders II",
+  "description": "Reach tier 2 in the leadership skill branch.",
+  "category": "skills",
+  "hidden": false,
+  "condition": {
+   "type": "branch_tier",
+   "branch": "leadership",
+   "tier": 2
+  }
+ },
+ {
+  "id": "leadership_t4",
+  "name": "Leader of Leaders IV",
+  "description": "Reach tier 4 (mastery) in the leadership skill branch.",
+  "category": "skills",
+  "hidden": false,
+  "condition": {
+   "type": "branch_tier",
+   "branch": "leadership",
+   "tier": 4
+  }
+ },
+ {
+  "id": "all_branches_3",
+  "name": "Well Rounded",
+  "description": "Reach tier 3 in every skill branch.",
+  "category": "skills",
+  "hidden": false,
+  "condition": {
+   "type": "all_branches",
+   "tier": 3
+  }
+ },
+ {
+  "id": "ethics_strong",
+  "name": "Integrity",
+  "description": "Reach 80 in the ethics competency.",
+  "category": "skills",
+  "hidden": false,
+  "condition": {
+   "type": "competency",
+   "key": "ethics",
+   "min": 80
+  }
+ },
+ {
+  "id": "comms_strong",
+  "name": "Plain English",
+  "description": "Reach 80 in the communication competency.",
+  "category": "skills",
+  "hidden": false,
+  "condition": {
+   "type": "competency",
+   "key": "communication",
+   "min": 80
+  }
+ },
+ {
+  "id": "allies_3",
+  "name": "Coalition",
+  "description": "Hold trust of 70+ with 3 stakeholders at once.",
+  "category": "organisation",
+  "hidden": false,
+  "condition": {
+   "type": "stakeholder",
+   "min_trust": 70,
+   "count": 3
+  }
+ },
+ {
+  "id": "allies_6",
+  "name": "Everyone's Risk Partner",
+  "description": "Hold trust of 70+ with 6 stakeholders at once.",
+  "category": "organisation",
+  "hidden": false,
+  "condition": {
+   "type": "stakeholder",
+   "min_trust": 70,
+   "count": 6
+  }
+ },
+ {
+  "id": "inbox",
+  "name": "Responsive",
+  "description": "Reply to 10 stakeholder messages.",
+  "category": "organisation",
+  "hidden": false,
+  "condition": {
+   "type": "counter",
+   "key": "messages_replied",
+   "n": 10
+  }
+ },
+ {
+  "id": "invest",
+  "name": "Funded",
+  "description": "Get 3 risk investments approved.",
+  "category": "organisation",
+  "hidden": false,
+  "condition": {
+   "type": "counter",
+   "key": "investments_approved",
+   "n": 3
+  }
+ },
+ {
+  "id": "quarters_8",
+  "name": "Two Years In",
+  "description": "Advance the organisation through 8 periods.",
+  "category": "organisation",
+  "hidden": false,
+  "condition": {
+   "type": "counter",
+   "key": "periods_advanced",
+   "n": 8
+  }
+ },
+ {
+  "id": "negotiator",
+  "name": "Evidence-Based Ask",
+  "description": "Negotiate a strong salary outcome backed by evidence.",
+  "category": "career",
+  "hidden": false,
+  "condition": {
+   "type": "counter",
+   "key": "strong_negotiations",
+   "n": 1
+  }
+ },
+ {
+  "id": "track_change",
+  "name": "Pivot",
+  "description": "Change your career track.",
+  "category": "career",
+  "hidden": false,
+  "condition": {
+   "type": "counter",
+   "key": "track_changes",
+   "n": 1
+  }
+ },
+ {
+  "id": "org_change",
+  "name": "New Horizons",
+  "description": "Move to a different organisation.",
+  "category": "career",
+  "hidden": false,
+  "condition": {
+   "type": "counter",
+   "key": "org_changes",
+   "n": 1
+  }
+ },
+ {
+  "id": "near_miss",
+  "name": "Near Miss, Not Ignored",
+  "description": "Act on the near-miss warning before it became an incident.",
+  "category": "organisation",
+  "hidden": true,
+  "condition": {
+   "type": "flag",
+   "flag": "safety_actions_closed"
+  }
+ },
+ {
+  "id": "speak_up",
+  "name": "Psychological Safety",
+  "description": "Launch a speak-up programme.",
+  "category": "organisation",
+  "hidden": true,
+  "condition": {
+   "type": "flag",
+   "flag": "speak_up_program"
+  }
+ },
+ {
+  "id": "offline_backups",
+  "name": "Air Gap",
+  "description": "Secure offline backups before ransomware strikes.",
+  "category": "organisation",
+  "hidden": true,
+  "condition": {
+   "type": "flag",
+   "flag": "offline_backups"
+  }
+ },
+ {
+  "id": "succession",
+  "name": "Bench Strength",
+  "description": "Put a succession plan in place for key people.",
+  "category": "organisation",
+  "hidden": true,
+  "condition": {
+   "type": "flag",
+   "flag": "succession_plan"
+  }
+ },
+ {
+  "id": "path_x01",
+  "name": "Group CRO Path",
+  "description": "Complete the Group CRO executive path mission.",
+  "category": "executive",
+  "hidden": false,
+  "condition": {
+   "type": "mission",
+   "id": "X01",
+   "min_score": 0.6
+  }
+ },
+ {
+  "id": "path_x02",
+  "name": "CEO Path",
+  "description": "Complete the CEO executive path mission.",
+  "category": "executive",
+  "hidden": false,
+  "condition": {
+   "type": "mission",
+   "id": "X02",
+   "min_score": 0.6
+  }
+ },
+ {
+  "id": "path_x03",
+  "name": "COO Path",
+  "description": "Complete the COO executive path mission.",
+  "category": "executive",
+  "hidden": false,
+  "condition": {
+   "type": "mission",
+   "id": "X03",
+   "min_score": 0.6
+  }
+ },
+ {
+  "id": "path_x04",
+  "name": "Board Adviser Path",
+  "description": "Complete the Board Adviser executive path mission.",
+  "category": "executive",
+  "hidden": false,
+  "condition": {
+   "type": "mission",
+   "id": "X04",
+   "min_score": 0.6
+  }
+ },
+ {
+  "id": "path_x05",
+  "name": "Consultant Path",
+  "description": "Complete the Consultant executive path mission.",
+  "category": "executive",
+  "hidden": false,
+  "condition": {
+   "type": "mission",
+   "id": "X05",
+   "min_score": 0.6
+  }
+ },
+ {
+  "id": "path_x06",
+  "name": "Chief Resilience Officer Path",
+  "description": "Complete the Chief Resilience Officer executive path mission.",
+  "category": "executive",
+  "hidden": false,
+  "condition": {
+   "type": "mission",
+   "id": "X06",
+   "min_score": 0.6
+  }
+ },
+ {
+  "id": "path_x07",
+  "name": "Specialist Executive Path",
+  "description": "Complete the Specialist Executive executive path mission.",
+  "category": "executive",
+  "hidden": false,
+  "condition": {
+   "type": "mission",
+   "id": "X07",
+   "min_score": 0.6
+  }
+ }
+]

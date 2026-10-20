@@ -1,0 +1,393 @@
+[
+ {
+  "id": "CTL-MFA",
+  "name": "Multi-factor authentication for remote access",
+  "type": "Preventive",
+  "frequency": "Automated",
+  "owner_role": "cio",
+  "description": "MFA enforced through the identity provider for VPN and email.",
+  "mitigates": [
+   "GEN-CYB-PHISH"
+  ],
+  "design_rating": 3,
+  "operating_rating": null,
+  "effectiveness": 2,
+  "automated": true,
+  "evidence": "Identity provider configuration report"
+ },
+ {
+  "id": "CTL-PATCH",
+  "name": "Monthly critical patching cycle",
+  "type": "Preventive",
+  "frequency": "Monthly",
+  "owner_role": "cio",
+  "description": "Critical patches applied within 30 days with exceptions approved by the CIO.",
+  "mitigates": [
+   "GEN-RANSOM",
+   "HLT-DEVICE"
+  ],
+  "design_rating": 3,
+  "operating_rating": 2,
+  "effectiveness": 2,
+  "automated": false,
+  "evidence": "Patch compliance dashboard"
+ },
+ {
+  "id": "CTL-BACKUP",
+  "name": "Offline backup and restore test",
+  "type": "Corrective",
+  "frequency": "Quarterly",
+  "owner_role": "cio",
+  "description": "Weekly offline backups; quarterly restore test of one critical system.",
+  "mitigates": [
+   "GEN-RANSOM",
+   "GEN-IT-OUTAGE"
+  ],
+  "design_rating": 2,
+  "operating_rating": null,
+  "effectiveness": 2,
+  "automated": false,
+  "evidence": "Restore test logs"
+ },
+ {
+  "id": "CTL-CALLBACK",
+  "name": "Supplier bank detail change call-back",
+  "type": "Preventive",
+  "frequency": "Daily",
+  "owner_role": "cfo",
+  "description": "Independent call-back to a known number before changing supplier bank details.",
+  "mitigates": [
+   "GEN-FRAUD-AP"
+  ],
+  "design_rating": 2,
+  "operating_rating": null,
+  "effectiveness": 2,
+  "automated": false,
+  "evidence": "Change request forms with call-back signature"
+ },
+ {
+  "id": "CTL-DUALPAY",
+  "name": "Dual approval of payments",
+  "type": "Preventive",
+  "frequency": "Daily",
+  "owner_role": "cfo",
+  "description": "Two authorised signatories for payments over threshold.",
+  "mitigates": [
+   "GEN-FRAUD-AP"
+  ],
+  "design_rating": 3,
+  "operating_rating": 3,
+  "effectiveness": 3,
+  "automated": true,
+  "evidence": "Banking platform approval log"
+ },
+ {
+  "id": "CTL-SUPPREV",
+  "name": "Annual critical supplier review",
+  "type": "Detective",
+  "frequency": "Annual",
+  "owner_role": "cpo",
+  "description": "Financial health and continuity review of critical suppliers.",
+  "mitigates": [
+   "GEN-SUPPLIER"
+  ],
+  "design_rating": 1,
+  "operating_rating": null,
+  "effectiveness": 1,
+  "automated": false,
+  "evidence": "Supplier review files"
+ },
+ {
+  "id": "CTL-REGTRACK",
+  "name": "Regulatory change register",
+  "type": "Detective",
+  "frequency": "Monthly",
+  "owner_role": "gc",
+  "description": "Compliance logs new requirements and assigns owners.",
+  "mitigates": [
+   "GEN-REG-CHANGE"
+  ],
+  "design_rating": 2,
+  "operating_rating": null,
+  "effectiveness": 2,
+  "automated": false,
+  "evidence": "Register and committee minutes"
+ },
+ {
+  "id": "CTL-SAFETYINSP",
+  "name": "Monthly safety inspections",
+  "type": "Detective",
+  "frequency": "Monthly",
+  "owner_role": "cso",
+  "description": "Site safety walkround with checklist and action log.",
+  "mitigates": [
+   "GEN-HEALTH-SAFETY",
+   "HOS-GUEST-SAFETY",
+   "HOS-FIRE"
+  ],
+  "design_rating": 3,
+  "operating_rating": null,
+  "effectiveness": 2,
+  "automated": false,
+  "evidence": "Inspection checklists"
+ },
+ {
+  "id": "CTL-FIREDOOR",
+  "name": "Fire door and escape route checks",
+  "type": "Preventive",
+  "frequency": "Daily",
+  "owner_role": "coo",
+  "description": "Duty manager checks fire doors closed and routes clear each shift.",
+  "mitigates": [
+   "HOS-FIRE"
+  ],
+  "design_rating": 2,
+  "operating_rating": null,
+  "effectiveness": 2,
+  "automated": false,
+  "evidence": "Shift checklist"
+ },
+ {
+  "id": "CTL-DUCT",
+  "name": "Kitchen extraction cleaning schedule",
+  "type": "Preventive",
+  "frequency": "Quarterly",
+  "owner_role": "coo",
+  "description": "Specialist contractor cleans extraction ducts quarterly.",
+  "mitigates": [
+   "HOS-FIRE"
+  ],
+  "design_rating": 3,
+  "operating_rating": 1,
+  "effectiveness": 1,
+  "automated": false,
+  "evidence": "Contractor certificates"
+ },
+ {
+  "id": "CTL-HACCP",
+  "name": "HACCP temperature monitoring",
+  "type": "Detective",
+  "frequency": "Daily",
+  "owner_role": "coo",
+  "description": "Fridge and cooking temperatures logged four times daily.",
+  "mitigates": [
+   "HOS-FOOD"
+  ],
+  "design_rating": 3,
+  "operating_rating": null,
+  "effectiveness": 2,
+  "automated": false,
+  "evidence": "Temperature logs"
+ },
+ {
+  "id": "CTL-PCI",
+  "name": "Point-to-point encryption on payment terminals",
+  "type": "Preventive",
+  "frequency": "Automated",
+  "owner_role": "cio",
+  "description": "Card data encrypted at the terminal.",
+  "mitigates": [
+   "HOS-PCI"
+  ],
+  "design_rating": 3,
+  "operating_rating": null,
+  "effectiveness": 2,
+  "automated": true,
+  "evidence": "Terminal inventory and provider attestation"
+ },
+ {
+  "id": "CTL-TM",
+  "name": "Transaction monitoring rules",
+  "type": "Detective",
+  "frequency": "Automated",
+  "owner_role": "gc",
+  "description": "Automated alerts on suspicious transaction patterns.",
+  "mitigates": [
+   "BNK-AML"
+  ],
+  "design_rating": 2,
+  "operating_rating": null,
+  "effectiveness": 2,
+  "automated": true,
+  "evidence": "Rule inventory and tuning records"
+ },
+ {
+  "id": "CTL-CREDCOMM",
+  "name": "Credit committee approval",
+  "type": "Preventive",
+  "frequency": "Weekly",
+  "owner_role": "cfo",
+  "description": "Loans above limits approved by credit committee.",
+  "mitigates": [
+   "BNK-CREDIT"
+  ],
+  "design_rating": 3,
+  "operating_rating": 3,
+  "effectiveness": 3,
+  "automated": false,
+  "evidence": "Committee minutes"
+ },
+ {
+  "id": "CTL-STOCK",
+  "name": "Cycle counting",
+  "type": "Detective",
+  "frequency": "Weekly",
+  "owner_role": "coo",
+  "description": "Rolling stock counts of high-value lines.",
+  "mitigates": [
+   "RTL-INVENTORY"
+  ],
+  "design_rating": 2,
+  "operating_rating": null,
+  "effectiveness": 2,
+  "automated": false,
+  "evidence": "Count sheets"
+ },
+ {
+  "id": "CTL-TELEM",
+  "name": "Telematics driver monitoring",
+  "type": "Detective",
+  "frequency": "Automated",
+  "owner_role": "cso",
+  "description": "Alerts on speeding, harsh braking and hours violations.",
+  "mitigates": [
+   "RTL-FLEET"
+  ],
+  "design_rating": 3,
+  "operating_rating": null,
+  "effectiveness": 2,
+  "automated": true,
+  "evidence": "Telematics reports"
+ },
+ {
+  "id": "CTL-ACCREV",
+  "name": "Privileged access review",
+  "type": "Detective",
+  "frequency": "Quarterly",
+  "owner_role": "cio",
+  "description": "Managers recertify privileged access.",
+  "mitigates": [
+   "TEC-DATA",
+   "GEN-DATA-PRIV"
+  ],
+  "design_rating": 2,
+  "operating_rating": 1,
+  "effectiveness": 1,
+  "automated": false,
+  "evidence": "Signed recertifications"
+ },
+ {
+  "id": "CTL-FAILOVER",
+  "name": "Automated multi-region failover",
+  "type": "Corrective",
+  "frequency": "Automated",
+  "owner_role": "cio",
+  "description": "Traffic fails over to a second region on outage.",
+  "mitigates": [
+   "TEC-OUTAGE"
+  ],
+  "design_rating": 2,
+  "operating_rating": null,
+  "effectiveness": 2,
+  "automated": true,
+  "evidence": "Failover test results"
+ },
+ {
+  "id": "CTL-PTW",
+  "name": "Permit to work",
+  "type": "Preventive",
+  "frequency": "Multiple times daily",
+  "owner_role": "cso",
+  "description": "Hazardous work requires an authorised permit and isolation.",
+  "mitigates": [
+   "ENR-PROCESS"
+  ],
+  "design_rating": 4,
+  "operating_rating": 3,
+  "effectiveness": 3,
+  "automated": false,
+  "evidence": "Permit records"
+ },
+ {
+  "id": "CTL-STEERCO",
+  "name": "Programme steering committee",
+  "type": "Detective",
+  "frequency": "Monthly",
+  "owner_role": "rival",
+  "description": "Steering committee reviews cost, schedule and risks.",
+  "mitigates": [
+   "GEN-PROJECT",
+   "INF-CONSTRUCTION"
+  ],
+  "design_rating": 1,
+  "operating_rating": null,
+  "effectiveness": 1,
+  "automated": false,
+  "evidence": "Minutes and dashboards"
+ },
+ {
+  "id": "CTL-MEDCHECK",
+  "name": "Independent double-check of high-risk medicines",
+  "type": "Preventive",
+  "frequency": "Multiple times daily",
+  "owner_role": "coo",
+  "description": "Two clinicians verify high-risk medication before administration.",
+  "mitigates": [
+   "HLT-PATIENT"
+  ],
+  "design_rating": 3,
+  "operating_rating": null,
+  "effectiveness": 2,
+  "automated": false,
+  "evidence": "Medication administration records"
+ },
+ {
+  "id": "CTL-TENDER",
+  "name": "Competitive tender thresholds",
+  "type": "Preventive",
+  "frequency": "Daily",
+  "owner_role": "cpo",
+  "description": "Purchases above threshold require three quotes or tender.",
+  "mitigates": [
+   "GOV-PROCURE"
+  ],
+  "design_rating": 3,
+  "operating_rating": null,
+  "effectiveness": 2,
+  "automated": false,
+  "evidence": "Procurement files"
+ },
+ {
+  "id": "CTL-WORKFORCE",
+  "name": "Workforce localisation monitoring",
+  "type": "Detective",
+  "frequency": "Monthly",
+  "owner_role": "chro",
+  "description": "Monthly reconciliation of workforce mix against required band.",
+  "mitigates": [
+   "KSA-NITAQAT"
+  ],
+  "design_rating": 2,
+  "operating_rating": null,
+  "effectiveness": 2,
+  "automated": false,
+  "evidence": "Workforce reports"
+ },
+ {
+  "id": "CTL-CONSENT",
+  "name": "Consent capture in booking channels",
+  "type": "Preventive",
+  "frequency": "Automated",
+  "owner_role": "cio",
+  "description": "Booking channels record consent and purpose for guest data.",
+  "mitigates": [
+   "KSA-PDPL",
+   "GEN-DATA-PRIV"
+  ],
+  "design_rating": 1,
+  "operating_rating": null,
+  "effectiveness": 1,
+  "automated": true,
+  "evidence": "Consent logs"
+ }
+]

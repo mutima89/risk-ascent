@@ -1,0 +1,119 @@
+[
+ {
+  "id": "finance",
+  "name": "Finance",
+  "head": "cfo",
+  "objective": "Protect margins and liquidity; deliver the budget",
+  "constraint": "Every new cost competes with savings targets",
+  "incentive": "Bonus tied to operating margin",
+  "exposures": [
+   "Liquidity",
+   "Fraud",
+   "Investment returns"
+  ]
+ },
+ {
+  "id": "operations",
+  "name": "Operations",
+  "head": "coo",
+  "objective": "Deliver service reliably at the lowest unit cost",
+  "constraint": "Staffing shortages and ageing assets",
+  "incentive": "Measured on throughput and customer satisfaction",
+  "exposures": [
+   "Disruption",
+   "Health and safety",
+   "Asset failure"
+  ]
+ },
+ {
+  "id": "hr",
+  "name": "Human Resources",
+  "head": "chro",
+  "objective": "Attract, retain and develop people",
+  "constraint": "Tight labour market",
+  "incentive": "Retention and engagement scores",
+  "exposures": [
+   "Key-person loss",
+   "Culture",
+   "Employment compliance"
+  ]
+ },
+ {
+  "id": "it",
+  "name": "Information Technology",
+  "head": "cio",
+  "objective": "Keep systems available and deliver the transformation roadmap",
+  "constraint": "Technical debt and limited security staff",
+  "incentive": "Project delivery dates",
+  "exposures": [
+   "Cyber",
+   "Outages",
+   "Data loss"
+  ]
+ },
+ {
+  "id": "legal",
+  "name": "Legal and Compliance",
+  "head": "gc",
+  "objective": "Keep the organisation lawful and defensible",
+  "constraint": "Small team, growing regulation",
+  "incentive": "No enforcement actions",
+  "exposures": [
+   "Regulatory breach",
+   "Litigation",
+   "Privacy"
+  ]
+ },
+ {
+  "id": "procurement",
+  "name": "Procurement",
+  "head": "cpo",
+  "objective": "Deliver savings and secure supply",
+  "constraint": "Savings targets favour single cheapest suppliers",
+  "incentive": "Annual savings delivered",
+  "exposures": [
+   "Supplier failure",
+   "Contract risk",
+   "Bribery"
+  ]
+ },
+ {
+  "id": "sales",
+  "name": "Sales and Commercial",
+  "head": "cco",
+  "objective": "Grow revenue and market share",
+  "constraint": "Competitive pricing pressure",
+  "incentive": "Revenue and new-customer targets",
+  "exposures": [
+   "Customer concentration",
+   "Conduct",
+   "Reputation"
+  ]
+ },
+ {
+  "id": "security",
+  "name": "Security and Safety",
+  "head": "cso",
+  "objective": "Keep people and assets safe",
+  "constraint": "Seen as a cost centre",
+  "incentive": "Incident rates",
+  "exposures": [
+   "Injury",
+   "Fire",
+   "Physical security"
+  ]
+ },
+ {
+  "id": "exec",
+  "name": "Executive Management",
+  "head": "ceo",
+  "objective": "Deliver strategy and board commitments",
+  "constraint": "Competing priorities and investor expectations",
+  "incentive": "Long-term incentive plan",
+  "exposures": [
+   "Strategic",
+   "Reputation",
+   "Governance"
+  ]
+ }
+]

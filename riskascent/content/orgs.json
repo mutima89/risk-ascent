@@ -1,0 +1,1422 @@
+[
+ {
+  "id": "meridian",
+  "name": "Meridian Coast Hotels & Resorts",
+  "industry": "hospitality",
+  "industry_label": "Hospitality and tourism",
+  "geography": "us",
+  "currency": "USD",
+  "money_scale": 1.0,
+  "size": "large",
+  "city": "Tampa",
+  "regulator": "state fire marshals and health departments",
+  "employees": 4200,
+  "description": "Fourteen full-service hotels and two resorts along the Gulf coast. Strong brand, thin margins, hurricane exposure and a property-management system overdue for replacement.",
+  "start": {
+   "revenue": 410000000,
+   "operating_costs": 372000000,
+   "cash": 38000000,
+   "confidence": 62,
+   "morale": 58,
+   "compliance": 64,
+   "control_effectiveness": 52,
+   "resilience": 50,
+   "reputation": 66,
+   "strategic_progress": 40
+  },
+  "risk_budget": 900000,
+  "people": {
+   "ceo": {
+    "name": "Elena Marchetti",
+    "title": "Chief Executive Officer",
+    "trust": 50
+   },
+   "cfo": {
+    "name": "Grant Okafor",
+    "title": "Chief Financial Officer",
+    "trust": 50
+   },
+   "coo": {
+    "name": "Priya Raman",
+    "title": "Chief Operating Officer",
+    "trust": 50
+   },
+   "cio": {
+    "name": "Tomás Ibarra",
+    "title": "Chief Information Officer",
+    "trust": 50
+   },
+   "chro": {
+    "name": "Hannah Lindqvist",
+    "title": "Chief People Officer",
+    "trust": 50
+   },
+   "gc": {
+    "name": "Marcus Bell",
+    "title": "General Counsel",
+    "trust": 50
+   },
+   "cpo": {
+    "name": "Wen Li",
+    "title": "Head of Procurement",
+    "trust": 50
+   },
+   "cco": {
+    "name": "Olivia Duarte",
+    "title": "Chief Commercial Officer",
+    "trust": 50
+   },
+   "cso": {
+    "name": "Sam Whitaker",
+    "title": "Director of Security and Safety",
+    "trust": 50
+   },
+   "mentor": {
+    "name": "Ruth Adeyemi",
+    "title": "Head of Risk",
+    "trust": 60
+   },
+   "rival": {
+    "name": "Julian Price",
+    "title": "Director of Strategy",
+    "trust": 40
+   },
+   "audit": {
+    "name": "Farah Haddad",
+    "title": "Chief Audit Executive",
+    "trust": 50
+   },
+   "board": {
+    "name": "Margaret Ellison",
+    "title": "Chair, Board Risk Committee",
+    "trust": 50
+   },
+   "analyst": {
+    "name": "Kofi Mensah",
+    "title": "Risk Analyst",
+    "trust": 55
+   }
+  },
+  "risks": [
+   "HOS-FIRE",
+   "HOS-GUEST-SAFETY",
+   "HOS-PCI",
+   "HOS-OCCUPANCY",
+   "HOS-FOOD",
+   "GEN-SUPPLIER",
+   "GEN-CYB-PHISH",
+   "GEN-KEYPERSON",
+   "GEN-IT-OUTAGE",
+   "GEN-REPUTATION",
+   "GEN-HEALTH-SAFETY",
+   "GEN-CULTURE"
+  ],
+  "kris": [
+   "KRI-DUCT",
+   "KRI-FIREDOOR",
+   "KRI-OCC",
+   "KRI-PHISH",
+   "KRI-ATTRITION",
+   "KRI-COMPLAINTS",
+   "KRI-ACTIONS",
+   "KRI-NEARMISS"
+  ],
+  "controls": [
+   "CTL-FIREDOOR",
+   "CTL-DUCT",
+   "CTL-SAFETYINSP",
+   "CTL-HACCP",
+   "CTL-PCI",
+   "CTL-MFA",
+   "CTL-BACKUP",
+   "CTL-SUPPREV",
+   "CTL-DUALPAY",
+   "CTL-CALLBACK"
+  ],
+  "processes": [
+   "P-IT",
+   "H-RES",
+   "H-FNB",
+   "H-SUP",
+   "H-SAFE",
+   "P-PAY",
+   "P-COMMS"
+  ],
+  "appetite": {
+   "default_appetite": 6,
+   "default_tolerance": 12,
+   "by_category": {
+    "Health & Safety": [
+     4,
+     8
+    ],
+    "Compliance": [
+     4,
+     9
+    ],
+    "Strategic": [
+     9,
+     15
+    ]
+   }
+  }
+ },
+ {
+  "id": "alwaha",
+  "name": "Al Waha Hospitality Group",
+  "industry": "hospitality",
+  "industry_label": "Hospitality and tourism (Saudi market pack)",
+  "geography": "saudi",
+  "currency": "SAR",
+  "money_scale": 3.75,
+  "size": "large",
+  "city": "Riyadh",
+  "regulator": "the Ministry of Tourism, civil defence and the data protection regulator",
+  "employees": 3600,
+  "description": "Fast-growing Saudi hotel group with properties in Riyadh, Jeddah and AlUla, expanding with tourism growth. Localisation targets, data protection obligations and major-event demand peaks shape its risk profile.",
+  "start": {
+   "revenue": 290000000,
+   "operating_costs": 258000000,
+   "cash": 30000000,
+   "confidence": 62,
+   "morale": 58,
+   "compliance": 64,
+   "control_effectiveness": 52,
+   "resilience": 50,
+   "reputation": 66,
+   "strategic_progress": 48
+  },
+  "risk_budget": 700000,
+  "people": {
+   "ceo": {
+    "name": "Faisal Al-Harbi",
+    "title": "Chief Executive Officer",
+    "trust": 50
+   },
+   "cfo": {
+    "name": "Noura Al-Qahtani",
+    "title": "Chief Financial Officer",
+    "trust": 50
+   },
+   "coo": {
+    "name": "Omar Al-Zahrani",
+    "title": "Chief Operating Officer",
+    "trust": 50
+   },
+   "cio": {
+    "name": "Lina Haddad",
+    "title": "Chief Information Officer",
+    "trust": 50
+   },
+   "chro": {
+    "name": "Reem Al-Otaibi",
+    "title": "Chief People Officer",
+    "trust": 50
+   },
+   "gc": {
+    "name": "Khalid Al-Mutairi",
+    "title": "General Counsel",
+    "trust": 50
+   },
+   "cpo": {
+    "name": "Sara Al-Dossary",
+    "title": "Head of Procurement",
+    "trust": 50
+   },
+   "cco": {
+    "name": "Abdullah Al-Shehri",
+    "title": "Chief Commercial Officer",
+    "trust": 50
+   },
+   "cso": {
+    "name": "Majed Al-Ghamdi",
+    "title": "Director of Security and Safety",
+    "trust": 50
+   },
+   "mentor": {
+    "name": "Huda Al-Saud",
+    "title": "Head of Risk",
+    "trust": 60
+   },
+   "rival": {
+    "name": "Yousef Al-Amri",
+    "title": "Director of Strategy",
+    "trust": 40
+   },
+   "audit": {
+    "name": "Dana Al-Rashid",
+    "title": "Chief Audit Executive",
+    "trust": 50
+   },
+   "board": {
+    "name": "Dr. Saad Al-Faisal",
+    "title": "Chair, Board Risk Committee",
+    "trust": 50
+   },
+   "analyst": {
+    "name": "Rakan Al-Subaie",
+    "title": "Risk Analyst",
+    "trust": 55
+   }
+  },
+  "risks": [
+   "KSA-NITAQAT",
+   "KSA-PDPL",
+   "HOS-FIRE",
+   "HOS-GUEST-SAFETY",
+   "HOS-PCI",
+   "HOS-OCCUPANCY",
+   "HOS-FOOD",
+   "GEN-SUPPLIER",
+   "GEN-CYB-PHISH",
+   "GEN-PROJECT",
+   "GEN-KEYPERSON",
+   "GEN-REG-CHANGE"
+  ],
+  "kris": [
+   "KRI-SAUDI",
+   "KRI-DUCT",
+   "KRI-FIREDOOR",
+   "KRI-OCC",
+   "KRI-PHISH",
+   "KRI-REGCHANGE",
+   "KRI-ACTIONS",
+   "KRI-CPI"
+  ],
+  "controls": [
+   "CTL-WORKFORCE",
+   "CTL-CONSENT",
+   "CTL-FIREDOOR",
+   "CTL-DUCT",
+   "CTL-SAFETYINSP",
+   "CTL-HACCP",
+   "CTL-PCI",
+   "CTL-MFA",
+   "CTL-REGTRACK",
+   "CTL-STEERCO"
+  ],
+  "processes": [
+   "P-IT",
+   "H-RES",
+   "H-FNB",
+   "H-SUP",
+   "H-SAFE",
+   "P-PAY",
+   "P-COMMS"
+  ],
+  "appetite": {
+   "default_appetite": 6,
+   "default_tolerance": 12,
+   "by_category": {
+    "Health & Safety": [
+     4,
+     8
+    ],
+    "Compliance": [
+     4,
+     8
+    ],
+    "Strategic": [
+     9,
+     16
+    ]
+   }
+  }
+ },
+ {
+  "id": "northbridge",
+  "name": "Northbridge Mutual Bank",
+  "industry": "banking",
+  "industry_label": "Banking and financial services",
+  "geography": "uk",
+  "currency": "GBP",
+  "money_scale": 0.8,
+  "size": "mid",
+  "city": "Leeds",
+  "regulator": "the PRA and FCA",
+  "employees": 2100,
+  "description": "A regional mutual bank with mortgages, savings and a growing commercial property book. Regulators expect strong governance; members expect stability.",
+  "start": {
+   "revenue": 620000000,
+   "operating_costs": 540000000,
+   "cash": 95000000,
+   "confidence": 62,
+   "morale": 58,
+   "compliance": 60,
+   "control_effectiveness": 52,
+   "resilience": 50,
+   "reputation": 66,
+   "strategic_progress": 40
+  },
+  "risk_budget": 1400000,
+  "people": {
+   "ceo": {
+    "name": "Catherine Doyle",
+    "title": "Chief Executive Officer",
+    "trust": 50
+   },
+   "cfo": {
+    "name": "Rupert Hale",
+    "title": "Chief Financial Officer",
+    "trust": 50
+   },
+   "coo": {
+    "name": "Aisha Begum",
+    "title": "Chief Operating Officer",
+    "trust": 50
+   },
+   "cio": {
+    "name": "Daniel Novak",
+    "title": "Chief Information Officer",
+    "trust": 50
+   },
+   "chro": {
+    "name": "Gemma Pryce",
+    "title": "Chief People Officer",
+    "trust": 50
+   },
+   "gc": {
+    "name": "Oliver Grant",
+    "title": "General Counsel",
+    "trust": 50
+   },
+   "cpo": {
+    "name": "Lucy Chen",
+    "title": "Head of Procurement",
+    "trust": 50
+   },
+   "cco": {
+    "name": "Mark Thornton",
+    "title": "Chief Commercial Officer",
+    "trust": 50
+   },
+   "cso": {
+    "name": "Sean Gallagher",
+    "title": "Head of Physical Security",
+    "trust": 50
+   },
+   "mentor": {
+    "name": "Imogen Clarke",
+    "title": "Head of Operational Risk",
+    "trust": 60
+   },
+   "rival": {
+    "name": "Hugo Ashworth",
+    "title": "Director of Strategy",
+    "trust": 40
+   },
+   "audit": {
+    "name": "Ravi Patel",
+    "title": "Chief Audit Executive",
+    "trust": 50
+   },
+   "board": {
+    "name": "Dame Fiona Mercer",
+    "title": "Chair, Board Risk Committee",
+    "trust": 50
+   },
+   "analyst": {
+    "name": "Ellie Brooks",
+    "title": "Risk Analyst",
+    "trust": 55
+   }
+  },
+  "risks": [
+   "BNK-CREDIT",
+   "BNK-AML",
+   "BNK-RATE",
+   "BNK-CONDUCT",
+   "GEN-CYB-PHISH",
+   "GEN-RANSOM",
+   "GEN-IT-OUTAGE",
+   "GEN-FRAUD-AP",
+   "GEN-REG-CHANGE",
+   "GEN-LIQUIDITY",
+   "GEN-KEYPERSON",
+   "GEN-CULTURE"
+  ],
+  "kris": [
+   "KRI-NPL",
+   "KRI-SAR",
+   "KRI-LIQ",
+   "KRI-PHISH",
+   "KRI-PATCH",
+   "KRI-UPTIME",
+   "KRI-REGCHANGE",
+   "KRI-COMPLAINTS"
+  ],
+  "controls": [
+   "CTL-TM",
+   "CTL-CREDCOMM",
+   "CTL-MFA",
+   "CTL-PATCH",
+   "CTL-BACKUP",
+   "CTL-DUALPAY",
+   "CTL-CALLBACK",
+   "CTL-REGTRACK",
+   "CTL-ACCREV"
+  ],
+  "processes": [
+   "P-IT",
+   "B-PAYM",
+   "B-LEND",
+   "B-TREAS",
+   "P-PAY",
+   "P-COMMS"
+  ],
+  "appetite": {
+   "default_appetite": 5,
+   "default_tolerance": 10,
+   "by_category": {
+    "Compliance": [
+     3,
+     6
+    ],
+    "Liquidity": [
+     4,
+     8
+    ],
+    "Financial": [
+     6,
+     12
+    ]
+   }
+  }
+ },
+ {
+  "id": "vantage",
+  "name": "Vantage Freight & Retail",
+  "industry": "retail",
+  "industry_label": "Retail and logistics",
+  "geography": "us",
+  "currency": "USD",
+  "money_scale": 1.0,
+  "size": "large",
+  "city": "Columbus",
+  "regulator": "transport safety and consumer protection regulators",
+  "employees": 6800,
+  "description": "Regional distribution network and 120 discount stores. Volume-driven, thin margins, a large truck fleet and three customers that matter far too much.",
+  "start": {
+   "revenue": 1150000000,
+   "operating_costs": 1100000000,
+   "cash": 42000000,
+   "confidence": 62,
+   "morale": 52,
+   "compliance": 64,
+   "control_effectiveness": 52,
+   "resilience": 50,
+   "reputation": 66,
+   "strategic_progress": 40
+  },
+  "risk_budget": 1100000,
+  "people": {
+   "ceo": {
+    "name": "Rebecca Stone",
+    "title": "Chief Executive Officer",
+    "trust": 50
+   },
+   "cfo": {
+    "name": "Tariq Hussain",
+    "title": "Chief Financial Officer",
+    "trust": 50
+   },
+   "coo": {
+    "name": "Jamal Washington",
+    "title": "Chief Operating Officer",
+    "trust": 50
+   },
+   "cio": {
+    "name": "Megan Ortiz",
+    "title": "Chief Information Officer",
+    "trust": 50
+   },
+   "chro": {
+    "name": "Carla Nguyen",
+    "title": "Chief People Officer",
+    "trust": 50
+   },
+   "gc": {
+    "name": "Peter Lindgren",
+    "title": "General Counsel",
+    "trust": 50
+   },
+   "cpo": {
+    "name": "Diego Ramirez",
+    "title": "Head of Procurement",
+    "trust": 50
+   },
+   "cco": {
+    "name": "Alyssa Grant",
+    "title": "Chief Commercial Officer",
+    "trust": 50
+   },
+   "cso": {
+    "name": "Ray Kowalski",
+    "title": "Director of Security and Safety",
+    "trust": 50
+   },
+   "mentor": {
+    "name": "Monique Laurent",
+    "title": "Head of Risk",
+    "trust": 60
+   },
+   "rival": {
+    "name": "Bradley Vance",
+    "title": "Director of Strategy",
+    "trust": 40
+   },
+   "audit": {
+    "name": "Nadia Petrov",
+    "title": "Chief Audit Executive",
+    "trust": 50
+   },
+   "board": {
+    "name": "Charles Whitfield",
+    "title": "Chair, Board Risk Committee",
+    "trust": 50
+   },
+   "analyst": {
+    "name": "Leah Morgan",
+    "title": "Risk Analyst",
+    "trust": 55
+   }
+  },
+  "risks": [
+   "RTL-INVENTORY",
+   "RTL-FLEET",
+   "RTL-DEMAND",
+   "GEN-SUPPLIER",
+   "GEN-CYB-PHISH",
+   "GEN-RANSOM",
+   "GEN-IT-OUTAGE",
+   "GEN-FRAUD-AP",
+   "GEN-HEALTH-SAFETY",
+   "GEN-LIQUIDITY",
+   "GEN-PROJECT",
+   "GEN-FX"
+  ],
+  "kris": [
+   "KRI-SHRINK",
+   "KRI-DRIVER",
+   "KRI-SUPPLIER",
+   "KRI-PATCH",
+   "KRI-LIQ",
+   "KRI-NEARMISS",
+   "KRI-ACTIONS",
+   "KRI-CPI"
+  ],
+  "controls": [
+   "CTL-STOCK",
+   "CTL-TELEM",
+   "CTL-SUPPREV",
+   "CTL-PATCH",
+   "CTL-BACKUP",
+   "CTL-DUALPAY",
+   "CTL-CALLBACK",
+   "CTL-SAFETYINSP",
+   "CTL-STEERCO"
+  ],
+  "processes": [
+   "P-IT",
+   "R-WMS",
+   "R-FLEET",
+   "P-FIN",
+   "P-PAY",
+   "P-COMMS"
+  ],
+  "appetite": {
+   "default_appetite": 6,
+   "default_tolerance": 12,
+   "by_category": {
+    "Health & Safety": [
+     4,
+     8
+    ],
+    "Liquidity": [
+     4,
+     9
+    ]
+   }
+  }
+ },
+ {
+  "id": "helixa",
+  "name": "Helixa Digital",
+  "industry": "technology",
+  "industry_label": "Technology and digital services",
+  "geography": "eu",
+  "currency": "EUR",
+  "money_scale": 0.92,
+  "size": "mid",
+  "city": "Dublin",
+  "regulator": "the Data Protection Commission and sector regulators",
+  "employees": 950,
+  "description": "A software-as-a-service company running scheduling and records platforms for clinics across Europe. Growing fast, deploying AI features, and holding sensitive data.",
+  "start": {
+   "revenue": 180000000,
+   "operating_costs": 165000000,
+   "cash": 60000000,
+   "confidence": 62,
+   "morale": 58,
+   "compliance": 64,
+   "control_effectiveness": 48,
+   "resilience": 50,
+   "reputation": 66,
+   "strategic_progress": 52
+  },
+  "risk_budget": 600000,
+  "people": {
+   "ceo": {
+    "name": "Niamh Byrne",
+    "title": "Chief Executive Officer",
+    "trust": 50
+   },
+   "cfo": {
+    "name": "Lukas Weber",
+    "title": "Chief Financial Officer",
+    "trust": 50
+   },
+   "coo": {
+    "name": "Chiara Romano",
+    "title": "Chief Operating Officer",
+    "trust": 50
+   },
+   "cio": {
+    "name": "Arjun Mehta",
+    "title": "Chief Technology Officer",
+    "trust": 50
+   },
+   "chro": {
+    "name": "Siobhan Kelly",
+    "title": "Chief People Officer",
+    "trust": 50
+   },
+   "gc": {
+    "name": "Pierre Lambert",
+    "title": "General Counsel",
+    "trust": 50
+   },
+   "cpo": {
+    "name": "Anna Kowalczyk",
+    "title": "Head of Procurement",
+    "trust": 50
+   },
+   "cco": {
+    "name": "Ciaran O'Neill",
+    "title": "Chief Commercial Officer",
+    "trust": 50
+   },
+   "cso": {
+    "name": "Erik Johansson",
+    "title": "Head of Security Operations",
+    "trust": 50
+   },
+   "mentor": {
+    "name": "Maeve Fitzgerald",
+    "title": "Head of Risk",
+    "trust": 60
+   },
+   "rival": {
+    "name": "Rafael Costa",
+    "title": "Director of Strategy",
+    "trust": 40
+   },
+   "audit": {
+    "name": "Ingrid Holm",
+    "title": "Chief Audit Executive",
+    "trust": 50
+   },
+   "board": {
+    "name": "Prof. Mairead Nolan",
+    "title": "Chair, Board Risk Committee",
+    "trust": 50
+   },
+   "analyst": {
+    "name": "Tomasz Zielinski",
+    "title": "Risk Analyst",
+    "trust": 55
+   }
+  },
+  "risks": [
+   "TEC-OUTAGE",
+   "TEC-DATA",
+   "TEC-AI",
+   "GEN-CYB-PHISH",
+   "GEN-RANSOM",
+   "GEN-DATA-PRIV",
+   "GEN-KEYPERSON",
+   "GEN-SUPPLIER",
+   "GEN-REG-CHANGE",
+   "GEN-PROJECT",
+   "GEN-LIQUIDITY",
+   "GEN-CULTURE"
+  ],
+  "kris": [
+   "KRI-UPTIME",
+   "KRI-ACCESS",
+   "KRI-PHISH",
+   "KRI-PATCH",
+   "KRI-MFA",
+   "KRI-ATTRITION",
+   "KRI-REGCHANGE",
+   "KRI-COMPLAINTS"
+  ],
+  "controls": [
+   "CTL-FAILOVER",
+   "CTL-ACCREV",
+   "CTL-MFA",
+   "CTL-PATCH",
+   "CTL-BACKUP",
+   "CTL-REGTRACK",
+   "CTL-DUALPAY",
+   "CTL-CONSENT"
+  ],
+  "processes": [
+   "P-IT",
+   "T-PLAT",
+   "T-SUPPORT",
+   "P-PAY",
+   "P-COMMS"
+  ],
+  "appetite": {
+   "default_appetite": 6,
+   "default_tolerance": 12,
+   "by_category": {
+    "Cyber": [
+     4,
+     8
+    ],
+    "Compliance": [
+     4,
+     8
+    ],
+    "Strategic": [
+     9,
+     16
+    ]
+   }
+  }
+ },
+ {
+  "id": "corvane",
+  "name": "Corvane Energy Services",
+  "industry": "energy",
+  "industry_label": "Energy and industrial operations",
+  "geography": "uae",
+  "currency": "AED",
+  "money_scale": 3.67,
+  "size": "multinational",
+  "city": "Abu Dhabi",
+  "regulator": "the energy sector regulator and civil defence",
+  "employees": 5200,
+  "description": "Gas processing and industrial services with three plants and a contractor-heavy workforce. Process safety is existential; commodity prices drive the budget.",
+  "start": {
+   "revenue": 2400000000,
+   "operating_costs": 2150000000,
+   "cash": 210000000,
+   "confidence": 62,
+   "morale": 58,
+   "compliance": 66,
+   "control_effectiveness": 52,
+   "resilience": 55,
+   "reputation": 66,
+   "strategic_progress": 40
+  },
+  "risk_budget": 2000000,
+  "people": {
+   "ceo": {
+    "name": "Hamad Al Mansoori",
+    "title": "Chief Executive Officer",
+    "trust": 50
+   },
+   "cfo": {
+    "name": "Victoria Hughes",
+    "title": "Chief Financial Officer",
+    "trust": 50
+   },
+   "coo": {
+    "name": "Rashid Karim",
+    "title": "Chief Operating Officer",
+    "trust": 50
+   },
+   "cio": {
+    "name": "Sunil Nair",
+    "title": "Chief Information Officer",
+    "trust": 50
+   },
+   "chro": {
+    "name": "Mariam Al Suwaidi",
+    "title": "Chief People Officer",
+    "trust": 50
+   },
+   "gc": {
+    "name": "Jonathan Reeve",
+    "title": "General Counsel",
+    "trust": 50
+   },
+   "cpo": {
+    "name": "Ahmed Farouk",
+    "title": "Head of Procurement",
+    "trust": 50
+   },
+   "cco": {
+    "name": "Leila Mansour",
+    "title": "Chief Commercial Officer",
+    "trust": 50
+   },
+   "cso": {
+    "name": "Callum Fraser",
+    "title": "Vice President, HSE",
+    "trust": 50
+   },
+   "mentor": {
+    "name": "Fatima Al Hashimi",
+    "title": "Head of Risk",
+    "trust": 60
+   },
+   "rival": {
+    "name": "Nikolai Ivanov",
+    "title": "Director of Strategy",
+    "trust": 40
+   },
+   "audit": {
+    "name": "Grace Achieng",
+    "title": "Chief Audit Executive",
+    "trust": 50
+   },
+   "board": {
+    "name": "Sheikha Mariam Al Nahyan",
+    "title": "Chair, Board Risk Committee",
+    "trust": 50
+   },
+   "analyst": {
+    "name": "Bilal Qureshi",
+    "title": "Risk Analyst",
+    "trust": 55
+   }
+  },
+  "risks": [
+   "ENR-PROCESS",
+   "ENR-ENV",
+   "ENR-PRICE",
+   "RTL-FLEET",
+   "GEN-SUPPLIER",
+   "GEN-CYB-PHISH",
+   "GEN-RANSOM",
+   "GEN-KEYPERSON",
+   "GEN-PROJECT",
+   "GEN-FX",
+   "GEN-HEALTH-SAFETY",
+   "GEN-REG-CHANGE"
+  ],
+  "kris": [
+   "KRI-ALARM",
+   "KRI-NEARMISS",
+   "KRI-DRIVER",
+   "KRI-PATCH",
+   "KRI-SUPPLIER",
+   "KRI-CPI",
+   "KRI-ATTRITION",
+   "KRI-ACTIONS"
+  ],
+  "controls": [
+   "CTL-PTW",
+   "CTL-TELEM",
+   "CTL-SAFETYINSP",
+   "CTL-PATCH",
+   "CTL-BACKUP",
+   "CTL-SUPPREV",
+   "CTL-DUALPAY",
+   "CTL-STEERCO"
+  ],
+  "processes": [
+   "P-IT",
+   "E-OPS",
+   "E-MAINT",
+   "P-FIN",
+   "P-PAY",
+   "P-COMMS"
+  ],
+  "appetite": {
+   "default_appetite": 5,
+   "default_tolerance": 10,
+   "by_category": {
+    "Health & Safety": [
+     3,
+     6
+    ],
+    "Environmental": [
+     4,
+     8
+    ],
+    "Financial": [
+     8,
+     15
+    ]
+   }
+  }
+ },
+ {
+  "id": "harbourline",
+  "name": "Harbourline Infrastructure Partners",
+  "industry": "real_estate",
+  "industry_label": "Real estate and infrastructure",
+  "geography": "uk",
+  "currency": "GBP",
+  "money_scale": 0.8,
+  "size": "mid",
+  "city": "Bristol",
+  "regulator": "the building safety regulator and local planning authorities",
+  "employees": 800,
+  "description": "Owns and develops mixed-use property and regional infrastructure assets. A flagship waterfront development is behind schedule; maintenance has been squeezed for years.",
+  "start": {
+   "revenue": 240000000,
+   "operating_costs": 205000000,
+   "cash": 55000000,
+   "confidence": 62,
+   "morale": 58,
+   "compliance": 64,
+   "control_effectiveness": 52,
+   "resilience": 50,
+   "reputation": 66,
+   "strategic_progress": 40
+  },
+  "risk_budget": 650000,
+  "people": {
+   "ceo": {
+    "name": "Andrew Pemberton",
+    "title": "Chief Executive Officer",
+    "trust": 50
+   },
+   "cfo": {
+    "name": "Sophie Marshall",
+    "title": "Chief Financial Officer",
+    "trust": 50
+   },
+   "coo": {
+    "name": "Kwame Asante",
+    "title": "Chief Operating Officer",
+    "trust": 50
+   },
+   "cio": {
+    "name": "Laura Fischer",
+    "title": "Chief Information Officer",
+    "trust": 50
+   },
+   "chro": {
+    "name": "Bethan Rhys",
+    "title": "Chief People Officer",
+    "trust": 50
+   },
+   "gc": {
+    "name": "Edward Cole",
+    "title": "General Counsel",
+    "trust": 50
+   },
+   "cpo": {
+    "name": "Hiroshi Tanaka",
+    "title": "Head of Procurement",
+    "trust": 50
+   },
+   "cco": {
+    "name": "Charlotte Webb",
+    "title": "Chief Commercial Officer",
+    "trust": 50
+   },
+   "cso": {
+    "name": "Gareth Lewis",
+    "title": "Director of Security and Safety",
+    "trust": 50
+   },
+   "mentor": {
+    "name": "Yasmin Qadir",
+    "title": "Head of Risk",
+    "trust": 60
+   },
+   "rival": {
+    "name": "Felix Hartmann",
+    "title": "Director of Strategy",
+    "trust": 40
+   },
+   "audit": {
+    "name": "Joanna Kirk",
+    "title": "Chief Audit Executive",
+    "trust": 50
+   },
+   "board": {
+    "name": "Sir Alan Whitby",
+    "title": "Chair, Board Risk Committee",
+    "trust": 50
+   },
+   "analyst": {
+    "name": "Ffion Davies",
+    "title": "Risk Analyst",
+    "trust": 55
+   }
+  },
+  "risks": [
+   "INF-CONSTRUCTION",
+   "INF-TENANT",
+   "INF-ASSET",
+   "GEN-SUPPLIER",
+   "GEN-CYB-PHISH",
+   "GEN-FRAUD-AP",
+   "GEN-HEALTH-SAFETY",
+   "GEN-LIQUIDITY",
+   "GEN-PROJECT",
+   "GEN-REG-CHANGE",
+   "GEN-KEYPERSON",
+   "GEN-REPUTATION"
+  ],
+  "kris": [
+   "KRI-MAINT",
+   "KRI-CPI",
+   "KRI-LIQ",
+   "KRI-NEARMISS",
+   "KRI-PHISH",
+   "KRI-SUPPLIER",
+   "KRI-ACTIONS",
+   "KRI-REGCHANGE"
+  ],
+  "controls": [
+   "CTL-STEERCO",
+   "CTL-SAFETYINSP",
+   "CTL-DUALPAY",
+   "CTL-CALLBACK",
+   "CTL-MFA",
+   "CTL-SUPPREV",
+   "CTL-TENDER",
+   "CTL-REGTRACK"
+  ],
+  "processes": [
+   "P-IT",
+   "I-FM",
+   "P-FIN",
+   "P-PAY",
+   "P-COMMS"
+  ],
+  "appetite": {
+   "default_appetite": 6,
+   "default_tolerance": 12,
+   "by_category": {
+    "Health & Safety": [
+     4,
+     8
+    ],
+    "Project": [
+     8,
+     15
+    ]
+   }
+  }
+ },
+ {
+  "id": "civic",
+  "name": "Civic Services Agency",
+  "industry": "government",
+  "industry_label": "Government and public services",
+  "geography": "us",
+  "currency": "USD",
+  "money_scale": 1.0,
+  "size": "large",
+  "city": "Sacramento",
+  "regulator": "the state auditor and legislative oversight committees",
+  "employees": 5400,
+  "description": "A state agency delivering benefits, licences and permits. Public scrutiny is intense, budgets are fixed and the case-management system is fifteen years old.",
+  "start": {
+   "revenue": 780000000,
+   "operating_costs": 775000000,
+   "cash": 60000000,
+   "confidence": 52,
+   "morale": 50,
+   "compliance": 64,
+   "control_effectiveness": 52,
+   "resilience": 50,
+   "reputation": 66,
+   "strategic_progress": 40
+  },
+  "risk_budget": 800000,
+  "people": {
+   "ceo": {
+    "name": "Director Angela Ruiz",
+    "title": "Agency Director",
+    "trust": 50
+   },
+   "cfo": {
+    "name": "Kenneth Moore",
+    "title": "Chief Financial Officer",
+    "trust": 50
+   },
+   "coo": {
+    "name": "Patricia Huang",
+    "title": "Chief Operating Officer",
+    "trust": 50
+   },
+   "cio": {
+    "name": "Robert Silva",
+    "title": "Chief Information Officer",
+    "trust": 50
+   },
+   "chro": {
+    "name": "Denise Carter",
+    "title": "Chief People Officer",
+    "trust": 50
+   },
+   "gc": {
+    "name": "Michael Feldman",
+    "title": "General Counsel",
+    "trust": 50
+   },
+   "cpo": {
+    "name": "Tanya Brooks",
+    "title": "Head of Procurement",
+    "trust": 50
+   },
+   "cco": {
+    "name": "Luis Ortega",
+    "title": "Deputy Director, Public Services",
+    "trust": 50
+   },
+   "cso": {
+    "name": "Earl Jackson",
+    "title": "Director of Security and Safety",
+    "trust": 50
+   },
+   "mentor": {
+    "name": "Dr. Simone Laurent",
+    "title": "Head of Risk",
+    "trust": 60
+   },
+   "rival": {
+    "name": "Victor Hale",
+    "title": "Director of Strategy",
+    "trust": 40
+   },
+   "audit": {
+    "name": "Joan Whitmore",
+    "title": "Chief Audit Executive",
+    "trust": 50
+   },
+   "board": {
+    "name": "Senator (ret.) Helen Ames",
+    "title": "Chair, Audit and Risk Committee",
+    "trust": 50
+   },
+   "analyst": {
+    "name": "Nina Castillo",
+    "title": "Risk Analyst",
+    "trust": 55
+   }
+  },
+  "risks": [
+   "GOV-SERVICE",
+   "GOV-PROCURE",
+   "INF-ASSET",
+   "GEN-CYB-PHISH",
+   "GEN-RANSOM",
+   "GEN-IT-OUTAGE",
+   "GEN-DATA-PRIV",
+   "GEN-KEYPERSON",
+   "GEN-PROJECT",
+   "GEN-REPUTATION",
+   "GEN-REG-CHANGE",
+   "GEN-CULTURE"
+  ],
+  "kris": [
+   "KRI-BACKLOG",
+   "KRI-PATCH",
+   "KRI-PHISH",
+   "KRI-ATTRITION",
+   "KRI-UPTIME",
+   "KRI-CPI",
+   "KRI-ACTIONS",
+   "KRI-COMPLAINTS"
+  ],
+  "controls": [
+   "CTL-TENDER",
+   "CTL-PATCH",
+   "CTL-MFA",
+   "CTL-BACKUP",
+   "CTL-ACCREV",
+   "CTL-STEERCO",
+   "CTL-DUALPAY",
+   "CTL-REGTRACK"
+  ],
+  "processes": [
+   "P-IT",
+   "G-CASE",
+   "I-FM",
+   "P-PAY",
+   "P-COMMS"
+  ],
+  "appetite": {
+   "default_appetite": 5,
+   "default_tolerance": 10,
+   "by_category": {
+    "Compliance": [
+     3,
+     6
+    ],
+    "Reputational": [
+     4,
+     8
+    ]
+   }
+  }
+ },
+ {
+  "id": "stalden",
+  "name": "St Alden Health System",
+  "industry": "healthcare",
+  "industry_label": "Healthcare",
+  "geography": "us",
+  "currency": "USD",
+  "money_scale": 1.0,
+  "size": "large",
+  "city": "Milwaukee",
+  "regulator": "health department inspectors and accreditation bodies",
+  "employees": 9100,
+  "description": "Three hospitals and twenty clinics. Patient safety, capacity pressure, workforce shortages and ageing connected devices dominate the risk agenda.",
+  "start": {
+   "revenue": 1600000000,
+   "operating_costs": 1570000000,
+   "cash": 140000000,
+   "confidence": 62,
+   "morale": 48,
+   "compliance": 64,
+   "control_effectiveness": 52,
+   "resilience": 50,
+   "reputation": 66,
+   "strategic_progress": 40
+  },
+  "risk_budget": 1300000,
+  "people": {
+   "ceo": {
+    "name": "Dr. Miriam Osei",
+    "title": "Chief Executive Officer",
+    "trust": 50
+   },
+   "cfo": {
+    "name": "Jonathan Park",
+    "title": "Chief Financial Officer",
+    "trust": 50
+   },
+   "coo": {
+    "name": "Dr. Anita Kapoor",
+    "title": "Chief Operating Officer and Chief Nursing Officer",
+    "trust": 50
+   },
+   "cio": {
+    "name": "Brian Mulligan",
+    "title": "Chief Information Officer",
+    "trust": 50
+   },
+   "chro": {
+    "name": "Rosa Delgado",
+    "title": "Chief People Officer",
+    "trust": 50
+   },
+   "gc": {
+    "name": "Steven Abrams",
+    "title": "General Counsel",
+    "trust": 50
+   },
+   "cpo": {
+    "name": "Kim Nguyen",
+    "title": "Head of Procurement",
+    "trust": 50
+   },
+   "cco": {
+    "name": "Danielle Fox",
+    "title": "Chief Strategy and Growth Officer",
+    "trust": 50
+   },
+   "cso": {
+    "name": "Terrence Hall",
+    "title": "Director of Security and Safety",
+    "trust": 50
+   },
+   "mentor": {
+    "name": "Claire Bennett",
+    "title": "Head of Risk",
+    "trust": 60
+   },
+   "rival": {
+    "name": "Dr. Lance Rutherford",
+    "title": "Director of Strategy",
+    "trust": 40
+   },
+   "audit": {
+    "name": "Ivy Chen",
+    "title": "Chief Audit Executive",
+    "trust": 50
+   },
+   "board": {
+    "name": "Dr. Harold Bates",
+    "title": "Chair, Board Risk Committee",
+    "trust": 50
+   },
+   "analyst": {
+    "name": "Marcus Lee",
+    "title": "Risk Analyst",
+    "trust": 55
+   }
+  },
+  "risks": [
+   "HLT-PATIENT",
+   "HLT-CAPACITY",
+   "HLT-DEVICE",
+   "TEC-DATA",
+   "GEN-CYB-PHISH",
+   "GEN-RANSOM",
+   "GEN-SUPPLIER",
+   "GEN-KEYPERSON",
+   "GEN-REG-CHANGE",
+   "GEN-LIQUIDITY",
+   "GEN-HEALTH-SAFETY",
+   "GEN-CULTURE"
+  ],
+  "kris": [
+   "KRI-BEDS",
+   "KRI-ATTRITION",
+   "KRI-PATCH",
+   "KRI-PHISH",
+   "KRI-NEARMISS",
+   "KRI-LIQ",
+   "KRI-ACTIONS",
+   "KRI-SUPPLIER"
+  ],
+  "controls": [
+   "CTL-MEDCHECK",
+   "CTL-PATCH",
+   "CTL-MFA",
+   "CTL-BACKUP",
+   "CTL-ACCREV",
+   "CTL-SAFETYINSP",
+   "CTL-SUPPREV",
+   "CTL-DUALPAY"
+  ],
+  "processes": [
+   "P-IT",
+   "M-CLIN",
+   "M-PHARM",
+   "P-FIN",
+   "P-PAY",
+   "P-COMMS"
+  ],
+  "appetite": {
+   "default_appetite": 5,
+   "default_tolerance": 10,
+   "by_category": {
+    "Health & Safety": [
+     3,
+     6
+    ],
+    "Cyber": [
+     4,
+     8
+    ]
+   }
+  }
+ }
+]

@@ -1,0 +1,112 @@
+{
+ "analytical": [
+  {
+   "tier": 1,
+   "name": "Fact finder",
+   "description": "Separates facts from assumptions; asks for missing information."
+  },
+  {
+   "tier": 2,
+   "name": "Structured analyst",
+   "description": "Breaks problems into drivers; uses root-cause methods."
+  },
+  {
+   "tier": 3,
+   "name": "Systems thinker",
+   "description": "Sees interconnections, feedback loops and common causes."
+  },
+  {
+   "tier": 4,
+   "name": "Strategic analyst",
+   "description": "Frames enterprise questions and knows when analysis is enough."
+  }
+ ],
+ "controls": [
+  {
+   "tier": 1,
+   "name": "Risk spotter",
+   "description": "Identifies and classifies risks and controls."
+  },
+  {
+   "tier": 2,
+   "name": "Assessor",
+   "description": "Rates inherent and residual risk consistently; maintains registers."
+  },
+  {
+   "tier": 3,
+   "name": "Control designer",
+   "description": "Designs proportionate preventive, detective and corrective controls."
+  },
+  {
+   "tier": 4,
+   "name": "Assurance architect",
+   "description": "Builds enterprise control and assurance models."
+  }
+ ],
+ "quant": [
+  {
+   "tier": 1,
+   "name": "Numerate analyst",
+   "description": "Calculates expected loss and simple exposure."
+  },
+  {
+   "tier": 2,
+   "name": "Modeller",
+   "description": "Builds scenarios, sensitivity and cost-benefit cases."
+  },
+  {
+   "tier": 3,
+   "name": "Quant specialist",
+   "description": "Uses simulation and stress testing; explains limitations."
+  },
+  {
+   "tier": 4,
+   "name": "Capital strategist",
+   "description": "Integrates risk into capital allocation and planning."
+  }
+ ],
+ "influence": [
+  {
+   "tier": 1,
+   "name": "Clear writer",
+   "description": "Writes concise, structured risk observations."
+  },
+  {
+   "tier": 2,
+   "name": "Persuader",
+   "description": "Presents findings so operational managers act."
+  },
+  {
+   "tier": 3,
+   "name": "Negotiator",
+   "description": "Resolves disagreement and secures commitment without authority."
+  },
+  {
+   "tier": 4,
+   "name": "Board communicator",
+   "description": "Communicates uncertainty and trade-offs to boards."
+  }
+ ],
+ "leadership": [
+  {
+   "tier": 1,
+   "name": "Reliable professional",
+   "description": "Delivers with integrity; raises concerns early."
+  },
+  {
+   "tier": 2,
+   "name": "Team lead",
+   "description": "Allocates work, reviews and coaches others."
+  },
+  {
+   "tier": 3,
+   "name": "Function leader",
+   "description": "Sets priorities and culture across departments."
+  },
+  {
+   "tier": 4,
+   "name": "Enterprise leader",
+   "description": "Balances growth, resilience and accountability."
+  }
+ ]
+}

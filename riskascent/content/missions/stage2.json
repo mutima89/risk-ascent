@@ -1,0 +1,2891 @@
+[
+ {
+  "id": "M08",
+  "title": "The Assessment Workshop",
+  "type": "career",
+  "level": 3,
+  "xp": 160,
+  "duration": "10 min",
+  "objective": "Run a structured risk assessment workshop, rate risks consistently, and present a heat map honestly.",
+  "concepts": [
+   "likelihood_impact",
+   "heatmap_limits",
+   "risk_owner"
+  ],
+  "from": "coo",
+  "subject": "Run the operations risk workshop",
+  "briefing": "I've blocked two hours with my leadership team for an operations risk assessment. You're running it. Come prepared, keep it on track, and give us something we can use.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Pre-workshop survey results",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Risk",
+      "Avg likelihood",
+      "Avg impact",
+      "Spread of views"
+     ],
+     "rows": [
+      [
+       "Equipment failure at main site",
+       "3.8",
+       "3.2",
+       "Narrow"
+      ],
+      [
+       "Agency staff shortages in peak",
+       "3.1",
+       "2.4",
+       "Wide (1-5)"
+      ],
+      [
+       "Contractor safety incident",
+       "2.2",
+       "4.6",
+       "Narrow"
+      ],
+      [
+       "Power outage",
+       "1.9",
+       "3.9",
+       "Wide (1-5)"
+      ]
+     ]
+    }
+   },
+   {
+    "id": "d2",
+    "title": "Facilitator notes from last year",
+    "kind": "memo",
+    "key": true,
+    "body": "Last year one senior director dominated; ratings converged on their view. Several managers later said they disagreed but didn't speak up."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "multi",
+    "prompt": "What should you prepare before the workshop?",
+    "competencies": [
+     "evidence",
+     "technical"
+    ],
+    "options": [
+     {
+      "text": "The likelihood and impact scales with examples",
+      "correct": true
+     },
+     {
+      "text": "Incident and loss data for each risk",
+      "correct": true
+     },
+     {
+      "text": "A clear scope and objectives for operations",
+      "correct": true
+     },
+     {
+      "text": "Pre-filled final ratings for people to approve",
+      "correct": false,
+      "why": "Anchors the group and defeats the purpose."
+     },
+     {
+      "text": "Survey results showing where views differ",
+      "correct": true
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "type": "choice",
+    "prompt": "The agency-staffing risk shows a wide spread of views (1 to 5). How do you handle it in the room?",
+    "competencies": [
+     "analysis",
+     "communication"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Ask the highest and lowest raters to describe the scenario they were picturing, then agree a specific scenario and rate that.",
+      "quality": 3,
+      "feedback": "Wide spreads usually mean people are rating different scenarios."
+     },
+     {
+      "id": "b",
+      "text": "Use the average of 3.1 and move on.",
+      "quality": 1,
+      "feedback": "Averaging hides disagreement that matters."
+     },
+     {
+      "id": "c",
+      "text": "Ask the most senior person to decide.",
+      "quality": 0,
+      "feedback": "Reproduces last year's problem."
+     },
+     {
+      "id": "d",
+      "text": "Drop the risk because there's no consensus.",
+      "quality": 0,
+      "feedback": "Disagreement is information."
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "Midway, {sh:rival} dominates and others go quiet. What do you do?",
+    "competencies": [
+     "leadership",
+     "stakeholder"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Switch to silent individual rating on cards, then discuss the differences.",
+      "quality": 3,
+      "feedback": "Structured technique that surfaces independent views without confrontation.",
+      "effects": {
+       "trust": {
+        "coo": 2
+       }
+      }
+     },
+     {
+      "id": "b",
+      "text": "Ask the director to stop talking.",
+      "quality": 1,
+      "feedback": "Direct, but likely to create defensiveness.",
+      "effects": {
+       "trust": {
+        "rival": -4
+       }
+      }
+     },
+     {
+      "id": "c",
+      "text": "Let it run; they're senior.",
+      "quality": 0,
+      "feedback": "Biased results."
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "type": "matrix",
+    "prompt": "After discussion the group describes the contractor safety risk as: unlikely in a given year (around 10%) but potentially fatal. Rate it.",
+    "competencies": [
+     "technical"
+    ],
+    "expected": {
+     "l": 2,
+     "i": 5
+    },
+    "why": "Around 10% annual probability is Unlikely (2); a potential fatality is Severe (5). Low likelihood does not make it low priority."
+   },
+   {
+    "id": "s5",
+    "type": "choice",
+    "prompt": "How do you present the resulting heat map to the leadership team?",
+    "competencies": [
+     "communication",
+     "ethics"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Show the map with a note that scores rank risks for discussion; for investment decisions we'll quantify the top three.",
+      "quality": 3,
+      "feedback": "Useful and honest about limitations."
+     },
+     {
+      "id": "b",
+      "text": "Present scores as precise measures of exposure.",
+      "quality": 0,
+      "feedback": "Overclaims precision; ordinal scores are not money."
+     },
+     {
+      "id": "c",
+      "text": "Present only the red risks.",
+      "quality": 1,
+      "feedback": "Focus is good, but hiding the rest loses context."
+     },
+     {
+      "id": "d",
+      "text": "Skip the map; it's too simplistic.",
+      "quality": 1,
+      "feedback": "Heat maps have value as a communication tool."
+     }
+    ]
+   }
+  ],
+  "debrief": {
+   "summary": "You ran a workshop that produced independent, consistent ratings and presented them honestly.",
+   "key_points": [
+    "Wide rating spreads usually mean different scenarios.",
+    "Use silent rating to counter dominance.",
+    "Severe-but-unlikely risks need attention."
+   ],
+   "stronger_approach": "Record the agreed scenario next to each rating so next year's workshop can compare like with like.",
+   "transfer": "Facilitation skills transfer to project risk reviews, audit planning and board strategy sessions."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "info_questions": {
+   "prompt": "What would you want to clarify before rating?",
+   "options": [
+    {
+     "text": "Which sites and processes are in scope",
+     "relevant": true
+    },
+    {
+     "text": "The time horizon for likelihood (e.g. 12 months)",
+     "relevant": true
+    },
+    {
+     "text": "Who owns each risk afterwards",
+     "relevant": true
+    },
+    {
+     "text": "Catering for the session",
+     "relevant": false
+    }
+   ]
+  },
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "trust": {
+       "coo": 3
+      },
+      "org": {
+       "control_effectiveness": 1
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {}
+    }
+   ]
+  }
+ },
+ {
+  "id": "M09",
+  "title": "Testing the Controls",
+  "type": "career",
+  "level": 3,
+  "xp": 160,
+  "duration": "10 min",
+  "objective": "Evaluate control design and operating effectiveness using proportionate samples and reach a defensible conclusion.",
+  "concepts": [
+   "design_vs_operating",
+   "control_types",
+   "three_lines"
+  ],
+  "from": "audit",
+  "subject": "Can we rely on the access review?",
+  "briefing": "We are deciding whether to rely on management's quarterly privileged-access review in our audit plan. Test it and tell me if it is designed and operating effectively.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Control description",
+    "kind": "memo",
+    "key": true,
+    "body": "Quarterly, each system owner receives a list of privileged accounts and confirms whether each is still needed. Unneeded accounts should be removed within 10 days. Owners sign the list. There is no check that removals actually happen."
+   },
+   {
+    "id": "d2",
+    "title": "Test results (four quarters)",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Quarter",
+      "Lists issued",
+      "Lists signed",
+      "Accounts flagged for removal",
+      "Removed within 10 days"
+     ],
+     "rows": [
+      [
+       "Q1",
+       "12",
+       "12",
+       "9",
+       "4"
+      ],
+      [
+       "Q2",
+       "12",
+       "10",
+       "6",
+       "6"
+      ],
+      [
+       "Q3",
+       "12",
+       "12",
+       "11",
+       "5"
+      ],
+      [
+       "Q4",
+       "12",
+       "9",
+       "7",
+       "3"
+      ]
+     ]
+    }
+   },
+   {
+    "id": "d3",
+    "title": "Sample size guidance",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Control frequency",
+      "Typical sample"
+     ],
+     "rows": [
+      [
+       "Annual",
+       "1"
+      ],
+      [
+       "Quarterly",
+       "2"
+      ],
+      [
+       "Monthly",
+       "3"
+      ],
+      [
+       "Weekly",
+       "10"
+      ],
+      [
+       "Daily",
+       "25"
+      ]
+     ]
+    }
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "multi",
+    "prompt": "Which design weaknesses do you see?",
+    "competencies": [
+     "technical",
+     "analysis"
+    ],
+    "options": [
+     {
+      "text": "No check that flagged accounts are actually removed",
+      "correct": true
+     },
+     {
+      "text": "Owners may rubber-stamp lists without evidence of need",
+      "correct": true
+     },
+     {
+      "text": "The review is quarterly",
+      "correct": false,
+      "why": "Quarterly is a reasonable frequency for privileged access."
+     },
+     {
+      "text": "Lists are signed",
+      "correct": false,
+      "why": "Signing provides evidence; the problem is what happens after."
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "type": "numeric",
+    "prompt": "Per the guidance, what is the minimum sample of quarters to test for a quarterly control?",
+    "competencies": [
+     "technical"
+    ],
+    "formula": "2",
+    "vars": {},
+    "unit": "number",
+    "tolerance_pct": 0,
+    "solution": "Quarterly controls: sample of 2 (you have all four, which is better)."
+   },
+   {
+    "id": "s3",
+    "type": "numeric",
+    "prompt": "Across the year, what percentage of accounts flagged for removal were actually removed within 10 days?",
+    "competencies": [
+     "analysis"
+    ],
+    "formula": "(4+6+5+3)/(9+6+11+7)*100",
+    "vars": {},
+    "unit": "percent",
+    "tolerance_pct": 3,
+    "solution": "18 removed / 33 flagged = 54.5%."
+   },
+   {
+    "id": "s4",
+    "type": "choice",
+    "prompt": "What is your overall conclusion?",
+    "competencies": [
+     "decision",
+     "technical",
+     "evidence"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Design is partially effective (no removal check) and operation is ineffective (lists unsigned in two quarters and only 55% of removals completed): do not rely on it.",
+      "quality": 3,
+      "feedback": "Separates design from operation and is backed by evidence.",
+      "effects": {
+       "trust": {
+        "audit": 4
+       }
+      }
+     },
+     {
+      "id": "b",
+      "text": "Effective: lists are issued every quarter.",
+      "quality": 0,
+      "feedback": "Issuing lists is not the control objective."
+     },
+     {
+      "id": "c",
+      "text": "Ineffective design, so no need to test operation.",
+      "quality": 1,
+      "feedback": "Testing operation still gives useful evidence of the size of the problem."
+     },
+     {
+      "id": "d",
+      "text": "Effective but needs minor improvement.",
+      "quality": 1,
+      "feedback": "Understates the evidence."
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s5",
+    "type": "write",
+    "prompt": "Write the audit finding: condition, cause, consequence and recommendation.",
+    "competencies": [
+     "communication",
+     "technical"
+    ],
+    "rubric": [
+     {
+      "element": "Condition",
+      "keywords": [
+       "55%",
+       "54",
+       "18 of 33",
+       "unsigned",
+       "not removed"
+      ],
+      "tip": "State what you found with numbers."
+     },
+     {
+      "element": "Cause",
+      "keywords": [
+       "no check",
+       "no verification",
+       "no follow-up",
+       "not verified"
+      ],
+      "tip": "Say why."
+     },
+     {
+      "element": "Consequence",
+      "keywords": [
+       "unauthori",
+       "misuse",
+       "breach",
+       "access"
+      ],
+      "tip": "Say what could happen."
+     },
+     {
+      "element": "Recommendation",
+      "keywords": [
+       "verify",
+       "reconcil",
+       "automat",
+       "confirm removal"
+      ],
+      "tip": "Recommend a fix."
+     }
+    ],
+    "model_answer": "Only 18 of 33 privileged accounts flagged for removal (55%) were removed within 10 days, and two quarterly lists were not signed. There is no step verifying that removals occur. Unneeded privileged access could be misused, leading to data breach or fraud. Recommend IT reconciles removal requests against system access lists within 10 days and reports exceptions to the CIO.",
+    "min_words": 25,
+    "max_words": 160
+   }
+  ],
+  "debrief": {
+   "summary": "You assessed design and operation separately and quantified the operating failure.",
+   "key_points": [
+    "Design: would it work? Operation: does it work?",
+    "Sample proportionately to frequency.",
+    "A control without follow-through is not complete."
+   ],
+   "stronger_approach": "Re-perform a sample of removals yourself rather than relying on the tracker.",
+   "transfer": "The same test logic applies to reconciliations, permit-to-work checks and clinical audits."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "risk_adjust": [
+       {
+        "risk": "TEC-DATA",
+        "control_eff": -1
+       }
+      ],
+      "trust": {
+       "audit": 3,
+       "cio": 1
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {}
+    }
+   ],
+   "counters": [
+    "control_tests_mission"
+   ]
+  }
+ },
+ {
+  "id": "M10",
+  "title": "What the Indicators Say",
+  "type": "career",
+  "level": 3,
+  "xp": 160,
+  "duration": "10 min",
+  "objective": "Distinguish leading from lagging indicators, interpret KRI trends and respond to threshold breaches.",
+  "concepts": [
+   "kri_thresholds",
+   "leading_lagging"
+  ],
+  "from": "cio",
+  "subject": "Make sense of our security indicators",
+  "briefing": "We report a dozen security metrics every month and nobody reads them. Help me work out which actually tell us something, and what to do about the phishing numbers.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Security metrics",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Metric",
+      "3 months ago",
+      "Last month",
+      "This month",
+      "Warning / critical"
+     ],
+     "rows": [
+      [
+       "Phishing simulation click rate",
+       "7%",
+       "10%",
+       "14%",
+       "12% / 18%"
+      ],
+      [
+       "Critical patches overdue >30 days",
+       "6",
+       "9",
+       "11",
+       "12 / 25"
+      ],
+      [
+       "Security incidents closed",
+       "14",
+       "12",
+       "15",
+       "n/a"
+      ],
+      [
+       "Accounts without MFA",
+       "31%",
+       "30%",
+       "30%",
+       "20% / 35%"
+      ]
+     ]
+    }
+   },
+   {
+    "id": "d2",
+    "title": "KRI procedure",
+    "kind": "memo",
+    "key": true,
+    "body": "Warning: owner investigates and reports within 10 working days. Critical: owner escalates to the executive committee within 2 days."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "classify",
+    "prompt": "Classify each metric.",
+    "competencies": [
+     "technical",
+     "analysis"
+    ],
+    "categories": [
+     "Leading",
+     "Lagging"
+    ],
+    "items": [
+     {
+      "text": "Phishing simulation click rate",
+      "answer": "Leading",
+      "why": "Measures a condition that makes compromise more likely."
+     },
+     {
+      "text": "Critical patches overdue",
+      "answer": "Leading"
+     },
+     {
+      "text": "Security incidents closed",
+      "answer": "Lagging",
+      "why": "Counts what already happened, and measures activity rather than risk."
+     },
+     {
+      "text": "Accounts without MFA",
+      "answer": "Leading"
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "type": "numeric",
+    "prompt": "By what percentage has the click rate increased over three months (7% to 14%)?",
+    "competencies": [
+     "analysis"
+    ],
+    "formula": "(14-7)/7*100",
+    "vars": {},
+    "unit": "percent",
+    "tolerance_pct": 2,
+    "solution": "(14 - 7) / 7 = 100% increase; the rate doubled."
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "The click rate has crossed the warning threshold. What should happen?",
+    "competencies": [
+     "prioritization",
+     "stakeholder"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "The CIO investigates and reports within 10 working days, as the procedure requires, and we look at what changed (new staff, new lure types).",
+      "quality": 3,
+      "feedback": "Follows the agreed response and looks for causes.",
+      "effects": {
+       "trust": {
+        "cio": 2
+       }
+      }
+     },
+     {
+      "id": "b",
+      "text": "Escalate to the executive committee immediately.",
+      "quality": 1,
+      "feedback": "Critical-level response to a warning undermines the threshold system."
+     },
+     {
+      "id": "c",
+      "text": "Wait to see if it reaches critical.",
+      "quality": 0,
+      "feedback": "Ignoring warnings defeats the purpose of a warning level."
+     },
+     {
+      "id": "d",
+      "text": "Retrain everyone today.",
+      "quality": 1,
+      "feedback": "Possibly needed, but investigate first."
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "type": "choice",
+    "prompt": "'Accounts without MFA' has sat at 30% for three months, between warning and critical. What do you recommend?",
+    "competencies": [
+     "analysis",
+     "decision"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Treat the flat trend as stalled remediation: ask why the rollout stopped, and set a dated target to get below 20%.",
+      "quality": 3,
+      "feedback": "A persistent warning is a decision, not background noise.",
+      "effects": {
+       "flags": [
+        "mfa_accelerated"
+       ]
+      }
+     },
+     {
+      "id": "b",
+      "text": "Raise the warning threshold to 35% so it shows green.",
+      "quality": 0,
+      "feedback": "Moving thresholds to avoid action is a governance failure.",
+      "effects": {
+       "flags": [
+        "threshold_gamed"
+       ]
+      }
+     },
+     {
+      "id": "c",
+      "text": "Nothing; it's not getting worse.",
+      "quality": 0,
+      "feedback": "Stable exposure above appetite is still above appetite."
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s5",
+    "type": "multi",
+    "prompt": "Which properties make a good KRI?",
+    "competencies": [
+     "technical"
+    ],
+    "options": [
+     {
+      "text": "Linked to a specific risk in the register",
+      "correct": true
+     },
+     {
+      "text": "Has thresholds tied to appetite with named owners and actions",
+      "correct": true
+     },
+     {
+      "text": "Data is reliable and timely",
+      "correct": true
+     },
+     {
+      "text": "Shows activity volumes of the risk team",
+      "correct": false,
+      "why": "Activity is not exposure."
+     },
+     {
+      "text": "Looks green most of the time",
+      "correct": false
+     }
+    ]
+   }
+  ],
+  "debrief": {
+   "summary": "You separated useful leading indicators from activity metrics and applied the threshold procedure.",
+   "key_points": [
+    "Leading indicators give time to act.",
+    "Thresholds need owners and actions.",
+    "A persistent amber is a decision someone is avoiding."
+   ],
+   "stronger_approach": "Retire metrics that don't link to a risk, and add a lead-time view: how much warning does each KRI give?",
+   "transfer": "KRIs in a bank (arrears), hospital (bed occupancy) or plant (standing alarms) follow the same logic."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "kri_adjust": [
+       {
+        "kri": "KRI-PHISH",
+        "drift": -0.03
+       }
+      ],
+      "trust": {
+       "cio": 2
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {
+      "schedule": [
+       {
+        "event": "ev_phishing_breach",
+        "after": 2,
+        "p": 0.4
+       }
+      ]
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "M11",
+  "title": "Five Whys at the Loading Dock",
+  "type": "career",
+  "level": 3,
+  "xp": 160,
+  "duration": "10 min",
+  "objective": "Conduct root-cause analysis that moves beyond human error to systemic causes and effective corrective actions.",
+  "concepts": [
+   "root_cause",
+   "near_miss"
+  ],
+  "from": "cso",
+  "subject": "Investigate the loading dock collision",
+  "briefing": "Yesterday a reversing delivery truck struck a member of staff on the loading dock. Bruising only, thankfully. The supervisor's report says 'driver error'. I want a proper root-cause analysis.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Supervisor's report",
+    "kind": "memo",
+    "key": true,
+    "body": "Driver reversed without a banksman and hit a staff member walking behind the vehicle. Cause: driver error. Action: driver warned."
+   },
+   {
+    "id": "d2",
+    "title": "Witness statements",
+    "kind": "memo",
+    "key": true,
+    "body": "- Driver: 'There's never a banksman after 6pm; we're told to just get on with it.'\n- Staff member: 'The walkway markings are worn away; we cut behind trucks because the proper route is blocked by pallets.'\n- Night supervisor: 'We lost two banksmen in the last restructure. Deliveries were moved later to save on overtime.'"
+   },
+   {
+    "id": "d3",
+    "title": "Near-miss records (last 6 months)",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Month",
+      "Description"
+     ],
+     "rows": [
+      [
+       "-5",
+       "Pedestrian close to reversing truck"
+      ],
+      [
+       "-3",
+       "Truck clipped pallet stack on walkway"
+      ],
+      [
+       "-1",
+       "Pedestrian waved truck to stop"
+      ]
+     ]
+    }
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "rank",
+    "prompt": "Order the causal chain from immediate cause to root cause.",
+    "competencies": [
+     "analysis"
+    ],
+    "items": [
+     {
+      "id": "a",
+      "text": "Truck reversed into a pedestrian"
+     },
+     {
+      "id": "b",
+      "text": "No banksman on duty"
+     },
+     {
+      "id": "c",
+      "text": "Banksman roles cut and deliveries moved to evenings to save overtime"
+     },
+     {
+      "id": "d",
+      "text": "Cost decision made without a safety impact assessment"
+     }
+    ],
+    "answer": [
+     "a",
+     "b",
+     "c",
+     "d"
+    ],
+    "why": "Each 'why' moves from the event to the conditions and decisions that allowed it."
+   },
+   {
+    "id": "s2",
+    "type": "choice",
+    "prompt": "What is the root cause?",
+    "competencies": [
+     "analysis",
+     "ethics"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Driver error.",
+      "quality": 0,
+      "feedback": "Stopping at human error blames the person at the end of the chain and leaves the conditions in place."
+     },
+     {
+      "id": "b",
+      "text": "A cost-saving change removed a safety control without assessing the impact, and earlier near misses were not acted on.",
+      "quality": 3,
+      "feedback": "A systemic cause that explains why the error was likely and undetected."
+     },
+     {
+      "id": "c",
+      "text": "Worn walkway markings.",
+      "quality": 1,
+      "feedback": "A contributing factor, not the root cause."
+     },
+     {
+      "id": "d",
+      "text": "The staff member walking behind the truck.",
+      "quality": 0,
+      "feedback": "Blames the victim."
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s3",
+    "type": "multi",
+    "prompt": "Which contributing factors does the evidence support?",
+    "competencies": [
+     "evidence"
+    ],
+    "options": [
+     {
+      "text": "Worn walkway markings",
+      "correct": true
+     },
+     {
+      "text": "Pallets blocking the designated pedestrian route",
+      "correct": true
+     },
+     {
+      "text": "Three previous near misses not acted on",
+      "correct": true
+     },
+     {
+      "text": "Driver was under the influence",
+      "correct": false,
+      "why": "No evidence supports this."
+     },
+     {
+      "text": "Evening delivery schedule",
+      "correct": true
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "type": "choice",
+    "prompt": "Which corrective action package do you recommend?",
+    "competencies": [
+     "decision",
+     "financial"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Restore evening banksman cover (or no reversing without one), repaint walkways, enforce clear routes, and require safety impact assessments for operational cost changes.",
+      "quality": 3,
+      "feedback": "Addresses the immediate and root causes.",
+      "effects": {
+       "flags": [
+        "safety_actions_closed"
+       ],
+       "org": {
+        "operating_costs": 60000
+       },
+       "trust": {
+        "cso": 4
+       }
+      }
+     },
+     {
+      "id": "b",
+      "text": "Retrain the driver.",
+      "quality": 0,
+      "feedback": "Leaves every condition in place.",
+      "effects": {
+       "flags": [
+        "near_miss_ignored"
+       ]
+      }
+     },
+     {
+      "id": "c",
+      "text": "Install reversing cameras on all trucks.",
+      "quality": 2,
+      "feedback": "Helpful, but doesn't address routes, staffing or the decision process."
+     },
+     {
+      "id": "d",
+      "text": "Ban pedestrians from the dock.",
+      "quality": 1,
+      "feedback": "Impractical without redesigning the work."
+     }
+    ]
+   },
+   {
+    "id": "s5",
+    "type": "write",
+    "prompt": "Write the RCA conclusion for the safety committee.",
+    "competencies": [
+     "communication",
+     "analysis"
+    ],
+    "rubric": [
+     {
+      "element": "Event",
+      "keywords": [
+       "struck",
+       "collision",
+       "revers"
+      ],
+      "tip": "Describe the event."
+     },
+     {
+      "element": "Root cause",
+      "keywords": [
+       "cost",
+       "restructure",
+       "overtime",
+       "impact assessment"
+      ],
+      "tip": "State the systemic cause."
+     },
+     {
+      "element": "Near misses",
+      "keywords": [
+       "near miss",
+       "previous",
+       "warning"
+      ],
+      "tip": "Mention ignored warnings."
+     },
+     {
+      "element": "Actions",
+      "keywords": [
+       "banksman",
+       "walkway",
+       "assessment"
+      ],
+      "tip": "List key actions."
+     }
+    ],
+    "model_answer": "A reversing truck struck a staff member because no banksman was on duty. The root cause was a cost-saving change that removed evening banksman cover and moved deliveries later without a safety impact assessment; three earlier near misses were not acted on. Actions: restore banksman cover or prohibit unassisted reversing, repaint walkways, keep routes clear, and require safety impact assessments for operational cost changes.",
+    "min_words": 25,
+    "max_words": 160
+   }
+  ],
+  "debrief": {
+   "summary": "You traced the incident to the decision that created the conditions for it.",
+   "key_points": [
+    "'Human error' is where analysis begins, not ends.",
+    "Near misses foreshadowed this incident.",
+    "Corrective actions must address root causes."
+   ],
+   "stronger_approach": "Check whether the same cost change affected other sites, and present the cost of the fix against the cost of the injury risk.",
+   "transfer": "The same method explains IT outages after a cut to change control, or medication errors after rota changes."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "trust": {
+       "cso": 3
+      },
+      "cancel": [
+       "ev_safety_injury"
+      ]
+     }
+    },
+    {
+     "min": 0,
+     "effects": {
+      "schedule": [
+       {
+        "event": "ev_safety_injury",
+        "after": 2,
+        "p": 0.4
+       }
+      ]
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "M12",
+  "title": "Choosing the Treatment",
+  "type": "career",
+  "level": 3,
+  "xp": 160,
+  "duration": "10 min",
+  "objective": "Select between mitigate, transfer, accept, avoid and pursue, using cost-benefit and appetite.",
+  "concepts": [
+   "treatment_options",
+   "cost_benefit",
+   "risk_appetite"
+  ],
+  "from": "cfo",
+  "subject": "Which risks are worth spending on?",
+  "briefing": "I'm being asked to fund four risk treatments. I need a recommendation on each, and I don't want to spend money where it doesn't make sense.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Treatment proposals",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Risk",
+      "Current annual EL",
+      "Option",
+      "Annual cost",
+      "EL after"
+     ],
+     "rows": [
+      [
+       "Laptop theft",
+       "{m:40000}",
+       "Full-disk encryption and tracking",
+       "{m:15000}",
+       "{m:10000}"
+      ],
+      [
+       "Flood at warehouse",
+       "{m:120000}",
+       "Flood insurance",
+       "{m:45000}",
+       "{m:20000}"
+      ],
+      [
+       "Minor stationery loss",
+       "{m:3000}",
+       "Locked cabinets and logs",
+       "{m:8000}",
+       "{m:1000}"
+      ],
+      [
+       "New market with sanctions exposure",
+       "n/a",
+       "Enter the market",
+       "n/a",
+       "Potential enforcement exposure"
+      ]
+     ]
+    }
+   },
+   {
+    "id": "d2",
+    "title": "Appetite statement extract",
+    "kind": "memo",
+    "key": true,
+    "body": "We have no appetite for breaches of sanctions law. We accept small, frequent operational losses where controls would cost more than the losses."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "classify",
+    "prompt": "Choose the most appropriate treatment for each risk.",
+    "competencies": [
+     "decision",
+     "technical"
+    ],
+    "categories": [
+     "Mitigate",
+     "Transfer",
+     "Accept",
+     "Avoid"
+    ],
+    "items": [
+     {
+      "text": "Laptop theft",
+      "answer": "Mitigate",
+      "why": "Encryption cuts the impact (data exposure) cheaply."
+     },
+     {
+      "text": "Flood at warehouse",
+      "answer": "Transfer",
+      "why": "Insurance transfers the financial impact of a rare, severe event."
+     },
+     {
+      "text": "Minor stationery loss",
+      "answer": "Accept",
+      "why": "The control costs more than the loss."
+     },
+     {
+      "text": "Entering a market with sanctions exposure",
+      "answer": "Avoid",
+      "why": "Outside appetite: zero tolerance for sanctions breaches."
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "type": "numeric",
+    "prompt": "What is the net annual benefit of encryption (EL reduction minus cost)?",
+    "competencies": [
+     "financial"
+    ],
+    "hint": "Benefit = EL before - EL after. Net = benefit - cost.",
+    "formula": "(40000-10000)-15000",
+    "vars": {},
+    "unit": "money",
+    "tolerance_pct": 3,
+    "solution": "({m:40000} - {m:10000}) - {m:15000} = {m:15000} a year."
+   },
+   {
+    "id": "s3",
+    "type": "numeric",
+    "prompt": "What is the net annual benefit of flood insurance?",
+    "competencies": [
+     "financial"
+    ],
+    "formula": "(120000-20000)-45000",
+    "vars": {},
+    "unit": "money",
+    "tolerance_pct": 3,
+    "solution": "({m:120000} - {m:20000}) - {m:45000} = {m:55000}."
+   },
+   {
+    "id": "s4",
+    "type": "choice",
+    "prompt": "Commercial argues the sanctions-exposed market could be entered with 'enhanced screening'. Your advice?",
+    "competencies": [
+     "ethics",
+     "strategy"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Recommend avoiding it unless legal confirms screening can reliably prevent breaches; our appetite is zero for sanctions breaches.",
+      "quality": 3,
+      "feedback": "Applies appetite clearly while leaving room for legal evidence.",
+      "effects": {
+       "trust": {
+        "gc": 3,
+        "cco": -2
+       }
+      }
+     },
+     {
+      "id": "b",
+      "text": "Approve: the revenue is attractive.",
+      "quality": 0,
+      "feedback": "Revenue does not override a zero-appetite statement."
+     },
+     {
+      "id": "c",
+      "text": "Approve with insurance.",
+      "quality": 0,
+      "feedback": "Fines for sanctions breaches are generally uninsurable and reputational damage cannot be transferred."
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s5",
+    "type": "choice",
+    "prompt": "How do you present the package to {sh:cfo}?",
+    "competencies": [
+     "communication",
+     "financial"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Fund encryption and insurance (net benefit {m:70000} a year), accept stationery losses, and avoid the sanctions market, with assumptions stated.",
+      "quality": 3,
+      "feedback": "Clear, quantified and appetite-aligned.",
+      "effects": {
+       "trust": {
+        "cfo": 4
+       }
+      },
+      "approach": "data"
+     },
+     {
+      "id": "b",
+      "text": "Fund everything to be safe.",
+      "quality": 0,
+      "feedback": "Spending more than the loss on stationery is waste."
+     },
+     {
+      "id": "c",
+      "text": "Fund nothing; budgets are tight.",
+      "quality": 1,
+      "feedback": "Ignores positive net benefits."
+     }
+    ],
+    "to": "cfo"
+   }
+  ],
+  "debrief": {
+   "summary": "You matched each risk to the right treatment using numbers and appetite.",
+   "key_points": [
+    "Mitigate when it is cost-effective; transfer rare severe financial loss; accept small losses; avoid what is outside appetite.",
+    "Insurance does not transfer reputation or legal accountability."
+   ],
+   "stronger_approach": "Show uncertainty ranges on EL and note non-financial benefits (privacy, regulatory standing).",
+   "transfer": "The same treatment logic applies to project risks, clinical risks and investment decisions."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "trust": {
+       "cfo": 3
+      },
+      "risk_adjust": [
+       {
+        "risk": "GEN-DATA-PRIV",
+        "res_i": -1
+       }
+      ]
+     }
+    },
+    {
+     "min": 0,
+     "effects": {}
+    }
+   ]
+  }
+ },
+ {
+  "id": "M13",
+  "title": "What If? Scenario Analysis",
+  "type": "career",
+  "level": 4,
+  "xp": 180,
+  "duration": "10 min",
+  "objective": "Design plausible, internally consistent scenarios and use probability-weighted outcomes to inform decisions.",
+  "concepts": [
+   "scenario_analysis",
+   "interconnected"
+  ],
+  "from": "mentor",
+  "subject": "Scenario analysis for supply disruption",
+  "briefing": "The executive team wants to understand supply-chain disruption beyond 'a supplier fails'. Build three scenarios, estimate their impact, and tell us what they mean for the decision on dual sourcing.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Supply chain facts",
+    "kind": "memo",
+    "key": true,
+    "body": "- 41% of critical spend is with single-source suppliers; two of them are in the same region.\n- The region had port closures for nine days last year.\n- Dual-sourcing the top five components would cost {m:350000} a year."
+   },
+   {
+    "id": "d2",
+    "title": "Draft scenarios",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Scenario",
+      "Description",
+      "Annual probability",
+      "Loss"
+     ],
+     "rows": [
+      [
+       "S1",
+       "One supplier fails; others unaffected",
+       "10%",
+       "{m:800000}"
+      ],
+      [
+       "S2",
+       "Regional port closure halts both regional suppliers for 3 weeks",
+       "6%",
+       "{m:3000000}"
+      ],
+      [
+       "S3",
+       "Global shortage raises prices 25% for a year",
+       "4%",
+       "{m:2000000}"
+      ]
+     ]
+    }
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "multi",
+    "prompt": "Which features make S2 a good scenario?",
+    "competencies": [
+     "analysis"
+    ],
+    "options": [
+     {
+      "text": "It combines related exposures (two suppliers sharing a region)",
+      "correct": true
+     },
+     {
+      "text": "It is plausible given last year's closure",
+      "correct": true
+     },
+     {
+      "text": "It is specific about duration and impact",
+      "correct": true
+     },
+     {
+      "text": "It is the worst imaginable event",
+      "correct": false,
+      "why": "Scenarios should be severe but plausible, not apocalyptic."
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "type": "numeric",
+    "prompt": "What is the probability-weighted annual loss across the three scenarios?",
+    "competencies": [
+     "financial"
+    ],
+    "formula": "0.10*a+0.06*b+0.04*c",
+    "vars": {
+     "a": 800000,
+     "b": 3000000,
+     "c": 2000000
+    },
+    "unit": "money",
+    "tolerance_pct": 3,
+    "solution": "0.10 x {m:800000} + 0.06 x {m:3000000} + 0.04 x {m:2000000} = {m:340000}.",
+    "money_vars": [
+     "a",
+     "b",
+     "c"
+    ]
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "Dual sourcing costs {m:350000} a year and would largely neutralise S1 and S2 but not S3. Is it justified on expected loss alone?",
+    "competencies": [
+     "financial",
+     "decision"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Not quite on expected loss (it removes about {m:260000} of the {m:340000}), but S2's {m:3000000} single-event loss may justify it given our cash buffer; present both views.",
+      "quality": 3,
+      "feedback": "Honest about EL and frames the tail-risk argument."
+     },
+     {
+      "id": "b",
+      "text": "Yes, obviously.",
+      "quality": 1,
+      "feedback": "The numbers don't support 'obviously'; you need the tail argument."
+     },
+     {
+      "id": "c",
+      "text": "No, never spend more than the expected loss.",
+      "quality": 1,
+      "feedback": "Ignores severity and the capacity to absorb a large loss."
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s4",
+    "type": "choice",
+    "prompt": "{sh:rival} says the scenarios are 'scaremongering'. How do you respond?",
+    "competencies": [
+     "stakeholder",
+     "communication"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Show that S2 is based on last year's actual nine-day closure and invite them to suggest alternative assumptions.",
+      "quality": 3,
+      "feedback": "Grounds the scenario in evidence and opens collaboration.",
+      "effects": {
+       "trust": {
+        "rival": 2
+       }
+      },
+      "approach": "options"
+     },
+     {
+      "id": "b",
+      "text": "Remove S2 from the pack.",
+      "quality": 0,
+      "feedback": "Censors relevant analysis."
+     },
+     {
+      "id": "c",
+      "text": "Escalate to the CEO.",
+      "quality": 1,
+      "feedback": "Unnecessary at this stage.",
+      "effects": {
+       "trust": {
+        "rival": -3
+       }
+      }
+     }
+    ],
+    "to": "rival"
+   },
+   {
+    "id": "s5",
+    "type": "write",
+    "prompt": "Write the key message for the executive team.",
+    "competencies": [
+     "communication",
+     "strategy"
+    ],
+    "rubric": [
+     {
+      "element": "Concentration",
+      "keywords": [
+       "region",
+       "same region",
+       "concentrat",
+       "two suppliers"
+      ],
+      "tip": "Highlight the shared exposure."
+     },
+     {
+      "element": "Numbers",
+      "keywords": [
+       "340",
+       "3m",
+       "3,000,000",
+       "3.0m"
+      ],
+      "tip": "Quantify."
+     },
+     {
+      "element": "Recommendation",
+      "keywords": [
+       "dual",
+       "second source",
+       "alternative"
+      ],
+      "tip": "Recommend."
+     },
+     {
+      "element": "Trade-off",
+      "keywords": [
+       "cost",
+       "350",
+       "tail",
+       "severe"
+      ],
+      "tip": "State the trade-off."
+     }
+    ],
+    "model_answer": "Our largest supply exposure is regional concentration: two critical suppliers share a region that closed its ports for nine days last year. Probability-weighted losses are about {m:340000} a year, but a single regional closure could cost {m:3000000}. Dual sourcing the top five components costs {m:350000} a year; we recommend it as insurance against the severe case, starting with the two regional suppliers.",
+    "min_words": 25,
+    "max_words": 160
+   }
+  ],
+  "debrief": {
+   "summary": "You built plausible scenarios that exposed concentration, and framed the decision honestly.",
+   "key_points": [
+    "Scenarios reveal combined effects.",
+    "Expected loss and tail risk can point in different directions.",
+    "Ground scenarios in evidence."
+   ],
+   "stronger_approach": "Add a reverse stress test: what disruption would breach our cash covenant?",
+   "transfer": "Scenario thinking is central to climate risk, capital planning and pandemic preparedness."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "flags": [
+       "dual_source"
+      ],
+      "cancel": [
+       "ev_supplier_collapse"
+      ],
+      "budget": -100000
+     }
+    },
+    {
+     "min": 0,
+     "effects": {
+      "schedule": [
+       {
+        "event": "ev_supplier_collapse",
+        "after": 3,
+        "p": 0.35
+       }
+      ],
+      "flags": [
+       "supplier_warning_ignored"
+      ]
+     }
+    }
+   ],
+   "counters": [
+    "scenario_runs"
+   ]
+  }
+ },
+ {
+  "id": "M14",
+  "title": "The Monte Carlo Question",
+  "type": "career",
+  "level": 4,
+  "xp": 180,
+  "duration": "10 min",
+  "objective": "Interpret simulated loss distributions, set a contingency reserve and challenge model assumptions.",
+  "concepts": [
+   "monte_carlo",
+   "el_vs_worst"
+  ],
+  "from": "cfo",
+  "subject": "What reserve do we need for operational losses?",
+  "briefing": "The analytics team ran a simulation of our annual operational losses. I need to decide how much contingency to hold. What does this actually tell me?",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Simulation summary (20,000 runs)",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Statistic",
+      "Annual loss"
+     ],
+     "rows": [
+      [
+       "Mean",
+       "{m:1100000}"
+      ],
+      [
+       "Median (P50)",
+       "{m:700000}"
+      ],
+      [
+       "P90",
+       "{m:2400000}"
+      ],
+      [
+       "P95",
+       "{m:3300000}"
+      ],
+      [
+       "P99",
+       "{m:6100000}"
+      ],
+      [
+       "Average of worst 5% (ES95)",
+       "{m:5000000}"
+      ]
+     ]
+    }
+   },
+   {
+    "id": "d2",
+    "title": "Model assumptions",
+    "kind": "memo",
+    "key": true,
+    "body": "Frequency: Poisson, mean 6 events per year, from five years of internal data. Severity: lognormal fitted to internal losses; largest observed single loss {m:1800000}. No external loss data used."
+   },
+   {
+    "id": "d3",
+    "title": "Policy",
+    "kind": "memo",
+    "key": true,
+    "body": "Expected losses are budgeted in operating costs. Contingency should cover unexpected losses at the 90% confidence level."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "choice",
+    "prompt": "What does the P95 of {m:3300000} mean?",
+    "competencies": [
+     "financial",
+     "analysis"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "In about 5% of simulated years, losses exceeded {m:3300000}.",
+      "quality": 3,
+      "feedback": "Correct interpretation."
+     },
+     {
+      "id": "b",
+      "text": "Losses will be {m:3300000}.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “In about 5% of simulated years, losses exceeded {m:3300000}.”"
+     },
+     {
+      "id": "c",
+      "text": "There is a 95% chance of losing {m:3300000}.",
+      "quality": 0,
+      "feedback": "Reversed."
+     },
+     {
+      "id": "d",
+      "text": "The average loss is {m:3300000}.",
+      "quality": 0,
+      "feedback": "That's the mean, {m:1100000}."
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s2",
+    "type": "numeric",
+    "prompt": "Per policy, what contingency reserve should be held (unexpected loss at 90%: P90 minus mean)?",
+    "competencies": [
+     "financial"
+    ],
+    "hint": "Unexpected loss = percentile - expected loss.",
+    "formula": "p90-mean",
+    "vars": {
+     "p90": 2400000,
+     "mean": 1100000
+    },
+    "unit": "money",
+    "tolerance_pct": 3,
+    "solution": "{m:2400000} - {m:1100000} = {m:1300000}.",
+    "money_vars": [
+     "p90",
+     "mean"
+    ]
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "Why is the median below the mean?",
+    "competencies": [
+     "analysis"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "The distribution is right-skewed: a few very large loss years pull the mean up.",
+      "quality": 3,
+      "feedback": "Typical of operational losses."
+     },
+     {
+      "id": "b",
+      "text": "The simulation is wrong.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “The distribution is right-skewed: a few very large loss years pull the mean up.”"
+     },
+     {
+      "id": "c",
+      "text": "Rounding.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “The distribution is right-skewed: a few very large loss years pull the mean up.”"
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "type": "multi",
+    "prompt": "Which assumptions should you challenge before relying on the tail numbers?",
+    "competencies": [
+     "analysis",
+     "evidence"
+    ],
+    "options": [
+     {
+      "text": "Five years of internal data may not include a truly severe event",
+      "correct": true
+     },
+     {
+      "text": "No external loss data was used",
+      "correct": true
+     },
+     {
+      "text": "Severity fitted only to observed losses may understate the tail",
+      "correct": true
+     },
+     {
+      "text": "20,000 runs is too few for the mean",
+      "correct": false,
+      "why": "20,000 is plenty for the mean; the issue is input assumptions, not run count."
+     }
+    ]
+   },
+   {
+    "id": "s5",
+    "type": "choice",
+    "prompt": "What do you recommend to {sh:cfo}?",
+    "competencies": [
+     "communication",
+     "decision",
+     "financial"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Hold {m:1300000} per policy, flag that the tail is likely understated, and supplement with an external-data scenario before the board pack.",
+      "quality": 3,
+      "feedback": "Follows policy while being transparent about model risk.",
+      "effects": {
+       "trust": {
+        "cfo": 4
+       },
+       "flags": [
+        "liquidity_plan"
+       ]
+      },
+      "approach": "data"
+     },
+     {
+      "id": "b",
+      "text": "Hold {m:6100000} to be safe.",
+      "quality": 1,
+      "feedback": "Over-reserving ties up cash without a policy basis."
+     },
+     {
+      "id": "c",
+      "text": "Hold nothing extra; the mean is budgeted.",
+      "quality": 0,
+      "feedback": "Ignores unexpected losses."
+     }
+    ],
+    "to": "cfo"
+   }
+  ],
+  "debrief": {
+   "summary": "You interpreted the distribution correctly and challenged its inputs.",
+   "key_points": [
+    "Percentiles describe the model, not the future.",
+    "Operational losses are skewed: mean > median.",
+    "Model risk lives in the assumptions."
+   ],
+   "stronger_approach": "Run the simulation in the Financial Lab with a fatter severity tail and compare the P90.",
+   "transfer": "Simulation is used for project cost contingency, insurance limits and capital models."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "trust": {
+       "cfo": 3
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {}
+    }
+   ],
+   "counters": [
+    "mc_missions"
+   ]
+  }
+ },
+ {
+  "id": "M15",
+  "title": "Which Assumption Matters?",
+  "type": "career",
+  "level": 4,
+  "xp": 180,
+  "duration": "10 min",
+  "objective": "Use sensitivity analysis to find the assumptions that drive a decision and focus scrutiny there.",
+  "concepts": [
+   "sensitivity",
+   "npv"
+  ],
+  "from": "rival",
+  "subject": "Sense-check the automation business case",
+  "briefing": "Here's my business case for warehouse automation: positive NPV, done. The CFO wants risk to review it. Keep it quick.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Business case",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Assumption",
+      "Base",
+      "Low",
+      "High"
+     ],
+     "rows": [
+      [
+       "Upfront cost",
+       "{m:4000000}",
+       "{m:3600000}",
+       "{m:5200000}"
+      ],
+      [
+       "Annual labour saving",
+       "{m:1200000}",
+       "{m:800000}",
+       "{m:1300000}"
+      ],
+      [
+       "Go-live delay",
+       "0 months",
+       "0",
+       "12 months"
+      ],
+      [
+       "Discount rate",
+       "8%",
+       "7%",
+       "10%"
+      ]
+     ]
+    }
+   },
+   {
+    "id": "d2",
+    "title": "Tornado results (NPV, 5 years)",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Assumption",
+      "NPV at low",
+      "NPV at high",
+      "Swing"
+     ],
+     "rows": [
+      [
+       "Annual labour saving",
+       "{m:-806000}",
+       "{m:1191000}",
+       "{m:1997000}"
+      ],
+      [
+       "Upfront cost",
+       "{m:1191000}",
+       "{m:-409000}",
+       "{m:1600000}"
+      ],
+      [
+       "Go-live delay",
+       "{m:791000}",
+       "{m:-320000}",
+       "{m:1111000}"
+      ],
+      [
+       "Discount rate",
+       "{m:920000}",
+       "{m:550000}",
+       "{m:370000}"
+      ]
+     ]
+    }
+   },
+   {
+    "id": "d3",
+    "title": "Vendor note",
+    "kind": "memo",
+    "key": true,
+    "body": "Our labour-saving estimates assume 95% system uptime and full adoption in month one. Comparable installations average 85% adoption in year one."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "choice",
+    "prompt": "Which assumption drives the result most?",
+    "competencies": [
+     "analysis",
+     "financial"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Annual labour saving.",
+      "quality": 3,
+      "feedback": "Largest swing on the tornado."
+     },
+     {
+      "id": "b",
+      "text": "Discount rate.",
+      "quality": 0,
+      "feedback": "Smallest swing."
+     },
+     {
+      "id": "c",
+      "text": "Upfront cost.",
+      "quality": 2,
+      "feedback": "Second largest; important but not the top driver."
+     },
+     {
+      "id": "d",
+      "text": "Go-live delay.",
+      "quality": 1,
+      "feedback": "Third."
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "type": "numeric",
+    "prompt": "Base NPV: -4,000,000 upfront plus 1,200,000 a year for 5 years at 8%. What is it? (Use: -4,000,000 + 1,200,000 x 3.9927.)",
+    "competencies": [
+     "financial"
+    ],
+    "hint": "The annuity factor converts a constant annual amount into present value.",
+    "formula": "-4000000+1200000*3.9927",
+    "vars": {},
+    "unit": "money",
+    "tolerance_pct": 2,
+    "solution": "-{m:4000000} + {m:1200000} x 3.9927 (5-year annuity factor at 8%) = about {m:791000}."
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "The vendor's saving assumes full adoption; comparable sites reach 85% in year one. What follows?",
+    "competencies": [
+     "analysis",
+     "evidence"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "The base saving is optimistic; the realistic case sits nearer the low end, where NPV may be negative. The case needs revision.",
+      "quality": 3,
+      "feedback": "Links evidence to the most sensitive assumption."
+     },
+     {
+      "id": "b",
+      "text": "Minor point; NPV is still positive.",
+      "quality": 0,
+      "feedback": "The most sensitive assumption is also the most optimistic."
+     },
+     {
+      "id": "c",
+      "text": "Reject automation entirely.",
+      "quality": 1,
+      "feedback": "Too strong; revise and stage instead."
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s4",
+    "type": "choice",
+    "prompt": "What do you advise {sh:rival}?",
+    "competencies": [
+     "stakeholder",
+     "decision"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Support the project subject to a revised saving estimate and a phased rollout with a go/no-go after the first site.",
+      "quality": 3,
+      "feedback": "Constructive conditions that protect value.",
+      "effects": {
+       "trust": {
+        "rival": 2,
+        "cfo": 2
+       },
+       "flags": [
+        "project_rebaselined"
+       ]
+      },
+      "approach": "options"
+     },
+     {
+      "id": "b",
+      "text": "Approve as is.",
+      "quality": 0,
+      "feedback": "Ignores the key weakness.",
+      "effects": {
+       "flags": [
+        "project_warning_ignored"
+       ],
+       "schedule": [
+        {
+         "event": "ev_project_overrun",
+         "after": 4,
+         "p": 0.45
+        }
+       ]
+      }
+     },
+     {
+      "id": "c",
+      "text": "Block it.",
+      "quality": 1,
+      "feedback": "Value may exist; better to restructure.",
+      "effects": {
+       "trust": {
+        "rival": -4
+       }
+      }
+     }
+    ],
+    "to": "rival"
+   }
+  ],
+  "debrief": {
+   "summary": "You found the driver, connected it to evidence of optimism, and proposed a structure that protects value.",
+   "key_points": [
+    "Scrutinise the assumptions with the largest swing.",
+    "Optimism bias concentrates in the most important numbers.",
+    "Staging reduces downside."
+   ],
+   "stronger_approach": "Run a combined downside (lower saving plus delay) and present a break-even saving.",
+   "transfer": "Sensitivity analysis is essential in M&A, capital projects and pricing decisions."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "trust": {
+       "cfo": 2
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {}
+    }
+   ],
+   "counters": [
+    "tornado_missions"
+   ]
+  }
+ },
+ {
+  "id": "M16",
+  "title": "All Eggs, One Basket",
+  "type": "career",
+  "level": 4,
+  "xp": 180,
+  "duration": "10 min",
+  "objective": "Identify concentration and interconnected risks that a one-by-one register hides.",
+  "concepts": [
+   "concentration",
+   "interconnected",
+   "third_party"
+  ],
+  "from": "mentor",
+  "subject": "Look across the register, not down it",
+  "briefing": "Every risk in our register looks manageable on its own. I suspect several share a common driver. Look across them and tell me what we're missing.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Selected register risks",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Risk",
+      "Residual",
+      "Note"
+     ],
+     "rows": [
+      [
+       "Cloud provider outage",
+       "3x3",
+       "Primary systems hosted with Provider X"
+      ],
+      [
+       "Payment processor failure",
+       "2x4",
+       "Processor also hosted on Provider X"
+      ],
+      [
+       "Customer data breach",
+       "3x4",
+       "Customer database on Provider X; same admin accounts"
+      ],
+      [
+       "Key supplier failure",
+       "3x3",
+       "Supplier's ordering portal hosted on Provider X"
+      ],
+      [
+       "Backup failure",
+       "2x3",
+       "Backups stored in another region of Provider X"
+      ]
+     ]
+    }
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "multi",
+    "prompt": "Which risks share a common driver?",
+    "competencies": [
+     "analysis"
+    ],
+    "options": [
+     {
+      "text": "Cloud provider outage",
+      "correct": true
+     },
+     {
+      "text": "Payment processor failure",
+      "correct": true
+     },
+     {
+      "text": "Customer data breach",
+      "correct": true,
+      "why": "Shared admin accounts create a common vulnerability."
+     },
+     {
+      "text": "Key supplier failure",
+      "correct": true
+     },
+     {
+      "text": "Backup failure",
+      "correct": true,
+      "why": "Backups in the same provider do not protect against provider-level failure."
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "type": "choice",
+    "prompt": "Why can't you simply add the residual scores to get total exposure?",
+    "competencies": [
+     "analysis",
+     "technical"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Scores are ordinal and the risks are correlated: one event could trigger several at once.",
+      "quality": 3,
+      "feedback": "A strong, well-reasoned response."
+     },
+     {
+      "id": "b",
+      "text": "You can; the total is 49.",
+      "quality": 0,
+      "feedback": "Ordinal scores cannot be added meaningfully."
+     },
+     {
+      "id": "c",
+      "text": "Because some scores are too low.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Scores are ordinal and the risks are correlated: one event could trigger several at once.”"
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "type": "rank",
+    "prompt": "Rank these responses by risk reduction for the common driver.",
+    "competencies": [
+     "prioritization",
+     "decision"
+    ],
+    "items": [
+     {
+      "id": "exit",
+      "text": "Tested exit/failover plan to a second provider for critical systems"
+     },
+     {
+      "id": "backup",
+      "text": "Move backups to an independent provider"
+     },
+     {
+      "id": "admin",
+      "text": "Separate and harden admin accounts"
+     },
+     {
+      "id": "contract",
+      "text": "Renegotiate SLA credits with Provider X"
+     }
+    ],
+    "answer": [
+     "backup",
+     "admin",
+     "exit",
+     "contract"
+    ],
+    "why": "Independent backups and separated admin access are fast, cheap and address the worst correlated outcomes; failover is powerful but slower; SLA credits compensate rather than protect."
+   },
+   {
+    "id": "s4",
+    "type": "choice",
+    "prompt": "How do you present this to {sh:cio}, who chose Provider X?",
+    "competencies": [
+     "stakeholder",
+     "communication"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Frame it as a portfolio view the register couldn't show, acknowledge the provider's strengths, and propose the two quick wins first.",
+      "quality": 3,
+      "feedback": "Non-defensive framing with practical steps.",
+      "effects": {
+       "trust": {
+        "cio": 3
+       },
+       "flags": [
+        "offline_backups"
+       ]
+      },
+      "approach": "collaborative"
+     },
+     {
+      "id": "b",
+      "text": "Tell the CIO the choice was a mistake.",
+      "quality": 0,
+      "feedback": "Creates defensiveness.",
+      "effects": {
+       "trust": {
+        "cio": -5
+       }
+      }
+     },
+     {
+      "id": "c",
+      "text": "Report directly to the board.",
+      "quality": 1,
+      "feedback": "Bypasses the owner."
+     }
+    ],
+    "to": "cio"
+   }
+  ],
+  "debrief": {
+   "summary": "You found a concentration hidden across five 'manageable' risks.",
+   "key_points": [
+    "Look for common drivers: providers, locations, people, systems.",
+    "Correlated risks fail together.",
+    "Ordinal scores can't be summed."
+   ],
+   "stronger_approach": "Build a dependency map of critical services and their providers, and add a concentration KRI.",
+   "transfer": "Concentration is central in credit portfolios, supply chains and insurance accumulations."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "cancel": [
+       "ev_ransomware"
+      ],
+      "org": {
+       "resilience": 3
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {
+      "schedule": [
+       {
+        "event": "ev_ransomware",
+        "after": 4,
+        "p": 0.25
+       }
+      ]
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "CAP2",
+  "title": "Independent Contributor Capstone: Defend Your Recommendation",
+  "type": "capstone",
+  "level": 4,
+  "xp": 260,
+  "duration": "10 min",
+  "objective": "Demonstrate Stage 2 competence: structured assessment, control evaluation, quantification, sensitivity and persuasive challenge.",
+  "concepts": [
+   "root_cause",
+   "design_vs_operating",
+   "monte_carlo",
+   "sensitivity",
+   "stakeholder_influence"
+  ],
+  "from": "mentor",
+  "subject": "Capstone: the customer platform outage",
+  "briefing": "Last month the customer platform went down for 11 hours. The CIO proposes a {m:600000} multi-region failover project. You must assess the risk, test the current control, quantify the case and defend a recommendation to a sceptical CFO.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Outage review",
+    "kind": "memo",
+    "key": true,
+    "body": "Root cause: a failed storage controller in the single production region. Failover runbook existed but had not been tested in 18 months; it took 7 hours to locate the right engineers. Previous outages: 2 in the last 3 years (4h and 6h)."
+   },
+   {
+    "id": "d2",
+    "title": "Cost of outages",
+    "kind": "memo",
+    "key": true,
+    "body": "Estimated cost per hour of outage: {m:45000} (lost transactions, SLA credits, support costs). A 24-hour outage would also trigger contract termination rights for two major customers worth {m:3000000} a year."
+   },
+   {
+    "id": "d3",
+    "title": "Proposal",
+    "kind": "memo",
+    "key": true,
+    "body": "Multi-region failover: {m:600000} upfront, {m:120000} a year. Expected to cut outage duration to under 1 hour and probability of a 24h+ outage from 8% to 1% a year."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "choice",
+    "prompt": "What is the root cause of the 11-hour duration (not the outage itself)?",
+    "competencies": [
+     "analysis"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "An untested failover runbook and no clear on-call ownership, so recovery took far longer than it should.",
+      "quality": 3,
+      "feedback": "Explains duration rather than the trigger."
+     },
+     {
+      "id": "b",
+      "text": "The storage controller failed.",
+      "quality": 1,
+      "feedback": "That caused the outage, not its length."
+     },
+     {
+      "id": "c",
+      "text": "Engineers were slow.",
+      "quality": 0,
+      "feedback": "Human-error framing."
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "type": "choice",
+    "prompt": "Rate the current failover control.",
+    "competencies": [
+     "technical",
+     "evidence"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Design partially effective, operation unproven (untested 18 months): cannot be relied on.",
+      "quality": 3,
+      "feedback": "A strong, well-reasoned response."
+     },
+     {
+      "id": "b",
+      "text": "Effective: a runbook exists.",
+      "quality": 0,
+      "feedback": "Existence is not effectiveness."
+     },
+     {
+      "id": "c",
+      "text": "Design ineffective.",
+      "quality": 1,
+      "feedback": "The design is reasonable; it's the testing and ownership that failed."
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "type": "numeric",
+    "prompt": "Annual expected loss from 24h+ outages today (8% x {m:3000000} contract loss)?",
+    "competencies": [
+     "financial"
+    ],
+    "formula": "0.08*v",
+    "vars": {
+     "v": 3000000
+    },
+    "unit": "money",
+    "tolerance_pct": 3,
+    "solution": "0.08 x {m:3000000} = {m:240000}.",
+    "money_vars": [
+     "v"
+    ]
+   },
+   {
+    "id": "s4",
+    "type": "numeric",
+    "prompt": "Annual EL reduction from cutting the 24h+ probability to 1%?",
+    "competencies": [
+     "financial"
+    ],
+    "formula": "(0.08-0.01)*v",
+    "vars": {
+     "v": 3000000
+    },
+    "unit": "money",
+    "tolerance_pct": 3,
+    "solution": "(0.08 - 0.01) x {m:3000000} = {m:210000} a year, before savings on shorter routine outages.",
+    "money_vars": [
+     "v"
+    ]
+   },
+   {
+    "id": "s5",
+    "type": "choice",
+    "prompt": "{sh:cfo}: '{m:600000} plus {m:120000} a year to save {m:210000}? That doesn't pay back.' Your response?",
+    "competencies": [
+     "stakeholder",
+     "financial",
+     "communication"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Agree the 24h case alone is marginal, add savings from shorter routine outages (about 15 hours a year x {m:45000} = {m:675000}), test sensitivity, and propose testing the existing runbook immediately as a cheap interim step.",
+      "quality": 3,
+      "feedback": "Completes the business case honestly and adds a no-regret action.",
+      "effects": {
+       "trust": {
+        "cfo": 4,
+        "cio": 2
+       },
+       "flags": [
+        "bcp_tested"
+       ]
+      },
+      "approach": "data"
+     },
+     {
+      "id": "b",
+      "text": "Argue that resilience is priceless.",
+      "quality": 0,
+      "feedback": "Not an argument the CFO can use."
+     },
+     {
+      "id": "c",
+      "text": "Withdraw the recommendation.",
+      "quality": 1,
+      "feedback": "Gives up a case that may be strong once complete."
+     },
+     {
+      "id": "d",
+      "text": "Escalate to the CEO.",
+      "quality": 0,
+      "feedback": "Bypasses the decision-maker."
+     }
+    ],
+    "confidence": true,
+    "to": "cfo"
+   },
+   {
+    "id": "s6",
+    "type": "write",
+    "prompt": "Write your recommendation in under 120 words.",
+    "competencies": [
+     "communication",
+     "decision"
+    ],
+    "rubric": [
+     {
+      "element": "Interim",
+      "keywords": [
+       "test",
+       "runbook",
+       "on-call"
+      ],
+      "tip": "Include the immediate no-regret step."
+     },
+     {
+      "element": "Case",
+      "keywords": [
+       "210",
+       "675",
+       "benefit"
+      ],
+      "tip": "Quantify the benefit."
+     },
+     {
+      "element": "Cost",
+      "keywords": [
+       "600",
+       "120"
+      ],
+      "tip": "State the cost."
+     },
+     {
+      "element": "Condition",
+      "keywords": [
+       "phase",
+       "milestone",
+       "review",
+       "sensitiv"
+      ],
+      "tip": "Add a condition or check."
+     }
+    ],
+    "model_answer": "Test and fix the existing failover runbook and on-call ownership within 30 days (low cost, immediate benefit). Approve the multi-region failover ({m:600000} upfront, {m:120000} a year): it reduces expected losses by about {m:210000} a year from severe outages plus roughly {m:675000} from shorter routine outages, and protects two contracts worth {m:3000000}. Release funding in two phases with a failover test as the gate.",
+    "min_words": 25,
+    "max_words": 120
+   }
+  ],
+  "debrief": {
+   "summary": "You separated cause from duration, rated the control on evidence, built a full business case and handled a sceptical CFO.",
+   "key_points": [
+    "Untested recovery plans are a common cause of long outages.",
+    "Complete the business case before defending it.",
+    "Pair big investments with no-regret quick wins."
+   ],
+   "stronger_approach": "Present a range for the routine-outage savings, since it carries the case.",
+   "transfer": "This capstone pattern repeats at every senior level, with larger numbers and more stakeholders."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "org": {
+       "resilience": 4
+      },
+      "trust": {
+       "mentor": 4
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {
+      "schedule": [
+       {
+        "event": "ev_media_storm",
+        "after": 3,
+        "p": 0.2
+       }
+      ]
+     }
+    }
+   ]
+  }
+ }
+]

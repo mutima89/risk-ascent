@@ -1,0 +1,484 @@
+[
+ {
+  "trigger": "kri_breach",
+  "sender": "mentor",
+  "subject": "KRI threshold crossed",
+  "body": "An indicator has crossed a threshold. What is your next step?",
+  "options": [
+   {
+    "text": "Confirm the data, check the trend, and notify the owner with the pre-agreed escalation action today.",
+    "approach": "data",
+    "quality": 3,
+    "feedback": "Prompt, evidence-based escalation is exactly what thresholds are for."
+   },
+   {
+    "text": "Wait for next month's reading to see if it persists.",
+    "approach": "concise",
+    "quality": 1,
+    "feedback": "Waiting can be reasonable for a warning, but thresholds exist to avoid debating every breach."
+   },
+   {
+    "text": "Email the whole executive team immediately.",
+    "approach": "escalate",
+    "quality": 1,
+    "feedback": "Over-broad escalation erodes credibility; use the defined owner and route."
+   }
+  ]
+ },
+ {
+  "trigger": "incident",
+  "sender": "coo",
+  "subject": "Incident follow-up",
+  "body": "We've had an incident linked to a register risk. I need your view on what happens now.",
+  "options": [
+   {
+    "text": "Stabilise first, then a blame-free review within two weeks to find causes and fix controls.",
+    "approach": "collaborative",
+    "quality": 3,
+    "feedback": "Balances urgency and learning."
+   },
+   {
+    "text": "Find out whose fault it was.",
+    "approach": "escalate",
+    "quality": 0,
+    "feedback": "Blame drives under-reporting."
+   },
+   {
+    "text": "Update the register score and move on.",
+    "approach": "concise",
+    "quality": 1,
+    "feedback": "Recording is needed, but without learning the incident will recur."
+   }
+  ]
+ },
+ {
+  "trigger": "scheduled",
+  "sender": "ceo",
+  "subject": "What went wrong",
+  "body": "This links back to an earlier decision. I want to understand what we knew and when.",
+  "options": [
+   {
+    "text": "Give a short factual timeline: what was known, what was decided, why, and what we're changing.",
+    "approach": "concise",
+    "quality": 3,
+    "feedback": "Candid and decision-focused."
+   },
+   {
+    "text": "Send the full file of every email.",
+    "approach": "data",
+    "quality": 1,
+    "feedback": "Thorough but buries the message."
+   },
+   {
+    "text": "Explain that nobody could have predicted it.",
+    "approach": "narrative",
+    "quality": 0,
+    "feedback": "Defensive; earlier warnings exist on file."
+   }
+  ]
+ },
+ {
+  "trigger": "random",
+  "sender": "coo",
+  "subject": "External event",
+  "body": "An external event has hit us. What do you advise?",
+  "options": [
+   {
+    "text": "Activate the relevant plan, confirm impacts by process, and set a regular update rhythm.",
+    "approach": "collaborative",
+    "quality": 3,
+    "feedback": "Plans exist for this; use them."
+   },
+   {
+    "text": "Wait until the impact is clearer.",
+    "approach": "concise",
+    "quality": 1,
+    "feedback": "Early activation is cheaper than late."
+   },
+   {
+    "text": "Write a lessons-learned report now.",
+    "approach": "formal",
+    "quality": 1,
+    "feedback": "Lessons come after stabilisation."
+   }
+  ]
+ },
+ {
+  "trigger": "periodic",
+  "sender": "cfo",
+  "subject": "Is the risk budget delivering value?",
+  "min_level": 1,
+  "body": "Every department is being asked to justify spending. What would you show me to prove the risk function's budget is worth it?",
+  "options": [
+   {
+    "text": "Avoided expected loss from funded treatments, with assumptions, plus the risks still outside appetite.",
+    "approach": "data",
+    "quality": 3,
+    "feedback": "Speaks the CFO's language honestly."
+   },
+   {
+    "text": "A list of all the meetings we held.",
+    "approach": "narrative",
+    "quality": 0,
+    "feedback": "Activity is not value."
+   },
+   {
+    "text": "Examples of incidents that didn't happen.",
+    "approach": "narrative",
+    "quality": 1,
+    "feedback": "Hard to evidence; needs quantification."
+   }
+  ]
+ },
+ {
+  "trigger": "periodic",
+  "sender": "coo",
+  "subject": "Your new checklist is slowing my teams",
+  "min_level": 1,
+  "body": "The new safety checklist adds ten minutes to every shift handover. My managers are complaining. Can we drop it?",
+  "options": [
+   {
+    "text": "Let's look at it together: keep the critical checks, cut the rest, and pilot for two weeks.",
+    "approach": "collaborative",
+    "quality": 3,
+    "feedback": "Keeps the control's purpose while respecting operations."
+   },
+   {
+    "text": "No. Safety comes first.",
+    "approach": "formal",
+    "quality": 1,
+    "feedback": "Correct principle, poor influence."
+   },
+   {
+    "text": "Sure, drop it.",
+    "approach": "concise",
+    "quality": 0,
+    "feedback": "Removes a control without assessing the risk."
+   }
+  ]
+ },
+ {
+  "trigger": "periodic",
+  "sender": "cco",
+  "subject": "Can we fast-track a new partner?",
+  "min_level": 2,
+  "body": "We have a chance to sign a big distribution partner this week. Procurement says due diligence takes a month. Can risk sign it off now?",
+  "options": [
+   {
+    "text": "Agree a fast-track: critical checks in 48 hours, full diligence before volumes ramp, with a contract exit clause.",
+    "approach": "options",
+    "quality": 3,
+    "feedback": "Enables the deal with proportionate protection."
+   },
+   {
+    "text": "No exceptions to the process.",
+    "approach": "formal",
+    "quality": 1,
+    "feedback": "Safe but blocks value without exploring options."
+   },
+   {
+    "text": "Yes, sign it.",
+    "approach": "concise",
+    "quality": 0,
+    "feedback": "Skips critical third-party checks."
+   }
+  ]
+ },
+ {
+  "trigger": "periodic",
+  "sender": "gc",
+  "subject": "Wording in your last report",
+  "min_level": 2,
+  "body": "Your report described a control as 'negligent'. That word has legal consequences. Please be careful with language in documents that may be disclosed.",
+  "options": [
+   {
+    "text": "Thank you. I'll describe the facts and the gap precisely, and check sensitive wording with you before issue.",
+    "approach": "formal",
+    "quality": 3,
+    "feedback": "Precise and respectful of legal risk."
+   },
+   {
+    "text": "I stand by the word; it was negligent.",
+    "approach": "narrative",
+    "quality": 0,
+    "feedback": "Creates legal exposure without benefit."
+   },
+   {
+    "text": "I'll remove the finding.",
+    "approach": "concise",
+    "quality": 0,
+    "feedback": "Over-correction: keep the facts, change the wording."
+   }
+  ]
+ },
+ {
+  "trigger": "periodic",
+  "sender": "analyst",
+  "subject": "Feeling out of my depth",
+  "min_level": 5,
+  "body": "I've been asked to lead the supplier assessment and I've never done one. I don't want to let the team down.",
+  "options": [
+   {
+    "text": "Let's plan it together: I'll share a worked example, we'll agree checkpoints, and you lead the interviews.",
+    "approach": "collaborative",
+    "quality": 3,
+    "feedback": "Builds capability and confidence."
+   },
+   {
+    "text": "I'll take it over.",
+    "approach": "concise",
+    "quality": 1,
+    "feedback": "Removes the stress but also the development."
+   },
+   {
+    "text": "You'll be fine, just get on with it.",
+    "approach": "concise",
+    "quality": 0,
+    "feedback": "Dismissive."
+   }
+  ]
+ },
+ {
+  "trigger": "periodic",
+  "sender": "audit",
+  "subject": "Evidence for your control ratings",
+  "min_level": 3,
+  "body": "We're planning our audit of operational controls. Can you share the evidence behind the 'Effective' ratings in the register?",
+  "options": [
+   {
+    "text": "Share test results, samples and dates, and flag where ratings rely on self-assessment only.",
+    "approach": "data",
+    "quality": 3,
+    "feedback": "Transparent; helps audit target effort."
+   },
+   {
+    "text": "Share the register only.",
+    "approach": "concise",
+    "quality": 1,
+    "feedback": "Ratings without evidence won't satisfy audit."
+   },
+   {
+    "text": "Ask why audit needs it.",
+    "approach": "escalate",
+    "quality": 0,
+    "feedback": "Defensive with the third line."
+   }
+  ]
+ },
+ {
+  "trigger": "periodic",
+  "sender": "rival",
+  "subject": "Support for my initiative",
+  "min_level": 6,
+  "body": "I'm presenting the market-entry plan to the CEO tomorrow. It'd help if you could say risk is comfortable with it.",
+  "options": [
+   {
+    "text": "I can't say that yet. I can share the three conditions that would make it acceptable and present them with you.",
+    "approach": "options",
+    "quality": 3,
+    "feedback": "Independent but constructive."
+   },
+   {
+    "text": "Of course, happy to support.",
+    "approach": "concise",
+    "quality": 0,
+    "feedback": "Gives assurance you can't evidence."
+   },
+   {
+    "text": "I'll tell the CEO it's too risky.",
+    "approach": "escalate",
+    "quality": 1,
+    "feedback": "Premature without engaging the sponsor."
+   }
+  ]
+ },
+ {
+  "trigger": "periodic",
+  "sender": "board",
+  "subject": "What keeps you awake at night?",
+  "min_level": 8,
+  "body": "Before the next committee, I'd like your candid view: which exposure worries you most, and are we doing enough about it?",
+  "options": [
+   {
+    "text": "Name the top exposure, why it matters, what's being done, the residual gap and what I need from the board.",
+    "approach": "concise",
+    "quality": 3,
+    "feedback": "Candid, decision-focused."
+   },
+   {
+    "text": "Send the full register.",
+    "approach": "data",
+    "quality": 0,
+    "feedback": "The chair asked for judgement, not data."
+   },
+   {
+    "text": "Reassure the chair that everything is under control.",
+    "approach": "narrative",
+    "quality": 0,
+    "feedback": "No surprises means no false comfort."
+   }
+  ]
+ },
+ {
+  "trigger": "periodic",
+  "sender": "chro",
+  "subject": "Burnout in the operations team",
+  "min_level": 4,
+  "body": "Sickness absence in operations has doubled. Is this a risk issue or an HR issue?",
+  "options": [
+   {
+    "text": "Both: it affects safety and service. Let's add a people KRI and review workload controls together.",
+    "approach": "collaborative",
+    "quality": 3,
+    "feedback": "Connects people and operational risk."
+   },
+   {
+    "text": "That's an HR matter.",
+    "approach": "concise",
+    "quality": 0,
+    "feedback": "Misses operational consequences."
+   },
+   {
+    "text": "Escalate to the CEO.",
+    "approach": "escalate",
+    "quality": 1,
+    "feedback": "Premature without analysis."
+   }
+  ]
+ },
+ {
+  "trigger": "periodic",
+  "sender": "cio",
+  "subject": "Security budget request",
+  "min_level": 3,
+  "body": "I need support for an endpoint detection tool. Can you help me make the case?",
+  "options": [
+   {
+    "text": "Yes: let's quantify expected loss reduction for ransomware and phishing, and show residual risk with and without it.",
+    "approach": "data",
+    "quality": 3,
+    "feedback": "Turns a request into a risk-based business case."
+   },
+   {
+    "text": "Security is always worth it; just ask for it.",
+    "approach": "narrative",
+    "quality": 0,
+    "feedback": "Unsupported assertion."
+   },
+   {
+    "text": "Not my area.",
+    "approach": "concise",
+    "quality": 0,
+    "feedback": "Missed partnership."
+   }
+  ]
+ },
+ {
+  "trigger": "periodic",
+  "sender": "cpo",
+  "subject": "Savings from a single supplier",
+  "min_level": 2,
+  "body": "Consolidating to one cleaning and maintenance contractor saves 12%. Any objection?",
+  "options": [
+   {
+    "text": "Savings are real; concentration risk too. Keep a second approved contractor and add exit terms.",
+    "approach": "options",
+    "quality": 3,
+    "feedback": "Balances savings with resilience."
+   },
+   {
+    "text": "Object: single suppliers are always bad.",
+    "approach": "formal",
+    "quality": 1,
+    "feedback": "Too absolute."
+   },
+   {
+    "text": "No objection.",
+    "approach": "concise",
+    "quality": 1,
+    "feedback": "Misses concentration risk."
+   }
+  ]
+ },
+ {
+  "trigger": "periodic",
+  "sender": "ceo",
+  "subject": "One page on our top risks",
+  "min_level": 5,
+  "body": "I have five minutes before the investor call. Give me the three risks I should be ready to talk about.",
+  "options": [
+   {
+    "text": "Three bullets: the risk, why now, what we're doing. Plus one line on what could surprise us.",
+    "approach": "concise",
+    "quality": 3,
+    "feedback": "Exactly fits the request."
+   },
+   {
+    "text": "Attach the full risk committee pack.",
+    "approach": "data",
+    "quality": 0,
+    "feedback": "Too much, too late."
+   },
+   {
+    "text": "A long narrative on risk culture.",
+    "approach": "narrative",
+    "quality": 0,
+    "feedback": "Not what was asked."
+   }
+  ]
+ },
+ {
+  "trigger": "periodic",
+  "sender": "cso",
+  "subject": "Contractor safety inductions",
+  "min_level": 1,
+  "body": "Half of last month's contractors started work without a safety induction. Operations says it's because of short notice.",
+  "options": [
+   {
+    "text": "Record it as a control failure, agree a no-induction-no-access rule with operations, and track compliance weekly.",
+    "approach": "data",
+    "quality": 3,
+    "feedback": "Evidence-based fix with a measurable check."
+   },
+   {
+    "text": "Tell contractors to read the policy online.",
+    "approach": "concise",
+    "quality": 1,
+    "feedback": "Weak substitute for induction."
+   },
+   {
+    "text": "Accept it; contractors are experienced.",
+    "approach": "concise",
+    "quality": 0,
+    "feedback": "Experience does not equal site knowledge."
+   }
+  ]
+ },
+ {
+  "trigger": "periodic",
+  "sender": "mentor",
+  "subject": "Reflection",
+  "min_level": 1,
+  "body": "Quick check-in. Looking back at your last assignment, what would you do differently?",
+  "options": [
+   {
+    "text": "Name one specific decision, what I'd change and why, and what I'm practising next.",
+    "approach": "collaborative",
+    "quality": 3,
+    "feedback": "Specific reflection builds skill."
+   },
+   {
+    "text": "Nothing; it went well.",
+    "approach": "concise",
+    "quality": 0,
+    "feedback": "Misses the learning opportunity."
+   },
+   {
+    "text": "Explain why the brief was unclear.",
+    "approach": "narrative",
+    "quality": 1,
+    "feedback": "Possibly true, but focus on what you control."
+   }
+  ]
+ }
+]

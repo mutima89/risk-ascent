@@ -1,0 +1,1967 @@
+[
+ {
+  "id": "M17",
+  "title": "Too Much on One Desk",
+  "type": "career",
+  "level": 5,
+  "xp": 200,
+  "duration": "10 min",
+  "objective": "Allocate team workload by risk value and capacity, and protect the team from burnout.",
+  "concepts": [
+   "workload",
+   "risk_culture"
+  ],
+  "from": "mentor",
+  "subject": "Your team, your call",
+  "briefing": "You now lead three analysts. Requests are piling up faster than the team can deliver. Decide what gets done this month and what doesn't, and tell stakeholders.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Team capacity this month",
+    "kind": "memo",
+    "key": true,
+    "body": "Three analysts, about 10 days each = 30 analyst-days. {sh:analyst} is already at 120% and has asked for help. One analyst is new and needs supervision."
+   },
+   {
+    "id": "d2",
+    "title": "Request queue",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Request",
+      "Days",
+      "Risk value",
+      "Requester"
+     ],
+     "rows": [
+      [
+       "Supplier concentration review",
+       "8",
+       "9",
+       "CPO"
+      ],
+      [
+       "Quarterly KRI refresh",
+       "5",
+       "6",
+       "Policy"
+      ],
+      [
+       "Investigate fraud near miss",
+       "6",
+       "8",
+       "CFO"
+      ],
+      [
+       "Board deck formatting",
+       "5",
+       "1",
+       "Strategy"
+      ],
+      [
+       "New product launch assessment",
+       "10",
+       "7",
+       "Commercial"
+      ],
+      [
+       "Archive old risk files",
+       "5",
+       "1",
+       "Admin"
+      ],
+      [
+       "Cyber control test",
+       "7",
+       "8",
+       "CIO"
+      ]
+     ]
+    }
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "allocate",
+    "prompt": "Choose which requests the team takes on this month (capacity 30 analyst-days).",
+    "competencies": [
+     "prioritization",
+     "leadership"
+    ],
+    "hint": "Maximise risk value within 30 days. Low-value items can be declined or deferred.",
+    "budget": 30,
+    "unit": "days",
+    "items": [
+     {
+      "id": "sup",
+      "text": "Supplier concentration review",
+      "cost": 8,
+      "value": 9
+     },
+     {
+      "id": "kri",
+      "text": "Quarterly KRI refresh",
+      "cost": 5,
+      "value": 6,
+      "note": "Required by policy."
+     },
+     {
+      "id": "fraud",
+      "text": "Investigate fraud near miss",
+      "cost": 6,
+      "value": 8
+     },
+     {
+      "id": "deck",
+      "text": "Board deck formatting",
+      "cost": 5,
+      "value": 1,
+      "note": "Low value for analyst time."
+     },
+     {
+      "id": "launch",
+      "text": "New product launch assessment",
+      "cost": 10,
+      "value": 7
+     },
+     {
+      "id": "archive",
+      "text": "Archive old risk files",
+      "cost": 5,
+      "value": 1
+     },
+     {
+      "id": "cyber",
+      "text": "Cyber control test",
+      "cost": 7,
+      "value": 8
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "type": "choice",
+    "prompt": "{sh:analyst} is at 120% and asking for help. What do you do?",
+    "competencies": [
+     "leadership",
+     "ethics"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Take two of their tasks off them this month, agree priorities in a 1:1, and check workload weekly.",
+      "quality": 3,
+      "feedback": "Protects wellbeing and delivery.",
+      "effects": {
+       "flags": [
+        "workload_rebalanced"
+       ],
+       "trust": {
+        "analyst": 6
+       }
+      },
+      "approach": "collaborative"
+     },
+     {
+      "id": "b",
+      "text": "Ask them to push through; it's a busy month.",
+      "quality": 0,
+      "feedback": "Sustained overload leads to errors and burnout.",
+      "effects": {
+       "trust": {
+        "analyst": -6
+       },
+       "schedule": [
+        {
+         "event": "ev_team_burnout",
+         "after": 2,
+         "p": 0.5
+        }
+       ]
+      }
+     },
+     {
+      "id": "c",
+      "text": "Do their work yourself at night.",
+      "quality": 1,
+      "feedback": "Unsustainable and hides the capacity problem."
+     }
+    ],
+    "to": "analyst"
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "Commercial insists their launch assessment is urgent and threatens to escalate. You haven't scheduled it this month. Response?",
+    "competencies": [
+     "stakeholder",
+     "prioritization"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Explain the priorities and the capacity, offer a scoped 3-day rapid review of the top risks now, and the full assessment next month.",
+      "quality": 3,
+      "feedback": "Shows trade-offs transparently and offers a proportionate option.",
+      "effects": {
+       "trust": {
+        "cco": 2
+       }
+      },
+      "approach": "options"
+     },
+     {
+      "id": "b",
+      "text": "Drop the fraud investigation to fit it in.",
+      "quality": 1,
+      "feedback": "Displaces higher-value work under pressure."
+     },
+     {
+      "id": "c",
+      "text": "Refuse and let them escalate.",
+      "quality": 1,
+      "feedback": "Defensible but needlessly adversarial.",
+      "effects": {
+       "trust": {
+        "cco": -3
+       }
+      }
+     }
+    ],
+    "to": "cco"
+   },
+   {
+    "id": "s4",
+    "type": "choice",
+    "prompt": "How do you develop the new analyst while delivering?",
+    "competencies": [
+     "leadership"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Pair them on the cyber control test with clear checkpoints and a worked example from last quarter.",
+      "quality": 3,
+      "feedback": "Structured development on real work."
+     },
+     {
+      "id": "b",
+      "text": "Give them the archive task to keep them busy.",
+      "quality": 0,
+      "feedback": "Low-value work teaches little."
+     },
+     {
+      "id": "c",
+      "text": "Let them shadow without contributing.",
+      "quality": 1,
+      "feedback": "Too passive."
+     }
+    ]
+   }
+  ],
+  "debrief": {
+   "summary": "You allocated scarce capacity to the highest-value work and protected your team.",
+   "key_points": [
+    "Prioritise by risk value per day.",
+    "Say no transparently, with options.",
+    "Workload is a risk to quality."
+   ],
+   "stronger_approach": "Publish the queue and the rationale monthly so stakeholders see trade-offs before they escalate.",
+   "transfer": "Every leadership role is an allocation problem: budget, people and attention."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "org": {
+       "morale": 3
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {
+      "schedule": [
+       {
+        "event": "ev_team_burnout",
+        "after": 3,
+        "p": 0.3
+       }
+      ]
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "M18",
+  "title": "Reviewing Junior Work",
+  "type": "career",
+  "level": 5,
+  "xp": 200,
+  "duration": "10 min",
+  "objective": "Review an analyst's assessment for technical errors and give feedback that builds capability.",
+  "concepts": [
+   "inherent_vs_residual",
+   "workload",
+   "expected_loss"
+  ],
+  "from": "analyst",
+  "subject": "Could you review my assessment?",
+  "briefing": "Here's my first assessment of the warehouse fire risk. I'm not very confident about it. Could you review it before it goes to the COO?",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Draft assessment",
+    "kind": "memo",
+    "key": true,
+    "body": "Risk: Fire.\nInherent: likelihood 2, impact 5. Residual: likelihood 1, impact 2.\nControls: sprinklers (last tested 3 years ago), fire alarms, staff training (60% completed).\nExpected loss: 2 x 5 = 10, so about {m:10000}.\nRecommendation: risk is low, no action needed."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "multi",
+    "prompt": "Which errors does the draft contain?",
+    "competencies": [
+     "technical",
+     "analysis"
+    ],
+    "options": [
+     {
+      "text": "Risk statement lacks cause and consequence",
+      "correct": true
+     },
+     {
+      "text": "Residual impact drops from 5 to 2 although sprinklers are untested",
+      "correct": true,
+      "why": "Untested controls cannot justify a three-step reduction."
+     },
+     {
+      "text": "Expected loss calculated by multiplying ordinal scores",
+      "correct": true,
+      "why": "Scores are not money."
+     },
+     {
+      "text": "Inherent likelihood of 2 is unreasonable",
+      "correct": false,
+      "why": "Plausible for a warehouse with standard precautions."
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "type": "choice",
+    "prompt": "How do you deliver the feedback?",
+    "competencies": [
+     "leadership",
+     "communication"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Meet in person: start with what's good, walk through each issue with the reason, and ask them to revise using a worked example.",
+      "quality": 3,
+      "feedback": "Builds capability and confidence.",
+      "effects": {
+       "trust": {
+        "analyst": 5
+       }
+      },
+      "approach": "collaborative"
+     },
+     {
+      "id": "b",
+      "text": "Return it with tracked changes and no discussion.",
+      "quality": 1,
+      "feedback": "Efficient but misses the teaching moment."
+     },
+     {
+      "id": "c",
+      "text": "Rewrite it yourself and send it to the COO.",
+      "quality": 0,
+      "feedback": "They learn nothing.",
+      "effects": {
+       "trust": {
+        "analyst": -4
+       }
+      }
+     }
+    ],
+    "to": "analyst"
+   },
+   {
+    "id": "s3",
+    "type": "matrix",
+    "prompt": "What residual rating would you expect, given untested sprinklers and incomplete training?",
+    "competencies": [
+     "technical"
+    ],
+    "hint": "Rate inherent first, then credit only controls with evidence.",
+    "expected": {
+     "l": 2,
+     "i": 4,
+     "rl": 2,
+     "ri": 4
+    },
+    "why": "Inherent L2 x I5 is plausible, but the inherent impact of a major warehouse fire is better rated 4 here given the site's size; residual stays near inherent because the corrective control (sprinklers) is untested."
+   },
+   {
+    "id": "s4",
+    "type": "write",
+    "prompt": "Write two coaching points for the analyst.",
+    "competencies": [
+     "leadership",
+     "communication"
+    ],
+    "rubric": [
+     {
+      "element": "Evidence",
+      "keywords": [
+       "test",
+       "evidence",
+       "untested"
+      ],
+      "tip": "Explain the control evidence point."
+     },
+     {
+      "element": "Ordinal",
+      "keywords": [
+       "ordinal",
+       "score",
+       "not money",
+       "money"
+      ],
+      "tip": "Explain the EL error."
+     },
+     {
+      "element": "Encouragement",
+      "keywords": [
+       "good",
+       "well",
+       "strong",
+       "clear"
+      ],
+      "tip": "Recognise what was done well."
+     }
+    ],
+    "model_answer": "Your control list is a good start. First, only credit controls we have evidence for: sprinklers untested for three years can't justify cutting impact from 5 to 2. Second, ratings are ordinal, so 2 x 5 isn't money: use probability ranges and loss estimates for expected loss.",
+    "min_words": 25,
+    "max_words": 160
+   }
+  ],
+  "debrief": {
+   "summary": "You found the technical errors and turned them into learning.",
+   "key_points": [
+    "Review for logic, evidence and method.",
+    "Feedback should teach the principle behind each correction."
+   ],
+   "stronger_approach": "Build a short checklist for the team covering the common errors you found.",
+   "transfer": "Reviewing others' work is the core of every supervisory role, from audit to engineering."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "org": {
+       "control_effectiveness": 1
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {}
+    }
+   ]
+  }
+ },
+ {
+  "id": "M19",
+  "title": "Pushback from Operations",
+  "type": "career",
+  "level": 5,
+  "xp": 200,
+  "duration": "10 min",
+  "objective": "Resolve stakeholder disagreement over overdue actions and escalate proportionately.",
+  "concepts": [
+   "escalation",
+   "stakeholder_influence",
+   "tolerance"
+  ],
+  "from": "coo",
+  "subject": "Your team keeps chasing my managers",
+  "briefing": "Your analysts keep chasing my managers about overdue actions. We are running a business here. I want it to stop.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Overdue operations actions",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Action",
+      "Linked risk",
+      "Months overdue",
+      "Reason given"
+     ],
+     "rows": [
+      [
+       "Contractor safety induction system",
+       "Contractor injury (residual 15)",
+       "4",
+       "No budget"
+      ],
+      [
+       "Forklift speed limiters",
+       "Warehouse collision (12)",
+       "2",
+       "Supplier delay"
+      ],
+      [
+       "Update evacuation plans",
+       "Fire (10)",
+       "1",
+       "Staff turnover"
+      ]
+     ]
+    }
+   },
+   {
+    "id": "d2",
+    "title": "Escalation policy",
+    "kind": "memo",
+    "key": true,
+    "body": "Actions on risks with residual score 15+ overdue by 3+ months must be reported to the executive risk committee."
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "choice",
+    "prompt": "How do you open the conversation with {sh:coo}?",
+    "competencies": [
+     "stakeholder",
+     "communication"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Acknowledge the pressure, propose one consolidated monthly check-in instead of ad hoc chasing, and focus on the one action that must be escalated.",
+      "quality": 3,
+      "feedback": "Reduces friction and keeps what matters.",
+      "effects": {
+       "trust": {
+        "coo": 4
+       }
+      },
+      "approach": "collaborative"
+     },
+     {
+      "id": "b",
+      "text": "Tell them the policy requires chasing.",
+      "quality": 1,
+      "feedback": "True but unpersuasive.",
+      "approach": "formal"
+     },
+     {
+      "id": "c",
+      "text": "Agree to stop chasing.",
+      "quality": 0,
+      "feedback": "Abandons oversight."
+     }
+    ],
+    "confidence": true,
+    "to": "coo"
+   },
+   {
+    "id": "s2",
+    "type": "choice",
+    "prompt": "The induction-system action (residual 15, 4 months overdue, 'no budget') meets the escalation criteria. What do you do?",
+    "competencies": [
+     "prioritization",
+     "ethics"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Tell the COO you must report it, offer to present it jointly with the budget ask, and propose an interim manual induction check.",
+      "quality": 3,
+      "feedback": "Transparent escalation with a constructive path.",
+      "effects": {
+       "trust": {
+        "coo": 2,
+        "ceo": 2
+       },
+       "flags": [
+        "safety_actions_closed"
+       ]
+      }
+     },
+     {
+      "id": "b",
+      "text": "Leave it out of the report to preserve the relationship.",
+      "quality": 0,
+      "feedback": "Breaches policy and hides a material risk.",
+      "effects": {
+       "flags": [
+        "near_miss_ignored"
+       ],
+       "schedule": [
+        {
+         "event": "ev_safety_injury",
+         "after": 2,
+         "p": 0.45
+        }
+       ]
+      }
+     },
+     {
+      "id": "c",
+      "text": "Escalate without telling the COO.",
+      "quality": 1,
+      "feedback": "Meets policy but damages trust.",
+      "effects": {
+       "trust": {
+        "coo": -5
+       }
+      }
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "type": "rank",
+    "prompt": "Rank the three actions by urgency.",
+    "competencies": [
+     "prioritization"
+    ],
+    "items": [
+     {
+      "id": "ind",
+      "text": "Contractor safety induction system"
+     },
+     {
+      "id": "fork",
+      "text": "Forklift speed limiters"
+     },
+     {
+      "id": "evac",
+      "text": "Update evacuation plans"
+     }
+    ],
+    "answer": [
+     "ind",
+     "fork",
+     "evac"
+    ],
+    "why": "Rank by residual risk and time overdue."
+   },
+   {
+    "id": "s4",
+    "type": "choice",
+    "prompt": "The forklift supplier delay is genuine. What's the right response?",
+    "competencies": [
+     "decision"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Agree a revised date, add an interim control (speed signage and spot checks), and record the reason.",
+      "quality": 3,
+      "feedback": "Realistic and still reduces risk."
+     },
+     {
+      "id": "b",
+      "text": "Mark it overdue and escalate.",
+      "quality": 1,
+      "feedback": "Escalation adds little when the cause is outside the owner's control."
+     },
+     {
+      "id": "c",
+      "text": "Close it.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Agree a revised date, add an interim control (speed signage and spot checks), and record the reason.”"
+     }
+    ]
+   }
+  ],
+  "debrief": {
+   "summary": "You kept oversight while reducing friction, and escalated what policy required.",
+   "key_points": [
+    "Escalate transparently, with the owner.",
+    "Interim controls bridge delays.",
+    "Consolidate follow-up to reduce friction."
+   ],
+   "stronger_approach": "Show the COO the trend in their area's overdue actions compared with peers.",
+   "transfer": "Navigating owners' pushback is the same with project sponsors, IT and clinicians."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "trust": {
+       "coo": 2
+      },
+      "flags": [
+       "actions_tracked"
+      ]
+     }
+    },
+    {
+     "min": 0,
+     "effects": {
+      "schedule": [
+       {
+        "event": "ev_audit_finding",
+        "after": 2,
+        "p": 0.4
+       }
+      ]
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "M20",
+  "title": "Drawing the Line: Risk Appetite",
+  "type": "career",
+  "level": 6,
+  "xp": 220,
+  "duration": "10 min",
+  "objective": "Turn vague appetite statements into measurable metrics with tolerances and escalation.",
+  "concepts": [
+   "risk_appetite",
+   "tolerance",
+   "kri_thresholds"
+  ],
+  "from": "ceo",
+  "subject": "Make our appetite statement mean something",
+  "briefing": "Our appetite statement says we have a 'low appetite for operational disruption'. The board asked what that means in practice. Fix it.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Current appetite statement",
+    "kind": "memo",
+    "key": true,
+    "body": "- Low appetite for operational disruption.\n- Moderate appetite for innovation.\n- No appetite for safety incidents."
+   },
+   {
+    "id": "d2",
+    "title": "Operational data",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Metric",
+      "Last 12 months"
+     ],
+     "rows": [
+      [
+       "Core system outages over 4 hours",
+       "3"
+      ],
+      [
+       "Longest outage",
+       "11 hours"
+      ],
+      [
+       "Customer complaints from disruption",
+       "420"
+      ],
+      [
+       "Lost-time injuries",
+       "2"
+      ]
+     ]
+    }
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "multi",
+    "prompt": "Which properties should an appetite metric have?",
+    "competencies": [
+     "strategy",
+     "technical"
+    ],
+    "options": [
+     {
+      "text": "Measurable and linked to a statement",
+      "correct": true
+     },
+     {
+      "text": "A threshold for appetite and a wider tolerance",
+      "correct": true
+     },
+     {
+      "text": "A named owner and escalation route",
+      "correct": true
+     },
+     {
+      "text": "Wording broad enough to avoid breaches",
+      "correct": false
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "type": "choice",
+    "prompt": "Which is the best rewrite of 'low appetite for operational disruption'?",
+    "competencies": [
+     "strategy",
+     "communication"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "No more than 2 outages over 4 hours a year and none over 8 hours (appetite); 4 outages or any over 24 hours triggers board escalation (tolerance).",
+      "quality": 3,
+      "feedback": "Measurable, tiered and actionable."
+     },
+     {
+      "id": "b",
+      "text": "We will minimise disruption at all times.",
+      "quality": 0,
+      "feedback": "Unmeasurable."
+     },
+     {
+      "id": "c",
+      "text": "Zero outages.",
+      "quality": 1,
+      "feedback": "Measurable but unrealistic; it will be breached constantly and ignored."
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "'No appetite for safety incidents' - what's the issue?",
+    "competencies": [
+     "ethics",
+     "strategy"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Zero appetite is right for serious harm, but stated as 'no incidents' it may discourage reporting; express it as no tolerance for avoidable serious harm, with leading metrics.",
+      "quality": 3,
+      "feedback": "Keeps the ethical intent and avoids perverse incentives."
+     },
+     {
+      "id": "b",
+      "text": "None; zero is ambitious.",
+      "quality": 1,
+      "feedback": "Ambition is fine; incentives to hide minor incidents are not."
+     },
+     {
+      "id": "c",
+      "text": "Raise it to 'low appetite'.",
+      "quality": 0,
+      "feedback": "Signals harm is acceptable."
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "type": "numeric",
+    "prompt": "Last year had 3 outages over 4 hours against the proposed appetite of 2. By what percentage was appetite exceeded?",
+    "competencies": [
+     "analysis"
+    ],
+    "formula": "(3-2)/2*100",
+    "vars": {},
+    "unit": "percent",
+    "tolerance_pct": 1,
+    "solution": "(3 - 2) / 2 = 50% over appetite, but within tolerance (4)."
+   },
+   {
+    "id": "s5",
+    "type": "choice",
+    "prompt": "{sh:cco} worries measurable appetite will 'tie our hands'. Response?",
+    "competencies": [
+     "stakeholder",
+     "strategy"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Explain that clear limits speed up decisions inside them and show where we have moderate appetite for innovation.",
+      "quality": 3,
+      "feedback": "Appetite enables as well as constrains.",
+      "effects": {
+       "trust": {
+        "cco": 3
+       }
+      },
+      "approach": "concise"
+     },
+     {
+      "id": "b",
+      "text": "Tell them it's a board requirement.",
+      "quality": 1,
+      "feedback": "This addresses part of the problem but misses something important. A stronger option was: “Explain that clear limits speed up decisions inside them and show where we have moderate appetite for innovation.”"
+     },
+     {
+      "id": "c",
+      "text": "Agree to keep it vague.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Explain that clear limits speed up decisions inside them and show where we have moderate appetite for innovation.”"
+     }
+    ],
+    "to": "cco"
+   }
+  ],
+  "debrief": {
+   "summary": "You converted vague intentions into measurable, tiered appetite.",
+   "key_points": [
+    "Appetite needs metrics, tolerances and owners.",
+    "Zero-incident targets can suppress reporting.",
+    "Clear appetite speeds decisions."
+   ],
+   "stronger_approach": "Back-test the new metrics against the last three years to see how often they would have triggered.",
+   "transfer": "Appetite frameworks underpin bank capital planning, hospital safety governance and infrastructure investment."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "org": {
+       "strategic_progress": 3
+      },
+      "trust": {
+       "ceo": 3,
+       "board": 2
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {}
+    }
+   ],
+   "counters": [
+    "appetite_missions"
+   ]
+  }
+ },
+ {
+  "id": "M21",
+  "title": "Budget Defender",
+  "type": "career",
+  "level": 6,
+  "xp": 220,
+  "duration": "10 min",
+  "objective": "Allocate a constrained risk budget for maximum risk reduction and defend it to the CFO.",
+  "concepts": [
+   "cost_benefit",
+   "npv",
+   "treatment_options"
+  ],
+  "from": "cfo",
+  "subject": "Your budget is being cut by 20%",
+  "briefing": "Your treatment budget for next year is {m:500000}, down from {m:625000}. Tell me what you'll fund and what we're giving up.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Candidate treatments",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Treatment",
+      "Cost",
+      "Annual EL reduction",
+      "Notes"
+     ],
+     "rows": [
+      [
+       "MFA for all accounts",
+       "{m:120000}",
+       "{m:300000}",
+       "Covers phishing and ransomware entry"
+      ],
+      [
+       "Supplier dual-sourcing",
+       "{m:200000}",
+       "{m:180000}",
+       "Reduces tail loss"
+      ],
+      [
+       "Fire door hold-open devices",
+       "{m:60000}",
+       "{m:90000}",
+       "Life safety"
+      ],
+      [
+       "New GRC software",
+       "{m:250000}",
+       "{m:40000}",
+       "Efficiency mainly"
+      ],
+      [
+       "Fraud call-back automation",
+       "{m:50000}",
+       "{m:70000}",
+       ""
+      ],
+      [
+       "Executive risk training",
+       "{m:80000}",
+       "{m:20000}",
+       ""
+      ]
+     ]
+    }
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "allocate",
+    "prompt": "Select treatments within {m:500000} to maximise risk reduction.",
+    "competencies": [
+     "financial",
+     "prioritization"
+    ],
+    "hint": "Compare reduction per unit of cost. Value here = annual EL reduction in thousands.",
+    "budget": 500000,
+    "unit": "money",
+    "items": [
+     {
+      "id": "mfa",
+      "text": "MFA for all accounts",
+      "cost": 120000,
+      "value": 300
+     },
+     {
+      "id": "dual",
+      "text": "Supplier dual-sourcing",
+      "cost": 200000,
+      "value": 180,
+      "note": "Also reduces a severe tail."
+     },
+     {
+      "id": "fire",
+      "text": "Fire door devices",
+      "cost": 60000,
+      "value": 90,
+      "note": "Life safety: strong non-financial case."
+     },
+     {
+      "id": "grc",
+      "text": "GRC software",
+      "cost": 250000,
+      "value": 40,
+      "note": "Efficiency, little risk reduction."
+     },
+     {
+      "id": "fraud",
+      "text": "Fraud call-back automation",
+      "cost": 50000,
+      "value": 70
+     },
+     {
+      "id": "train",
+      "text": "Executive training",
+      "cost": 80000,
+      "value": 20
+     }
+    ],
+    "effects_per_item": {
+     "mfa": {
+      "flags": [
+       "mfa_accelerated"
+      ],
+      "cancel": [
+       "ev_phishing_breach"
+      ]
+     },
+     "dual": {
+      "flags": [
+       "dual_source"
+      ]
+     },
+     "fire": {
+      "flags": [
+       "fire_door_fixed",
+       "duct_clean_enforced"
+      ]
+     },
+     "fraud": {
+      "flags": [
+       "callback_enforced"
+      ]
+     }
+    }
+   },
+   {
+    "id": "s2",
+    "type": "numeric",
+    "prompt": "What is the ratio of annual EL reduction to cost for MFA?",
+    "competencies": [
+     "financial"
+    ],
+    "formula": "300000/120000",
+    "vars": {},
+    "unit": "ratio",
+    "tolerance_pct": 2,
+    "solution": "{m:300000} / {m:120000} = 2.5."
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "The CFO asks: 'Why not just buy the GRC software? Everyone has one.'",
+    "competencies": [
+     "financial",
+     "stakeholder",
+     "communication"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "It mainly improves efficiency ({m:40000} reduction for {m:250000}); funding it would displace MFA or dual-sourcing, which reduce far more risk.",
+      "quality": 3,
+      "feedback": "Opportunity cost framed in the CFO's terms.",
+      "effects": {
+       "trust": {
+        "cfo": 4
+       }
+      },
+      "approach": "data"
+     },
+     {
+      "id": "b",
+      "text": "Agree; it will make us look mature.",
+      "quality": 0,
+      "feedback": "Appearance is not value."
+     },
+     {
+      "id": "c",
+      "text": "Say risk software isn't your decision.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “It mainly improves efficiency ({m:40000} reduction for {m:250000}); funding it would displace MFA or dual-sourcing, which reduce far more risk.”"
+     }
+    ],
+    "to": "cfo"
+   },
+   {
+    "id": "s4",
+    "type": "write",
+    "prompt": "State what you are giving up and why, in two sentences.",
+    "competencies": [
+     "communication",
+     "decision"
+    ],
+    "rubric": [
+     {
+      "element": "Deferred",
+      "keywords": [
+       "grc",
+       "software",
+       "training"
+      ],
+      "tip": "Name what is deferred."
+     },
+     {
+      "element": "Reason",
+      "keywords": [
+       "lower",
+       "less",
+       "efficiency",
+       "reduction"
+      ],
+      "tip": "Explain why."
+     },
+     {
+      "element": "Residual",
+      "keywords": [
+       "accept",
+       "residual",
+       "remain"
+      ],
+      "tip": "State the residual consequence."
+     }
+    ],
+    "model_answer": "We are deferring the GRC software and executive training because they reduce far less risk per unit of cost than MFA, dual-sourcing, fire door devices and fraud automation. We accept that register administration stays manual next year and will revisit when budget allows.",
+    "min_words": 25,
+    "max_words": 160
+   }
+  ],
+  "debrief": {
+   "summary": "You maximised risk reduction within a cut budget and explained the opportunity cost.",
+   "key_points": [
+    "Rank by reduction per unit cost, then check non-financial factors.",
+    "Say clearly what you are not doing."
+   ],
+   "stronger_approach": "Show the CFO the residual risk profile with and without the cut.",
+   "transfer": "Every budget round is an allocation under constraint."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "trust": {
+       "cfo": 3
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {}
+    }
+   ]
+  }
+ },
+ {
+  "id": "M22",
+  "title": "Challenging the Business",
+  "type": "career",
+  "level": 6,
+  "xp": 220,
+  "duration": "10 min",
+  "objective": "Challenge a business decision constructively using evidence, options and appropriate escalation.",
+  "concepts": [
+   "stakeholder_influence",
+   "conflict_interest",
+   "escalation"
+  ],
+  "from": "mentor",
+  "subject": "Maintenance is being cut again",
+  "briefing": "Operations plans to cut the planned maintenance budget by 25% to hit the cost target. Our asset failure risk is already above appetite. You need to challenge this. Carefully.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Maintenance proposal",
+    "kind": "memo",
+    "key": true,
+    "body": "Cut planned maintenance by 25% ({m:1200000} saving). Move to run-to-failure for non-critical assets. Approved in principle by {sh:coo} and {sh:cfo}."
+   },
+   {
+    "id": "d2",
+    "title": "Asset data",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Metric",
+      "Value"
+     ],
+     "rows": [
+      [
+       "Maintenance backlog",
+       "180 work orders (warning 200)"
+      ],
+      [
+       "Critical asset failures last year",
+       "7"
+      ],
+      [
+       "Average cost per critical failure",
+       "{m:260000}"
+      ],
+      [
+       "Engineers' estimate: extra failures if cut",
+       "+4 a year"
+      ]
+     ]
+    }
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "numeric",
+    "prompt": "What is the expected cost of the extra failures per year (4 x {m:260000})?",
+    "competencies": [
+     "financial"
+    ],
+    "formula": "4*260000",
+    "vars": {},
+    "unit": "money",
+    "tolerance_pct": 3,
+    "solution": "4 x {m:260000} = {m:1040000}: most of the saving."
+   },
+   {
+    "id": "s2",
+    "type": "choice",
+    "prompt": "How do you approach {sh:coo}?",
+    "competencies": [
+     "stakeholder",
+     "communication"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Share the failure data privately, acknowledge the cost target, and propose a targeted cut that protects critical assets.",
+      "quality": 3,
+      "feedback": "Evidence plus a workable alternative.",
+      "effects": {
+       "trust": {
+        "coo": 3
+       }
+      },
+      "approach": "collaborative"
+     },
+     {
+      "id": "b",
+      "text": "Write to the CEO that the COO is putting the business at risk.",
+      "quality": 0,
+      "feedback": "Escalation before engagement destroys trust.",
+      "effects": {
+       "trust": {
+        "coo": -8
+       }
+      }
+     },
+     {
+      "id": "c",
+      "text": "Accept it; it's approved.",
+      "quality": 0,
+      "feedback": "Approval in principle is when challenge is most useful."
+     }
+    ],
+    "confidence": true,
+    "to": "coo"
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "The COO agrees to protect critical assets but still wants a 15% cut, which keeps asset risk just above appetite. What next?",
+    "competencies": [
+     "decision",
+     "prioritization"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Record the residual risk above appetite and ask the executive committee to accept it formally or fund the gap.",
+      "quality": 3,
+      "feedback": "Right route: an authorised decision, recorded.",
+      "effects": {
+       "trust": {
+        "ceo": 2
+       }
+      }
+     },
+     {
+      "id": "b",
+      "text": "Re-score the risk so it fits appetite.",
+      "quality": 0,
+      "feedback": "Gaming the score.",
+      "effects": {
+       "flags": [
+        "rating_softened"
+       ]
+      }
+     },
+     {
+      "id": "c",
+      "text": "Accept on the COO's authority.",
+      "quality": 1,
+      "feedback": "Above-appetite acceptance needs authorised sign-off."
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "type": "write",
+    "prompt": "Write a short challenge note to the executive committee.",
+    "competencies": [
+     "communication",
+     "strategy"
+    ],
+    "rubric": [
+     {
+      "element": "Saving",
+      "keywords": [
+       "1.2",
+       "saving",
+       "1,200"
+      ],
+      "tip": "State the saving."
+     },
+     {
+      "element": "Cost",
+      "keywords": [
+       "1.04",
+       "1,040",
+       "failure"
+      ],
+      "tip": "State the expected failure cost."
+     },
+     {
+      "element": "Option",
+      "keywords": [
+       "critical",
+       "targeted",
+       "15%"
+      ],
+      "tip": "State the alternative."
+     },
+     {
+      "element": "Decision",
+      "keywords": [
+       "accept",
+       "fund",
+       "decision"
+      ],
+      "tip": "Ask for the decision."
+     }
+    ],
+    "model_answer": "The proposed 25% maintenance cut saves {m:1200000} but engineers expect four more critical failures a year, costing about {m:1040000}. A targeted 15% cut protecting critical assets saves less but keeps failures near current levels; residual risk remains just above appetite. We ask the committee to either accept that residual risk formally or fund the gap.",
+    "min_words": 25,
+    "max_words": 160
+   }
+  ],
+  "debrief": {
+   "summary": "You challenged with evidence, offered an alternative and routed the residual decision correctly.",
+   "key_points": [
+    "Challenge early, privately, with numbers.",
+    "Above-appetite risk needs explicit authorised acceptance."
+   ],
+   "stronger_approach": "Track the maintenance backlog KRI monthly and pre-agree what happens if it crosses warning.",
+   "transfer": "Constructive challenge is the core of the second-line role in every industry."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "risk_adjust": [
+       {
+        "risk": "INF-ASSET",
+        "res_l": -1
+       }
+      ]
+     }
+    },
+    {
+     "min": 0,
+     "effects": {
+      "org": {
+       "resilience": -3
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "CAP3",
+  "title": "Leadership Capstone: The Overdue Audit",
+  "type": "capstone",
+  "level": 6,
+  "xp": 320,
+  "duration": "10 min",
+  "objective": "Demonstrate first-leadership competence: lead a team through competing demands, manage stakeholders, allocate budget and escalate correctly.",
+  "concepts": [
+   "workload",
+   "escalation",
+   "tolerance",
+   "cost_benefit"
+  ],
+  "from": "audit",
+  "subject": "Capstone: unsatisfactory audit opinion",
+  "briefing": "Internal audit has rated risk management 'unsatisfactory'. You have six weeks to agree a credible remediation plan with management, using your team and budget.",
+  "documents": [
+   {
+    "id": "d1",
+    "title": "Audit findings",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "#",
+      "Finding",
+      "Severity"
+     ],
+     "rows": [
+      [
+       "1",
+       "34% of risk actions overdue, some by over a year",
+       "High"
+      ],
+      [
+       "2",
+       "Control ratings not supported by testing",
+       "High"
+      ],
+      [
+       "3",
+       "Risk appetite not used in decisions",
+       "Medium"
+      ],
+      [
+       "4",
+       "Register not reviewed by owners in 9 months",
+       "Medium"
+      ]
+     ]
+    }
+   },
+   {
+    "id": "d2",
+    "title": "Resources",
+    "kind": "memo",
+    "key": true,
+    "body": "Team: you and 3 analysts. Remediation budget: {m:150000}. Executive committee meets in four weeks."
+   },
+   {
+    "id": "d3",
+    "title": "Options",
+    "kind": "table",
+    "key": true,
+    "table": {
+     "columns": [
+      "Option",
+      "Cost",
+      "Fixes findings",
+      "Value"
+     ],
+     "rows": [
+      [
+       "Control testing programme (contractor)",
+       "{m:90000}",
+       "2",
+       "8"
+      ],
+      [
+       "Action-tracking workflow tool",
+       "{m:40000}",
+       "1",
+       "5"
+      ],
+      [
+       "Owner workshops (internal)",
+       "{m:10000}",
+       "4",
+       "4"
+      ],
+      [
+       "Appetite integration in investment papers",
+       "{m:15000}",
+       "3",
+       "5"
+      ],
+      [
+       "External benchmarking review",
+       "{m:70000}",
+       "-",
+       "2"
+      ]
+     ]
+    }
+   }
+  ],
+  "steps": [
+   {
+    "id": "s1",
+    "type": "allocate",
+    "prompt": "Choose remediation options within {m:150000}.",
+    "competencies": [
+     "prioritization",
+     "financial"
+    ],
+    "budget": 150000,
+    "unit": "money",
+    "items": [
+     {
+      "id": "test",
+      "text": "Control testing programme",
+      "cost": 90000,
+      "value": 8
+     },
+     {
+      "id": "tool",
+      "text": "Action-tracking workflow tool",
+      "cost": 40000,
+      "value": 5
+     },
+     {
+      "id": "work",
+      "text": "Owner workshops",
+      "cost": 10000,
+      "value": 4
+     },
+     {
+      "id": "app",
+      "text": "Appetite in investment papers",
+      "cost": 15000,
+      "value": 5
+     },
+     {
+      "id": "bench",
+      "text": "External benchmarking",
+      "cost": 70000,
+      "value": 2,
+      "note": "Nice to have."
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "type": "choice",
+    "prompt": "Your analysts are already stretched. How do you staff the plan?",
+    "competencies": [
+     "leadership"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Assign each analyst a finding to own end-to-end, pause low-value reporting for six weeks, and run a weekly 30-minute check-in.",
+      "quality": 3,
+      "feedback": "Clear ownership and protected capacity.",
+      "effects": {
+       "flags": [
+        "workload_rebalanced"
+       ],
+       "trust": {
+        "analyst": 4
+       }
+      }
+     },
+     {
+      "id": "b",
+      "text": "Ask everyone to work longer hours.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Assign each analyst a finding to own end-to-end, pause low-value reporting for six weeks, and run a weekly 30-minute check-in.”",
+      "effects": {
+       "schedule": [
+        {
+         "event": "ev_team_burnout",
+         "after": 2,
+         "p": 0.5
+        }
+       ]
+      }
+     },
+     {
+      "id": "c",
+      "text": "Do it all yourself.",
+      "quality": 0,
+      "feedback": "This choice leaves the core exposure unmanaged and is likely to make things worse. A stronger option was: “Assign each analyst a finding to own end-to-end, pause low-value reporting for six weeks, and run a weekly 30-minute check-in.”"
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "type": "choice",
+    "prompt": "A director argues their overdue actions should be 'reset' with new dates and no record of the delay. Response?",
+    "competencies": [
+     "ethics",
+     "stakeholder"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Agree realistic new dates but keep the history visible; audit and the committee need to see the trend.",
+      "quality": 3,
+      "feedback": "Pragmatic and honest.",
+      "effects": {
+       "trust": {
+        "audit": 3
+       }
+      }
+     },
+     {
+      "id": "b",
+      "text": "Reset them; a clean start helps morale.",
+      "quality": 0,
+      "feedback": "Erases evidence audit relies on.",
+      "effects": {
+       "flags": [
+        "rating_softened"
+       ]
+      }
+     },
+     {
+      "id": "c",
+      "text": "Refuse any new dates.",
+      "quality": 1,
+      "feedback": "Rigid; some dates were unrealistic."
+     }
+    ],
+    "confidence": true
+   },
+   {
+    "id": "s4",
+    "type": "choice",
+    "prompt": "What do you present to the executive committee?",
+    "competencies": [
+     "communication",
+     "strategy"
+    ],
+    "options": [
+     {
+      "id": "a",
+      "text": "Root causes behind the findings, the funded plan with owners and dates, what remains outside appetite, and the decisions needed from them.",
+      "quality": 3,
+      "feedback": "Decision-ready governance.",
+      "effects": {
+       "trust": {
+        "ceo": 3,
+        "audit": 2
+       }
+      }
+     },
+     {
+      "id": "b",
+      "text": "A list of every overdue action.",
+      "quality": 1,
+      "feedback": "Data without diagnosis."
+     },
+     {
+      "id": "c",
+      "text": "An argument that audit was too harsh.",
+      "quality": 0,
+      "feedback": "Defensive."
+     }
+    ]
+   },
+   {
+    "id": "s5",
+    "type": "write",
+    "prompt": "Write the opening paragraph of your committee paper.",
+    "competencies": [
+     "communication",
+     "leadership"
+    ],
+    "rubric": [
+     {
+      "element": "Acknowledge",
+      "keywords": [
+       "unsatisfactory",
+       "audit",
+       "finding"
+      ],
+      "tip": "Acknowledge the opinion."
+     },
+     {
+      "element": "Cause",
+      "keywords": [
+       "cause",
+       "because",
+       "ownership",
+       "testing"
+      ],
+      "tip": "Diagnose."
+     },
+     {
+      "element": "Plan",
+      "keywords": [
+       "plan",
+       "owner",
+       "date",
+       "weeks"
+      ],
+      "tip": "Summarise the plan."
+     },
+     {
+      "element": "Ask",
+      "keywords": [
+       "decision",
+       "approve",
+       "ask",
+       "support"
+      ],
+      "tip": "State the ask."
+     }
+    ],
+    "model_answer": "Internal audit rated risk management unsatisfactory. The root causes are unclear ownership of actions, control ratings without testing, and appetite that is not used in decisions. Our plan funds a control testing programme, owner workshops and appetite checks in investment papers, with named owners and dates over six weeks. We ask the committee to approve the plan and to hold owners to the revised dates.",
+    "min_words": 25,
+    "max_words": 160
+   }
+  ],
+  "debrief": {
+   "summary": "You led the team, allocated scarce budget and kept governance honest under pressure.",
+   "key_points": [
+    "Ownership beats effort.",
+    "Keep history visible when resetting dates.",
+    "Bring decisions, not lists, to committees."
+   ],
+   "stronger_approach": "Agree with audit up front what evidence will close each finding.",
+   "transfer": "Remediation leadership is the same for regulatory findings, safety notices and project recoveries."
+  },
+  "endings": [
+   {
+    "id": "strong",
+    "title": "Strong outcome",
+    "min_score": 0.8,
+    "text": "Your work set a high standard. Stakeholders now come to you early."
+   },
+   {
+    "id": "adequate",
+    "title": "Adequate outcome",
+    "min_score": 0.55,
+    "text": "Solid work with gaps. Your manager asks you to revisit one or two points."
+   },
+   {
+    "id": "weak",
+    "title": "Needs rework",
+    "min_score": 0,
+    "text": "The work needs another pass. Use the debrief and try again when ready."
+   }
+  ],
+  "on_complete": {
+   "effects_by_score": [
+    {
+     "min": 0.7,
+     "effects": {
+      "flags": [
+       "actions_tracked"
+      ],
+      "org": {
+       "control_effectiveness": 4,
+       "compliance": 2
+      },
+      "trust": {
+       "audit": 4
+      }
+     }
+    },
+    {
+     "min": 0,
+     "effects": {
+      "schedule": [
+       {
+        "event": "ev_audit_finding",
+        "after": 1,
+        "p": 0.7
+       }
+      ]
+     }
+    }
+   ]
+  }
+ }
+]

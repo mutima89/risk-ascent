@@ -1,0 +1,716 @@
+{
+ "scheduled": [
+  {
+   "id": "ev_kitchen_fire",
+   "title": "Kitchen fire",
+   "text": "A grease fire in a kitchen extraction duct spread into the ceiling void. The building was evacuated; two staff were treated for smoke inhalation and the restaurant is closed for repairs.",
+   "severity": 2,
+   "effects": {
+    "org": {
+     "cash": -850000,
+     "reputation": -6,
+     "resilience": -3,
+     "confidence": -4
+    },
+    "trust": {
+     "coo": -4,
+     "ceo": -3
+    }
+   },
+   "mitigated_by": [
+    "duct_clean_enforced"
+   ],
+   "aggravated_by": [
+    "duct_warning_ignored"
+   ],
+   "mitigated_text": "Because duct cleaning had been enforced, the fire was contained in the duct by the suppression system and the kitchen reopened within a day."
+  },
+  {
+   "id": "ev_phishing_breach",
+   "title": "Account compromise via phishing",
+   "text": "An attacker used credentials harvested in a phishing campaign to access a finance mailbox and attempt fraudulent invoices.",
+   "severity": 2,
+   "effects": {
+    "org": {
+     "cash": -220000,
+     "reputation": -3,
+     "compliance": -2
+    },
+    "trust": {
+     "cio": -3,
+     "cfo": -2
+    }
+   },
+   "mitigated_by": [
+    "mfa_accelerated"
+   ],
+   "mitigated_text": "Multi-factor authentication blocked the attacker's login; only a password reset was needed."
+  },
+  {
+   "id": "ev_supplier_collapse",
+   "title": "Critical supplier enters insolvency",
+   "text": "A single-source supplier stopped trading without warning. Emergency replacement supply costs 40% more and some services are disrupted.",
+   "severity": 2,
+   "effects": {
+    "org": {
+     "cash": -600000,
+     "revenue": -900000,
+     "resilience": -4,
+     "confidence": -3
+    },
+    "trust": {
+     "cpo": -3,
+     "coo": -2
+    }
+   },
+   "mitigated_by": [
+    "dual_source"
+   ],
+   "aggravated_by": [
+    "supplier_warning_ignored"
+   ],
+   "mitigated_text": "The qualified second supplier took over within 48 hours, limiting disruption."
+  },
+  {
+   "id": "ev_regulator_letter",
+   "title": "Regulator issues a formal findings letter",
+   "text": "The regulator identified a significant gap and requires a remediation plan within 30 days, with possible enforcement action.",
+   "severity": 2,
+   "effects": {
+    "org": {
+     "cash": -300000,
+     "compliance": -8,
+     "reputation": -3
+    },
+    "trust": {
+     "gc": -3,
+     "ceo": -2
+    }
+   },
+   "mitigated_by": [
+    "reg_tracker_fixed"
+   ],
+   "mitigated_text": "Because the gap was already being remediated with a documented plan, the regulator accepted the plan without further action."
+  },
+  {
+   "id": "ev_payment_fraud",
+   "title": "Supplier impersonation fraud",
+   "text": "A payment was redirected to a fraudster after an emailed request to change bank details.",
+   "severity": 1,
+   "effects": {
+    "org": {
+     "cash": -180000,
+     "control_effectiveness": -4
+    },
+    "trust": {
+     "cfo": -4
+    }
+   },
+   "mitigated_by": [
+    "callback_enforced"
+   ],
+   "mitigated_text": "The call-back control caught the fraudulent request before payment."
+  },
+  {
+   "id": "ev_key_person_exit",
+   "title": "Key executive resigns",
+   "text": "A key leader resigned to join a competitor, taking critical knowledge and relationships.",
+   "severity": 1,
+   "effects": {
+    "org": {
+     "strategic_progress": -5,
+     "morale": -4,
+     "revenue": -300000
+    },
+    "trust": {
+     "chro": -2
+    }
+   },
+   "mitigated_by": [
+    "succession_plan"
+   ],
+   "mitigated_text": "The documented succession plan meant an interim successor stepped in immediately."
+  },
+  {
+   "id": "ev_project_overrun",
+   "title": "Transformation programme overrun confirmed",
+   "text": "The programme is now forecast at 38% over budget and seven months late.",
+   "severity": 2,
+   "effects": {
+    "org": {
+     "cash": -1200000,
+     "strategic_progress": -8,
+     "confidence": -2
+    },
+    "trust": {
+     "rival": -3,
+     "cfo": -3
+    }
+   },
+   "mitigated_by": [
+    "project_rebaselined"
+   ],
+   "aggravated_by": [
+    "project_warning_ignored"
+   ],
+   "mitigated_text": "Because the programme had been re-baselined early, the overrun was contained and expectations reset in time."
+  },
+  {
+   "id": "ev_media_storm",
+   "title": "Story goes viral",
+   "text": "A customer's video of a service failure spread widely and national media ran the story.",
+   "severity": 2,
+   "effects": {
+    "org": {
+     "reputation": -8,
+     "revenue": -700000,
+     "confidence": -6
+    },
+    "trust": {
+     "ceo": -3,
+     "cco": -3
+    }
+   },
+   "mitigated_by": [
+    "comms_protocol"
+   ],
+   "mitigated_text": "The agreed crisis communications protocol produced a fast, credible response and the story faded within days."
+  },
+  {
+   "id": "ev_liquidity_crunch",
+   "title": "Liquidity squeeze",
+   "text": "A delayed customer payment coincided with the facility renewal, pushing cash close to the covenant minimum.",
+   "severity": 2,
+   "effects": {
+    "org": {
+     "cash": -2500000,
+     "confidence": -5
+    },
+    "trust": {
+     "cfo": -4,
+     "board": -3
+    }
+   },
+   "mitigated_by": [
+    "liquidity_plan"
+   ],
+   "mitigated_text": "The pre-agreed liquidity contingency plan released cash quickly and the covenant was not breached."
+  },
+  {
+   "id": "ev_ransomware",
+   "title": "Ransomware attack",
+   "text": "Ransomware encrypted several servers. Operations ran on manual workarounds while systems were rebuilt.",
+   "severity": 2,
+   "effects": {
+    "org": {
+     "cash": -1800000,
+     "revenue": -1500000,
+     "resilience": -6,
+     "reputation": -5
+    },
+    "trust": {
+     "cio": -4,
+     "ceo": -3
+    }
+   },
+   "mitigated_by": [
+    "offline_backups",
+    "mfa_accelerated"
+   ],
+   "mitigated_text": "Clean offline backups allowed restoration in under two days without paying a ransom."
+  },
+  {
+   "id": "ev_safety_injury",
+   "title": "Serious injury",
+   "text": "A worker was seriously injured in an incident that had been preceded by several near misses.",
+   "severity": 2,
+   "effects": {
+    "org": {
+     "cash": -400000,
+     "morale": -6,
+     "reputation": -4,
+     "compliance": -4
+    },
+    "trust": {
+     "cso": -3,
+     "coo": -3
+    }
+   },
+   "mitigated_by": [
+    "safety_actions_closed"
+   ],
+   "aggravated_by": [
+    "near_miss_ignored"
+   ],
+   "mitigated_text": "Closed safety actions meant the hazard had been guarded; the incident was a minor near miss instead."
+  },
+  {
+   "id": "ev_trust_erosion",
+   "title": "Staff survey reveals fear of speaking up",
+   "text": "The engagement survey shows most staff do not feel safe reporting problems.",
+   "severity": 1,
+   "effects": {
+    "org": {
+     "morale": -6,
+     "control_effectiveness": -3
+    },
+    "trust": {
+     "chro": -2
+    }
+   },
+   "mitigated_by": [
+    "speak_up_program"
+   ],
+   "mitigated_text": "The speak-up programme launched earlier is starting to shift scores in the right direction."
+  },
+  {
+   "id": "ev_audit_finding",
+   "title": "Internal audit rates risk actions unsatisfactory",
+   "text": "Internal audit found that a third of risk actions are overdue with no evidence of progress.",
+   "severity": 1,
+   "effects": {
+    "org": {
+     "control_effectiveness": -5,
+     "compliance": -2
+    },
+    "trust": {
+     "audit": -4,
+     "mentor": -2
+    }
+   },
+   "mitigated_by": [
+    "actions_tracked"
+   ],
+   "mitigated_text": "Because overdue actions had been tracked and escalated, audit rated the area 'improvement needed' rather than unsatisfactory."
+  },
+  {
+   "id": "ev_customer_loss",
+   "title": "Major customer gives notice",
+   "text": "A major customer gave notice to move to a competitor at renewal.",
+   "severity": 2,
+   "effects": {
+    "org": {
+     "revenue": -6000000,
+     "confidence": -4
+    },
+    "trust": {
+     "cco": -3
+    }
+   },
+   "mitigated_by": [
+    "account_plan"
+   ],
+   "mitigated_text": "The account recovery plan retained part of the business at revised terms."
+  },
+  {
+   "id": "ev_data_complaint",
+   "title": "Data protection complaint escalated to the regulator",
+   "text": "A customer complaint about misuse of personal data has been referred to the regulator.",
+   "severity": 1,
+   "effects": {
+    "org": {
+     "compliance": -5,
+     "reputation": -3,
+     "cash": -150000
+    },
+    "trust": {
+     "gc": -3
+    }
+   },
+   "mitigated_by": [
+    "privacy_fixed"
+   ],
+   "mitigated_text": "Consent records and a data inventory allowed a complete response; the regulator closed the complaint."
+  },
+  {
+   "id": "ev_investment_writedown",
+   "title": "Investment written down",
+   "text": "The investment underperformed sharply and a partial write-down was recognised.",
+   "severity": 2,
+   "effects": {
+    "org": {
+     "cash": -4000000,
+     "strategic_progress": -6,
+     "confidence": -4
+    },
+    "trust": {
+     "cfo": -3,
+     "board": -3
+    }
+   },
+   "mitigated_by": [
+    "deal_protections"
+   ],
+   "mitigated_text": "Negotiated protections (staged payments and an earn-out) limited the loss."
+  },
+  {
+   "id": "ev_control_payoff",
+   "title": "Control prevents a loss",
+   "text": "A control you strengthened detected an error before it caused harm. Management noticed.",
+   "severity": 0,
+   "effects": {
+    "org": {
+     "control_effectiveness": 3,
+     "confidence": 2
+    },
+    "trust": {
+     "mentor": 3,
+     "coo": 2
+    }
+   }
+  },
+  {
+   "id": "ev_board_confidence",
+   "title": "Board commends risk reporting",
+   "text": "The board risk committee praised the quality and candour of recent risk reporting.",
+   "severity": 0,
+   "effects": {
+    "org": {
+     "confidence": 3,
+     "strategic_progress": 2
+    },
+    "trust": {
+     "board": 5,
+     "ceo": 3
+    }
+   }
+  },
+  {
+   "id": "ev_near_miss_caught",
+   "title": "Near miss reported and fixed",
+   "text": "Frontline staff reported a near miss and the hazard was fixed the same day, an early sign that reporting is improving.",
+   "severity": 0,
+   "effects": {
+    "org": {
+     "resilience": 2,
+     "morale": 2
+    },
+    "trust": {
+     "cso": 2
+    }
+   }
+  },
+  {
+   "id": "ev_team_burnout",
+   "title": "Risk team burnout",
+   "text": "Two analysts are off with stress after months of overload. Deadlines slip.",
+   "severity": 1,
+   "effects": {
+    "org": {
+     "morale": -4,
+     "control_effectiveness": -2
+    },
+    "trust": {
+     "analyst": -6,
+     "mentor": -3
+    }
+   },
+   "mitigated_by": [
+    "workload_rebalanced"
+   ],
+   "mitigated_text": "Because workload had been rebalanced, the team absorbed the peak without anyone going off sick."
+  },
+  {
+   "id": "ev_regulatory_fine",
+   "title": "Regulatory fine imposed",
+   "text": "The regulator imposed a fine following its investigation.",
+   "severity": 2,
+   "effects": {
+    "org": {
+     "cash": -2000000,
+     "compliance": -6,
+     "reputation": -5
+    },
+    "trust": {
+     "gc": -4,
+     "board": -4
+    }
+   },
+   "mitigated_by": [
+    "reg_tracker_fixed",
+    "privacy_fixed"
+   ],
+   "mitigated_text": "Evidence of prompt remediation reduced the penalty substantially."
+  }
+ ],
+ "random": [
+  {
+   "id": "rnd_hurricane",
+   "title": "Hurricane warning closes coastal properties",
+   "industries": [
+    "hospitality"
+   ],
+   "p_month": 0.025,
+   "text": "Hurricane-force winds forced closure of coastal properties for several days.",
+   "severity": 2,
+   "effects": {
+    "org": {
+     "cash": -1500000,
+     "revenue": -2000000,
+     "resilience": -3
+    }
+   },
+   "mitigated_by": [
+    "bcp_tested"
+   ],
+   "mitigated_text": "Earlier preparation (tested plans and controls) significantly reduced the impact."
+  },
+  {
+   "id": "rnd_heatwave",
+   "title": "Extreme heat disrupts operations",
+   "industries": [
+    "hospitality",
+    "energy",
+    "government"
+   ],
+   "p_month": 0.025,
+   "text": "An extreme heatwave strained cooling systems and staff welfare.",
+   "severity": 1,
+   "effects": {
+    "org": {
+     "cash": -300000,
+     "morale": -3
+    }
+   },
+   "mitigated_by": [
+    "bcp_tested"
+   ],
+   "mitigated_text": "Earlier preparation (tested plans and controls) significantly reduced the impact."
+  },
+  {
+   "id": "rnd_cyber_wave",
+   "title": "Sector-wide ransomware campaign",
+   "industries": [],
+   "p_month": 0.02,
+   "text": "A ransomware group is actively targeting organisations in the sector; incident response costs rose.",
+   "severity": 1,
+   "effects": {
+    "org": {
+     "resilience": -2,
+     "cash": -200000
+    }
+   },
+   "mitigated_by": [
+    "offline_backups",
+    "mfa_accelerated"
+   ],
+   "mitigated_text": "Earlier preparation (tested plans and controls) significantly reduced the impact."
+  },
+  {
+   "id": "rnd_power",
+   "title": "Regional power outage",
+   "industries": [],
+   "p_month": 0.02,
+   "text": "A regional grid failure cut power for 14 hours.",
+   "severity": 1,
+   "effects": {
+    "org": {
+     "revenue": -400000,
+     "resilience": -2
+    }
+   },
+   "mitigated_by": [
+    "bcp_tested"
+   ],
+   "mitigated_text": "Earlier preparation (tested plans and controls) significantly reduced the impact."
+  },
+  {
+   "id": "rnd_strike",
+   "title": "Logistics strike",
+   "industries": [
+    "retail",
+    "energy",
+    "hospitality"
+   ],
+   "p_month": 0.02,
+   "text": "A national logistics strike delayed deliveries for a week.",
+   "severity": 1,
+   "effects": {
+    "org": {
+     "revenue": -800000,
+     "confidence": -2
+    }
+   },
+   "mitigated_by": [
+    "dual_source"
+   ],
+   "mitigated_text": "Earlier preparation (tested plans and controls) significantly reduced the impact."
+  },
+  {
+   "id": "rnd_rate_shock",
+   "title": "Interest rate shock",
+   "industries": [
+    "banking",
+    "real_estate"
+   ],
+   "p_month": 0.025,
+   "text": "Central bank rates rose unexpectedly, repricing funding costs.",
+   "severity": 2,
+   "effects": {
+    "org": {
+     "cash": -1200000,
+     "confidence": -2
+    }
+   },
+   "mitigated_by": [
+    "liquidity_plan"
+   ],
+   "mitigated_text": "Earlier preparation (tested plans and controls) significantly reduced the impact."
+  },
+  {
+   "id": "rnd_flu",
+   "title": "Severe flu season",
+   "industries": [
+    "healthcare"
+   ],
+   "p_month": 0.04,
+   "text": "An early, severe flu season pushed capacity past planned levels.",
+   "severity": 1,
+   "effects": {
+    "org": {
+     "morale": -4,
+     "cash": -600000,
+     "resilience": -3
+    }
+   },
+   "mitigated_by": [
+    "bcp_tested"
+   ],
+   "mitigated_text": "Earlier preparation (tested plans and controls) significantly reduced the impact."
+  },
+  {
+   "id": "rnd_fuel",
+   "title": "Fuel price spike",
+   "industries": [
+    "retail",
+    "energy"
+   ],
+   "p_month": 0.025,
+   "text": "Fuel prices spiked 30% in a month.",
+   "severity": 1,
+   "effects": {
+    "org": {
+     "cash": -900000
+    }
+   },
+   "mitigated_by": [],
+   "mitigated_text": "Earlier preparation (tested plans and controls) significantly reduced the impact."
+  },
+  {
+   "id": "rnd_viral_review",
+   "title": "Viral negative review",
+   "industries": [
+    "hospitality",
+    "retail",
+    "technology",
+    "healthcare"
+   ],
+   "p_month": 0.025,
+   "text": "A negative review went viral on social media.",
+   "severity": 1,
+   "effects": {
+    "org": {
+     "reputation": -4,
+     "revenue": -300000
+    }
+   },
+   "mitigated_by": [
+    "comms_protocol"
+   ],
+   "mitigated_text": "Earlier preparation (tested plans and controls) significantly reduced the impact."
+  },
+  {
+   "id": "rnd_regulatory_sweep",
+   "title": "Regulator announces thematic review",
+   "industries": [],
+   "p_month": 0.02,
+   "text": "The regulator announced a sector-wide thematic review; information requests are due in three weeks.",
+   "severity": 1,
+   "effects": {
+    "org": {
+     "compliance": -2
+    }
+   },
+   "mitigated_by": [
+    "reg_tracker_fixed"
+   ],
+   "mitigated_text": "Earlier preparation (tested plans and controls) significantly reduced the impact."
+  },
+  {
+   "id": "rnd_competitor",
+   "title": "Competitor launches aggressive pricing",
+   "industries": [
+    "hospitality",
+    "retail",
+    "technology",
+    "banking"
+   ],
+   "p_month": 0.02,
+   "text": "A well-funded competitor launched aggressive pricing in core markets.",
+   "severity": 1,
+   "effects": {
+    "org": {
+     "revenue": -1200000,
+     "strategic_progress": -2
+    }
+   },
+   "mitigated_by": [],
+   "mitigated_text": "Earlier preparation (tested plans and controls) significantly reduced the impact."
+  },
+  {
+   "id": "rnd_budget_cut",
+   "title": "Mid-year budget reduction",
+   "industries": [
+    "government",
+    "healthcare"
+   ],
+   "p_month": 0.02,
+   "text": "Funding was cut mid-year; all departments must find savings.",
+   "severity": 2,
+   "effects": {
+    "org": {
+     "cash": -1000000,
+     "morale": -2
+    }
+   },
+   "mitigated_by": [],
+   "mitigated_text": "Earlier preparation (tested plans and controls) significantly reduced the impact."
+  },
+  {
+   "id": "rnd_commodity",
+   "title": "Commodity price collapse",
+   "industries": [
+    "energy"
+   ],
+   "p_month": 0.03,
+   "text": "Commodity prices fell 25% over the month.",
+   "severity": 2,
+   "effects": {
+    "org": {
+     "revenue": -15000000,
+     "cash": -5000000
+    }
+   },
+   "mitigated_by": [
+    "liquidity_plan"
+   ],
+   "mitigated_text": "Earlier preparation (tested plans and controls) significantly reduced the impact."
+  },
+  {
+   "id": "rnd_good_press",
+   "title": "Positive industry recognition",
+   "industries": [],
+   "p_month": 0.02,
+   "text": "The organisation won an industry award for service quality.",
+   "severity": 1,
+   "effects": {
+    "org": {
+     "reputation": 3,
+     "morale": 2
+    }
+   },
+   "mitigated_by": [],
+   "mitigated_text": "Earlier preparation (tested plans and controls) significantly reduced the impact."
+  }
+ ]
+}

@@ -1,0 +1,616 @@
+{
+ "stages": {
+  "1": [
+   {
+    "prompt": "Tell us about a risk you identified that others had missed.",
+    "options": [
+     {
+      "text": "I describe the hazard, how I verified it, who I told and what changed as a result.",
+      "quality": 3,
+      "feedback": "Specific, evidenced and outcome-focused."
+     },
+     {
+      "text": "I list several risks I noticed on walkrounds.",
+      "quality": 1,
+      "feedback": "Breadth without depth; the panel wanted one example with evidence and impact."
+     },
+     {
+      "text": "I explain that most risks are already known so I focus on paperwork.",
+      "quality": 0,
+      "feedback": "Signals low curiosity."
+     }
+    ]
+   },
+   {
+    "prompt": "How do you make sure your risk ratings are consistent?",
+    "options": [
+     {
+      "text": "I use the defined scales, anchor to evidence and compare with similar risks in the register.",
+      "quality": 3,
+      "feedback": "Shows method and calibration."
+     },
+     {
+      "text": "I go with my gut and adjust if challenged.",
+      "quality": 0,
+      "feedback": "Ratings must be defensible."
+     },
+     {
+      "text": "I ask my manager to rate them.",
+      "quality": 1,
+      "feedback": "Good to seek review, but you must own a rationale."
+     }
+    ]
+   },
+   {
+    "prompt": "A manager says a near miss 'wasn't worth reporting'. What do you do?",
+    "options": [
+     {
+      "text": "Explain why near misses matter, record it and agree a simple fix with them.",
+      "quality": 3,
+      "feedback": "Builds reporting culture without blame."
+     },
+     {
+      "text": "Report the manager to HR.",
+      "quality": 0,
+      "feedback": "Disproportionate and damages trust."
+     },
+     {
+      "text": "Agree and move on.",
+      "quality": 0,
+      "feedback": "Lets a free lesson go."
+     }
+    ]
+   },
+   {
+    "prompt": "What is the difference between inherent and residual risk?",
+    "options": [
+     {
+      "text": "Inherent is before controls; residual reflects controls as they actually operate.",
+      "quality": 3,
+      "feedback": "Correct and precise."
+     },
+     {
+      "text": "Residual is the risk after insurance.",
+      "quality": 1,
+      "feedback": "Partially; insurance is one treatment, but residual reflects all controls."
+     },
+     {
+      "text": "They are the same thing.",
+      "quality": 0,
+      "feedback": "Incorrect."
+     }
+    ]
+   },
+   {
+    "prompt": "Why do you want to progress into analysis work?",
+    "options": [
+     {
+      "text": "I enjoy turning messy evidence into decisions and I've shown that in my missions.",
+      "quality": 3,
+      "feedback": "Motivation tied to evidence."
+     },
+     {
+      "text": "For the salary increase.",
+      "quality": 1,
+      "feedback": "Honest, but the panel looks for motivation for the work."
+     },
+     {
+      "text": "It's the next step.",
+      "quality": 1,
+      "feedback": "Generic."
+     }
+    ]
+   }
+  ],
+  "2": [
+   {
+    "prompt": "Walk us through how you'd assess a risk for a department you don't know.",
+    "options": [
+     {
+      "text": "Clarify objectives, gather evidence, interview owners, rate with scales, test controls, validate with the owner.",
+      "quality": 3,
+      "feedback": "Structured and collaborative."
+     },
+     {
+      "text": "Copy last year's assessment.",
+      "quality": 0,
+      "feedback": "No independent judgement."
+     },
+     {
+      "text": "Rate it high to be safe.",
+      "quality": 0,
+      "feedback": "Overstatement destroys credibility."
+     }
+    ]
+   },
+   {
+    "prompt": "A control looks good on paper but you suspect it isn't operating. How do you test it?",
+    "options": [
+     {
+      "text": "Select a sample proportionate to frequency, test evidence and investigate exceptions.",
+      "quality": 3,
+      "feedback": "Correct testing logic."
+     },
+     {
+      "text": "Ask the owner if it works.",
+      "quality": 1,
+      "feedback": "Self-assessment is weak evidence."
+     },
+     {
+      "text": "Assume it works if it's documented.",
+      "quality": 0,
+      "feedback": "Confuses design with operation."
+     }
+    ]
+   },
+   {
+    "prompt": "Your root-cause analysis points to a manager's decision. How do you present it?",
+    "options": [
+     {
+      "text": "Focus on conditions and decisions, not blame; share the draft with the manager first.",
+      "quality": 3,
+      "feedback": "Fair and effective."
+     },
+     {
+      "text": "Name and shame in the report.",
+      "quality": 0,
+      "feedback": "Creates defensiveness."
+     },
+     {
+      "text": "Leave it out to avoid conflict.",
+      "quality": 0,
+      "feedback": "Integrity failure."
+     }
+    ]
+   },
+   {
+    "prompt": "How do you explain the limits of a heat map to an operations director?",
+    "options": [
+     {
+      "text": "It ranks risks for discussion; for spending decisions we need quantified estimates.",
+      "quality": 3,
+      "feedback": "Clear and practical."
+     },
+     {
+      "text": "I don't; heat maps are accurate.",
+      "quality": 0,
+      "feedback": "Overclaims precision."
+     },
+     {
+      "text": "It's only for auditors.",
+      "quality": 0,
+      "feedback": "Unhelpful."
+     }
+    ]
+   },
+   {
+    "prompt": "Which KRIs would you recommend for a supplier risk and why?",
+    "options": [
+     {
+      "text": "A mix of leading (financial health, concentration) and lagging (late deliveries) with thresholds and owners.",
+      "quality": 3,
+      "feedback": "Balanced and actionable."
+     },
+     {
+      "text": "Number of suppliers.",
+      "quality": 1,
+      "feedback": "Too crude."
+     },
+     {
+      "text": "Supplier complaints only.",
+      "quality": 1,
+      "feedback": "Lagging only."
+     }
+    ]
+   }
+  ],
+  "3": [
+   {
+    "prompt": "How would you handle an analyst whose work you keep correcting?",
+    "options": [
+     {
+      "text": "Diagnose: clarity, skills or workload. Agree specific goals, coach, and review progress.",
+      "quality": 3,
+      "feedback": "Supportive and accountable."
+     },
+     {
+      "text": "Rewrite everything myself.",
+      "quality": 0,
+      "feedback": "Doesn't scale; undermines development."
+     },
+     {
+      "text": "Raise a formal performance case immediately.",
+      "quality": 1,
+      "feedback": "Premature without diagnosis."
+     }
+    ]
+   },
+   {
+    "prompt": "Two directors disagree on a risk rating. What do you do?",
+    "options": [
+     {
+      "text": "Bring evidence, clarify the scenario each is rating, and escalate if still unresolved.",
+      "quality": 3,
+      "feedback": "Most disagreements are about different scenarios."
+     },
+     {
+      "text": "Pick the senior director's view.",
+      "quality": 0,
+      "feedback": "Deference, not judgement."
+     },
+     {
+      "text": "Average the ratings.",
+      "quality": 1,
+      "feedback": "Mechanical; may hide the real issue."
+     }
+    ]
+   },
+   {
+    "prompt": "When would you approve a treatment plan within your authority?",
+    "options": [
+     {
+      "text": "When it addresses the cause, is cost-justified, has an owner and date, and fits appetite.",
+      "quality": 3,
+      "feedback": "Complete criteria."
+     },
+     {
+      "text": "Whenever the owner asks.",
+      "quality": 0,
+      "feedback": "No challenge."
+     },
+     {
+      "text": "Only if it's free.",
+      "quality": 1,
+      "feedback": "Too narrow."
+     }
+    ]
+   },
+   {
+    "prompt": "A business leader wants to launch before controls are ready. Your response?",
+    "options": [
+     {
+      "text": "Quantify the exposure, propose interim controls or conditions, and escalate if outside appetite.",
+      "quality": 3,
+      "feedback": "Enables while protecting."
+     },
+     {
+      "text": "Block the launch.",
+      "quality": 1,
+      "feedback": "Sometimes right, but options are better."
+     },
+     {
+      "text": "Approve to keep good relations.",
+      "quality": 0,
+      "feedback": "Abdicates the role."
+     }
+    ]
+   },
+   {
+    "prompt": "How do you keep overdue actions from piling up?",
+    "options": [
+     {
+      "text": "Track with owners and dates, escalate patterns, and fix unrealistic targets early.",
+      "quality": 3,
+      "feedback": "Systematic."
+     },
+     {
+      "text": "Send reminders.",
+      "quality": 1,
+      "feedback": "Necessary but insufficient."
+     },
+     {
+      "text": "Close them administratively.",
+      "quality": 0,
+      "feedback": "Misrepresents status."
+     }
+    ]
+   }
+  ],
+  "4": [
+   {
+    "prompt": "How would you evaluate a major capital project?",
+    "options": [
+     {
+      "text": "Test the business case assumptions, scenarios, delivery risk, contingency and strategic fit.",
+      "quality": 3,
+      "feedback": "Comprehensive."
+     },
+     {
+      "text": "Check the IRR.",
+      "quality": 1,
+      "feedback": "Necessary, not sufficient."
+     },
+     {
+      "text": "Leave it to finance.",
+      "quality": 0,
+      "feedback": "Abdicates challenge."
+     }
+    ]
+   },
+   {
+    "prompt": "How do you design KRI thresholds?",
+    "options": [
+     {
+      "text": "Link to appetite, use historical variation and lead time to act, and assign actions to each level.",
+      "quality": 3,
+      "feedback": "Principled."
+     },
+     {
+      "text": "Use round numbers.",
+      "quality": 0,
+      "feedback": "Arbitrary."
+     },
+     {
+      "text": "Set them so they rarely trigger.",
+      "quality": 0,
+      "feedback": "Defeats the purpose."
+     }
+    ]
+   },
+   {
+    "prompt": "What does aggregate exposure tell you that a register doesn't?",
+    "options": [
+     {
+      "text": "Correlations, common drivers and total capacity use across risks.",
+      "quality": 3,
+      "feedback": "Key insight."
+     },
+     {
+      "text": "Nothing; just add the scores.",
+      "quality": 0,
+      "feedback": "Ordinal scores can't be added."
+     },
+     {
+      "text": "Which department has most risks.",
+      "quality": 1,
+      "feedback": "Counting is not aggregation."
+     }
+    ]
+   },
+   {
+    "prompt": "How do you challenge an executive's assumption without damaging the relationship?",
+    "options": [
+     {
+      "text": "Privately, with evidence and an alternative, focusing on the shared objective.",
+      "quality": 3,
+      "feedback": "Effective challenge."
+     },
+     {
+      "text": "Publicly in the meeting to make the point.",
+      "quality": 1,
+      "feedback": "Can work, but often backfires."
+     },
+     {
+      "text": "Don't challenge executives.",
+      "quality": 0,
+      "feedback": "Not doing the job."
+     }
+    ]
+   },
+   {
+    "prompt": "How would you manage external risk consultants?",
+    "options": [
+     {
+      "text": "Clear scope, outcomes, knowledge transfer and quality review.",
+      "quality": 3,
+      "feedback": "Strong."
+     },
+     {
+      "text": "Let them run the programme.",
+      "quality": 0,
+      "feedback": "Loses ownership."
+     },
+     {
+      "text": "Avoid using them.",
+      "quality": 1,
+      "feedback": "Sometimes right, but not a principle."
+     }
+    ]
+   }
+  ],
+  "5": [
+   {
+    "prompt": "What makes an ERM framework actually work?",
+    "options": [
+     {
+      "text": "Integration into strategy, decisions and incentives, not just registers and reports.",
+      "quality": 3,
+      "feedback": "Core insight."
+     },
+     {
+      "text": "A comprehensive policy document.",
+      "quality": 1,
+      "feedback": "Necessary, not sufficient."
+     },
+     {
+      "text": "Buying software.",
+      "quality": 0,
+      "feedback": "Tools don't create practice."
+     }
+    ]
+   },
+   {
+    "prompt": "How would you build an annual enterprise risk plan?",
+    "options": [
+     {
+      "text": "Start from strategy and appetite, prioritise by exposure and assurance gaps, resource accordingly.",
+      "quality": 3,
+      "feedback": "Risk-based."
+     },
+     {
+      "text": "Repeat last year's plan.",
+      "quality": 0,
+      "feedback": "Not risk-based."
+     },
+     {
+      "text": "Ask each department what they want.",
+      "quality": 1,
+      "feedback": "Input, not a plan."
+     }
+    ]
+   },
+   {
+    "prompt": "How should risk influence capital allocation?",
+    "options": [
+     {
+      "text": "Compare risk-adjusted returns and strategic fit; require protections for high-risk bets.",
+      "quality": 3,
+      "feedback": "Strong."
+     },
+     {
+      "text": "Veto risky projects.",
+      "quality": 0,
+      "feedback": "Risk aversion destroys value."
+     },
+     {
+      "text": "Not at all.",
+      "quality": 0,
+      "feedback": "Missed integration."
+     }
+    ]
+   },
+   {
+    "prompt": "How do you run an effective risk committee?",
+    "options": [
+     {
+      "text": "Focused agenda on material changes and decisions, pre-read, clear actions and owners.",
+      "quality": 3,
+      "feedback": "Effective governance."
+     },
+     {
+      "text": "Review the full register each meeting.",
+      "quality": 0,
+      "feedback": "Data dump."
+     },
+     {
+      "text": "Keep it informal.",
+      "quality": 1,
+      "feedback": "Loses accountability."
+     }
+    ]
+   },
+   {
+    "prompt": "A peer executive asks you to soften a report to the board. Response?",
+    "options": [
+     {
+      "text": "Refuse to alter facts, offer to include their context and perspective, and inform the CEO if pressure continues.",
+      "quality": 3,
+      "feedback": "Integrity with collaboration."
+     },
+     {
+      "text": "Agree to keep the peace.",
+      "quality": 0,
+      "feedback": "Integrity failure."
+     },
+     {
+      "text": "Report them to the board immediately.",
+      "quality": 1,
+      "feedback": "Escalation may be premature."
+     }
+    ]
+   }
+  ],
+  "6": [
+   {
+    "prompt": "What is the CRO's role in strategy?",
+    "options": [
+     {
+      "text": "Shape strategy by making risk-return trade-offs explicit and setting appetite with the board.",
+      "quality": 3,
+      "feedback": "Strategic partner."
+     },
+     {
+      "text": "Approve or reject the strategy.",
+      "quality": 1,
+      "feedback": "The board decides; the CRO advises and challenges."
+     },
+     {
+      "text": "Stay out of strategy.",
+      "quality": 0,
+      "feedback": "Outdated view."
+     }
+    ]
+   },
+   {
+    "prompt": "How do you set enterprise risk appetite?",
+    "options": [
+     {
+      "text": "With the board, in measurable statements linked to strategy, capacity and stakeholder expectations.",
+      "quality": 3,
+      "feedback": "Correct."
+     },
+     {
+      "text": "Copy a peer's statement.",
+      "quality": 0,
+      "feedback": "Not tailored."
+     },
+     {
+      "text": "Make it vague to allow flexibility.",
+      "quality": 0,
+      "feedback": "Unusable."
+     }
+    ]
+   },
+   {
+    "prompt": "A CEO wants to pursue an acquisition you consider outside appetite. What do you do?",
+    "options": [
+     {
+      "text": "Quantify the exposure, propose conditions or structure, and ensure the board decides with full information.",
+      "quality": 3,
+      "feedback": "Independence plus constructiveness."
+     },
+     {
+      "text": "Resign.",
+      "quality": 0,
+      "feedback": "Premature."
+     },
+     {
+      "text": "Support the CEO.",
+      "quality": 0,
+      "feedback": "Abdicates independence."
+     }
+    ]
+   },
+   {
+    "prompt": "How do you communicate uncertainty to a board?",
+    "options": [
+     {
+      "text": "Ranges, scenarios and what would change the view, with a clear recommendation.",
+      "quality": 3,
+      "feedback": "Strong."
+     },
+     {
+      "text": "Single numbers to keep it simple.",
+      "quality": 1,
+      "feedback": "Hides uncertainty."
+     },
+     {
+      "text": "Avoid numbers.",
+      "quality": 0,
+      "feedback": "Weak."
+     }
+    ]
+   },
+   {
+    "prompt": "What does a strong risk culture look like at the top?",
+    "options": [
+     {
+      "text": "Leaders invite challenge, act on bad news and align incentives with appetite.",
+      "quality": 3,
+      "feedback": "Core."
+     },
+     {
+      "text": "A long risk policy.",
+      "quality": 0,
+      "feedback": "Paper, not culture."
+     },
+     {
+      "text": "A large risk team.",
+      "quality": 1,
+      "feedback": "Capacity, not culture."
+     }
+    ]
+   }
+  ]
+ }
+}
