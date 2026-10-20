@@ -326,13 +326,13 @@ class MainWindow(QMainWindow):
         self.banner_text.setText(text)
         self.banner.show()
         self.statusBar().showMessage(text, 8000)
-        QTimer.singleShot(9000 if kind == "warn" else 6000, self._maybe_hide_banner(text))
-
-    def _maybe_hide_banner(self, text: str):
-        def f():
-            if self.banner_text.text() == text:
-                self.banner.hide()
-        return f
+        # One timer owned by the window: restarting it keeps the newest toast up for its full time,
+        # and it cannot fire after the window (and its banner label) has been destroyed.
+        if not hasattr(self, "_banner_timer"):
+            self._banner_timer = QTimer(self)
+            self._banner_timer.setSingleShot(True)
+            self._banner_timer.timeout.connect(self.banner.hide)
+        self._banner_timer.start(9000 if kind == "warn" else 6000)
 
     def _tick(self) -> None:
         if self.game is None:

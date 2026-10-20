@@ -110,9 +110,14 @@ class Database:
         self.path = Path(path)
         self.conn = sqlite3.connect(str(self.path), isolation_level=None, timeout=10)
         self.conn.row_factory = sqlite3.Row
-        self.conn.execute("PRAGMA foreign_keys = ON")
-        self.conn.execute("PRAGMA journal_mode = WAL")
-        self.conn.execute("PRAGMA synchronous = FULL")
+        try:
+            self.conn.execute("PRAGMA foreign_keys = ON")
+            self.conn.execute("PRAGMA journal_mode = WAL")
+            self.conn.execute("PRAGMA synchronous = FULL")
+        except sqlite3.DatabaseError:
+            # A damaged file: release the handle so Windows lets recovery move it aside.
+            self.conn.close()
+            raise
         self._depth = 0
 
     # --- integrity & schema ---
@@ -193,9 +198,11 @@ class Database:
     def close(self) -> None:
         try:
             self.checkpoint_wal()
-            self.conn.close()
-        except sqlite3.Error:
-            pass
+        finally:
+            try:
+                self.conn.close()
+            except sqlite3.Error:
+                pass
 
 
 def open_database(path: Path | str) -> Database:
