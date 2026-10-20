@@ -13,7 +13,7 @@ Start as a graduate trainee in a hotel group's risk team. Make real risk calls, 
 ![Python](https://img.shields.io/badge/python-3.12-3fb8b7)
 ![Qt](https://img.shields.io/badge/UI-PySide6%20(Qt%206)-3fb8b7)
 ![Offline](https://img.shields.io/badge/network-none%20%E2%80%94%20fully%20offline-2e7d32)
-![Tests](https://img.shields.io/badge/tests-67%20passing-2e7d32)
+[![Windows build](https://github.com/mutima89/risk-ascent/actions/workflows/windows-build.yml/badge.svg)](https://github.com/mutima89/risk-ascent/actions/workflows/windows-build.yml)
 ![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
 <img src="docs/screenshots/screen_dashboard.png" width="860" alt="Dashboard">
@@ -164,7 +164,7 @@ packaging/       PyInstaller spec, NSIS installer script, icon, version info
 ## Honest limitations
 
 - **Unsigned.** The executables are not code-signed, so SmartScreen and some antivirus products may warn you.
-- **Where 1.0.0 was tested.** The 1.0.0 binaries were cross-built on Linux with Windows Python under Wine. The packaged exe's self-test, a silent install and an uninstall all pass under Wine. It has **not** been tested by hand on a physical Windows 10/11 PC or a clean machine. The included GitHub Actions workflow runs the tests and the packaged self-test on real Windows runners.
+- **Where 1.0.0 was tested.** On GitHub's Windows runners, all 67 tests pass, the packaged exe passes its self-test, and the installer installs, runs and uninstalls. The release downloads are built by that workflow. It has **not** been tested hands-on on a physical Windows 10/11 desktop or a clean consumer machine. See the [test report](docs/TEST_REPORT.md).
 - Risk scores on the likelihood × impact matrix are ordinal rankings, not money. The game says so in every report.
 - Salaries and market data are illustrative simulation values, not survey data. In-game credentials are game achievements, not accredited qualifications.
 

@@ -6,6 +6,9 @@ Date: 20 October 2026. This report says exactly what was run, where, and what wa
 
 | Test | Environment | Result |
 |---|---|---|
+| **Automated suite, 67 tests** | **Real Windows** (GitHub Actions `windows-latest`, Windows Server, Python 3.12.10), [run #2](https://github.com/mutima89/risk-ascent/actions/runs/39438845874) | **67 passed**, 0 failed (35 s) |
+| **Packaged `RiskAscent.exe --self-test`** | Real Windows (same run; exe built there with PyInstaller) | **10/10 passed** |
+| **`RiskAscent_Setup.exe /S` → installed exe `--self-test` → silent uninstall** | Real Windows (same run; installer built there with NSIS) | **Passed**: installed without elevation, installed exe passed 10/10, uninstaller removed the program |
 | Automated suite, 67 tests | Linux, Python 3.12, PySide6 6.12 (offscreen Qt) | **67 passed**, 0 failed (42 s) |
 | Automated suite without UI tests | **Windows** Python 3.12 (CPython for Windows, same pinned packages) under **Wine** | **60 passed**, 0 failed. 2 save tests deselected (see below); 5 UI tests not run (see below). |
 | Built-in `--self-test` (10 checks) from source | Linux | **10/10 passed** |
@@ -17,7 +20,9 @@ Date: 20 October 2026. This report says exactly what was run, where, and what wa
 | Silent uninstall | Wine | Passed: program files, shortcuts and registry entry removed; saves kept (by design) |
 | Visual review | Linux screenshots of all 23 screens, light theme at 130% text, focus mode | Reviewed by eye; layout issues found and fixed (listed below) |
 
-**Not performed:** no testing on a physical Windows 10 or 11 PC, no clean-machine verification, no screen-reader testing, and no testing with real speech voices. The repository's GitHub Actions workflow (`.github/workflows/windows-build.yml`) runs the full suite, builds, self-tests, and installs and uninstalls on GitHub's `windows-latest` runners. Check the Actions tab for those results. They are not included in this report.
+**Not performed:** no hands-on testing on a physical Windows 10 or 11 desktop PC, no clean consumer-machine verification (GitHub's runner is a Windows Server image with developer tools installed), no screen-reader testing, and no testing with real speech voices. All Windows checks run headless (offscreen Qt), so nobody has looked at the native Windows rendering.
+
+**Windows CI history.** The first Windows run ([run #1](https://github.com/mutima89/risk-ascent/actions/runs/39421884174)) found two Windows-only defects that Linux and Wine could not show. 65 of 67 tests passed. Both defects were fixed in commit `93cf6a4` (listed below), and run #2 passed every step.
 
 ## Automated suite (`pytest`)
 
@@ -62,6 +67,8 @@ The self-test's screenshots under Wine show no text glyphs. Wine's offscreen Qt 
 
 | Found by | Defect | Fix |
 |---|---|---|
+| Windows CI run #1 | **Recovering a damaged save failed on Windows**: the failed open left the SQLite file handle open, so Windows refused to move the file aside (WinError 32) | The database closes its handle if setup fails, and `close()` always releases it |
+| Windows CI run #1 | A toast's hide timer could fire after the main window was destroyed | Timer owned by the window |
 | Packaged self-test (Wine) | Financial lab crashed in the exe: matplotlib → pyparsing needs `unittest`, which the spec excluded | Removed it from the PyInstaller excludes |
 | UI test (keyboard) | F6 and Ctrl+Enter were bound twice (button shortcut + window shortcut), so Qt treated them as ambiguous and did nothing | One shortcut per key; Ctrl+Enter dispatches by mission phase |
 | UI test | A deferred layout timer could fire after a dialog's page was deleted | Timer is now owned by the page |

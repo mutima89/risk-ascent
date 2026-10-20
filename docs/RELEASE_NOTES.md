@@ -21,9 +21,13 @@ First release.
 - `--self-test`, `--data-dir`, `--version` command-line options.
 - 67 automated tests; Windows build workflow for GitHub Actions.
 
+**Fixed before release (found by Windows CI)**
+- Recovery of a damaged save could not move the file aside on Windows.
+- A notification timer could fire after the window closed.
+
 **Known limitations**
 - The executables are not code-signed.
-- The 1.0.0 binaries were cross-built on Linux with Windows Python 3.12 under Wine. They have not been run by hand on a physical Windows PC or verified on a clean machine. See [TEST_REPORT.md](TEST_REPORT.md).
+- Tested automatically on GitHub's Windows runners (tests, packaged self-test, install and uninstall), but not hands-on on a physical Windows 10/11 PC or a clean consumer machine. See [TEST_REPORT.md](TEST_REPORT.md).
 - Written answers are checked by local keyword matching, not by an AI model.
 - The organisation's "exposure index" assumes a 5×5 matrix, so on smaller matrices it is approximate.
 - The in-app report preview and PDF use simplified styling. The HTML export is full fidelity.
